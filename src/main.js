@@ -5,6 +5,19 @@ import { createQuestionCard } from './components/renderQuestion.js';
 
 const app = document.getElementById('app');
 
+// Global error handler — surfaces JS errors visually instead of blank page
+window.addEventListener('error', (e) => {
+  app.innerHTML = `<div style="padding:2rem;font-family:monospace;color:#c00">
+    <b>Erreur JS :</b> ${e.message}<br>
+    <small>${e.filename} ligne ${e.lineno}</small>
+  </div>`;
+});
+window.addEventListener('unhandledrejection', (e) => {
+  app.innerHTML = `<div style="padding:2rem;font-family:monospace;color:#c00">
+    <b>Promesse rejetée :</b> ${e.reason}
+  </div>`;
+});
+
 function fmt(n, dec = 2) {
   if (n === null || n === undefined) return '—';
   const v = parseFloat(n.toFixed(dec));
