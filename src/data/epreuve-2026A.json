@@ -5,6 +5,14 @@
   "concours": "Lycée Lætitia Bonaparte — Spé PT",
   "duree": "—",
   "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 8.41,
+    "sigma_hist": 4.21,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2462 candidats, données stables"
+  },
   "questions": [
     {
       "id": "A-1",
