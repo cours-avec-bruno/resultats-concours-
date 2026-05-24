@@ -1,0 +1,338 @@
+{
+  "id": "banque-pt-2026-epreuve-A",
+  "matiere": "Mathématiques",
+  "titre": "Banque PT 2026 – Épreuve A",
+  "concours": "Lycée Lætitia Bonaparte — Spé PT",
+  "duree": "—",
+  "totalPoints": 20,
+  "questions": [
+    {
+      "id": "A-1",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 1",
+      "bareme": 1,
+      "enonce": "Rappeler la caractérisation des matrices trigonalisables à l'aide du polynôme caractéristique.",
+      "corrige": "Une matrice $M \\in \\mathcal{M}_n(\\mathbb{K})$ est **trigonalisable sur $\\mathbb{K}$** si et seulement si son polynôme caractéristique $\\chi_M$ est **scindé sur $\\mathbb{K}$**, c'est-à-dire que toutes ses racines appartiennent à $\\mathbb{K}$.\n\n- Sur $\\mathbb{C}$ : toute matrice est trigonalisable (le polynôme caractéristique est toujours scindé sur $\\mathbb{C}$).\n- Sur $\\mathbb{R}$ : $M$ est trigonalisable si et seulement si $\\chi_M$ n'a que des racines réelles."
+    },
+    {
+      "id": "A-2",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 2",
+      "bareme": 1,
+      "enonce": "Soit $M_1 = \\begin{pmatrix} 2 & 6 \\\\ 1 & 1 \\end{pmatrix}$.\n\n$M_1$ est-elle diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$ ? dans $\\mathcal{M}_2(\\mathbb{R})$ ?\n\nDéterminer (si possible) une matrice $P_1$ inversible et une matrice diagonale $D_1$ telles que $M_1 = P_1 D_1 P_1^{-1}$.\n\nLe calcul de $P_1^{-1}$ n'est pas demandé.",
+      "corrige": "**Polynôme caractéristique :**\n$$\\chi_{M_1}(\\lambda) = (2-\\lambda)(1-\\lambda) - 6 = \\lambda^2 - 3\\lambda - 4 = (\\lambda - 4)(\\lambda + 1)$$\n\nDeux valeurs propres **réelles distinctes** : $\\lambda_1 = 4$ et $\\lambda_2 = -1$.\n\n$M_1$ est **diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$** (et donc dans $\\mathcal{M}_2(\\mathbb{C})$).\n\n**Vecteur propre pour $\\lambda_1 = 4$ :**\n$$M_1 - 4I = \\begin{pmatrix} -2 & 6 \\\\ 1 & -3 \\end{pmatrix} \\xrightarrow{} \\quad v_1 = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$$\n\n**Vecteur propre pour $\\lambda_2 = -1$ :**\n$$M_1 + I = \\begin{pmatrix} 3 & 6 \\\\ 1 & 2 \\end{pmatrix} \\xrightarrow{} \\quad v_2 = \\begin{pmatrix} -2 \\\\ 1 \\end{pmatrix}$$\n\n$$\\boxed{P_1 = \\begin{pmatrix} 3 & -2 \\\\ 1 & 1 \\end{pmatrix}, \\quad D_1 = \\begin{pmatrix} 4 & 0 \\\\ 0 & -1 \\end{pmatrix}}$$"
+    },
+    {
+      "id": "A-3",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 3",
+      "bareme": 1,
+      "enonce": "Soit $M_2 = \\begin{pmatrix} 3 & -2 \\\\ 1 & 1 \\end{pmatrix}$.\n\n$M_2$ est-elle diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$ ? dans $\\mathcal{M}_2(\\mathbb{R})$ ?\n\nDéterminer (si possible) une matrice $P_2$ inversible et une matrice diagonale $D_2$ telles que $M_2 = P_2 D_2 P_2^{-1}$.\n\nLe calcul de $P_2^{-1}$ n'est pas demandé.",
+      "corrige": "**Polynôme caractéristique :**\n$$\\chi_{M_2}(\\lambda) = (3-\\lambda)(1-\\lambda) + 2 = \\lambda^2 - 4\\lambda + 5$$\n\n$$\\Delta = 16 - 20 = -4 < 0$$\n\nDeux valeurs propres **complexes conjuguées** : $\\lambda_1 = 2+i$ et $\\lambda_2 = 2-i$.\n\n- $M_2$ **n'est pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$** (pas de valeur propre réelle).\n- $M_2$ **est diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$** (deux valeurs propres complexes distinctes).\n\n**Vecteur propre pour $\\lambda_1 = 2+i$ :**\n$$M_2 - (2+i)I = \\begin{pmatrix} 1-i & -2 \\\\ 1 & -1-i \\end{pmatrix} \\xrightarrow{} \\quad v_1 = \\begin{pmatrix} 1+i \\\\ 1 \\end{pmatrix}$$\n\n**Vecteur propre pour $\\lambda_2 = 2-i$ :** $v_2 = \\bar{v}_1 = \\begin{pmatrix} 1-i \\\\ 1 \\end{pmatrix}$\n\n$$\\boxed{P_2 = \\begin{pmatrix} 1+i & 1-i \\\\ 1 & 1 \\end{pmatrix}, \\quad D_2 = \\begin{pmatrix} 2+i & 0 \\\\ 0 & 2-i \\end{pmatrix}}$$"
+    },
+    {
+      "id": "A-4a",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 4(a)",
+      "bareme": 1,
+      "enonce": "Soit $M_3 = \\begin{pmatrix} 5 & -4 \\\\ 1 & 1 \\end{pmatrix}$.\n\n$M_3$ est-elle diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$ ? Trigonalisable dans $\\mathcal{M}_2(\\mathbb{R})$ ?",
+      "corrige": "**Polynôme caractéristique :**\n$$\\chi_{M_3}(\\lambda) = (5-\\lambda)(1-\\lambda) + 4 = \\lambda^2 - 6\\lambda + 9 = (\\lambda - 3)^2$$\n\nValeur propre **double** : $\\lambda = 3$.\n\n**Trigonalisable ?** Oui, car $\\chi_{M_3}$ est scindé sur $\\mathbb{R}$.\n\n**Diagonalisable ?**\n$$M_3 - 3I = \\begin{pmatrix} 2 & -4 \\\\ 1 & -2 \\end{pmatrix}$$\n$$\\mathrm{rg}(M_3 - 3I) = 1 \\implies \\dim\\ker(M_3 - 3I) = 1 \\neq 2$$\n\nLa dimension de l'espace propre est **strictement inférieure à la multiplicité algébrique** : $M_3$ **n'est pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$**."
+    },
+    {
+      "id": "A-4b",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 4(b)",
+      "bareme": 1,
+      "enonce": "On note $f_3$ l'endomorphisme de $\\mathbb{R}^2$ canoniquement associé à la matrice $M_3$. Déterminer une base de $\\mathbb{R}^2$ dans laquelle la matrice de $f_3$ est\n$$T_3 = \\begin{pmatrix} 3 & 1 \\\\ 0 & 3 \\end{pmatrix}$$",
+      "corrige": "On cherche une base $(e_1, e_2)$ telle que :\n- $f_3(e_1) = 3e_1$ (vecteur propre)\n- $f_3(e_2) = e_1 + 3e_2$ (vecteur cyclique)\n\n**Étape 1 — Vecteur propre $e_1$ :**\n$(M_3 - 3I)e_1 = 0$ donne $e_1 = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$.\n\n**Étape 2 — Vecteur cyclique $e_2$ :**\n$(M_3 - 3I)e_2 = e_1$, soit :\n$$\\begin{pmatrix} 2 & -4 \\\\ 1 & -2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$$\nLa ligne 2 donne $x - 2y = 1$. On choisit $y = 0$, $x = 1$ : $e_2 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$.\n\n**Vérification :** $M_3 e_2 = \\begin{pmatrix} 5 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + 3\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = e_1 + 3e_2$ ✓\n\n$$\\boxed{\\mathcal{B} = \\left(\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix},\\ \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}\\right)}$$"
+    },
+    {
+      "id": "A-5",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "On s'intéresse aux matrices $M(a,b) = \\begin{pmatrix} a & b \\\\ 1 & 1 \\end{pmatrix}$ où $(a,b) \\in \\mathbb{R}^2$.\n\nÀ quelle condition nécessaire et sufficante les matrices $M(a,b)$ sont-elles inversibles ?",
+      "corrige": "$$\\det M(a,b) = a \\cdot 1 - b \\cdot 1 = a - b$$\n\n$M(a,b)$ est inversible **si et seulement si $a \\neq b$**."
+    },
+    {
+      "id": "A-6",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 6",
+      "bareme": 0.5,
+      "enonce": "Calculer le discriminant $\\Delta(a,b)$ du polynôme caractéristique de $M(a,b)$.",
+      "corrige": "$$\\chi_{M(a,b)}(\\lambda) = (a-\\lambda)(1-\\lambda) - b = \\lambda^2 - (a+1)\\lambda + (a-b)$$\n\n$$\\boxed{\\Delta(a,b) = (a+1)^2 - 4(a-b) = (a-1)^2 + 4b}$$"
+    },
+    {
+      "id": "A-7a",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 7(a)",
+      "bareme": 0.5,
+      "enonce": "Justifier que si $\\Delta(a,b) = 0$ alors $M(a,b)$ n'est pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$.",
+      "corrige": "Si $\\Delta(a,b) = 0$, le polynôme caractéristique a une racine double $\\lambda_0 = \\frac{a+1}{2}$.\n\nPour que $M(a,b)$ soit diagonalisable, il faudrait $M(a,b) = \\lambda_0 I_2$, c'est-à-dire $\\begin{pmatrix} a & b \\\\ 1 & 1 \\end{pmatrix} = \\begin{pmatrix} \\lambda_0 & 0 \\\\ 0 & \\lambda_0 \\end{pmatrix}$, ce qui imposerait $1 = 0$ : **contradiction**.\n\nDonc $M(a,b) \\neq \\lambda_0 I_2$, et comme la seconde ligne de $M(a,b) - \\lambda_0 I$ vaut $(1,\\ 1-\\lambda_0)$ avec le coefficient $1 \\neq 0$, on a $\\mathrm{rg}(M(a,b) - \\lambda_0 I) \\geq 1$, soit $\\dim\\ker(M(a,b) - \\lambda_0 I) \\leq 1 < 2$.\n\n**$M(a,b)$ n'est pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$.**"
+    },
+    {
+      "id": "A-7b",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 7(b)",
+      "bareme": 0.5,
+      "enonce": "Lorsque $\\Delta(a,b) \\neq 0$, $M(a,b)$ est-elle diagonalisable ? On précisera si c'est dans $\\mathcal{M}_2(\\mathbb{R})$ et/ou $\\mathcal{M}_2(\\mathbb{C})$.",
+      "corrige": "Lorsque $\\Delta(a,b) \\neq 0$, le polynôme caractéristique a **deux racines distinctes**, donc $M(a,b)$ est **diagonalisable**.\n\n- Si $\\Delta(a,b) > 0$ : deux valeurs propres **réelles distinctes** → **diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$** (et dans $\\mathcal{M}_2(\\mathbb{C})$).\n- Si $\\Delta(a,b) < 0$ : deux valeurs propres **complexes conjuguées non réelles** → **diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$ seulement**, pas dans $\\mathcal{M}_2(\\mathbb{R})$."
+    },
+    {
+      "id": "A-8",
+      "partie": "Partie A — Quelques matrices",
+      "numero": "Question 8",
+      "bareme": 1,
+      "enonce": "Représenter sur la feuille de papier millimétré fournie :\n- l'ensemble des points $(a,b)$ tels que $M(a,b)$ est **non inversible** ;\n- l'ensemble des points $(a,b)$ tels que $M(a,b)$ est **diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$** ;\n- l'ensemble des points $(a,b)$ tels que $M(a,b)$ est **diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$ mais pas dans $\\mathcal{M}_2(\\mathbb{R})$** ;\n- l'ensemble des points $(a,b)$ tels que $M(a,b)$ **n'est pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$** ;\n- les trois points correspondant à $M_1$, $M_2$, $M_3$.",
+      "corrige": "On utilise les résultats des questions 5, 6, 7 :\n\n**Non inversible** ($\\det = 0$) : droite $b = a$.\n\n**Non diagonalisable dans $\\mathbb{C}$** ($\\Delta = 0$) : parabole $(a-1)^2 + 4b = 0$, soit $b = -\\tfrac{(a-1)^2}{4}$ (parabole vers le bas, sommet en $(1, 0)$).\n\n**Diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$** : région $\\Delta > 0$, c'est-à-dire **au-dessus** de la parabole (et $a \\neq b$).\n\n**Diagonalisable dans $\\mathbb{C}$ seulement** : région $\\Delta < 0$, c'est-à-dire **en dessous** de la parabole.\n\n**Les trois points :**\n- $M_1$ : $(a,b) = (2, 6)$ → $\\Delta = 1 + 24 = 25 > 0$ → au-dessus de la parabole ✓\n- $M_2$ : $(a,b) = (3, -2)$ → $\\Delta = 4 - 8 = -4 < 0$ → en dessous ✓\n- $M_3$ : $(a,b) = (5, -4)$ → $\\Delta = 16 - 16 = 0$ → sur la parabole ✓"
+    },
+    {
+      "id": "B-1a",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 1(a)",
+      "bareme": 1,
+      "enonce": "On considère $C = \\frac{1}{12}\\begin{pmatrix} 1 & 1 & 2 \\\\ 2 & 2 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$, $U = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$, $V = \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix}$.\n\nLe couple $(X,Y)$ a pour loi conjointe $P(X = x_i, Y = x_j) = c_{i,j}$.\n\nJustifier soigneusement que le produit $CU$ permet d'obtenir la loi de $X$ puis déterminer cette loi.",
+      "corrige": "La $i$-ème composante de $CU$ est :\n$$[CU]_i = \\sum_{j=1}^{3} c_{i,j} \\cdot 1 = \\sum_{j=1}^{3} P(X = x_i, Y = x_j) = P(X = x_i)$$\npar la formule des probabilités totales. Donc $CU$ donne bien la loi marginale de $X$.\n\n$$CU = \\frac{1}{12}\\begin{pmatrix} 1+1+2 \\\\ 2+2+1 \\\\ 1+1+1 \\end{pmatrix} = \\frac{1}{12}\\begin{pmatrix} 4 \\\\ 5 \\\\ 3 \\end{pmatrix}$$\n\n$$\\boxed{P(X=-1) = \\frac{1}{3},\\quad P(X=0) = \\frac{5}{12},\\quad P(X=1) = \\frac{1}{4}}$$"
+    },
+    {
+      "id": "B-1b",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 1(b)",
+      "bareme": 0.5,
+      "enonce": "Vérifier que l'espérance de $X$, notée $E(X)$, est égale à $V^T CU$ puis la calculer.",
+      "corrige": "$$V^T CU = \\sum_i x_i [CU]_i = \\sum_i x_i P(X = x_i) = E(X)$$\n\nC'est bien la définition de l'espérance.\n\n$$V^T CU = (-1)\\cdot\\frac{4}{12} + 0\\cdot\\frac{5}{12} + 1\\cdot\\frac{3}{12} = \\frac{-4+0+3}{12} = \\boxed{-\\frac{1}{12}}$$"
+    },
+    {
+      "id": "B-2",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 2",
+      "bareme": 0.5,
+      "enonce": "Donner, sans justification, les produits matriciels qui permettent d'obtenir la loi marginale de $Y$ et l'espérance $E(Y)$, puis effectuer ces produits.",
+      "corrige": "La loi marginale de $Y$ est obtenue par **$U^T C$** (sommes des colonnes de $C$) :\n$$U^T C = \\frac{1}{12}(1+2+1,\\ 1+2+1,\\ 2+1+1) = \\frac{1}{12}(4, 4, 4)$$\n\n$$\\boxed{P(Y=-1) = P(Y=0) = P(Y=1) = \\frac{1}{3}}$$\n\nL'espérance $E(Y)$ est obtenue par **$(U^T C) V$** :\n$$E(Y) = (U^T C)V = \\frac{1}{12}\\big[4(-1) + 4(0) + 4(1)\\big] = 0$$"
+    },
+    {
+      "id": "B-3",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 3",
+      "bareme": 0.5,
+      "enonce": "Que représente le produit $V^T CV$ pour le couple $(X,Y)$ ? Une justification est attendue. Calculer ce produit.",
+      "corrige": "$$V^T CV = \\sum_{i,j} x_i c_{i,j} x_j = \\sum_{i,j} x_i x_j P(X = x_i, Y = x_j) = E(XY)$$\n\nLe produit $V^T CV$ représente donc **$E(XY)$**.\n\n**Calcul :**\n$$CV = \\frac{1}{12}\\begin{pmatrix} 1\\cdot(-1)+1\\cdot 0+2\\cdot 1 \\\\ 2\\cdot(-1)+2\\cdot 0+1\\cdot 1 \\\\ 1\\cdot(-1)+1\\cdot 0+1\\cdot 1 \\end{pmatrix} = \\frac{1}{12}\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}$$\n\n$$V^T CV = \\frac{1}{12}\\big[(-1)(1) + 0(-1) + 1(0)\\big] = \\boxed{-\\frac{1}{12}}$$"
+    },
+    {
+      "id": "B-4",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 4",
+      "bareme": 0.5,
+      "enonce": "Calculer la covariance de $X$ et $Y$.",
+      "corrige": "$$\\mathrm{Cov}(X,Y) = E(XY) - E(X)E(Y) = -\\frac{1}{12} - \\left(-\\frac{1}{12}\\right)\\times 0 = \\boxed{-\\frac{1}{12}}$$"
+    },
+    {
+      "id": "B-5",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ? On donnera deux justifications différentes.",
+      "corrige": "**Non**, $X$ et $Y$ ne sont pas indépendantes.\n\n**Justification 1 (covariance) :** $\\mathrm{Cov}(X,Y) = -\\frac{1}{12} \\neq 0$, or l'indépendance implique $\\mathrm{Cov} = 0$.\n\n**Justification 2 (vérification directe) :** On vérifie si $P(X=x_i, Y=x_j) = P(X=x_i)\\cdot P(Y=x_j)$ pour tout $i,j$.\n\n$$P(X=-1, Y=-1) = c_{1,1} = \\frac{1}{12}$$\n$$P(X=-1)\\cdot P(Y=-1) = \\frac{1}{3}\\times\\frac{1}{3} = \\frac{1}{9} \\neq \\frac{1}{12}$$\n\nDonc $X$ et $Y$ **ne sont pas indépendantes**."
+    },
+    {
+      "id": "B-6",
+      "partie": "Partie B — Un couple de variables aléatoires",
+      "numero": "Question 6",
+      "bareme": 0.5,
+      "enonce": "Que représente la trace de $C$ pour le couple $(X,Y)$ ? La calculer.",
+      "corrige": "$$\\mathrm{tr}(C) = \\sum_{i=1}^{3} c_{i,i} = \\sum_{i=1}^{3} P(X=x_i, Y=x_i) = P(X=Y)$$\n\nLa trace de $C$ représente la **probabilité que $X = Y$**.\n\n$$\\mathrm{tr}(C) = \\frac{1}{12}(1 + 2 + 1) = \\boxed{\\frac{1}{3}}$$"
+    },
+    {
+      "id": "C-1a",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 1(a)",
+      "bareme": 0.5,
+      "enonce": "On suppose que les variables aléatoires $A$ et $B$ sont égales respectivement aux variables aléatoires $X$ et $Y$ définies dans la partie B.\n\nDéterminer la probabilité que $M(A,B)$ soit inversible.",
+      "corrige": "D'après la question A-5, $M(A,B)$ est inversible si et seulement si $A \\neq B$, soit $X \\neq Y$.\n\n$$P(M(A,B) \\text{ inversible}) = P(X \\neq Y) = 1 - P(X=Y) = 1 - \\mathrm{tr}(C) = 1 - \\frac{1}{3} = \\boxed{\\frac{2}{3}}$$"
+    },
+    {
+      "id": "C-1b",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 1(b)",
+      "bareme": 1,
+      "enonce": "Calculer la probabilité que $M(A,B)$ ne soit pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{R})$ ni dans $\\mathcal{M}_2(\\mathbb{C})$.",
+      "corrige": "D'après A-7(a), $M(A,B)$ n'est pas diagonalisable dans $\\mathcal{M}_2(\\mathbb{C})$ ssi $\\Delta(A,B) = 0$, i.e. $(A-1)^2 + 4B = 0$, soit $B = -\\frac{(A-1)^2}{4}$.\n\nAvec $(A,B) = (X,Y)$ prenant des valeurs dans $\\{-1, 0, 1\\}^2$, on cherche les paires telles que $y = -\\frac{(x-1)^2}{4}$ :\n\n- $x = -1$ : $y = -1$ → $(X,Y) = (-1,-1)$, $P = c_{1,1} = \\frac{1}{12}$\n- $x = 0$ : $y = -\\frac{1}{4} \\notin \\{-1,0,1\\}$ → impossible\n- $x = 1$ : $y = 0$ → $(X,Y) = (1,0)$, $P = c_{3,2} = \\frac{1}{12}$\n\n$$P(\\Delta(A,B) = 0) = \\frac{1}{12} + \\frac{1}{12} = \\boxed{\\frac{1}{6}}$$"
+    },
+    {
+      "id": "C-2",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 2",
+      "bareme": 0.5,
+      "enonce": "On suppose que $A$ et $B$ sont deux variables aléatoires **indépendantes** à valeurs dans une partie $H$ de $\\mathbb{N}$.\n\nÉtablir soigneusement que\n$$P(A = B) = \\sum_{k \\in H} P(A=k)\\,P(B=k)$$",
+      "corrige": "$$P(A = B) = P\\!\\left(\\bigcup_{k \\in H} \\{A=k, B=k\\}\\right)$$\n\nCes événements sont **disjoints** (si $A = k$ et $A = k'$ avec $k \\neq k'$, c'est impossible), donc :\n$$P(A=B) = \\sum_{k \\in H} P(A=k, B=k)$$\n\n$A$ et $B$ étant **indépendantes** :\n$$P(A=k, B=k) = P(A=k)\\,P(B=k)$$\n\nD'où le résultat : $\\displaystyle P(A=B) = \\sum_{k \\in H} P(A=k)\\,P(B=k)$."
+    },
+    {
+      "id": "C-3a",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 3(a)",
+      "bareme": 0.5,
+      "enonce": "$A$ suit la loi binomiale de paramètres $n$ et $p$ ($n \\in \\mathbb{N}^*$, $p \\in {]0;1[}$).\n\nRappeler $A(\\Omega)$ ainsi que les probabilités $P(A=k)$ pour $k \\in A(\\Omega)$.",
+      "corrige": "$$A(\\Omega) = \\{0, 1, 2, \\ldots, n\\}$$\n$$\\forall k \\in A(\\Omega),\\quad P(A=k) = \\binom{n}{k} p^k (1-p)^{n-k}$$"
+    },
+    {
+      "id": "C-3b",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 3(b)",
+      "bareme": 0.5,
+      "enonce": "$B$ suit la loi géométrique de paramètre $r$ ($r \\in {]0;1[}$).\n\nRappeler $B(\\Omega)$ ainsi que les probabilités $P(B=k)$ pour $k \\in B(\\Omega)$.",
+      "corrige": "$$B(\\Omega) = \\mathbb{N}^* = \\{1, 2, 3, \\ldots\\}$$\n$$\\forall k \\in B(\\Omega),\\quad P(B=k) = r(1-r)^{k-1}$$"
+    },
+    {
+      "id": "C-3c",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 3(c)",
+      "bareme": 1,
+      "enonce": "Démontrer que la probabilité que $M(A,B)$ ne soit pas inversible est égale à\n$$\\frac{r}{1-r}\\left[(1-pr)^n - (1-p)^n\\right]$$",
+      "corrige": "$M(A,B)$ est non inversible ssi $A = B$. Comme $A(\\Omega) \\cap B(\\Omega) = \\{1, \\ldots, n\\}$, par la Q. C-2 :\n\n$$P(A=B) = \\sum_{k=1}^{n} \\binom{n}{k}p^k(1-p)^{n-k}\\cdot r(1-r)^{k-1}$$\n\n$$= \\frac{r}{1-r}\\sum_{k=1}^{n}\\binom{n}{k}\\bigl(p(1-r)\\bigr)^k(1-p)^{n-k}$$\n\n$$= \\frac{r}{1-r}\\left[\\sum_{k=0}^{n}\\binom{n}{k}\\bigl(p(1-r)\\bigr)^k(1-p)^{n-k} - (1-p)^n\\right]$$\n\nPar le binôme de Newton : $\\displaystyle\\sum_{k=0}^{n}\\binom{n}{k}(p(1-r))^k(1-p)^{n-k} = (p(1-r)+(1-p))^n = (1-pr)^n$\n\n$$\\boxed{P(A=B) = \\frac{r}{1-r}\\left[(1-pr)^n - (1-p)^n\\right]}$$"
+    },
+    {
+      "id": "C-4a",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 4(a)",
+      "bareme": 0.5,
+      "enonce": "$A$ suit la loi de Poisson de paramètre $\\lambda > 0$.\n\nRappeler $A(\\Omega)$ ainsi que les probabilités $P(A=k)$.",
+      "corrige": "$$A(\\Omega) = \\mathbb{N}$$\n$$\\forall k \\in \\mathbb{N},\\quad P(A=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}$$"
+    },
+    {
+      "id": "C-4b",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 4(b)",
+      "bareme": 1,
+      "enonce": "On pose $C = -B$ où $C$ suit la loi de Poisson de paramètre $\\mu > 0$, et $A$, $C$ sont indépendantes.\n\nDémontrer que $A + C$ suit la loi de Poisson de paramètre $\\lambda + \\mu$. On pourra utiliser les fonctions génératrices.",
+      "corrige": "Soit $G_X(t) = E(t^X)$ la fonction génératrice de $X$.\n\n- $G_A(t) = e^{\\lambda(t-1)}$ (loi de Poisson de paramètre $\\lambda$)\n- $G_C(t) = e^{\\mu(t-1)}$ (loi de Poisson de paramètre $\\mu$)\n\nComme $A$ et $C$ sont **indépendantes** :\n$$G_{A+C}(t) = G_A(t)\\cdot G_C(t) = e^{\\lambda(t-1)}\\cdot e^{\\mu(t-1)} = e^{(\\lambda+\\mu)(t-1)}$$\n\nC'est la fonction génératrice d'une loi de Poisson de paramètre $\\lambda + \\mu$.\n\nDonc **$A + C \\sim \\mathcal{P}(\\lambda + \\mu)$**."
+    },
+    {
+      "id": "C-4c",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 4(c)",
+      "bareme": 0.5,
+      "enonce": "En déduire la probabilité que $M(A,B)$ soit inversible (avec $C = -B \\sim \\mathcal{P}(\\mu)$, $A$ et $C$ indépendantes).",
+      "corrige": "$M(A,B)$ est inversible ssi $A \\neq B$, i.e. $A - B \\neq 0$, i.e. $A + C \\neq 0$.\n\nOr $A + C \\sim \\mathcal{P}(\\lambda + \\mu)$, donc :\n$$P(A+C = 0) = e^{-(\\lambda+\\mu)}$$\n\n$$\\boxed{P(M(A,B)\\text{ inversible}) = 1 - e^{-(\\lambda+\\mu)}}$$"
+    },
+    {
+      "id": "C-5",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 5",
+      "bareme": 1,
+      "enonce": "On suppose désormais que $A \\sim \\mathcal{P}(\\lambda)$ et $B \\sim \\mathcal{P}(\\mu)$, **indépendantes**.\n\nDémontrer que la probabilité que $M(A,B)$ soit non inversible est\n$$I = \\sum_{k=0}^{+\\infty} \\frac{(\\lambda\\mu)^k}{(k!)^2}e^{-(\\lambda+\\mu)}$$",
+      "corrige": "$M(A,B)$ non inversible $\\Leftrightarrow A = B$. Par Q. C-2 (avec $H = \\mathbb{N}$) et indépendance :\n\n$$P(A=B) = \\sum_{k=0}^{+\\infty} P(A=k)\\,P(B=k) = \\sum_{k=0}^{+\\infty} \\frac{\\lambda^k}{k!}e^{-\\lambda}\\cdot\\frac{\\mu^k}{k!}e^{-\\mu}$$\n\n$$= e^{-(\\lambda+\\mu)}\\sum_{k=0}^{+\\infty}\\frac{(\\lambda\\mu)^k}{(k!)^2} = \\boxed{I}$$"
+    },
+    {
+      "id": "C-6a",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 6(a)",
+      "bareme": 0.5,
+      "enonce": "Pour $n \\geq 0$, on note $R_n = \\sum_{k=n+1}^{+\\infty}\\frac{(\\lambda\\mu)^k}{(k!)^2}e^{-(\\lambda+\\mu)}$.\n\nDémontrer que\n$$\\forall n \\geq 0,\\quad |R_n| \\leq \\frac{1}{(n+1)!}e^{\\lambda\\mu-(\\lambda+\\mu)}$$",
+      "corrige": "Pour $k \\geq n+1$, on a $k! \\geq (n+1)!$ donc $\\frac{1}{(k!)^2} \\leq \\frac{1}{k! \\cdot (n+1)!}$, d'où :\n\n$$R_n = e^{-(\\lambda+\\mu)}\\sum_{k=n+1}^{+\\infty}\\frac{(\\lambda\\mu)^k}{(k!)^2} \\leq \\frac{e^{-(\\lambda+\\mu)}}{(n+1)!}\\sum_{k=n+1}^{+\\infty}\\frac{(\\lambda\\mu)^k}{k!}$$\n\n$$\\leq \\frac{e^{-(\\lambda+\\mu)}}{(n+1)!}\\sum_{k=0}^{+\\infty}\\frac{(\\lambda\\mu)^k}{k!} = \\frac{e^{-(\\lambda+\\mu)}}{(n+1)!}\\cdot e^{\\lambda\\mu}$$\n\n$$\\boxed{|R_n| \\leq \\frac{e^{\\lambda\\mu-(\\lambda+\\mu)}}{(n+1)!}}$$"
+    },
+    {
+      "id": "C-6b",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 6(b)",
+      "bareme": 1,
+      "enonce": "Écrire en langage Python une fonction `val_app` de paramètre `eps` (réel $> 0$), qui calcule et renvoie une valeur approchée de $I$ à `eps` près.\n\nLes valeurs de $\\lambda$ et $\\mu$ sont stockées dans les variables globales `la` et `mu`. Les fonctions `exp` et `factorial` sont disponibles via `from math import exp, factorial`.",
+      "corrige": "```python\nfrom math import exp, factorial\n\ndef val_app(eps):\n    somme = 0.0\n    n = 0\n    # Critère d'arrêt : |R_n| <= exp(la*mu - la - mu) / (n+1)! < eps\n    while exp(la * mu - la - mu) / factorial(n + 1) >= eps:\n        # Ajout du terme k = n à la somme partielle\n        somme += (la * mu) ** n / factorial(n) ** 2 * exp(-(la + mu))\n        n += 1\n    return somme\n```"
+    },
+    {
+      "id": "C-6c",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 6(c)",
+      "bareme": 0.5,
+      "enonce": "Quelle instruction doit-on rajouter pour afficher une valeur approchée de $I$ à $10^{-5}$ près ?",
+      "corrige": "```python\nprint(val_app(1e-5))\n```"
+    },
+    {
+      "id": "C-7a",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 7(a)",
+      "bareme": 0.5,
+      "enonce": "Soit $N \\in \\mathbb{N}^*$. On simule $N$ fois de façon indépendante les variables $A$ et $B$. Pour $i \\in \\{1,\\ldots,N\\}$, $J_i = 1$ si $M(A,B)$ est non inversible à la $i$-ème simulation, $J_i = 0$ sinon.\n\nReconnaître la loi de $J_i$.",
+      "corrige": "$J_i$ vaut 1 avec probabilité $P(M(A,B)$ non inversible$) = I$, et 0 sinon.\n\n$$J_i \\sim \\mathcal{B}(I) \\quad\\text{(loi de Bernoulli de paramètre }I\\text{)}$$"
+    },
+    {
+      "id": "C-7b",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 7(b)",
+      "bareme": 0.5,
+      "enonce": "On pose $K_N = \\sum_{k=1}^{N} J_i$. Quelle est la loi de $K_N$ ? Justifier.",
+      "corrige": "$K_N$ est la somme de $N$ variables de Bernoulli **indépendantes** de même paramètre $I$.\n\n$$K_N \\sim \\mathcal{B}(N, I) \\quad\\text{(loi binomiale de paramètres }N\\text{ et }I\\text{)}$$"
+    },
+    {
+      "id": "C-7c",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 7(c)",
+      "bareme": 0.5,
+      "enonce": "On pose $\\bar{K}_N = \\frac{1}{N} K_N$. En déduire l'espérance et la variance de $\\bar{K}_N$.",
+      "corrige": "$$E(K_N) = NI \\implies E(\\bar{K}_N) = I$$\n$$\\mathrm{Var}(K_N) = NI(1-I) \\implies \\mathrm{Var}(\\bar{K}_N) = \\frac{I(1-I)}{N}$$\n\nOr $I(1-I) \\leq \\frac{1}{4}$ (maximum en $I = 1/2$), donc $\\mathrm{Var}(\\bar{K}_N) \\leq \\frac{1}{4N}$."
+    },
+    {
+      "id": "C-7d",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 7(d)",
+      "bareme": 0.5,
+      "enonce": "Démontrer à l'aide de l'inégalité de Bienaymé-Tchebychev que\n$$\\forall \\varepsilon > 0,\\quad P\\!\\left(|\\bar{K}_N - I| > \\varepsilon\\right) \\leq \\frac{1}{4N\\varepsilon^2}$$",
+      "corrige": "L'inégalité de **Bienaymé-Tchebychev** donne :\n$$P\\!\\left(|\\bar{K}_N - E(\\bar{K}_N)| > \\varepsilon\\right) \\leq \\frac{\\mathrm{Var}(\\bar{K}_N)}{\\varepsilon^2}$$\n\nOr $E(\\bar{K}_N) = I$ et $\\mathrm{Var}(\\bar{K}_N) \\leq \\frac{1}{4N}$, donc :\n$$P\\!\\left(|\\bar{K}_N - I| > \\varepsilon\\right) \\leq \\frac{1}{4N\\varepsilon^2}$$"
+    },
+    {
+      "id": "C-7e",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 7(e)",
+      "bareme": 0.5,
+      "enonce": "En déduire que\n$$\\forall \\varepsilon > 0,\\quad P\\!\\left(I \\in [\\bar{K}_N - \\varepsilon\\ ;\\ \\bar{K}_N + \\varepsilon]\\right) \\geq 1 - \\frac{1}{4N\\varepsilon^2}$$",
+      "corrige": "$$P\\!\\left(I \\in [\\bar{K}_N - \\varepsilon;\\ \\bar{K}_N + \\varepsilon]\\right) = P(|\\bar{K}_N - I| \\leq \\varepsilon) = 1 - P(|\\bar{K}_N - I| > \\varepsilon)$$\n\n$$\\geq 1 - \\frac{1}{4N\\varepsilon^2}$$"
+    },
+    {
+      "id": "C-7f",
+      "partie": "Partie C — Des variables aléatoires dans une matrice",
+      "numero": "Question 7(f)",
+      "bareme": 0.5,
+      "enonce": "Pour $\\lambda = 1$, $\\mu = 2$, $N = 100\\,000$, la matrice $M(A,B)$ a été non inversible à $21\\,357$ reprises.\n\nQuelle information donne l'inégalité précédente sur $I$ si $\\varepsilon = 10^{-2}$ ? Puis $\\varepsilon = 10^{-3}$ ?",
+      "corrige": "$\\bar{K}_N = \\frac{21\\,357}{100\\,000} = 0{,}21357$.\n\n**Pour $\\varepsilon = 10^{-2}$ :**\n$$1 - \\frac{1}{4 \\times 10^5 \\times 10^{-4}} = 1 - \\frac{1}{40} = 0{,}975$$\n\nL'inégalité donne : $P(I \\in [0{,}20357;\\ 0{,}22357]) \\geq 0{,}975$. **Information utile.**\n\n**Pour $\\varepsilon = 10^{-3}$ :**\n$$1 - \\frac{1}{4 \\times 10^5 \\times 10^{-6}} = 1 - \\frac{1}{0{,}4} = 1 - 2{,}5 = -1{,}5 < 0$$\n\nLa borne est négative : l'inégalité ne donne **aucune information utile**."
+    },
+    {
+      "id": "D-1a",
+      "partie": "Partie D — Un deuxième couple de variables aléatoires",
+      "numero": "Question 1(a)",
+      "bareme": 0.5,
+      "enonce": "Soit $Q = (q_{i,j})_{1 \\leq i,j \\leq n}$ avec $q_{i,j} = P(X = x_i, Y = y_j)$.\n\nOn suppose que $X$ et $Y$ sont **indépendantes** et que $P(X = x_i) \\neq 0$ pour tout $i$.\n\nJustifier que le rang de $Q$ est égal à $1$.",
+      "corrige": "Par indépendance : $q_{i,j} = P(X=x_i)\\,P(Y=y_j) = p_i r_j$\n\noù $p_i = P(X = x_i) > 0$ et $r_j = P(Y = y_j) \\geq 0$.\n\nDonc $Q = p\\, r^T$ (produit d'un vecteur colonne par un vecteur ligne), avec $p \\neq 0$ et $r \\neq 0$ (car $\\sum r_j = 1$).\n\nUn tel produit a un rang égal à $1$."
+    },
+    {
+      "id": "D-1b",
+      "partie": "Partie D — Un deuxième couple de variables aléatoires",
+      "numero": "Question 1(b)",
+      "bareme": 0.5,
+      "enonce": "Que peut-on en déduire concernant les éventuelles valeurs propres (réelles) de $Q$ ainsi que leur multiplicité ?",
+      "corrige": "$\\mathrm{rg}(Q) = 1$ implique $\\ker(Q)$ de dimension $n-1$, donc $\\lambda = 0$ est valeur propre de multiplicité géométrique $n-1$.\n\nLa trace de $Q$ est $\\mathrm{tr}(Q) = \\sum_i p_i r_i > 0$ (car $p_i > 0$ et $r_i \\geq 0$ avec $\\sum r_i = 1$ et au moins un $r_i > 0$).\n\nComme la somme des valeurs propres vaut la trace, la valeur propre non nulle est $\\lambda_1 = \\mathrm{tr}(Q) = r^T p > 0$.\n\n**Valeurs propres :** $\\lambda_1 = r^T p > 0$ (simple) et $\\lambda_0 = 0$ (multiplicité $n-1$)."
+    },
+    {
+      "id": "D-1c",
+      "partie": "Partie D — Un deuxième couple de variables aléatoires",
+      "numero": "Question 1(c)",
+      "bareme": 0.5,
+      "enonce": "Démontrer que $Q$ est diagonalisable.",
+      "corrige": "$Q$ est de taille $n \\times n$ avec deux valeurs propres **distinctes** $\\lambda_1 \\neq 0$ et $0$.\n\n- $\\mathrm{dim}(\\ker(Q - \\lambda_1 I)) \\geq 1$ (vecteur propre $p$)\n- $\\mathrm{dim}(\\ker(Q)) = n - 1$\n\nTotal des dimensions des espaces propres : $1 + (n-1) = n$.\n\nDonc $Q$ possède $n$ vecteurs propres linéairement indépendants : **$Q$ est diagonalisable**."
+    },
+    {
+      "id": "D-1d",
+      "partie": "Partie D — Un deuxième couple de variables aléatoires",
+      "numero": "Question 1(d)",
+      "bareme": 0.5,
+      "enonce": "Lorsque $n = 4$, donner un exemple où $Q$ n'est pas diagonalisable si on enlève l'hypothèse $P(X = x_i) \\neq 0$.\n\nLes deux variables aléatoires $X$ et $Y$ devront être non constantes.",
+      "corrige": "On choisit $X$ et $Y$ **indépendantes**, non constantes, dont les supports sont **disjoints** :\n\n- $P(X=x_1) = P(X=x_2) = \\tfrac{1}{2}$, $P(X=x_3) = P(X=x_4) = 0$\n- $P(Y=y_1) = P(Y=y_2) = 0$, $P(Y=y_3) = P(Y=y_4) = \\tfrac{1}{2}$\n\nAlors $q_{i,j} = p_i r_j$ donne :\n$$Q = \\begin{pmatrix} 0 & 0 & 1/4 & 1/4 \\\\ 0 & 0 & 1/4 & 1/4 \\\\ 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix}$$\n\n$\\mathrm{rg}(Q) = 1$ et $\\mathrm{tr}(Q) = 0$ : toutes les valeurs propres sont nulles (multiplicité algébrique 4), mais $\\mathrm{dim}(\\ker Q) = 3$.\n\nMultiplicité géométrique $< $ multiplicité algébrique : **$Q$ n'est pas diagonalisable**."
+    },
+    {
+      "id": "D-2",
+      "partie": "Partie D — Un deuxième couple de variables aléatoires",
+      "numero": "Question 2",
+      "bareme": 1,
+      "enonce": "On suppose que le rang de $Q$ est égal à $1$. Démontrer que $X$ et $Y$ sont indépendantes.",
+      "corrige": "Comme $\\mathrm{rg}(Q) = 1$, toutes les lignes de $Q$ sont proportionnelles. Soit la ligne $i_0$ non nulle : $q_{i_0, j} = r_j$.\n\nToute ligne $i$ vérifie $q_{i,j} = \\alpha_i r_j$ pour un certain scalaire $\\alpha_i$.\n\n**Loi marginale de $X$ :** $P(X = x_i) = \\sum_j q_{i,j} = \\alpha_i \\sum_j r_j$. Notons $S = \\sum_j r_j > 0$, d'où $\\alpha_i = \\frac{P(X=x_i)}{S}$.\n\n**Loi marginale de $Y$ :** $P(Y = y_j) = \\sum_i q_{i,j} = r_j \\sum_i \\alpha_i = r_j \\cdot \\frac{\\sum_i P(X=x_i)}{S} = \\frac{r_j}{S}$.\n\nDonc $r_j = S \\cdot P(Y = y_j)$.\n\n**Conclusion :**\n$$q_{i,j} = \\alpha_i r_j = \\frac{P(X=x_i)}{S}\\cdot S\\cdot P(Y=y_j) = P(X=x_i)\\,P(Y=y_j)$$\n\nDonc **$X$ et $Y$ sont indépendantes**."
+    }
+  ]
+}
