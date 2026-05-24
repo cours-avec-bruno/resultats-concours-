@@ -1,5 +1,5 @@
 import './style.css';
-import epreuve from './data/epreuve.json';
+import epreuve from './data/epreuve-2026A.json';
 import { ScoreManager } from './components/scoreManager.js';
 import { createQuestionCard } from './components/renderQuestion.js';
 
