@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .corrige-content {
+    @apply text-sm text-gray-700 leading-relaxed whitespace-pre-wrap font-mono;
+  }
+
+  .btn-estimation {
+    @apply flex-1 min-w-[52px] py-2 px-1 rounded-lg border-2 text-sm font-bold
+           transition-all duration-150 cursor-pointer
+           hover:scale-105 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-1;
+  }
+
+  .btn-estimation.idle-0   { @apply bg-red-50    text-red-600    border-red-200    focus:ring-red-400; }
+  .btn-estimation.idle-25  { @apply bg-orange-50 text-orange-600 border-orange-200 focus:ring-orange-400; }
+  .btn-estimation.idle-50  { @apply bg-yellow-50 text-yellow-600 border-yellow-200 focus:ring-yellow-400; }
+  .btn-estimation.idle-75  { @apply bg-blue-50   text-blue-600   border-blue-200   focus:ring-blue-400; }
+  .btn-estimation.idle-100 { @apply bg-green-50  text-green-600  border-green-200  focus:ring-green-400; }
+
+  .btn-estimation.active-0   { @apply bg-red-500    text-white border-red-500    shadow-md scale-105 focus:ring-red-400; }
+  .btn-estimation.active-25  { @apply bg-orange-500 text-white border-orange-500 shadow-md scale-105 focus:ring-orange-400; }
+  .btn-estimation.active-50  { @apply bg-yellow-500 text-white border-yellow-500 shadow-md scale-105 focus:ring-yellow-400; }
+  .btn-estimation.active-75  { @apply bg-blue-500   text-white border-blue-500   shadow-md scale-105 focus:ring-blue-400; }
+  .btn-estimation.active-100 { @apply bg-green-500  text-white border-green-500  shadow-md scale-105 focus:ring-green-400; }
+}
