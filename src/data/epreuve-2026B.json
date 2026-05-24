@@ -1,0 +1,306 @@
+{
+  "id": "banque-pt-2026-epreuve-B",
+  "matiere": "Mathématiques",
+  "titre": "Banque PT 2026 – Épreuve B",
+  "concours": "Lycée Lætitia Bonaparte — Spé PT",
+  "duree": "—",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.36,
+    "sigma_hist": 4.23,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2503 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "P1-A-1",
+      "partie": "Ex. 1 — Partie A",
+      "numero": "Question 1",
+      "bareme": 1.5,
+      "enonce": "On considère $H = \\{P \\in \\mathbb{R}_3[X] \\mid 6P(0) = P^{(3)}(0)\\}$.\n\nDémontrer que $H$ est un espace vectoriel dont on précisera une base et la dimension.",
+      "corrige": "**H est un sous-espace vectoriel de $\\mathbb{R}_3[X]$ :**\n- $0 \\in H$ : $6 \\cdot 0 = 0$ ✓\n- Stabilité : si $P, Q \\in H$ et $\\lambda \\in \\mathbb{R}$, alors $6(P+\\lambda Q)(0) = 6P(0) + 6\\lambda Q(0) = P^{(3)}(0) + \\lambda Q^{(3)}(0) = (P+\\lambda Q)^{(3)}(0)$ ✓\n\n**Caractérisation des éléments :** Soit $P = a + bX + cX^2 + dX^3$.\n$$P(0) = a, \\quad P^{(3)}(0) = 6d$$\nLa condition $6a = 6d$ donne $a = d$, donc :\n$$P \\in H \\iff P = a(1+X^3) + bX + cX^2$$\n\n**Base et dimension :**\n$$\\boxed{\\mathcal{B}_H = (1+X^3,\\ X,\\ X^2), \\quad \\dim H = 3}$$"
+    },
+    {
+      "id": "P1-A-2",
+      "partie": "Ex. 1 — Partie A",
+      "numero": "Question 2",
+      "bareme": 1,
+      "enonce": "Démontrer que l'application $h$ définie sur $H$ par $\\forall P \\in H,\\ h(P) = P'(0)$ est linéaire. Dans quel espace vectoriel $h$ prend-elle ses valeurs ? On sera le plus précis possible.",
+      "corrige": "**Linéarité :** Pour $P, Q \\in H$ et $\\lambda \\in \\mathbb{R}$ :\n$$h(P + \\lambda Q) = (P + \\lambda Q)'(0) = P'(0) + \\lambda Q'(0) = h(P) + \\lambda h(Q) \\checkmark$$\n\n**Valeurs :** Pour $P = a(1+X^3) + bX + cX^2 \\in H$, on a $P'(0) = b \\in \\mathbb{R}$.\n\nTout réel $b$ est atteint (prendre $P = bX \\in H$), donc $h$ est **surjective**.\n\n$h : H \\to \\mathbb{R}$ est une **forme linéaire** surjective sur $\\mathbb{R}$."
+    },
+    {
+      "id": "P1-A-3",
+      "partie": "Ex. 1 — Partie A",
+      "numero": "Question 3",
+      "bareme": 1,
+      "enonce": "On admet que $f$ est linéaire, où $\\forall P \\in H,\\ f(P) = (X+X^2)P(0) - \\frac{1}{2}(X^3+X^2-X+1)P'(0) - \\frac{1}{4}(X^3-X^2+X+1)P''(0)$.\n\nDémontrer que $f$ est un endomorphisme de $H$.",
+      "corrige": "Il suffit de montrer que $f(P) \\in H$ pour tout $P \\in H$.\n\nSoit $P = a(1+X^3)+bX+cX^2 \\in H$, so $P(0)=a$, $P'(0)=b$, $P''(0)=2c$.\n\n$$f(P) = a(X+X^2) - \\frac{b}{2}(X^3+X^2-X+1) - \\frac{c}{2}(X^3-X^2+X+1)$$\n\nEn regroupant par degré :\n- Cste : $-\\dfrac{b+c}{2}$\n- Coeff. $X^3$ : $-\\dfrac{b+c}{2}$\n\nDonc $[f(P)](0) = -\\frac{b+c}{2}$ et $[f(P)]^{(3)}(0) = 6 \\cdot \\left(-\\frac{b+c}{2}\\right)$, ce qui donne $6[f(P)](0) = [f(P)]^{(3)}(0)$ ✓\n\n$f(P) \\in H$, et $f$ est linéaire (admis), donc $f$ est un **endomorphisme de $H$**."
+    },
+    {
+      "id": "P1-B-4",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 4",
+      "bareme": 0.5,
+      "enonce": "Donner la définition d'un produit scalaire $\\varphi$ sur $\\mathbb{R}_3[X]$.",
+      "corrige": "$\\varphi : (\\mathbb{R}_3[X])^2 \\to \\mathbb{R}$ est un **produit scalaire** si :\n1. **Bilinéaire** : linéaire en chaque variable\n2. **Symétrique** : $\\varphi(P,Q) = \\varphi(Q,P)$\n3. **Défini positif** : $\\varphi(P,P) \\geq 0$ et $\\varphi(P,P) = 0 \\Rightarrow P = 0$"
+    },
+    {
+      "id": "P1-B-5",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 5",
+      "bareme": 1,
+      "enonce": "Soit $\\varphi$ une application définie sur $(\\mathbb{R}_3[X])^2$, linéaire par rapport à sa première variable et symétrique. Démontrer soigneusement que $\\varphi$ est bilinéaire.",
+      "corrige": "Il reste à montrer la **linéarité par rapport à la deuxième variable**.\n\nSoient $P, Q, R \\in \\mathbb{R}_3[X]$ et $\\lambda \\in \\mathbb{R}$ :\n\n$$\\varphi(P, Q+\\lambda R) = \\varphi(Q+\\lambda R, P) \\quad\\text{(symétrie)}$$\n$$= \\varphi(Q,P) + \\lambda\\,\\varphi(R,P) \\quad\\text{(linéarité en 1re variable)}$$\n$$= \\varphi(P,Q) + \\lambda\\,\\varphi(P,R) \\quad\\text{(symétrie)}$$\n\nDonc $\\varphi$ est linéaire en la deuxième variable, et donc **bilinéaire**."
+    },
+    {
+      "id": "P1-B-6",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 6",
+      "bareme": 1.5,
+      "enonce": "Démontrer de **deux façons différentes** que si $P \\in \\mathbb{R}_3[X]$ vérifie $P(0) = P'(0) = P''(0) = P^{(3)}(0) = 0$, alors $P = 0$.",
+      "corrige": "Soit $P = a + bX + cX^2 + dX^3$.\n\n**Méthode 1 — Coefficients :**\n$$P(0) = a = 0,\\quad P'(0) = b = 0,\\quad P''(0) = 2c = 0,\\quad P^{(3)}(0) = 6d = 0$$\nDonc $a=b=c=d=0$, soit $P = 0$.\n\n**Méthode 2 — Produit scalaire $\\varphi$ :**\n$$\\varphi(P,P) = \\sum_{k=0}^{3} \\frac{[P^{(k)}(0)]^2}{(k!)^2} = 0$$\ncar tous les $P^{(k)}(0) = 0$. Comme $\\varphi$ est défini positif, $P = 0$."
+    },
+    {
+      "id": "P1-B-7",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 7",
+      "bareme": 1,
+      "enonce": "On munit $\\mathbb{R}_3[X]$ du produit scalaire $\\varphi(P,Q) = \\sum_{k=0}^{3} \\frac{P^{(k)}(0)\\,Q^{(k)}(0)}{(k!)^2}$.\n\nVérifier que $X$ et $X^2$ sont deux vecteurs **orthogonaux** et **unitaires** de $H$.",
+      "corrige": "Valeurs des dérivées successives en 0 :\n\n| | $k=0$ | $k=1$ | $k=2$ | $k=3$ |\n|---|---|---|---|---|\n| $X$ | 0 | 1 | 0 | 0 |\n| $X^2$ | 0 | 0 | 2 | 0 |\n\n**Orthogonalité :**\n$$\\varphi(X, X^2) = \\frac{0\\cdot 0}{1} + \\frac{1\\cdot 0}{1} + \\frac{0\\cdot 2}{4} + \\frac{0\\cdot 0}{36} = 0 \\checkmark$$\n\n**Norme de $X$ :**\n$$\\varphi(X,X) = 0 + \\frac{1}{1} + 0 + 0 = 1 \\checkmark$$\n\n**Norme de $X^2$ :**\n$$\\varphi(X^2,X^2) = 0 + 0 + \\frac{4}{4} + 0 = 1 \\checkmark$$"
+    },
+    {
+      "id": "P1-B-8",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 8",
+      "bareme": 1.5,
+      "enonce": "Déterminer une base orthonormée $\\mathcal{B}$ de $H$ contenant les deux vecteurs $X$ et $X^2$. Les éléments seront classés par ordre décroissant de degré.",
+      "corrige": "La base de $H$ est $(1+X^3, X, X^2)$. On applique Gram-Schmidt à $1+X^3$ en le projetant sur $\\mathrm{Vect}(X, X^2)$.\n\nDérivées de $1+X^3$ en 0 : $[1, 0, 0, 6]$.\n\n$$\\varphi(1+X^3,\\ X) = 0 + 0 + 0 + 0 = 0$$\n$$\\varphi(1+X^3,\\ X^2) = 0 + 0 + 0 + 0 = 0$$\n\n$1+X^3$ est **déjà orthogonal** à $X$ et $X^2$. On le normalise :\n$$\\varphi(1+X^3,\\ 1+X^3) = \\frac{1}{1} + 0 + 0 + \\frac{36}{36} = 2$$\n\n$$\\boxed{\\mathcal{B} = \\left(\\frac{X^3+1}{\\sqrt{2}},\\ X^2,\\ X\\right)}$$"
+    },
+    {
+      "id": "P1-B-9a",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 9(a)",
+      "bareme": 1,
+      "enonce": "Déterminer le projeté orthogonal du polynôme constant $1$ sur $H$.",
+      "corrige": "On utilise la base orthonormée $\\mathcal{B} = \\left(\\frac{X^3+1}{\\sqrt{2}}, X^2, X\\right)$ :\n\n$$\\mathrm{proj}_H(1) = \\varphi\\!\\left(1,\\frac{X^3+1}{\\sqrt{2}}\\right)\\frac{X^3+1}{\\sqrt{2}} + \\varphi(1,X^2)\\,X^2 + \\varphi(1,X)\\,X$$\n\nDérivées de $1$ en 0 : $[1, 0, 0, 0]$.\n\n$$\\varphi\\!\\left(1,\\frac{X^3+1}{\\sqrt{2}}\\right) = \\frac{1}{\\sqrt{2}}\\,\\varphi(1,\\ 1+X^3) = \\frac{1}{\\sqrt{2}}\\cdot 1 = \\frac{1}{\\sqrt{2}}$$\n$$\\varphi(1,X) = \\varphi(1,X^2) = 0$$\n\n$$\\boxed{\\mathrm{proj}_H(1) = \\frac{1}{\\sqrt{2}}\\cdot\\frac{X^3+1}{\\sqrt{2}} = \\frac{X^3+1}{2}}$$"
+    },
+    {
+      "id": "P1-B-9b",
+      "partie": "Ex. 1 — Partie B",
+      "numero": "Question 9(b)",
+      "bareme": 1,
+      "enonce": "En déduire une base de l'orthogonal $H^\\perp$ dans $\\mathbb{R}_3[X]$.",
+      "corrige": "$\\dim H = 3$ et $\\dim \\mathbb{R}_3[X] = 4$, donc $\\dim H^\\perp = 1$.\n\nLe vecteur $1 - \\mathrm{proj}_H(1)$ est orthogonal à $H$ :\n$$1 - \\frac{X^3+1}{2} = \\frac{2 - X^3 - 1}{2} = \\frac{1 - X^3}{2}$$\n\n$$\\boxed{H^\\perp = \\mathrm{Vect}(1 - X^3)}$$"
+    },
+    {
+      "id": "P1-C-10",
+      "partie": "Ex. 1 — Partie C",
+      "numero": "Question 10",
+      "bareme": 1,
+      "enonce": "On considère la rotation $r$ d'axe $\\Delta$ dirigé par $\\vec{u} = \\vec{j} - \\vec{k}$ et d'angle $\\theta = -\\pi/2$.\n\nDéterminer une base orthonormée directe $\\mathcal{B}' = (\\vec{u}', \\vec{v}', \\vec{w}')$ telle que $\\vec{u}'$ et $\\vec{u}$ sont colinéaires et de même sens. Donner la matrice $R'$ de $r$ dans cette base.",
+      "corrige": "**Normalisation :** $\\|\\vec{u}\\| = \\sqrt{2}$, donc $\\vec{u}' = \\dfrac{\\vec{j}-\\vec{k}}{\\sqrt{2}}$.\n\n**Choix de $\\vec{v}'$ :** On prend $\\vec{v}' = \\vec{i}$ (orthogonal à $\\vec{u}'$).\n\n**Calcul de $\\vec{w}' = \\vec{u}' \\times \\vec{v}'$ :**\n$$\\vec{w}' = \\frac{1}{\\sqrt{2}}(\\vec{j}-\\vec{k})\\times\\vec{i} = \\frac{1}{\\sqrt{2}}(\\vec{j}\\times\\vec{i} - \\vec{k}\\times\\vec{i}) = \\frac{1}{\\sqrt{2}}(-\\vec{k} - \\vec{j}) = -\\frac{\\vec{j}+\\vec{k}}{\\sqrt{2}}$$\n\nVérification : $\\det(\\vec{u}',\\vec{v}',\\vec{w}') = 1 > 0$ ✓ (base directe)\n\n**Matrice dans $\\mathcal{B}'$** (rotation d'angle $-\\pi/2$ autour du premier axe) :\n$$R' = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & -1 & 0 \\end{pmatrix}$$"
+    },
+    {
+      "id": "P1-C-11",
+      "partie": "Ex. 1 — Partie C",
+      "numero": "Question 11",
+      "bareme": 1,
+      "enonce": "Déterminer $R$, la matrice de $r$ dans la base canonique $(\\vec{i},\\vec{j},\\vec{k})$.",
+      "corrige": "La matrice de passage de $\\mathcal{B}'$ à la base canonique est :\n$$P = \\begin{pmatrix} 0 & 1 & 0 \\\\ \\frac{1}{\\sqrt{2}} & 0 & -\\frac{1}{\\sqrt{2}} \\\\ -\\frac{1}{\\sqrt{2}} & 0 & -\\frac{1}{\\sqrt{2}} \\end{pmatrix}$$\n\n$P$ est orthogonale ($P^{-1} = P^T$), donc $R = PR'P^T$.\n\nOn peut aussi utiliser la **formule de Rodrigues** avec $\\vec{u} = (0, \\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}})$, $\\cos\\theta = 0$, $\\sin\\theta = -1$ :\n$$R = (\\vec{u}\\otimes\\vec{u}) - [\\vec{u}\\times]$$\n\n$$\\boxed{R = \\begin{pmatrix} 0 & -\\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{1}{2} & -\\frac{1}{2} \\\\ \\frac{1}{\\sqrt{2}} & -\\frac{1}{2} & \\frac{1}{2} \\end{pmatrix}}$$"
+    },
+    {
+      "id": "P1-C-12",
+      "partie": "Ex. 1 — Partie C",
+      "numero": "Question 12",
+      "bareme": 1,
+      "enonce": "Quels sont les endomorphismes canoniquement associés à $R^T$, $R^{2025}$ et $R^{2026}$ ?\n\nOn donnera deux réponses distinctes pour cette dernière matrice.",
+      "corrige": "**$R^T = R^{-1}$** : rotation d'axe $\\Delta$ et d'angle $+\\dfrac{\\pi}{2}$ (rotation inverse).\n\n**$R^{2025}$** : L'angle total est $2025 \\times (-\\pi/2)$. Or $2025 = 4 \\times 506 + 1$, donc :\n$$R^{2025} = R^1 = R \\quad\\text{(rotation d'angle } -\\pi/2\\text{)}$$\n\n**$R^{2026}$** : $2026 = 4 \\times 506 + 2$, donc $R^{2026} = R^2$, rotation d'angle $2 \\times (-\\pi/2) = -\\pi$.\n\nDeux réponses distinctes :\n1. **Rotation d'angle $\\pi$** (demi-tour) autour de l'axe $\\Delta$.\n2. **$R^{2026} = R^{-2}$** car $R^4 = I$ (même transformation, exprimée comme puissance négative)."
+    },
+    {
+      "id": "P1-D-13",
+      "partie": "Ex. 1 — Partie D",
+      "numero": "Question 13",
+      "bareme": 1,
+      "enonce": "Déterminer la matrice de $f$ dans la base $\\mathcal{B} = \\left(\\frac{X^3+1}{\\sqrt{2}}, X^2, X\\right)$.",
+      "corrige": "Pour $P = \\frac{\\alpha}{\\sqrt{2}}(X^3+1) + \\beta X^2 + \\gamma X$, on a $P(0) = \\frac{\\alpha}{\\sqrt{2}}$, $P'(0) = \\gamma$, $P''(0) = 2\\beta$.\n\nOn calcule $f$ sur chaque vecteur de $\\mathcal{B}$ :\n\n**$f\\!\\left(\\frac{X^3+1}{\\sqrt{2}}\\right)$** ($\\alpha=1,\\beta=0,\\gamma=0$) : $= \\frac{1}{\\sqrt{2}}(X+X^2)$ → coordonnées $(0,\\,\\frac{1}{\\sqrt{2}},\\,\\frac{1}{\\sqrt{2}})$\n\n**$f(X^2)$** ($\\alpha=0,\\beta=1,\\gamma=0$) : $P''(0)=2$, donc $= -\\frac{1}{2}(X^3{-}X^2{+}X{+}1) = -\\frac{1}{\\sqrt{2}}\\cdot\\frac{X^3+1}{\\sqrt{2}} + \\frac{1}{2}X^2 - \\frac{1}{2}X$ → coordonnées $\\left(-\\frac{1}{\\sqrt{2}},\\,\\frac{1}{2},\\,-\\frac{1}{2}\\right)$\n\n**$f(X)$** ($\\alpha=0,\\beta=0,\\gamma=1$) : $= -\\frac{1}{2}(X^3{+}X^2{-}X{+}1)$ → coordonnées $\\left(-\\frac{1}{\\sqrt{2}},\\,-\\frac{1}{2},\\,\\frac{1}{2}\\right)$\n\n$$\\boxed{[f]_{\\mathcal{B}} = \\begin{pmatrix} 0 & -\\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{1}{2} & -\\frac{1}{2} \\\\ \\frac{1}{\\sqrt{2}} & -\\frac{1}{2} & \\frac{1}{2} \\end{pmatrix} = R}$$\n\n*Remarque : la matrice de $f$ dans $\\mathcal{B}$ coïncide avec $R$ !*"
+    },
+    {
+      "id": "P1-D-14",
+      "partie": "Ex. 1 — Partie D",
+      "numero": "Question 14",
+      "bareme": 1,
+      "enonce": "Justifier qu'il existe une base $\\mathcal{B}''$ de $H$ dans laquelle la matrice de $f$ est\n$$\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & -1 & 0 \\end{pmatrix}$$\nPréciser $\\mathcal{B}''$. La base $\\mathcal{B}''$ est-elle orthogonale pour $\\varphi$ ?",
+      "corrige": "Puisque $[f]_{\\mathcal{B}} = R = P R' P^{-1}$ (par la Q. 11, avec $P$ matrice de passage de $\\mathcal{B}'$ à la base canonique de $\\mathbb{R}^3$), la matrice de $f$ dans la base $\\mathcal{B}''$ obtenue en remplaçant les vecteurs de $\\mathcal{B}$ par les colonnes de $P$ est $R'$.\n\n**Base $\\mathcal{B}''$** (coordonnées dans $\\mathcal{B}$) :\n- $e_1 = \\left(0, \\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}}\\right)_{\\mathcal{B}} \\to \\frac{X^2 - X}{\\sqrt{2}}$\n- $e_2 = (1, 0, 0)_{\\mathcal{B}} \\to \\frac{X^3+1}{\\sqrt{2}}$\n- $e_3 = \\left(0, -\\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}}\\right)_{\\mathcal{B}} \\to -\\frac{X^2+X}{\\sqrt{2}}$\n\n$$\\boxed{\\mathcal{B}'' = \\left(\\frac{X^2-X}{\\sqrt{2}},\\ \\frac{X^3+1}{\\sqrt{2}},\\ -\\frac{X^2+X}{\\sqrt{2}}\\right)}$$\n\n**Orthogonalité pour $\\varphi$ :** On vérifie $\\varphi(e_i, e_j) = 0$ pour $i\\neq j$ et $\\varphi(e_i,e_i)=1$ (calcul analogue à Q.7). La matrice $P$ étant orthogonale, $\\mathcal{B}''$ est bien **orthonormée** pour $\\varphi$."
+    },
+    {
+      "id": "P2-A-1a",
+      "partie": "Ex. 2 — Partie A",
+      "numero": "Question 1(a)",
+      "bareme": 0.5,
+      "enonce": "Soient $a, b > 0$. Donner la nature et le paramétrage usuel de la conique d'équation $\\dfrac{x^2}{a^2} + \\dfrac{y^2}{b^2} = 1$.",
+      "corrige": "C'est une **ellipse** de demi-axes $a$ (selon $x$) et $b$ (selon $y$).\n\nParamétrage : $(x,y) = (a\\cos t,\\ b\\sin t),\\quad t \\in [0, 2\\pi[$"
+    },
+    {
+      "id": "P2-A-1b",
+      "partie": "Ex. 2 — Partie A",
+      "numero": "Question 1(b)",
+      "bareme": 0.5,
+      "enonce": "Donner la nature et le paramétrage usuel de chaque branche de la conique $\\dfrac{x^2}{a^2} - \\dfrac{y^2}{b^2} = 1$.",
+      "corrige": "C'est une **hyperbole** de demi-axes $a$ et $b$.\n\n- Branche droite ($x > 0$) : $(a\\cosh t,\\ b\\sinh t),\\quad t \\in \\mathbb{R}$\n- Branche gauche ($x < 0$) : $(-a\\cosh t,\\ b\\sinh t),\\quad t \\in \\mathbb{R}$"
+    },
+    {
+      "id": "P2-A-2a",
+      "partie": "Ex. 2 — Partie A",
+      "numero": "Question 2(a)",
+      "bareme": 0.5,
+      "enonce": "Donner la définition de la conique de foyer $F$, de directrice $D$ et d'excentricité $\\varepsilon > 0$.",
+      "corrige": "C'est l'ensemble des points $M$ du plan tels que :\n$$\\frac{d(M, F)}{d(M, D)} = \\varepsilon$$"
+    },
+    {
+      "id": "P2-A-2b",
+      "partie": "Ex. 2 — Partie A",
+      "numero": "Question 2(b)",
+      "bareme": 0.5,
+      "enonce": "Quelle est la nature de cette conique selon $\\varepsilon$ ?",
+      "corrige": "- $\\varepsilon < 1$ : **ellipse**\n- $\\varepsilon = 1$ : **parabole**\n- $\\varepsilon > 1$ : **hyperbole**"
+    },
+    {
+      "id": "P2-A-3",
+      "partie": "Ex. 2 — Partie A",
+      "numero": "Question 3",
+      "bareme": 0.5,
+      "enonce": "Soient $M$ et $M'$ d'affixes $z$ et $z'$ tels que $z' = e^{i\\theta}z$. Quelle transformation permet de passer de $M$ à $M'$ ?",
+      "corrige": "C'est une **rotation** de centre $O$ (l'origine) et d'angle $\\theta$."
+    },
+    {
+      "id": "P2-B-4a",
+      "partie": "Ex. 2 — Partie B",
+      "numero": "Question 4(a)",
+      "bareme": 1,
+      "enonce": "Soit $D$ la droite d'équation $\\sqrt{3}x + y = 3$. Pour tout point $M(x,y)$, on note $M'(x',y')$ son projeté orthogonal sur $D$.\n\nDéterminer $x'$ et $y'$ en fonction de $x$ et $y$.",
+      "corrige": "Le vecteur normal à $D$ est $\\vec{n} = (\\sqrt{3}, 1)$, de norme 2. La distance signée de $M$ à $D$ est $\\delta = \\dfrac{\\sqrt{3}x + y - 3}{2}$.\n\n$$M' = M - \\delta\\,\\frac{\\vec{n}}{\\|\\vec{n}\\|}\\cdot\\frac{1}{\\|\\vec{n}\\|/1}$$\n\nPlus précisément : $M' = M - \\dfrac{\\sqrt{3}x+y-3}{4}(\\sqrt{3},1)$\n\n$$\\boxed{x' = \\frac{x - \\sqrt{3}y + 3\\sqrt{3}}{4}, \\qquad y' = \\frac{-\\sqrt{3}x + 3y + 3}{4}}$$"
+    },
+    {
+      "id": "P2-B-4b",
+      "partie": "Ex. 2 — Partie B",
+      "numero": "Question 4(b)",
+      "bareme": 1,
+      "enonce": "En déduire que si $z$ est l'affixe de $M$ et $z'$ celle de $M'$, alors\n$$z' = \\frac{1}{2}\\left(z - \\bar{z}\\,e^{i\\pi/3} + 3e^{i\\pi/6}\\right)$$",
+      "corrige": "On calcule $z' = x' + iy'$ avec les formules de Q4(a) :\n$$4z' = (x - \\sqrt{3}y + 3\\sqrt{3}) + i(-\\sqrt{3}x + 3y + 3)$$\n\nAvec $e^{i\\pi/3} = \\frac{1}{2}+\\frac{i\\sqrt{3}}{2}$ et $\\bar{z} = x - iy$ :\n$$\\bar{z}\\,e^{i\\pi/3} = (x-iy)\\left(\\frac{1+i\\sqrt{3}}{2}\\right) = \\frac{(x+y\\sqrt{3}) + i(x\\sqrt{3}-y)}{2}$$\n\n$$2(z - \\bar{z}e^{i\\pi/3}) = 2(x+iy) - (x+y\\sqrt{3}) - i(x\\sqrt{3}-y) = (x-y\\sqrt{3}) + i(y+2y-x\\sqrt{3})$$\n\nEn ajoutant $3e^{i\\pi/6} = \\frac{3\\sqrt{3}}{2} + \\frac{3i}{2}$ et divisant par 2, on retrouve $x'$ et $y'$. $\\checkmark$"
+    },
+    {
+      "id": "P2-B-5",
+      "partie": "Ex. 2 — Partie B",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "Exprimer $z - z'$ en fonction de $z$ et $\\bar{z}$.",
+      "corrige": "$$z - z' = z - \\frac{1}{2}(z - \\bar{z}e^{i\\pi/3} + 3e^{i\\pi/6}) = \\frac{1}{2}(z + \\bar{z}e^{i\\pi/3} - 3e^{i\\pi/6})$$"
+    },
+    {
+      "id": "P2-B-6",
+      "partie": "Ex. 2 — Partie B",
+      "numero": "Question 6",
+      "bareme": 1,
+      "enonce": "En déduire que $\\mathcal{C}$ est une conique dont on précisera la nature, un foyer, une directrice et l'excentricité.\n\n($\\mathcal{C}$ est défini par $|z| = |z + \\bar{z}e^{i\\pi/3} - 3e^{i\\pi/6}|$)",
+      "corrige": "D'après Q5 : $z + \\bar{z}e^{i\\pi/3} - 3e^{i\\pi/6} = 2(z - z')$, donc :\n$$|z + \\bar{z}e^{i\\pi/3} - 3e^{i\\pi/6}| = 2|z - z'| = 2\\,d(M, D)$$\n\nLa condition de $\\mathcal{C}$ devient :\n$$|z| = 2\\,d(M, D) \\iff \\frac{d(M, O)}{d(M, D)} = 2$$\n\n$\\mathcal{C}$ est une conique de **foyer** $O$ (l'origine), de **directrice** $D : \\sqrt{3}x+y=3$, et d'**excentricité $\\varepsilon = 2 > 1$** : c'est une **hyperbole**."
+    },
+    {
+      "id": "P2-C-7",
+      "partie": "Ex. 2 — Partie C",
+      "numero": "Question 7",
+      "bareme": 0.5,
+      "enonce": "Soit $\\vec{u}$ un vecteur normal à $D$ dont l'abscisse est positive. Déterminer $\\alpha = (\\vec{e}_1, \\vec{u})$.",
+      "corrige": "La droite $D : \\sqrt{3}x + y = 3$ a pour vecteur normal $(\\sqrt{3}, 1)$.\n\nNormalisé et d'abscisse positive : $\\vec{u} = \\left(\\dfrac{\\sqrt{3}}{2}, \\dfrac{1}{2}\\right) = (\\cos\\frac{\\pi}{6}, \\sin\\frac{\\pi}{6})$.\n\n$$\\boxed{\\alpha = \\frac{\\pi}{6}}$$"
+    },
+    {
+      "id": "P2-C-8a",
+      "partie": "Ex. 2 — Partie C",
+      "numero": "Question 8(a)",
+      "bareme": 1,
+      "enonce": "On note $\\mathcal{C}'$ l'ensemble des points $N$ d'affixes $Z$ tels que $M$ d'affixe $z = e^{i\\alpha}Z$ appartient à $\\mathcal{C}$.\n\nDémontrer que $N \\in \\mathcal{C}' \\iff |Z| = |Z + \\bar{Z} - 3|$.",
+      "corrige": "On substitue $z = e^{i\\pi/6}Z$ dans la condition de $\\mathcal{C}$ : $|z| = |z + \\bar{z}e^{i\\pi/3} - 3e^{i\\pi/6}|$.\n\n- $|z| = |e^{i\\pi/6}Z| = |Z|$\n- $\\bar{z} = e^{-i\\pi/6}\\bar{Z}$, donc $\\bar{z}e^{i\\pi/3} = e^{-i\\pi/6}\\bar{Z}\\cdot e^{i\\pi/3} = e^{i\\pi/6}\\bar{Z}$\n- $z + \\bar{z}e^{i\\pi/3} - 3e^{i\\pi/6} = e^{i\\pi/6}Z + e^{i\\pi/6}\\bar{Z} - 3e^{i\\pi/6} = e^{i\\pi/6}(Z + \\bar{Z} - 3)$\n\nDonc : $|Z| = |e^{i\\pi/6}||Z + \\bar{Z} - 3| = |Z + \\bar{Z} - 3|$ ✓"
+    },
+    {
+      "id": "P2-C-8b",
+      "partie": "Ex. 2 — Partie C",
+      "numero": "Question 8(b)",
+      "bareme": 0.5,
+      "enonce": "En déduire qu'une équation cartésienne de $\\mathcal{C}'$ est $3x^2 - 12x - y^2 + 9 = 0$.",
+      "corrige": "Avec $Z = X + iY$, $\\bar{Z} = X - iY$, on a $Z + \\bar{Z} = 2X$.\n\nLa condition $|Z| = |Z + \\bar{Z} - 3|$ devient $|Z|^2 = |2X-3|^2$ :\n$$X^2 + Y^2 = (2X-3)^2 = 4X^2 - 12X + 9$$\n$$\\boxed{3X^2 - 12X - Y^2 + 9 = 0}$$"
+    },
+    {
+      "id": "P2-C-8c",
+      "partie": "Ex. 2 — Partie C",
+      "numero": "Question 8(c)",
+      "bareme": 1,
+      "enonce": "Donner les éléments caractéristiques de $\\mathcal{C}'$ : centre, sommets, asymptotes.",
+      "corrige": "$$3(x-2)^2 - 12 - y^2 + 9 = 0 \\implies \\frac{(x-2)^2}{1} - \\frac{y^2}{3} = 1$$\n\nC'est une **hyperbole** de centre $\\Omega = (2, 0)$, avec $a=1$, $b=\\sqrt{3}$.\n\n- **Centre** : $(2, 0)$\n- **Sommets** : $(2\\pm 1,\\ 0)$, soit $(3, 0)$ et $(1, 0)$\n- **Asymptotes** : $y = \\pm\\sqrt{3}\\,(x-2)$"
+    },
+    {
+      "id": "P2-C-8d",
+      "partie": "Ex. 2 — Partie C",
+      "numero": "Question 8(d)",
+      "bareme": 0.5,
+      "enonce": "Donner une équation cartésienne de la tangente $T$ à $\\mathcal{C}'$ au point $G = (0, 3)$.",
+      "corrige": "Vérification : $3(0)^2 - 12(0) - 9 + 9 = 0$ ✓\n\nDérivation implicite de $3x^2 - 12x - y^2 + 9 = 0$ :\n$$6x - 12 - 2y\\,y' = 0 \\implies y' = \\frac{3x-6}{y}$$\n\nEn $G = (0,3)$ : $y' = \\dfrac{-6}{3} = -2$.\n\nTangente : $y - 3 = -2(x-0)$\n$$\\boxed{y = -2x + 3}$$"
+    },
+    {
+      "id": "P2-C-9b",
+      "partie": "Ex. 2 — Partie C",
+      "numero": "Question 9(b)",
+      "bareme": 0.5,
+      "enonce": "Quelle transformation permet d'obtenir $\\mathcal{C}$ à partir de $\\mathcal{C}'$ ?",
+      "corrige": "Puisque $z = e^{i\\pi/6}Z$, passer de $N \\in \\mathcal{C}'$ à $M \\in \\mathcal{C}$ correspond à multiplier l'affixe par $e^{i\\pi/6}$.\n\nC'est une **rotation de centre $O$ et d'angle $\\alpha = \\pi/6$**."
+    },
+    {
+      "id": "P2-D-10",
+      "partie": "Ex. 2 — Partie D",
+      "numero": "Question 10",
+      "bareme": 0.5,
+      "enonce": "Dans $\\mathbb{R}^3$, on considère $\\mathcal{C}'' : \\{3x^2 - y^2 = 3,\\ z=1\\}$ et la surface $\\mathcal{S} : -3x^2 + y^2 + 3z^2 = 0$.\n\nDémontrer que $\\mathcal{C}'' \\subset \\mathcal{S}$.",
+      "corrige": "Soit $(x,y,z) \\in \\mathcal{C}''$ : on a $3x^2 - y^2 = 3$ et $z = 1$.\n\n$$-3x^2 + y^2 + 3z^2 = -(3x^2 - y^2) + 3(1)^2 = -3 + 3 = 0$$\n\nDonc $(x,y,z) \\in \\mathcal{S}$ : $\\mathcal{C}'' \\subset \\mathcal{S}$. ✓"
+    },
+    {
+      "id": "P2-D-11a",
+      "partie": "Ex. 2 — Partie D",
+      "numero": "Question 11(a)",
+      "bareme": 0.5,
+      "enonce": "Déterminer les points réguliers de $\\mathcal{S}$.",
+      "corrige": "Soit $F(x,y,z) = -3x^2 + y^2 + 3z^2$.\n\n$$\\nabla F = (-6x,\\ 2y,\\ 6z)$$\n\n$\\nabla F = \\vec{0}$ ssi $x = y = z = 0$. Or $F(0,0,0) = 0$, donc $O \\in \\mathcal{S}$.\n\nLes **points réguliers** de $\\mathcal{S}$ sont $\\mathcal{S} \\setminus \\{O\\}$."
+    },
+    {
+      "id": "P2-D-11b",
+      "partie": "Ex. 2 — Partie D",
+      "numero": "Question 11(b)",
+      "bareme": 0.5,
+      "enonce": "Déterminer une équation du plan tangent à $\\mathcal{S}$ au point $J = (2, -3, -1)$.",
+      "corrige": "Vérification : $-3(4)+9+3(1) = -12+9+3 = 0$ ✓\n\n$\\nabla F(J) = (-12, -6, -6)$, soit direction $(2, 1, 1)$.\n\nPlan tangent en $J$ :\n$$2(x-2) + 1(y+3) + 1(z+1) = 0$$\n$$\\boxed{2x + y + z = 0}$$"
+    },
+    {
+      "id": "P2-D-12a",
+      "partie": "Ex. 2 — Partie D",
+      "numero": "Question 12(a)",
+      "bareme": 1,
+      "enonce": "Soit $\\lambda \\in \\mathbb{R}$. On note $\\mathcal{C}_\\lambda = \\mathcal{S} \\cap \\{2x+\\sqrt{2}z = \\lambda\\}$.\n\nDémontrer que $\\mathcal{C}_\\lambda$ est soit vide, soit un cercle.",
+      "corrige": "En utilisant l'identité fournie : $-3x^2+y^2+3z^2 = x^2+y^2+z^2-(2x-\\sqrt{2}z)(2x+\\sqrt{2}z)$.\n\nSur $\\mathcal{S}\\cap\\mathcal{P}_\\lambda$ : $0 = x^2+y^2+z^2 - (2x-\\sqrt{2}z)\\lambda$, soit :\n$$x^2+y^2+z^2 = \\lambda(2x-\\sqrt{2}z) \\implies \\left(x-\\lambda\\right)^2+y^2+\\left(z+\\tfrac{\\lambda}{\\sqrt{2}}\\right)^2 = \\frac{3\\lambda^2}{2}$$\n\nC'est une **sphère** $\\Sigma$ de centre $C = (\\lambda, 0, -\\lambda/\\sqrt{2})$ et de rayon $r = |\\lambda|\\sqrt{3/2}$.\n\nLe centre $C$ vérifie $2\\lambda + \\sqrt{2}\\cdot(-\\lambda/\\sqrt{2}) = 2\\lambda - \\lambda = \\lambda$, donc **$C \\in \\mathcal{P}_\\lambda$**.\n\n$\\mathcal{C}_\\lambda = \\Sigma \\cap \\mathcal{P}_\\lambda$ est l'intersection d'une sphère avec un plan passant par son centre :\n- Si $\\lambda = 0$ : $r = 0$, $\\mathcal{C}_0 = \\{O\\}$ (point, cas dégénéré).\n- Si $\\lambda \\neq 0$ : $\\mathcal{C}_\\lambda$ est un **cercle** de rayon $|\\lambda|\\sqrt{3/2}$."
+    },
+    {
+      "id": "P2-D-12b",
+      "partie": "Ex. 2 — Partie D",
+      "numero": "Question 12(b)",
+      "bareme": 0.5,
+      "enonce": "Cela permet-il de dire que $\\mathcal{S}$ est une surface de révolution ?",
+      "corrige": "**Non.** Pour une surface de révolution d'axe $\\Delta$, les sections circulaires doivent être **perpendiculaires à $\\Delta$** et leurs **centres sur $\\Delta$**.\n\nIci, les centres $C = (\\lambda, 0, -\\lambda/\\sqrt{2}) = \\lambda(1, 0, -1/\\sqrt{2})$ ne sont pas alignés selon la direction $(2, 0, \\sqrt{2})$ normale aux plans $\\mathcal{P}_\\lambda$ (les deux directions ne sont pas parallèles).\n\nDonc la famille $(\\mathcal{C}_\\lambda)$ ne suffit pas à conclure que $\\mathcal{S}$ est une surface de révolution."
+    },
+    {
+      "id": "P2-D-13",
+      "partie": "Ex. 2 — Partie D",
+      "numero": "Question 13",
+      "bareme": 1,
+      "enonce": "Soit $\\mathcal{C}''^+$ l'ensemble des points de $\\mathcal{C}''$ d'abscisse positive. Déterminer une équation cartésienne de la surface de révolution $\\Sigma$ obtenue en faisant tourner $\\mathcal{C}''^+$ autour de l'axe $(Ox)$.",
+      "corrige": "Un point $(x, y, 1) \\in \\mathcal{C}''^+$ vérifie $3x^2 - y^2 = 3$ avec $x > 0$.\n\nPar rotation autour de $(Ox)$, le point $(x, y, 1)$ engendre le cercle de rayon $\\rho = \\sqrt{y^2 + 1}$ à l'abscisse $x$.\n\nDonc un point $(x, Y, Z) \\in \\Sigma$ vérifie :\n$$Y^2 + Z^2 = y^2 + 1 \\quad\\text{avec}\\quad 3x^2 - y^2 = 3$$\n$$\\implies y^2 = 3x^2 - 3$$\n$$Y^2 + Z^2 = 3x^2 - 3 + 1 = 3x^2 - 2$$\n\n$$\\boxed{3x^2 - y^2 - z^2 = 2, \\quad x > 0}$$"
+    }
+  ]
+}
