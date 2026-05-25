@@ -114,41 +114,65 @@ function renderExam(epreuve) {
 
       <div class="fixed bottom-0 inset-x-0 z-20 bg-white border-t border-gray-200 shadow-lg">
         <div class="max-w-2xl mx-auto px-4 py-3">
-          <div id="banner-progress" class="flex items-center justify-between gap-4">
-            <div>
+          <div id="banner-progress" class="flex items-center justify-between gap-3">
+            <div class="shrink-0">
               <p class="text-xs text-gray-400 font-medium">Note brute</p>
               <p id="bottom-brut" class="text-2xl font-black text-indigo-600 leading-none tabular-nums">—</p>
             </div>
             ${hasCalib ? `
-            <div class="text-right">
-              <p class="text-xs text-gray-400 font-medium">Note concours estimée</p>
-              <p id="bottom-reelle" class="text-2xl font-black text-emerald-600 leading-none tabular-nums">—</p>
+            <div id="bottom-models" class="flex-1 hidden">
+              <p class="text-xs text-gray-400 font-medium mb-1 text-right">Estimations concours</p>
+              <div class="flex justify-end gap-3">
+                <div class="text-center">
+                  <p class="text-xs text-gray-400">Z-score</p>
+                  <p id="bm-zscore" class="text-base font-black text-emerald-600 tabular-nums leading-tight">—</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-xs text-gray-400">+Δμ</p>
+                  <p id="bm-translation" class="text-base font-black text-sky-600 tabular-nums leading-tight">—</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-xs text-gray-400">×ratio</p>
+                  <p id="bm-proportionnel" class="text-base font-black text-violet-600 tabular-nums leading-tight">—</p>
+                </div>
+              </div>
             </div>` : ''}
-            <p id="remaining-badge" class="text-xs text-gray-400 text-right"></p>
+            <p id="remaining-badge" class="text-xs text-gray-400 shrink-0"></p>
           </div>
           <div id="banner-complete" class="hidden">
-            <div class="flex items-stretch gap-3">
+            <div class="flex items-center justify-between gap-2 mb-2">
               <div class="flex-1 bg-indigo-50 border border-indigo-200 rounded-lg px-3 py-2 text-center">
                 <p class="text-xs font-semibold text-indigo-500 uppercase tracking-wide">Note brute</p>
                 <p id="final-brut" class="text-2xl font-black text-indigo-700 tabular-nums">—</p>
                 <p class="text-xs text-indigo-400">/ ${epreuve.totalPoints}</p>
               </div>
-              ${hasCalib ? `
-              <div class="flex-1 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-2 text-center">
-                <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wide">Note concours</p>
-                <p id="final-reelle" class="text-2xl font-black text-emerald-700 tabular-nums">—</p>
+              <span class="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1.5 rounded-full border border-green-200 shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+                Terminé
+              </span>
+            </div>
+            ${hasCalib ? `
+            <div class="grid grid-cols-3 gap-2">
+              <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 text-center">
+                <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wide">Z-score</p>
+                <p id="final-m-zscore" class="text-xl font-black text-emerald-700 tabular-nums">—</p>
                 <p id="final-ic" class="text-xs text-emerald-500">IC 95 % : —</p>
-              </div>` : ''}
-              <div class="flex items-center">
-                <span class="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1.5 rounded-full border border-green-200">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                  </svg>
-                  Terminé
-                </span>
+                <p class="text-xs text-gray-400 mt-0.5">Normalisation σ</p>
+              </div>
+              <div class="bg-sky-50 border border-sky-200 rounded-lg p-2 text-center">
+                <p class="text-xs font-semibold text-sky-600 uppercase tracking-wide">+Δμ</p>
+                <p id="final-m-translation" class="text-xl font-black text-sky-700 tabular-nums">—</p>
+                <p class="text-xs text-gray-400 mt-3.5">Décalage uniforme</p>
+              </div>
+              <div class="bg-violet-50 border border-violet-200 rounded-lg p-2 text-center">
+                <p class="text-xs font-semibold text-violet-600 uppercase tracking-wide">×ratio</p>
+                <p id="final-m-proportionnel" class="text-xl font-black text-violet-700 tabular-nums">—</p>
+                <p class="text-xs text-gray-400 mt-3.5">Proportionnel</p>
               </div>
             </div>
-            ${hasCalib ? `<p class="text-xs text-gray-400 mt-2 text-center">Calibré sur ${epreuve.calibration.source}</p>` : ''}
+            <p class="text-xs text-gray-400 mt-1.5 text-center">Calibré sur ${epreuve.calibration.source}</p>` : ''}
           </div>
         </div>
       </div>
@@ -160,7 +184,7 @@ function renderExam(epreuve) {
   const container = document.getElementById('questions-container');
   for (const q of epreuve.questions) container.appendChild(createQuestionCard(q, scoreManager));
 
-  scoreManager.onUpdate(({ earned, maxTotal, answered, total, noteReelle, icMin, icMax }) => {
+  scoreManager.onUpdate(({ earned, maxTotal, answered, total, models }) => {
     const pct = Math.round((answered / total) * 100);
     const complete = answered === total;
     const brutStr = answered === 0 ? '—' : fmt(earned);
@@ -175,17 +199,28 @@ function renderExam(epreuve) {
       document.getElementById('banner-progress').classList.add('hidden');
       document.getElementById('banner-complete').classList.remove('hidden');
       document.getElementById('final-brut').textContent = `${fmt(earned)} / ${maxTotal}`;
-      if (hasCalib) {
-        document.getElementById('final-reelle').textContent = `${fmt(noteReelle)} / 20`;
-        document.getElementById('final-ic').textContent = `IC 95 % : [${fmt(icMin)} ; ${fmt(icMax)}]`;
+      if (hasCalib && models) {
+        const [zscore, translation, proportionnel] = models;
+        document.getElementById('final-m-zscore').textContent = `${fmt(zscore.note)} / 20`;
+        document.getElementById('final-ic').textContent = `IC 95 % : [${fmt(zscore.icMin)} ; ${fmt(zscore.icMax)}]`;
+        document.getElementById('final-m-translation').textContent = `${fmt(translation.note)} / 20`;
+        document.getElementById('final-m-proportionnel').textContent = `${fmt(proportionnel.note)} / 20`;
       }
     } else {
       document.getElementById('banner-progress').classList.remove('hidden');
       document.getElementById('banner-complete').classList.add('hidden');
       document.getElementById('bottom-brut').textContent = brutStr;
       if (hasCalib) {
-        document.getElementById('bottom-reelle').textContent =
-          answered === 0 ? '—' : `${fmt(noteReelle)} / 20`;
+        const bottomModels = document.getElementById('bottom-models');
+        if (models && answered > 0) {
+          bottomModels.classList.remove('hidden');
+          const [zscore, translation, proportionnel] = models;
+          document.getElementById('bm-zscore').textContent = fmt(zscore.note);
+          document.getElementById('bm-translation').textContent = fmt(translation.note);
+          document.getElementById('bm-proportionnel').textContent = fmt(proportionnel.note);
+        } else {
+          bottomModels.classList.add('hidden');
+        }
       }
       const remaining = total - answered;
       document.getElementById('remaining-badge').textContent =
