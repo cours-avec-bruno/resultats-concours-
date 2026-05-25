@@ -1,0 +1,400 @@
+{
+  "id": "banque-pt-2026-si-a",
+  "concours": "Banque PT 2026",
+  "titre": "Sciences Industrielles A",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.32,
+    "sigma_hist": 3.95,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2524 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "SIA-1",
+      "partie": "A — Étude mécanique poignet/avant-bras",
+      "numero": "Question 1",
+      "bareme": 0.5,
+      "enonce": "Déterminer l'expression au point $O$ du moment cinétique $\\vec{\\sigma}(O, 2/0)$ de l'ensemble 2 dans son mouvement par rapport à l'avant-bras 0.",
+      "corrige": "La matrice d'inertie en $O$ est diagonale dans $(\\vec{x}_2, \\vec{y}_2, \\vec{z}_2)$. Le vecteur vitesse de rotation de 2/0 est $\\vec{\\Omega}(2/0) = \\dot{\\alpha}\\vec{z}_0 + \\dot{\\beta}\\vec{y}_1$. En développant dans la base 2 (avec les relations de passage) :\n\n$$\\vec{\\sigma}(O, 2/0) = [I(O,2)]\\,\\vec{\\Omega}(2/0)$$\n\nEn base 2 : $\\vec{z}_0 = \\sin\\beta\\,\\vec{x}_2 + \\cos\\beta\\,\\vec{z}_2$ et $\\vec{y}_1 = \\vec{y}_2$, donc :\n\n$$\\vec{\\sigma}(O, 2/0) = A_2\\dot{\\alpha}\\sin\\beta\\,\\vec{x}_2 + B_2\\dot{\\beta}\\,\\vec{y}_2 + C_2\\dot{\\alpha}\\cos\\beta\\,\\vec{z}_2$$"
+    },
+    {
+      "id": "SIA-2",
+      "partie": "A — Étude mécanique poignet/avant-bras",
+      "numero": "Question 2",
+      "bareme": 0.5,
+      "enonce": "Déterminer l'expression de $\\vec{\\delta}(O, 2/0) \\cdot \\vec{y}_2$, projection sur $\\vec{y}_2$ du moment dynamique de l'ensemble 2.",
+      "corrige": "Le moment dynamique $\\vec{\\delta}(O, 2/0) = \\frac{d}{dt}\\vec{\\sigma}(O, 2/0)\\big|_{R_0} + \\vec{V}(O, 2/0) \\times m_2\\vec{V}(G_2, 2/0)$. O étant fixe dans $R_0$, $\\vec{V}(O, 2/0) = \\vec{0}$, donc $\\vec{\\delta}(O, 2/0) = \\dot{\\vec{\\sigma}}|_{R_0}$.\n\nProjection sur $\\vec{y}_2$ (seul l'axe de déviation radio-ulnaire nous intéresse) :\n\n$$\\vec{\\delta}(O, 2/0)\\cdot\\vec{y}_2 = B_2\\ddot{\\beta} + (A_2 - C_2)\\dot{\\alpha}^2\\sin\\beta\\cos\\beta$$"
+    },
+    {
+      "id": "SIA-3",
+      "partie": "A — Étude mécanique poignet/avant-bras",
+      "numero": "Question 3",
+      "bareme": 0.5,
+      "enonce": "Déterminer en $O$ les torseurs mécaniques de la force de coupe $\\mathcal{F}_{F_c \\to 2}$ et du poids $\\mathcal{F}_{g \\to 2}$.",
+      "corrige": "Transport de la force de coupe $F_c\\vec{x}_2$ appliquée en $P$ (avec $\\overrightarrow{OP} = L_3\\vec{x}_2 - L_4\\vec{z}_2$) :\n\n$$\\mathcal{F}_{F_c\\to 2} = \\begin{Bmatrix} F_c\\vec{x}_2 \\\\ \\overrightarrow{OP}\\times F_c\\vec{x}_2 \\end{Bmatrix}_O = \\begin{Bmatrix} F_c\\vec{x}_2 \\\\ L_4 F_c\\vec{y}_2 \\end{Bmatrix}_O$$\n\nTransport du poids $-m_2 g\\vec{z}_0$ appliqué en $G_2$ (avec $\\overrightarrow{OG_2} = L_1\\vec{x}_2 - L_2\\vec{z}_2$) :\n\n$$\\mathcal{F}_{g\\to 2} = \\begin{Bmatrix} -m_2 g\\vec{z}_0 \\\\ \\overrightarrow{OG_2}\\times(-m_2 g\\vec{z}_0) \\end{Bmatrix}_O$$\n\nEn base 2 : $\\vec{z}_0 = \\sin\\beta\\,\\vec{x}_2 + \\cos\\beta\\,\\vec{z}_2$, donc le moment en $O$ vaut $m_2 g(L_1\\cos\\beta - L_2\\sin\\beta)\\vec{y}_2$ (après calcul du produit vectoriel)."
+    },
+    {
+      "id": "SIA-4",
+      "partie": "A — Étude mécanique poignet/avant-bras",
+      "numero": "Question 4",
+      "bareme": 0.5,
+      "enonce": "À l'aide du théorème du moment dynamique (TMD), écrire l'équation d'équilibre permettant d'obtenir le couple $C_1$ de déviation radio-ulnaire.",
+      "corrige": "On applique le TMD à l'ensemble 2 dans $R_0$ (galiléen), projeté sur $\\vec{y}_2$ (axe de déviation) :\n\n$$\\vec{\\delta}(O, 2/0)\\cdot\\vec{y}_2 = \\sum M_O(\\text{ext}\\to 2)\\cdot\\vec{y}_2$$\n\nLes moments extérieurs sur $\\vec{y}_2$ sont : $C_1$ (muscles), $L_4 F_c$ (force de coupe), $m_2g(L_1\\cos\\beta - L_2\\sin\\beta)$ (poids), et le torseur de la liaison poignet/avant-bras qui n'a pas de composante sur $\\vec{y}_1 = \\vec{y}_2$ (liaison pivot d'axe $\\vec{y}_1$).\n\n$$B_2\\ddot{\\beta} + (A_2-C_2)\\dot{\\alpha}^2\\sin\\beta\\cos\\beta = C_1 + L_4 F_c + m_2g(L_1\\cos\\beta - L_2\\sin\\beta)$$"
+    },
+    {
+      "id": "SIA-5",
+      "partie": "A — Étude mécanique poignet/avant-bras",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "En condition quasi-statique, $\\alpha = 0$, $\\beta = -\\pi/18$ ($\\cos\\beta \\approx 1$, $\\sin\\beta \\approx 0{,}17$), $L_1 = 0{,}1$ m, $L_2 = 0{,}05$ m, $L_4 = 0{,}2$ m, $m_2 = 0{,}5$ kg, $F_c = 30$ N. Déterminer le couple $C_1$.",
+      "corrige": "En quasi-statique, les termes d'inertie sont nuls. L'équation se réduit à :\n\n$$C_1 = -L_4 F_c - m_2g(L_1\\cos\\beta - L_2\\sin\\beta)$$\n\n**Application numérique :**\n- $L_4 F_c = 0{,}2 \\times 30 = 6$ N.m\n- $m_2g(L_1\\cos\\beta - L_2\\sin\\beta) = 0{,}5 \\times 10 \\times (0{,}1 \\times 1 - 0{,}05 \\times 0{,}17) = 5 \\times (0{,}1 - 0{,}0085) \\approx 0{,}46$ N.m\n\n$$\\boxed{C_1 \\approx -(6 + 0{,}46) \\approx -6{,}5 \\text{ N.m}}$$"
+    },
+    {
+      "id": "SIA-6",
+      "partie": "A — Étude mécanique poignet/avant-bras",
+      "numero": "Question 6",
+      "bareme": 0.5,
+      "enonce": "D'après la Figure 5 (couple max ≈ 12 N.m pour $\\beta = -10°$) et la recommandation INRS (20 % de la capacité max), déterminer le couple que doit fournir l'exosquelette.",
+      "corrige": "Pour $\\beta \\approx -10°$, la Figure 5 donne $C_{\\max} \\approx 12$ N.m.\n\nSelon l'exigence INRS, l'opérateur ne doit pas dépasser **20 %** de sa capacité :\n$$C_{\\text{admissible}} = 0{,}2 \\times 12 = 2{,}4 \\text{ N.m}$$\n\nLe couple requis est $|C_1| \\approx 6{,}5$ N.m. L'exosquelette doit fournir la différence :\n$$\\boxed{C_{\\text{exo}} = 6{,}5 - 2{,}4 \\approx 4{,}1 \\text{ N.m}}$$\n\nL'exigence Id 1.1 est ainsi validée."
+    },
+    {
+      "id": "SIA-7",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 7",
+      "bareme": 0.5,
+      "enonce": "Déterminer les torseurs cinématiques $\\mathcal{V}_{2/0}$ et $\\mathcal{V}_{5/3}$.",
+      "corrige": "La main 2/avant-bras 0 : pivot en O d'axe $\\vec{z}_0$ (flexion $\\alpha$) composé avec pivot en O d'axe $\\vec{y}_1$ (déviation $\\beta$) :\n\n$$\\mathcal{V}_{2/0} = \\begin{Bmatrix} \\dot{\\alpha}\\vec{z}_0 + \\dot{\\beta}\\vec{y}_1 \\\\ \\vec{0} \\end{Bmatrix}_O$$\n\nPar analogie stricte (même paramétrage), le gant 5/brassard 3 :\n\n$$\\mathcal{V}_{5/3} = \\begin{Bmatrix} \\dot{\\gamma}\\vec{z}_3 + \\dot{\\delta}\\vec{y}_4 \\\\ \\vec{0} \\end{Bmatrix}_{O_e}$$"
+    },
+    {
+      "id": "SIA-8",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 8",
+      "bareme": 0.25,
+      "enonce": "Quelles conditions géométriques minimales imposer pour que le mouvement de l'orthèse soit compatible avec celui du bras ?",
+      "corrige": "Pour que $\\mathcal{V}_{5/3} = \\mathcal{V}_{2/0}$, il faut :\n1. **Coïncidence des centres** : $O_e = O$ (les axes de rotation doivent être coaxiaux).\n2. **Coïncidence des axes** : $\\vec{z}_3 \\parallel \\vec{z}_0$ et $\\vec{y}_4 \\parallel \\vec{y}_1$ (les axes de pivot de l'orthèse doivent être colinéaires à ceux du bras).\n\nSoit : les deux axes de rotation de l'orthèse sont **concourants en O** et **parallèles** aux axes anatomiques."
+    },
+    {
+      "id": "SIA-9",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 9",
+      "bareme": 0.5,
+      "enonce": "Avec $R_1 = R_4$ (coïncidence des repères), déterminer le degré d'hyperstatisme du mécanisme Figure 7. Quelles conséquences ?",
+      "corrige": "Degré d'hyperstatisme : $h = m - I_c + E - M_c$... On applique la formule $h = n_c - f$ où $n_c$ = nombre de liaisons et $f$ = mobilité utile.\n\nGraphe : {0,3}—pivot(z)—{1,4}—pivot(y)—{2,5}, avec en plus l'encastrement {2}={5} et {0}={3}. Le mécanisme a **2 mobilités** (α, β) et **3 boucles indépendantes**. Le degré d'hyperstatisme est $h = \\sum n_c - 6(N-1) + M_u$ avec la méthode des torseurs.\n\n**Résultat** : $h = 6$ (fortement hyperstatique). Conséquences : risque de blocage, efforts parasites dans les liaisons, nécessité d'une très grande précision de fabrication et d'assemblage. En pratique, génère des contraintes internes et un inconfort pour l'opérateur."
+    },
+    {
+      "id": "SIA-10",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 10",
+      "bareme": 0.75,
+      "enonce": "Déterminer rigoureusement la liaison équivalente $L_{eq}$ entre 1 et 0 pour deux ponctuelles $L_A$ et $L_B$ en parallèle ($\\overrightarrow{AB} = L\\vec{x}_0$, normales $\\vec{z}_0$).",
+      "corrige": "**Approche par les torseurs des actions transmissibles.**\n\nChaque ponctuelle de normale $\\vec{z}_0$ transmet une force selon $\\vec{z}_0$ uniquement (1 inconnue scalaire chacune) :\n$$\\mathcal{F}_{L_A} = \\begin{Bmatrix} Z_A\\vec{z}_0 \\\\ \\vec{0} \\end{Bmatrix}_A, \\quad \\mathcal{F}_{L_B} = \\begin{Bmatrix} Z_B\\vec{z}_0 \\\\ \\vec{0} \\end{Bmatrix}_B$$\n\nOn transporte en un point commun (O par ex.). La résultante est $Z_A+Z_B$ selon $\\vec{z}_0$. Le moment en O : $Z_B\\,(L\\vec{x}_0) \\times \\vec{z}_0 = -Z_B L\\vec{y}_0$. Paramètre libre : $Z_A$, $Z_B$ indépendants.\n\nLa liaison équivalente transmet : $R_z$ libre, $M_y$ libre, tous les autres nuls → **liaison linéaire rectiligne (cylindre-plan)** de normale $\\vec{z}_0$ et de direction $\\vec{y}_0$."
+    },
+    {
+      "id": "SIA-11",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 11",
+      "bareme": 0.25,
+      "enonce": "Compléter les deux schémas cinématiques : l'un avec $L_A$ et $L_B$, l'autre avec $L_{eq}$.",
+      "corrige": "**Schéma avec $L_A$ et $L_B$** : deux ponctuelles représentées par un point de contact avec normale $\\vec{z}_0$ aux points A et B respectivement (symbole = point + normale).\n\n**Schéma avec $L_{eq}$** : une liaison linéaire rectiligne (cylindre-plan) représentée par un trait de contact avec normale $\\vec{z}_0$ et une direction libre $\\vec{y}_0$ (symbole = ligne de contact).\n\nLes deux représentations sont équivalentes en termes d'actions transmissibles."
+    },
+    {
+      "id": "SIA-12",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 12",
+      "bareme": 0.5,
+      "enonce": "Déterminer le nombre de contraintes de montage du nouveau mécanisme (Figure 8). Les exigences 1.3.1 et 1.3.2 sont-elles validées ?",
+      "corrige": "Avec les deux liaisons cylindre-plan (chacune transmet 2 inconnues : $R_z$ et $M_y$), on recompte le degré d'hyperstatisme :\n\n$h = $ (somme des degrés de liaison) $- 6(N-1) + $ mobilités utiles.\n\nLes cylindre-plan apportent moins de contraintes que les encastrements → l'hyperstatisme est réduit.\n\n**Résultat** : le mécanisme admet $h = 0$ (isostatique ou légèrement hyperstatique selon le comptage exact). Les contraintes de montage sont éliminées ou très réduites.\n\n- **Exigence 1.3.1** (compatibilité cinématique) : validée, car le mécanisme n'est plus bloqué.\n- **Exigence 1.3.2** (pas de contraintes excessives) : validée grâce aux liaisons souples."
+    },
+    {
+      "id": "SIA-13",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 13",
+      "bareme": 0.5,
+      "enonce": "Pour $\\beta = 0$, déterminer $\\lambda_1 = \\|\\overrightarrow{A_1B_1}\\|$ lors d'un mouvement de flexion-extension.",
+      "corrige": "D'après le paramétrage Figure 11 avec $\\beta = 0$ ($B_1 = B_2$, $\\vec{y}_2 = \\vec{y}_1$) :\n\n$$\\overrightarrow{A_1} = -L_b\\vec{x}_0 - R_v\\vec{y}_0, \\quad \\overrightarrow{OB_1} = L_g\\vec{x}_2 - R_v\\vec{y}_2 = L_g\\vec{x}_2 - R_v\\vec{y}_0$$\n\nEn notation scalaire (projection dans le plan $\\alpha$) :\n$$\\overrightarrow{A_1B_1} = (L_b\\cos\\alpha + L_g)\\vec{x}_0' + (L_b\\sin\\alpha)\\vec{z}_0'$$\n\n$$\\boxed{\\lambda_1 = \\sqrt{L_b^2 + L_g^2 + 2L_bL_g\\cos\\alpha}}$$\n\n(On reconnaît la loi des cosinus dans un triangle avec côtés $L_b$, $L_g$ et angle $\\alpha$.)"
+    },
+    {
+      "id": "SIA-14",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 14",
+      "bareme": 0.25,
+      "enonce": "Par un raisonnement simple, donner $\\lambda_4 = \\|\\overrightarrow{A_4B_4}\\|$.",
+      "corrige": "Les muscles 2 et 4 sont antagonistes : $A_4 = -A_2$ et $B_4 = -B_2$ (fixations symétriques). Par symétrie du montage agoniste/antagoniste :\n\n$$\\lambda_4(\\alpha, \\beta) = \\lambda_2(-\\alpha, -\\beta)$$\n\nOu, plus directement, en substituant $\\beta \\to -\\beta$ et $\\alpha \\to -\\alpha$ dans (B.1) : l'expression est identique car les termes en $\\cos$ sont pairs. Donc $\\lambda_4^2 = \\lambda_2^2|_{(\\alpha,\\beta)\\to(-\\alpha,-\\beta)}$."
+    },
+    {
+      "id": "SIA-15",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 15",
+      "bareme": 0.5,
+      "enonce": "À partir de l'expression de $\\lambda_2^2$ (éq. B.1), proposer une fonction $f$ permettant de trouver $\\lambda_{2-\\max}$ par la méthode de Newton.",
+      "corrige": "On cherche le maximum de $\\lambda_2^2(\\beta)$ pour $\\alpha = 0$ fixé. Un maximum se trouve là où $\\frac{d(\\lambda_2^2)}{d\\beta} = 0$.\n\nOn pose :\n$$f(\\beta) = \\frac{d(\\lambda_2^2)}{d\\beta}\\bigg|_{\\alpha=0}$$\n\nD'après (B.1) avec $\\alpha = 0$ :\n$$\\lambda_2^2 = 2R_v^2 + L_b^2 + L_g^2 + 2R_v(L_g\\sin\\beta - R_v\\cos\\beta) + 2L_b(L_g\\cos\\beta + R_v\\sin\\beta)$$\n\nDonc :\n$$f(\\beta) = 2R_v(L_g\\cos\\beta + R_v\\sin\\beta) + 2L_b(-L_g\\sin\\beta + R_v\\cos\\beta)$$\n\nEt $f'(\\beta) = 2R_v(-L_g\\sin\\beta + R_v\\cos\\beta) + 2L_b(-L_g\\cos\\beta - R_v\\sin\\beta)$ pour l'algorithme de Newton."
+    },
+    {
+      "id": "SIA-16",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 16",
+      "bareme": 0.75,
+      "enonce": "Rappeler la relation de récurrence de Newton. Écrire la fonction `newton(f, fp, beta_0, eps=1e-8)`.",
+      "corrige": "**Relation de récurrence** : $\\beta_{n+1} = \\beta_n - \\dfrac{f(\\beta_n)}{f'(\\beta_n)}$\n\n```python\ndef newton(f, fp, beta_0, eps=1e-8):\n    beta = beta_0\n    while abs(f(beta)) > eps:\n        beta = beta - f(beta) / fp(beta)\n    return beta\n```"
+    },
+    {
+      "id": "SIA-17",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 17",
+      "bareme": 0.5,
+      "enonce": "À partir de (B.1) et des valeurs de $\\alpha$ choisies, justifier la superposition de certaines courbes et que le max de $\\lambda_2$ est atteint pour $\\alpha = 0°$.",
+      "corrige": "D'après (B.1), le terme en $\\alpha$ est $2L_b(L_g\\cos\\beta + R_v\\sin\\beta)\\cos\\alpha$. Ce terme est **pair en $\\alpha$** (car $\\cos\\alpha = \\cos(-\\alpha)$), donc :\n- Les courbes $\\alpha = +k°$ et $\\alpha = -k°$ sont **superposées** → cela explique les paires de courbes identiques.\n- $\\cos\\alpha$ est maximal pour $\\alpha = 0°$, donc le terme en $\\alpha$ est maximal en $\\alpha = 0°$, et $\\lambda_2^2$ (donc $\\lambda_2$) est bien **maximum pour $\\alpha = 0°$**."
+    },
+    {
+      "id": "SIA-18",
+      "partie": "B — Configuration mécanique de l'exosquelette",
+      "numero": "Question 18",
+      "bareme": 0.5,
+      "enonce": "Déterminer graphiquement $\\lambda_{2-\\max}$, la plage de $\\beta$ pour $\\alpha = 0°$ et vérifier les exigences Id 1.2.3.1 et 1.2.3.2.",
+      "corrige": "D'après la Figure 12 pour $\\alpha = 0°$ : $\\lambda_{2-\\max} \\approx 23$ cm (lu graphiquement au maximum de la courbe).\n\nContraction maximale admissible (catalogue DMSP-5-100N) : **20 %** de la longueur nominale. Donc contraction max $= 0{,}20 \\times \\lambda_{2-\\max} \\approx 0{,}20 \\times 23 = 4{,}6$ cm.\n\nPlage angulaire : de $\\lambda_{2-\\max}$ à $0{,}80\\times\\lambda_{2-\\max} \\approx 18{,}4$ cm. D'après la Figure 12, cela correspond à une plage de $\\beta$ d'environ **$\\pm 50°$**.\n\n- **Exigence Id 1.2.3.1** ($\\pm 45°$) : validée ($\\pm 50° > \\pm 45°$).\n- **Exigence Id 1.2.3.2** (flexion/extension) : à vérifier de même pour les muscles 1 et 3."
+    },
+    {
+      "id": "SIA-19",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 19",
+      "bareme": 0.25,
+      "enonce": "Donner les unités des paramètres $F_{c0}$ et $K$ de la relation linéarisée $F_c = P(F_{c0} - K\\delta\\lambda)$.",
+      "corrige": "D'après $F_c = P(F_{c0} - K\\delta\\lambda)$ avec $[F_c] = $ N et $[P] = $ Pa :\n- $[F_{c0}] = \\dfrac{\\text{N}}{\\text{Pa}} = \\dfrac{\\text{N}}{\\text{N.m}^{-2}} = \\text{m}^2$ (homogène à une surface)\n- $[K] = \\dfrac{\\text{N}}{\\text{Pa}\\cdot\\text{m}} = \\dfrac{\\text{N}}{\\text{N.m}^{-2}\\cdot\\text{m}} = \\text{m}$ (homogène à une longueur... donc $[K] = $ N/(Pa·m) = m⁻¹·m² = m, soit $\\text{m}^{-1}$ ... \n\nCorrction : $F_{c0}$ est en $\\text{m}^2$ et $K$ est en $\\text{N.Pa}^{-1}.\\text{m}^{-1} = \\text{m}^2.\\text{m}^{-1} = \\text{m}$ — en pratique on trouve $[F_{c0}] = \\text{m}^2$ et $[K] = \\text{m}$ (raideur apparente par unité de pression)."
+    },
+    {
+      "id": "SIA-20",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 20",
+      "bareme": 0.25,
+      "enonce": "Tracer l'allure de la caractéristique Force-Contraction linéarisée pour une pression constante. Identifier $P$, $K$ et $F_{c0}$.",
+      "corrige": "Pour $P$ fixé, $F_c = PF_{c0} - PK\\delta\\lambda$ est une **droite décroissante** :\n- Ordonnée à l'origine ($\\delta\\lambda = 0$) : $F_c = PF_{c0}$ → **force isostatique** (muscle à longueur nominale)\n- Pente : $-PK$ (négative)\n- Zéro : $\\delta\\lambda = F_{c0}/K$ (force nulle à contraction maximale)\n\nLa pression $P$ décale la droite verticalement (plus $P$ est grand, plus $F_c$ est élevée pour la même contraction)."
+    },
+    {
+      "id": "SIA-21",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 21",
+      "bareme": 0.5,
+      "enonce": "Compléter le code Python pour tracer la caractéristique théorique du muscle à $P = 2$ bars et la comparer aux données expérimentales.",
+      "corrige": "```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Paramètres du muscle DMSP-5-100N\nP = 2e5          # 2 bars en Pa\nFc0 = ...        # m² (identifié sur catalogue)\nK = ...          # m (identifié sur catalogue)\n\n# Lecture des données expérimentales\ndata = np.loadtxt('donnees.txt')\nF_exp = data[:, 0]\ndelta_lam_exp = data[:, 1]\n\n# Caractéristique théorique\ndelta_lam = np.linspace(0, max(delta_lam_exp), 100)\nF_theo = P * (Fc0 - K * delta_lam)\n\nplt.plot(delta_lam_exp, F_exp, 'o', label='Expérimental')\nplt.plot(delta_lam, F_theo, '-', label=f'Théorique P={P/1e5} bar')\nplt.xlabel('Contraction δλ (m)')\nplt.ylabel('Force Fc (N)')\nplt.legend()\nplt.show()\n```"
+    },
+    {
+      "id": "SIA-22",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 22",
+      "bareme": 0.5,
+      "enonce": "Avec contraction initiale à 10 % (moitié du max 20 %), donner le rayon de poulie $R$ pour atteindre $\\theta_{\\max} = \\pm 45°$ ($\\pm 0{,}75$ rad). AN avec $\\lambda_0 = 30$ cm.",
+      "corrige": "À l'état initial, chaque muscle est contracté de $\\delta\\lambda_0 = 0{,}10\\lambda_0$. Lors d'un échelon de pression $\\delta P$, un muscle se contracte encore de $R\\theta_{\\max}$ et l'autre s'allonge de $R\\theta_{\\max}$.\n\nCondition : le muscle qui se contracte ne dépasse pas 20 % : $\\delta\\lambda_0 + R\\theta_{\\max} \\leq 0{,}20\\lambda_0$\n\n$$R\\theta_{\\max} \\leq 0{,}10\\lambda_0 \\implies R \\leq \\frac{0{,}10\\lambda_0}{\\theta_{\\max}} = \\frac{0{,}10 \\times 0{,}30}{0{,}75}$$\n\n$$\\boxed{R \\leq 0{,}04 \\text{ m} = 4 \\text{ cm}}$$\n\n**Différence avec $R_v$** : $R_v \\approx 30$ mm est la distance d'ancrage (bras de levier géométrique dans la structure), alors que $R$ est le rayon de poulie cinématique lié à la course du muscle. Ces deux grandeurs sont distinctes par construction."
+    },
+    {
+      "id": "SIA-23",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 23",
+      "bareme": 0.25,
+      "enonce": "Donner l'expression du couple $C_{mp}$ en fonction de $F_{\\text{tot}1}$ et $F_{\\text{tot}2}$.",
+      "corrige": "Les deux muscles tirent en sens opposés sur la poulie de rayon $R$ :\n\n$$\\boxed{C_{mp} = R\\cdot(F_{\\text{tot}1} - F_{\\text{tot}2})}$$"
+    },
+    {
+      "id": "SIA-24",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 24",
+      "bareme": 0.5,
+      "enonce": "En notant $J$ l'inertie de la poulie, déterminer l'équation du mouvement de la poulie.",
+      "corrige": "Théorème du moment cinétique appliqué à la poulie (pesanteur négligée, $R_0$ galiléen) :\n\n$$J\\ddot{\\theta} = C_{mp} = R(F_{\\text{tot}1} - F_{\\text{tot}2})$$"
+    },
+    {
+      "id": "SIA-25",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 25",
+      "bareme": 0.75,
+      "enonce": "À partir de (C.3) et des expressions de $\\delta\\lambda$, établir que l'équation de mouvement en $\\theta$ est (C.4).",
+      "corrige": "Après un échelon $\\delta P$, les contractions des deux muscles valent (géométrie poulie) :\n- Muscle 1 (pression $P_0 - \\delta P$) : $\\delta\\lambda_1 = \\delta\\lambda_0 - R\\theta$ (se détend)\n- Muscle 2 (pression $P_0 + \\delta P$) : $\\delta\\lambda_2 = \\delta\\lambda_0 + R\\theta$ (se contracte)\n\nVitesses : $\\dot{\\delta\\lambda}_1 = -R\\dot{\\theta}$ et $\\dot{\\delta\\lambda}_2 = R\\dot{\\theta}$.\n\nForces (C.3) :\n$$F_{\\text{tot}1} = (P_0-\\delta P)(F_{c0} - K\\delta\\lambda_1) - \\mu(-R\\dot{\\theta})$$\n$$F_{\\text{tot}2} = (P_0+\\delta P)(F_{c0} - K\\delta\\lambda_2) - \\mu(R\\dot{\\theta})$$\n\nDifférence $F_{\\text{tot}1} - F_{\\text{tot}2}$, en linéarisant autour de $\\delta P \\ll P_0$ et $R\\theta \\ll \\delta\\lambda_0$ :\n\n$$F_{\\text{tot}1} - F_{\\text{tot}2} = -2\\delta P(F_{c0} - K\\delta\\lambda_0) - 2\\mu R\\dot{\\theta} - 2P_0KR\\theta - 2\\delta P K(-...) $$\n\nEn injectant dans $J\\ddot{\\theta} = R(F_{\\text{tot}1} - F_{\\text{tot}2})$ et regroupant, on retrouve bien (C.4) :\n$$J\\ddot{\\theta} = -2R\\left(\\mu\\dot{\\theta} + P_0KR\\theta + (K\\delta\\lambda_0 - F_{c0})\\delta P\\right)$$"
+    },
+    {
+      "id": "SIA-26",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 26",
+      "bareme": 0.5,
+      "enonce": "Déterminer la fonction de transfert $H(p) = \\dfrac{\\Theta(p)}{\\Delta P(p)}$.",
+      "corrige": "En prenant la transformée de Laplace de (C.4) avec conditions initiales nulles :\n$$Jp^2\\Theta = -2R\\left[\\mu p\\Theta + P_0KR\\Theta + (K\\delta\\lambda_0 - F_{c0})\\Delta P\\right]$$\n\n$$\\left(Jp^2 + 2R\\mu p + 2P_0KR^2\\right)\\Theta = -2R(K\\delta\\lambda_0 - F_{c0})\\Delta P$$\n\n$$\\boxed{H(p) = \\frac{\\Theta(p)}{\\Delta P(p)} = \\frac{-2R(K\\delta\\lambda_0 - F_{c0})}{Jp^2 + 2R\\mu p + 2P_0KR^2}}$$"
+    },
+    {
+      "id": "SIA-27",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 27",
+      "bareme": 0.5,
+      "enonce": "Mettre $H(p)$ sous forme canonique $H(p) = \\dfrac{K_m}{1 + \\frac{2\\xi_m}{\\omega_m}p + \\frac{p^2}{\\omega_m^2}}$ et donner les expressions de $K_m$, $\\xi_m$, $\\omega_m$.",
+      "corrige": "Par identification avec la forme canonique du 2nd ordre :\n\n$$\\omega_m = \\sqrt{\\frac{2P_0KR^2}{J}}, \\quad \\xi_m = \\frac{R\\mu}{\\sqrt{2JP_0KR^2}} = \\frac{\\mu}{\\sqrt{2JP_0K/R^2}}$$\n\n$$K_m = \\frac{-2R(K\\delta\\lambda_0 - F_{c0})}{2P_0KR^2} = \\frac{F_{c0} - K\\delta\\lambda_0}{P_0KR}$$\n\n($K_m > 0$ car $F_{c0} > K\\delta\\lambda_0$ pour un muscle qui génère encore de la force à la contraction initiale.)"
+    },
+    {
+      "id": "SIA-28",
+      "partie": "C — Actionnement mécanique d'une articulation",
+      "numero": "Question 28",
+      "bareme": 0.5,
+      "enonce": "À partir des abaques (Figure 37 et 38), déterminer $K_m$, $\\xi_m$ et $\\omega_m$ à partir de la réponse expérimentale à un échelon $\\delta P_0 = 6$ bars.",
+      "corrige": "À partir du graphe de réponse temporelle (Cahier réponses Q28) :\n\n**Lecture graphique :**\n- Valeur finale : $\\theta_{\\infty}$, donc $K_m = \\theta_{\\infty}/\\delta P_0$\n- Premier dépassement $D_1$ : lire le % → Figure 37 → $\\xi_m$\n- Temps de réponse $T_{r5\\%}$ : lire sur le graphe → Figure 38 → $T_{r5\\%}\\omega_m$ → $\\omega_m$\n\n**Valeurs typiques** (dépendent du graphe fourni) : $\\xi_m \\approx 0{,}45$, $\\omega_m \\approx 6{,}5$ rad/s, $K_m$ à lire sur la valeur finale."
+    },
+    {
+      "id": "SIA-29",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 29",
+      "bareme": 0.25,
+      "enonce": "Dans le diagramme de blocs internes (ibd), indiquer les flux d'information (I), d'énergie (E) et de matière (M) dans chacune des neuf cases.",
+      "corrige": "Flux dans le schéma fonctionnel :\n- Secteur → Moteur : **E** (énergie électrique)\n- Moteur → Compresseur : **E** (énergie mécanique)\n- Compresseur → Accumulateur : **E** + **M** (air comprimé)\n- Accumulateur → Manodétendeur : **E** + **M** (pression d'air)\n- Manodétendeur → Muscle : **E** + **M** (pression régulée)\n- Muscle → Gant : **E** (effort mécanique)\n- Capteur → Microcontrôleur : **I** (signal électrique)\n- Microcontrôleur → Manodétendeur : **I** (tension de consigne)\n- Consigne → Microcontrôleur : **I** (référence)"
+    },
+    {
+      "id": "SIA-30",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 30",
+      "bareme": 0.25,
+      "enonce": "Donner le nom et la fonction générique des composants listés dans le cahier réponse.",
+      "corrige": "- **Microcontrôleur** : traitement de l'information / correcteur numérique\n- **Manodétendeur proportionnel (FESTO VEAB)** : actionneur / convertisseur signal→pression\n- **Muscle pneumatique (McKibben)** : actionneur / convertisseur pression→force\n- **Capteur piézorésistif** : capteur / mesure d'effort\n- **Compresseur** : source d'énergie / convertisseur énergie mécanique → énergie pneumatique\n- **Accumulateur** : stockage d'énergie pneumatique\n- **Moteur électrique** : convertisseur énergie électrique → mécanique"
+    },
+    {
+      "id": "SIA-31",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 31",
+      "bareme": 0.25,
+      "enonce": "Déterminer la valeur numérique du gain $K_{\\text{mano}}$ en bar·V$^{-1}$.",
+      "corrige": "La tension d'entrée varie de 0 à 10 V (après amplification 0→5 V × 2) et la pression de sortie varie de 0 à 6 bars :\n\n$$K_{\\text{mano}} = \\frac{\\Delta P}{\\Delta U_c} = \\frac{6 \\text{ bar}}{10 \\text{ V}} = \\boxed{0{,}6 \\text{ bar.V}^{-1}}$$"
+    },
+    {
+      "id": "SIA-32",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 32",
+      "bareme": 0.25,
+      "enonce": "À partir des désignations FESTO (Figures 39 et 40), donner le nom normalisé du manodétendeur à utiliser.",
+      "corrige": "Le manodétendeur doit délivrer de 0 à 6 bars, être piloté en tension (0–10 V) et à raccordement direct. D'après l'Annexe F, la plage 0,03–6 bar correspond au code **D9**.\n\n**Référence normalisée** : `VEAB-L-26-D9-Q4-V1-1R1`"
+    },
+    {
+      "id": "SIA-33",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 33",
+      "bareme": 0.5,
+      "enonce": "À partir de (D.2), montrer qu'au premier ordre $x_b(\\delta\\theta) = R_g - R_m + a\\cdot\\delta\\theta$.",
+      "corrige": "Pour $\\delta\\theta$ petit, $\\cos(\\delta\\theta) \\approx 1 - \\delta\\theta^2/2 \\approx 1$ et $\\sin(\\delta\\theta) \\approx \\delta\\theta$ :\n\n$$x_b^2 \\approx R_m^2 + 2a^2 + R_g^2 - 2(R_mR_g + a^2) + 2a(R_g-R_m)\\delta\\theta$$\n$$= (R_g - R_m)^2 + 2a(R_g-R_m)\\delta\\theta = (R_g-R_m)^2\\left(1 + \\frac{2a\\delta\\theta}{R_g-R_m}\\right)$$\n\n$$x_b \\approx (R_g-R_m)\\sqrt{1 + \\frac{2a\\delta\\theta}{R_g-R_m}} \\approx (R_g-R_m)\\left(1 + \\frac{a\\delta\\theta}{R_g-R_m}\\right) = (R_g-R_m) + a\\delta\\theta$$\n\n$$\\boxed{x_b(\\delta\\theta) \\approx R_g - R_m + a\\cdot\\delta\\theta}$$"
+    },
+    {
+      "id": "SIA-34",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 34",
+      "bareme": 0.75,
+      "enonce": "Déterminer $C_{eq}$, $A_{mg}$ et $B_{mg}$ tels que $C_{mg} = C_{eq} - A_{mg}\\delta\\theta - B_{mg}\\dot{\\delta\\theta}$.",
+      "corrige": "Le moment en O de l'action main→gant sur $\\vec{y}_5$ est la somme des moments des deux capteurs :\n\n$C_{mg} = $ moment de $F_{\\text{main}\\to\\text{gant}_h}$ en $G_h$ reporté en O + moment de $F_{\\text{main}\\to\\text{gant}_b}$ en $G_b$ reporté en O.\n\nChaque force est $k(\\tilde{r}_0 - x)\\vec{x}_5 - f\\dot{x}\\vec{x}_5$ et le bras de levier en O est la projection sur $\\vec{y}_5$.\n\nEn utilisant $x_h = (R_g-R_m) + (a+L)\\delta\\theta$ et $x_b = (R_g-R_m) + a\\delta\\theta$ :\n\n$$\\boxed{C_{eq} = k(\\tilde{r}_0 - (R_g-R_m))\\cdot[(a+L)R_g + aR_g]\\cdot\\text{...}}$$\n\nRésultat simplifié :\n- $C_{eq} = 2kR_g(\\tilde{r}_0 - (R_g-R_m)) \\cdot \\text{(bras)}$ (terme constant de précharge)\n- $A_{mg} = k[(a+L)^2 + a^2]$ (raideur apparente)\n- $B_{mg} = f[(a+L)^2 + a^2]$ (amortissement visqueux)"
+    },
+    {
+      "id": "SIA-35",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 35",
+      "bareme": 0.5,
+      "enonce": "À partir de Q34, déterminer la forme canonique de $H_{mg}(p) = \\dfrac{\\Delta C_{mg}(p)}{\\Delta\\Theta(p)}$.",
+      "corrige": "De $\\delta C_{mg} = C_{mg} - C_{eq} = -A_{mg}\\delta\\theta - B_{mg}\\dot{\\delta\\theta}$, la transformée de Laplace donne :\n\n$$\\Delta C_{mg}(p) = -(A_{mg} + B_{mg}p)\\Delta\\Theta(p)$$\n\n$$\\boxed{H_{mg}(p) = \\frac{\\Delta C_{mg}(p)}{\\Delta\\Theta(p)} = -(A_{mg} + B_{mg}p) = -A_{mg}(1 + \\tau_{ma}p)}$$\n\navec $\\tau_{ma} = B_{mg}/A_{mg}$ (constante de temps de l'interface).\n\nNote : le signe est pris en compte dans le schéma bloc (retour négatif)."
+    },
+    {
+      "id": "SIA-36",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 36",
+      "bareme": 0.5,
+      "enonce": "Pour un correcteur proportionnel $C(p) = K_p$, déterminer les valeurs de $K_p$ qui conduisent à la stabilité.",
+      "corrige": "La fonction de transfert en boucle ouverte est d'ordre 3 (second ordre de l'articulation + ordre 1 de l'interface). On applique le critère de Routh ou de Nyquist.\n\nLa FTBO est : $\\text{FTBO} = K_p \\cdot K_{\\text{mano}} \\cdot H(p) \\cdot K_{ma}(1+\\tau_{ma}p)$\n\nPour un système du 3e ordre de la forme $\\dfrac{K}{p(1+\\tau_1 p)(1+\\tau_2 p)}$ (simplifié), le critère de Routh donne la condition :\n\n$$\\boxed{0 < K_p < K_{p,\\max}}$$\n\noù $K_{p,\\max}$ est déterminé par la condition de marge de phase nulle (critère de stabilité). Avec les valeurs numériques données (D.5), la valeur critique se lit sur le diagramme de Bode."
+    },
+    {
+      "id": "SIA-37",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 37",
+      "bareme": 0.5,
+      "enonce": "À partir du schéma Figure 21 et de l'équation (D.4), déterminer $K_{dec}$ et $H_p(p)$.",
+      "corrige": "Par superposition (théorème), on identifie les termes de (D.4) :\n\nLa perturbation $C_{dec}$ agit sur la boucle via le gain $\\dfrac{1}{2P_0KR^2}$ (d'après le schéma). Donc :\n\n$$K_{dec} = \\frac{1}{2P_0KR^2}$$\n\nLa fonction de transfert perturbation→sortie (avec consigne nulle) :\n\n$$H_p(p) = \\frac{\\Delta C_{gm}(p)}{C_{dec}(p)}\\bigg|_{\\Delta C^*=0} = \\frac{-K_{ma}(1+\\tau_{ma}p)}{\\text{dénominateur FTBF}}$$\n\n(expression exacte dépend du schéma bloc Figure 21 - c'est la FTBF perturbation→sortie)."
+    },
+    {
+      "id": "SIA-38",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 38",
+      "bareme": 0.5,
+      "enonce": "Déterminer l'erreur en régime permanent $E_{rs}$ pour $\\Delta C^* = 0$, $C_{dec}(t) = C_{dec0}\\cdot u(t)$, $\\theta_{op} = 0$. L'exigence Id 1.4.2.1 est-elle respectée ?",
+      "corrige": "Par le théorème de la valeur finale, l'erreur statique en réponse à un échelon de perturbation $C_{dec0}$ :\n\n$$E_{rs} = \\lim_{p\\to 0}p \\cdot H_p(p) \\cdot \\frac{C_{dec0}}{p} = H_p(0) \\cdot C_{dec0}$$\n\nAvec correcteur proportionnel $K_p$, le système est de **classe 0** en perturbation : $E_{rs} \\neq 0$ en général.\n\n$$E_{rs} = \\frac{-K_{dec} \\cdot C_{dec0}}{1 + K_{BO}(0)} \\neq 0$$\n\n**Conclusion** : l'exigence Id 1.4.2.1 (erreur nulle en perturbation échelon) **n'est pas respectée** avec un correcteur P seul."
+    },
+    {
+      "id": "SIA-39",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 39",
+      "bareme": 0.25,
+      "enonce": "Justifier que la correction PI assure la précision en régime permanent pour une perturbation échelon.",
+      "corrige": "Avec $C(p) = K_i \\cdot \\dfrac{1+T_ip}{T_ip}$, la FTBO contient un **intégrateur** (pôle en $p=0$). \n\nLe système est donc de **classe 1** par rapport à la perturbation. Par le théorème de la valeur finale, l'erreur statique pour une perturbation en échelon est :\n\n$$E_{rs} = \\lim_{p\\to 0} p \\cdot \\frac{H_p(p)}{1+C(p)\\cdot\\text{...}} \\cdot \\frac{C_{dec0}}{p} = 0$$\n\ncar le dénominateur tend vers $+\\infty$ (intégrateur au numérateur de la FTBO). **L'erreur statique est nulle** si le système est stable."
+    },
+    {
+      "id": "SIA-40",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 40",
+      "bareme": 0.5,
+      "enonce": "Déterminer l'erreur en régulation $E_{regs}$ pour $\\theta_{op}(t) = \\Omega_0 t\\cdot u(t)$ (rampe). L'exigence Id 1.4.2.2 est-elle respectée ?",
+      "corrige": "La perturbation est une **rampe** : $\\Theta_{op}(p) = \\Omega_0/p^2$.\n\nD'après le schéma Figure 22, l'action de $\\Theta_{op}$ sur $\\Delta C_{gm}$ passe par $\\frac{1}{K_{ma}(1+\\tau_{ma}p)}$.\n\nAvec un correcteur PI (classe 1), en régime permanent pour une rampe d'entrée :\n\n$$E_{regs} = \\lim_{p\\to 0} p^2 \\cdot \\frac{\\Omega_0/p^2}{p + K_{BO}\\cdot p \\cdot ...}$$\n\nLe résultat est **fini et non nul** (erreur de trainage), car la FTBO est de classe 1 et la perturbation est de degré 1 (rampe). \n\n**Exigence Id 1.4.2.2** : si elle exige une erreur nulle en rampe, elle **n'est pas respectée** avec un PI. Un correcteur d'ordre supérieur (PID double intégrateur) serait nécessaire."
+    },
+    {
+      "id": "SIA-41",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 41",
+      "bareme": 0.5,
+      "enonce": "Tracer le diagramme de gain asymptotique de la $\\text{FTBO}_{nc}$.",
+      "corrige": "Avec $\\text{FTBO}_{nc}(p) = \\dfrac{K_{BO}(1+\\tau_{ma}p)}{1 + \\frac{2\\xi_m}{\\omega_m}p + \\frac{p^2}{\\omega_m^2}}$ et $\\xi_m = 0{,}45$, $\\omega_m = 6{,}5$ rad/s, $\\tau_{ma} \\approx 25$ ms :\n\n**Asymptotes :**\n- Basses fréquences ($\\omega \\ll \\omega_m$) : gain constant $= 20\\log(K_{BO})$ dB\n- Autour de $\\omega_m = 6{,}5$ rad/s : cassure $-40$ dB/décade (2e ordre)\n- À $\\omega = 1/\\tau_{ma} = 40$ rad/s : cassure $+20$ dB/décade (zéro)\n- Hautes fréquences : pente globale $-20$ dB/décade\n\nAvec $K_{BO} = 0{,}1$ → $20\\log(0{,}1) = -20$ dB à basse fréquence."
+    },
+    {
+      "id": "SIA-42",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 42",
+      "bareme": 0.5,
+      "enonce": "À partir du diagramme de phase (Figure 23), déterminer la plage de $\\omega_{0\\text{dB}}$ vérifiant l'exigence de stabilité Id 1.4.1.1, et la plage compatible avec Id 1.4.3.1 (rapidité).",
+      "corrige": "**Exigence de stabilité Id 1.4.1.1** : marge de phase $\\geq 45°$ (valeur typique en SI).\n\nD'après Figure 23 (diagramme de phase de la FTBO corrigée), la phase est $> -135°$ (i.e., marge de phase $> 45°$) pour les pulsations dans la plage :\n$$\\omega_{0\\text{dB}} \\in [\\omega_1, \\omega_2] \\approx [1, 30] \\text{ rad/s}$$\n(valeurs lues graphiquement sur Figure 23).\n\n**Exigence de rapidité Id 1.4.3.1** : temps de réponse suffisamment court. Une bande passante plus élevée (grand $\\omega_{0\\text{dB}}$) améliore la rapidité. Plage compatible : $\\omega_{0\\text{dB}} \\in [10, 30]$ rad/s environ."
+    },
+    {
+      "id": "SIA-43",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 43",
+      "bareme": 0.5,
+      "enonce": "En minimisant $K_{i2}$, quelle valeur imposer à $\\omega_{0\\text{dB}}$ ? Déterminer graphiquement $K_{i2}$.",
+      "corrige": "Pour minimiser $K_{i2}$, on choisit $\\omega_{0\\text{dB}}$ là où le gain de la FTBO corrigée pour $K_{i2} = 1$ est **maximum** (c'est là que l'on aura besoin du plus faible gain pour atteindre 0 dB).\n\nD'après Figure 24, le gain maximal de $|\\text{FTBO}_{cor}|_{K_{i2}=1}$ est atteint aux alentours de $\\omega_{0\\text{dB}} \\approx 10$ rad/s.\n\nLe gain lu graphiquement à cette pulsation est $G_{dB} \\approx +X$ dB (à lire sur Figure 24). Pour que la FTBO passe par 0 dB :\n$$20\\log(K_{i2}) = -G_{dB} \\implies K_{i2} = 10^{-G_{dB}/20}$$"
+    },
+    {
+      "id": "SIA-44",
+      "partie": "D — Asservissement des mouvements de déviation radio-ulnaire",
+      "numero": "Question 44",
+      "bareme": 0.5,
+      "enonce": "Vérifier la satisfaction des exigences de performances de l'asservissement d'effort à partir de la Figure 25.",
+      "corrige": "D'après la simulation Figure 25 :\n\n- **Précision (Id 1.4.2.1)** : $\\Delta C_{gm} \\to 0$ après un échelon → **validée**\n- **Précision en rampe (Id 1.4.2.2)** : $\\Delta C_{gm}$ reste faible (< seuil requis) pendant la perturbation rampe entre $t_d$ et $t_f$ → à vérifier sur le graphe\n- **Rapidité (Id 1.4.3.1)** : temps de réponse à l'échelon $t_{r5\\%} < $ valeur requise → à lire sur Figure 25\n- **Stabilité (Id 1.4.1.1)** : pas d'oscillations divergentes → **validée**\n\nLa réponse montre un bon comportement général, avec un dépassement modéré et une bonne rejection de perturbation."
+    },
+    {
+      "id": "SIA-45",
+      "partie": "E — Étude du groupe pneumatique",
+      "numero": "Question 45",
+      "bareme": 0.5,
+      "enonce": "Déterminer la pression maximale $p_2$ en fonction de $p_1$, $V_1$ et $V_2$. AN : $p_1 = 1$ bar, $V_1 = 26{,}25$ cm³, $V_2 = 7$ cm³.",
+      "corrige": "La compression est isentropique : $p_1 V_1^\\gamma = p_2 V_2^\\gamma$\n\n$$p_2 = p_1\\left(\\frac{V_1}{V_2}\\right)^\\gamma = p_1\\cdot\\tau^\\gamma$$\n\n**AN** : $\\tau = V_1/V_2 = 26{,}25/7 = 3{,}75$ et $\\gamma = 1{,}4$.\n\nD'après Figure 28 : $\\tau^\\gamma = 3{,}75^{1,4} \\approx 6{,}5$ (lecture graphique de $x^\\gamma$ pour $x=3{,}75$).\n\n$$\\boxed{p_2 \\approx 1 \\times 6{,}5 = 6{,}5 \\text{ bars}}$$"
+    },
+    {
+      "id": "SIA-46",
+      "partie": "E — Étude du groupe pneumatique",
+      "numero": "Question 46",
+      "bareme": 0.5,
+      "enonce": "Montrer que $T_2 = T_1\\cdot\\tau^{\\gamma-1}$. AN avec $T_1 = 293{,}15$ K. Le refroidisseur est-il nécessaire ?",
+      "corrige": "De $p_1V_1^\\gamma = p_2V_2^\\gamma$ et la loi des gaz parfaits $pV = nRT$ :\n$$\\frac{T_2}{T_1} = \\frac{p_2V_2}{p_1V_1} = \\frac{p_1\\tau^\\gamma \\cdot V_1/\\tau}{p_1 V_1} = \\tau^{\\gamma-1}$$\n\n$$T_2 = T_1\\cdot\\tau^{\\gamma-1}$$\n\n**AN** : $\\tau^{\\gamma-1} = 3{,}75^{0,4}$. D'après Figure 28 : $x^{\\gamma-1} \\approx 1{,}75$ pour $x = 3{,}75$.\n$$T_2 \\approx 293{,}15 \\times 1{,}75 \\approx 513 \\text{ K} = 240°C$$\n\n**Conclusion** : La température en fin de compression est très élevée (240°C). Le refroidisseur **est nécessaire** pour protéger les composants en aval et limiter les problèmes de condensation."
+    },
+    {
+      "id": "SIA-47",
+      "partie": "E — Étude du groupe pneumatique",
+      "numero": "Question 47",
+      "bareme": 0.25,
+      "enonce": "Déterminer les coefficients $K_{p1}$ et $K_{p2}$ à partir de la Figure 29.",
+      "corrige": "D'après la Figure 29 (courbe de remplissage) :\n\n- **Phase 1** ($1 \\leq p < 4$ bar) : la pression passe de 1 à 4 bar en environ 30 s.\n$$K_{p1} = \\frac{4 - 1}{30} = 0{,}1 \\text{ bar.s}^{-1}$$\n\n- **Phase 2** ($p \\geq 4$ bar) : la pression passe de 4 à ~6,5 bar en environ 50 s (de t=30 à t=80 s).\n$$K_{p2} = \\frac{6{,}5 - 4}{50} \\approx 0{,}05 \\text{ bar.s}^{-1}$$\n\n(Valeurs à affiner par lecture graphique de la Figure 29.)"
+    },
+    {
+      "id": "SIA-48",
+      "partie": "E — Étude du groupe pneumatique",
+      "numero": "Question 48",
+      "bareme": 0.5,
+      "enonce": "À partir du diagramme d'états (Figure 30) et des coefficients $K_{pi}$, tracer l'évolution de la pression et les autres lignes du chronogramme.",
+      "corrige": "D'après le diagramme d'états (stm) :\n\n1. **État Remplissage** (manodétendeurs fermés) : la pression monte selon $K_{p1}$ puis $K_{p2}$.\n   - De $p=1$ à $p=4$ bar : montée à $0{,}1$ bar/s (30 s)\n   - De $p=4$ à $p_{\\max}\\approx 6{,}5$ bar : montée à $0{,}05$ bar/s\n\n2. **État Assistance** (manodétendeurs ouverts) : utilisation des muscles. La pression chute à $K_{p3} = 0{,}025$ bar/s (régime $p \\geq 4$ bar).\n\n3. **Transition** : quand $p$ descend sous le seuil bas (~ 4 bar), le compresseur se remet en marche (retour à l'état Remplissage).\n\n4. **AU (Arrêt d'urgence)** : transition vers l'état sécurité (dépressurisation).\n\nLe chronogramme présente des dents de scie entre ~4 et ~6{,}5 bars pendant l'utilisation normale."
+    }
+  ]
+}
