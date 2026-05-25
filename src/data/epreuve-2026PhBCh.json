@@ -3,7 +3,14 @@
   "concours": "Banque PT — Spé PT",
   "titre": "Banque PT 2026 – Physique B / Chimie",
   "totalPoints": 20,
-  "calibration": null,
+  "calibration": {
+    "mu_hist": 9.15,
+    "sigma_hist": 3.83,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2506 candidats"
+  },
   "questions": [
     {
       "id": "PhBCh-1",
