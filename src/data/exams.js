@@ -6,6 +6,7 @@ import epPhBCh from './epreuve-2026PhBCh.json';
 import epPhBTh from './epreuve-2026PhBTh.json';
 import epInfoMod from './epreuve-2026InfoMod.json';
 import epSIA from './epreuve-2026SIA.json';
+import epSIB from './epreuve-2026SIB.json';
 
-export const EXAMS = [epA, epB, epC, epPhA, epPhBCh, epPhBTh, epInfoMod, epSIA];
+export const EXAMS = [epA, epB, epC, epPhA, epPhBCh, epPhBTh, epInfoMod, epSIA, epSIB];
 export const EXAM_MAP = Object.fromEntries(EXAMS.map(e => [e.id, e]));

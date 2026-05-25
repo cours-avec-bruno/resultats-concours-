@@ -1,0 +1,464 @@
+{
+  "id": "banque-pt-2026-si-b",
+  "concours": "Banque PT 2026",
+  "titre": "Sciences Industrielles B",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.49,
+    "sigma_hist": 4.07,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2526 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "SIB-1",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 1",
+      "bareme": 0.5,
+      "enonce": "Exprimer la vitesse $\\vec{V}_{M^+, 2/0}$ en fonction de $\\Omega(t)$, $L$ et $y_c^+$.",
+      "corrige": "Le point $M^+$ est tel que $\\overrightarrow{AM^+} = L\\vec{x}_2 + y_c^+\\vec{y}_2 + z_c^+\\vec{z}$. Le solide 2 tourne à $\\Omega\\vec{z}$ par rapport à 0, $A$ est fixe dans 0 :\n\n$$\\vec{V}_{M^+,2/0} = \\vec{\\Omega}_{2/0} \\times \\overrightarrow{AM^+} = \\Omega\\vec{z} \\times (L\\vec{x}_2 + y_c^+\\vec{y}_2) = \\Omega L\\vec{y}_2 - \\Omega y_c^+\\vec{x}_2$$"
+    },
+    {
+      "id": "SIB-2",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 2",
+      "bareme": 0.5,
+      "enonce": "Exprimer les composantes de $\\vec{\\Gamma}_{M^+, 2/0}$ selon $\\vec{x}_2$, $\\vec{y}_2$ et $\\vec{z}_2$.",
+      "corrige": "$\\vec{\\Gamma}_{M^+,2/0} = \\dot{\\vec{V}}_{M^+,2/0}|_0$. En dérivant dans $R_0$ :\n\n$$\\vec{\\Gamma}_{M^+,2/0} = \\ddot{\\theta}(-y_c^+\\vec{x}_2 + L\\vec{y}_2) + \\dot{\\theta}^2(-L\\vec{x}_2 - y_c^+\\vec{y}_2)$$\n\nComposantes : $\\Gamma_{x_2} = -\\dot{\\Omega}y_c^+ - \\Omega^2 L$, $\\Gamma_{y_2} = \\dot{\\Omega}L - \\Omega^2 y_c^+$, $\\Gamma_{z_2} = 0$"
+    },
+    {
+      "id": "SIB-3",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 3",
+      "bareme": 0.25,
+      "enonce": "En régime permanent ($\\dot{\\Omega}=0$), exprimer l'accélération $\\Gamma_{M^+}$ mesurée par le capteur (selon $\\vec{x}_2$).",
+      "corrige": "En régime permanent $\\dot{\\Omega} = 0$ :\n$$\\Gamma_{M^+} = \\vec{\\Gamma}_{M^+,2/0}\\cdot\\vec{x}_2 = -\\Omega^2 L$$\n\n(valeur absolue : $|\\Gamma_{M^+}| = \\Omega^2 L$, accélération centripète dirigée vers l'axe de rotation)"
+    },
+    {
+      "id": "SIB-4",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 4",
+      "bareme": 0.5,
+      "enonce": "Donner $\\Omega_{\\max}$ pour atteindre $|\\Gamma_{\\max}|$. AN en rad/s puis tr/min (données annexe N : $|\\Gamma_{\\max}| = 100g$, $L = 1$ m).",
+      "corrige": "De $|\\Gamma_{M^+}| = \\Omega^2 L$ :\n$$\\Omega_{\\max} = \\sqrt{\\frac{|\\Gamma_{\\max}|}{L}} = \\sqrt{\\frac{100 \\times 9{,}81}{1}} \\approx \\sqrt{981} \\approx 31{,}3 \\text{ rad/s}$$\n\nConversion : $N_{\\max} = \\dfrac{\\Omega_{\\max}}{2\\pi}\\times 60 \\approx \\dfrac{31{,}3}{6{,}28}\\times 60 \\approx \\boxed{299 \\text{ tr/min}}$"
+    },
+    {
+      "id": "SIB-5",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "Donner $J_b$ (bras), $J_e$ (étuves), $J_{eq}$ total.",
+      "corrige": "$$J_b = 2\\int_0^L \\frac{m_b}{L}x^2\\,dx = 2\\frac{m_b}{L}\\cdot\\frac{L^3}{3} = \\frac{2m_b L^2}{3}$$\n$$J_e = 2(m_e + m_c)L^2 \\quad (\\text{masses ponctuelles à distance } L)$$\n$$J_{eq} = J_r + J_b + J_e = J_r + \\frac{2m_bL^2}{3} + 2(m_e+m_c)L^2$$"
+    },
+    {
+      "id": "SIB-6",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 6",
+      "bareme": 0.25,
+      "enonce": "Pour $\\Omega > 0$, donner la valeur de $\\varepsilon_e$ et justifier.",
+      "corrige": "Pour $\\Omega > 0$, les étuves se déplacent dans la direction $+\\vec{y}_2$ (dans le sens de la rotation). Le frottement aérodynamique s'oppose au mouvement, donc la force est dirigée dans le sens $-\\vec{y}_2$, c'est-à-dire opposée à $\\vec{V}$.\n$$\\boxed{\\varepsilon_e = -1}$$"
+    },
+    {
+      "id": "SIB-7",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 7",
+      "bareme": 0.25,
+      "enonce": "Donner $\\vec{V}_{K,2/0}$ pour un point $K$ du bras avec $\\overrightarrow{AK} = x\\vec{x}_2$.",
+      "corrige": "$$\\vec{V}_{K,2/0} = \\vec{\\Omega}_{2/0}\\times\\overrightarrow{AK} = \\Omega\\vec{z}\\times x\\vec{x}_2 = \\Omega x\\,\\vec{y}_2$$"
+    },
+    {
+      "id": "SIB-8",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 8",
+      "bareme": 0.5,
+      "enonce": "Pour $\\Omega > 0$, donner le moment $\\vec{M}_{A, a\\to e^+}$ en $A$ de $\\vec{F}_{a\\to e^+}$.",
+      "corrige": "$\\vec{V}_{H^+,2/0} = \\Omega L\\vec{y}_2$ donc $\\|\\vec{V}_{H^+}\\| = \\Omega L$.\n$\\vec{F}_{a\\to e^+} = -\\frac{1}{2}\\rho_a S_e C_{x,e}(\\Omega L)^2\\vec{y}_2$ (avec $\\varepsilon_e=-1$).\n$\\overrightarrow{AH^+} = L\\vec{x}_2$, donc :\n$$\\vec{M}_{A,a\\to e^+} = \\overrightarrow{AH^+}\\times\\vec{F}_{a\\to e^+} = L\\vec{x}_2\\times\\left(-\\frac{1}{2}\\rho_a S_e C_{x,e}\\Omega^2 L^2\\right)\\vec{y}_2 = -\\frac{1}{2}\\rho_a S_e C_{x,e}L^3\\Omega^2\\vec{z}$$"
+    },
+    {
+      "id": "SIB-9",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 9",
+      "bareme": 0.5,
+      "enonce": "Donner le moment élémentaire $d\\vec{M}_{A,a\\to 2^+}$, puis le couple total $\\vec{M}_{A,a\\to 2^+}$ après intégration.",
+      "corrige": "$\\|\\vec{V}_{K,2/0}\\| = \\Omega x$, force élémentaire : $d\\vec{F} = -\\frac{1}{2}\\rho_a H_b C_{x,b}(\\Omega x)^2 dx\\,\\vec{y}_2$.\n\nMoment élémentaire en $A$ : $d\\vec{M} = x\\vec{x}_2\\times d\\vec{F} = -\\frac{1}{2}\\rho_a H_b C_{x,b}\\Omega^2 x^3\\,dx\\,\\vec{z}$\n\nIntégration :\n$$\\vec{M}_{A,a\\to 2^+} = -\\frac{1}{2}\\rho_a H_b C_{x,b}\\Omega^2\\int_0^L x^3\\,dx\\,\\vec{z} = -\\frac{\\rho_a H_b C_{x,b}\\Omega^2 L^4}{8}\\vec{z}$$"
+    },
+    {
+      "id": "SIB-10",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 10",
+      "bareme": 0.5,
+      "enonce": "Donner le couple de frottement total $C_{aero}$ (sur $\\vec{z}$) pour les deux bras et deux étuves.",
+      "corrige": "Par symétrie, les deux bras et les deux étuves contribuent chacun avec le même signe (frottement toujours opposé à la rotation) :\n\n$$C_{aero} = -2\\left(\\frac{\\rho_a H_b C_{x,b}\\Omega^2 L^4}{8} + \\frac{\\rho_a S_e C_{x,e}\\Omega^2 L^3}{2}\\right)$$\n\n$$\\boxed{C_{aero} = -\\rho_a\\Omega^2 L^3\\left(\\frac{H_b C_{x,b}L}{4} + S_e C_{x,e}\\right)}$$"
+    },
+    {
+      "id": "SIB-11",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 11",
+      "bareme": 0.5,
+      "enonce": "Préciser les expressions de $A$ et $B$ dans $\\dot{\\Omega} + A\\Omega^2 = B$. L'équation est-elle linéaire ?",
+      "corrige": "Équation de moment en $A$ sur $\\vec{z}$ : $J_{eq}\\dot{\\Omega} = C_m + C_{aero}$, soit :\n$$J_{eq}\\dot{\\Omega} = C_m - \\rho_a\\Omega^2 L^3\\left(\\frac{H_b C_{x,b}L}{4} + S_e C_{x,e}\\right)$$\n\nDonc :\n$$A = \\frac{\\rho_a L^3}{J_{eq}}\\left(\\frac{H_b C_{x,b}L}{4} + S_e C_{x,e}\\right), \\quad B = \\frac{C_m}{J_{eq}}$$\n\n**Non linéaire** (terme en $\\Omega^2$)."
+    },
+    {
+      "id": "SIB-12",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 12",
+      "bareme": 0.5,
+      "enonce": "Préciser $\\alpha$ et $\\beta$ dans $\\Omega(t) = \\alpha\\tanh(\\beta t)$. Limite quand $t\\to+\\infty$.",
+      "corrige": "En substituant $\\Omega = \\alpha\\tanh(\\beta t)$ dans $\\dot{\\Omega} + A\\Omega^2 = B$ :\n$$\\alpha\\beta/\\cosh^2(\\beta t) + A\\alpha^2\\tanh^2(\\beta t) = B$$\n\nÀ $t=0$ : $\\alpha\\beta = B$. Pour $t\\to\\infty$ : $A\\alpha^2 = B$.\n$$\\Rightarrow \\alpha = \\sqrt{\\frac{B}{A}}, \\quad \\beta = \\frac{B}{\\alpha} = \\sqrt{AB}$$\n\n$$\\lim_{t\\to+\\infty}\\Omega(t) = \\alpha = \\sqrt{\\frac{B}{A}} = \\Omega_\\infty$$"
+    },
+    {
+      "id": "SIB-13",
+      "partie": "I — Caractéristiques de la centrifugeuse",
+      "numero": "Question 13",
+      "bareme": 0.5,
+      "enonce": "Énoncer les critères de choix du moteur, puis préciser les références adaptées (exigences 1.1.1.0 et 1.4.3.1).",
+      "corrige": "**Critères :**\n1. $\\Omega_\\infty \\geq \\Omega_{\\max} \\approx 31$ rad/s $\\approx 299$ tr/min → lire $\\Omega_\\infty$ dans le tableau D correspondant au couple $C_m$ du moteur.\n2. $t_{95\\%} \\leq 50$ s (exigence 1.4.3.1).\n3. Le moteur doit fonctionner en service continu (S1) à ce couple.\n\n**D'après le tableau D :** pour $t_{95\\%} \\leq 50$ s, il faut $C_m \\geq 300$ N.m (ligne 300 N.m : $t_{95\\%} = 62{,}39$ s... → trop long) → environ $C_m \\geq 400$ N.m ($t_{95\\%} = 54$ s) voir $C_m \\approx 550$ N.m ($t_{95\\%} \\approx 46$ s). Le couple S1 doit être $\\geq$ cette valeur.\n\n**Références adaptées :** **TKH 365-150-15** ($C_{S1}=1570$ N.m) ou **TKH 445-100-12** ($C_{S1}=1550$ N.m) — les deux dépassent largement les 400–600 N.m nécessaires. Les autres références ont des couples S1 insuffisants ou des vitesses trop limitées."
+    },
+    {
+      "id": "SIB-14",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 14",
+      "bareme": 0.5,
+      "enonce": "Donner les coordonnées $(x_G, y_G, z_G)$ du centre de gravité $G_m$ de $\\{m_c^+, m_c^-\\}$ dans $(O, \\vec{x}_2, \\vec{y}_2, \\vec{z})$.",
+      "corrige": "$\\overrightarrow{OG_m} = \\dfrac{m_c^+\\overrightarrow{OM^+} + m_c^-\\overrightarrow{OM^-}}{m_c^+ + m_c^-}$\n\nAvec $\\overrightarrow{OM^+} = L\\vec{x}_2 + y_c^+\\vec{y}_2 + (H+z_c^+)\\vec{z}$ et $\\overrightarrow{OM^-} = -L\\vec{x}_2 + y_c^-\\vec{y}_2 + (H+z_c^-)\\vec{z}$ :\n\n$$x_G = \\frac{(m_c^+ - m_c^-)L}{m_c^+ + m_c^-}, \\quad y_G = \\frac{m_c^+y_c^+ + m_c^-y_c^-}{m_c^++m_c^-}, \\quad z_G = H + \\frac{m_c^+z_c^+ + m_c^-z_c^-}{m_c^++m_c^-}$$"
+    },
+    {
+      "id": "SIB-15",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 15",
+      "bareme": 0.5,
+      "enonce": "Donner la forme des torseurs statiques des actions transmissibles dans les 3 liaisons chassis/sol (Figure 10).",
+      "corrige": "- **$P_1$ (ponctuelle de normale $\\vec{z}$)** : transmet uniquement $Z_{P_1}$\n$$\\mathcal{T}_{P_1} = \\begin{Bmatrix} 0 & 0 \\\\ 0 & 0 \\\\ Z_{P_1} & 0 \\end{Bmatrix}_{P_1}$$\n\n- **$P_2$ (rotule)** : transmet $X_{P_2}$, $Y_{P_2}$, $Z_{P_2}$, pas de moment\n$$\\mathcal{T}_{P_2} = \\begin{Bmatrix} X_{P_2} & 0 \\\\ Y_{P_2} & 0 \\\\ Z_{P_2} & 0 \\end{Bmatrix}_{P_2}$$\n\n- **$P_3$ (sphère-cylindre d'axe $\\vec{y}$)** : transmet $X_{P_3}$, $Z_{P_3}$, $L_{P_3}$, $N_{P_3}$ (pas $Y_{P_3}$, pas $M_{P_3}$)\n$$\\mathcal{T}_{P_3} = \\begin{Bmatrix} X_{P_3} & L_{P_3} \\\\ 0 & 0 \\\\ Z_{P_3} & N_{P_3} \\end{Bmatrix}_{P_3}$$"
+    },
+    {
+      "id": "SIB-16",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 16",
+      "bareme": 0.25,
+      "enonce": "Préciser l'isolement et les théorèmes permettant de déterminer les actions en $P_1$, $P_2$, $P_3$.",
+      "corrige": "**Isolement** : l'ensemble $\\{(1)+(2)\\}$ (châssis + double-bras) en équilibre statique.\n\n**Théorèmes** : Principe Fondamental de la Statique (PFS) — équilibre des forces ($\\sum \\vec{R} = \\vec{0}$) et des moments ($\\sum \\vec{M}_O = \\vec{0}$) → 6 équations scalaires pour 9 inconnues. Le système est isostatique (9 inconnues – 6 équations = 3 degrés d'hyperstatisme... mais la structure des torseurs réduit les inconnues à 6 : $Z_{P_1}$, $X_{P_2}$, $Y_{P_2}$, $Z_{P_2}$, $X_{P_3}$, $Z_{P_3}$). On résout par projection et prise de moment."
+    },
+    {
+      "id": "SIB-17",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 17",
+      "bareme": 0.5,
+      "enonce": "Pour $y_c^+ = y_c^- = 0$, donner l'amplitude $\\Delta F$ de l'oscillation en fonction de $\\Delta m$, $g$, $R_P$, $L$. AN.",
+      "corrige": "Avec $y_c^+ = y_c^- = 0$, $B_{P_1} = 0$ et $A_{P_1} = \\dfrac{2L(m_c^+ - m_c^-)g}{3R_P}$.\n\nL'oscillation a pour amplitude :\n$$\\Delta F = |A_{P_1}| = \\frac{2L\\,\\Delta m\\,g}{3R_P}$$\n\n**AN** (données annexe N : $L=1$ m, $R_P = 0{,}5$ m, $\\Delta m = 0{,}05$ kg) :\n$$\\Delta F = \\frac{2 \\times 1 \\times 0{,}05 \\times 9{,}81}{3 \\times 0{,}5} \\approx \\frac{0{,}981}{1{,}5} \\approx \\boxed{0{,}65 \\text{ N}}$$"
+    },
+    {
+      "id": "SIB-18",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 18",
+      "bareme": 0.25,
+      "enonce": "Donner l'ordre de grandeur de $F_{\\max}$ devant être supporté par le capteur. AN.",
+      "corrige": "Si $m_c^{\\pm} \\ll M_{tot}$, la valeur statique de $Z_{P_1}$ est dominée par $Z_{P_1}^0 = \\dfrac{(M_{tot}+m_c^++m_c^-)g}{3} \\approx \\dfrac{M_{tot}g}{3}$.\n\nLe capteur doit supporter au moins cette valeur.\n\n**AN** (données : $M_{tot} = 2000$ kg) :\n$$F_{\\max} \\approx \\frac{M_{tot}\\,g}{3} = \\frac{2000\\times 9{,}81}{3} \\approx 6540 \\text{ N}$$"
+    },
+    {
+      "id": "SIB-19",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 19",
+      "bareme": 0.25,
+      "enonce": "Quelle(s) référence(s) retenir parmi les capteurs de l'annexe F ? Justifier.",
+      "corrige": "Le capteur doit :\n- Supporter $F_{\\max} \\approx 6540$ N → charge max > 6540 N\n- Avoir une résolution suffisante pour détecter $\\Delta F \\approx 0{,}65$ N\n\nD'après l'annexe F :\n- **FSH04173** : charge max = 8900 N ✓ (> 6540 N), fréquence propre élevée ✓\n- FSH04171 (4450 N) : insuffisant pour $F_{\\max}$\n- FSH04175 et FSH04177 : surdimensionnés, résolution potentiellement moins bonne\n\n**Référence retenue : FSH04173** (8900 N, adapté à la charge et à la résolution requise)."
+    },
+    {
+      "id": "SIB-20",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 20",
+      "bareme": 0.25,
+      "enonce": "Pourquoi le roulement A est-il de plus grand diamètre que le roulement B ?",
+      "corrige": "Le roulement A (plus grand diamètre) est positionné du côté où la charge radiale est la plus grande (proche du bras). Un grand diamètre augmente la capacité de charge et la rigidité de la liaison. Cela permet d'optimiser l'encombrement : roulement A grand (fort chargement) en bas, roulement B petit (faible chargement) en haut, tout en assurant la rigidité nécessaire pour le guidage de précision."
+    },
+    {
+      "id": "SIB-21",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 21",
+      "bareme": 0.25,
+      "enonce": "Pour chaque type de montage (O ou X) et scénario de serrage des bagues, indiquer comment réaliser la précharge.",
+      "corrige": "- **Montage en O** (bagues extérieures écartées) :\n  - Serrage bagues intérieures : serrer axialement l'une contre l'autre → précharge par rapprochement\n  - Serrage bagues extérieures : insérer une cale entre les bagues extérieures\n\n- **Montage en X** (bagues intérieures écartées) :\n  - Serrage bagues intérieures : insérer une cale entre les bagues intérieures\n  - Serrage bagues extérieures : serrer axialement → précharge par rapprochement\n\nDans notre cas (bagues extérieures serrées) : insérer une cale d'épaisseur $p$ entre la bague extérieure du roulement B et le bâti."
+    },
+    {
+      "id": "SIB-22",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 22",
+      "bareme": 0.25,
+      "enonce": "Indiquer et justifier le type de montage retenu.",
+      "corrige": "**Montage en O** (dos à dos) est retenu.\n\n**Justification** : avec les bagues extérieures serrées dans le bâti, le montage en O permet une meilleure rigidité en flexion (les points de contact des deux roulements sont écartés) et facilite l'insertion de la cale entre la bague extérieure du roulement B et le bâti pour réaliser la précharge. Le montage en X (face à face) conviendrait moins bien avec ce schéma d'arrêt."
+    },
+    {
+      "id": "SIB-23",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 23",
+      "bareme": 0.5,
+      "enonce": "Lien entre $p$, $\\delta_{0A}$ et $\\delta_{0B}$. Lien entre $F_{0A}$ et $F_{0B}$. Expressions de $F_{0A}$ et $F_{0B}$.",
+      "corrige": "**Compatibilité géométrique** : l'arbre rigide se déplace de $\\delta_0$ → $\\delta_{0A} + \\delta_{0B} = p$.\n\n**Équilibre de l'arbre** (sans charge extérieure) : $F_{0A} = F_{0B}$ (les deux roulements s'équilibrent).\n\nDe $F_{0A} = k_A\\delta_{0A}$ et $F_{0B} = k_B\\delta_{0B}$, et $F_{0A} = F_{0B} = F_0$ :\n$$F_0\\left(\\frac{1}{k_A} + \\frac{1}{k_B}\\right) = p \\implies F_0 = \\frac{p}{1/k_A + 1/k_B} = k_{eq}\\cdot p$$\n$$\\boxed{F_{0A} = F_{0B} = k_{eq}\\cdot p}$$"
+    },
+    {
+      "id": "SIB-24",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 24",
+      "bareme": 0.75,
+      "enonce": "Exprimer $\\delta_A$, $\\delta_B$, le lien entre $F_A$, $F_B$ et $P_m$, puis $F_A$ et $F_B$.",
+      "corrige": "Sous charge $P_m$ (vers le bas), l'arbre se déplace de $\\delta$ vers A :\n$$\\delta_A = \\delta_{0A} + \\delta, \\quad \\delta_B = \\delta_{0B} - \\delta$$\n\nÉquilibre : $F_A - F_B = P_m$.\n\nExpressions : $F_A = k_A(\\delta_{0A}+\\delta)$ et $F_B = k_B(\\delta_{0B}-\\delta)$, avec $F_A - F_B = P_m$.\n\nRésolution (en utilisant $F_{0A}=F_{0B}=k_{eq}p$ et $k_{eq} = 1/(1/k_A+1/k_B)$) :\n$$\\boxed{F_A = k_{eq}p + \\frac{k_{eq}}{k_B}P_m, \\quad F_B = k_{eq}p - \\frac{k_{eq}}{k_A}P_m}$$"
+    },
+    {
+      "id": "SIB-25",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 25",
+      "bareme": 0.5,
+      "enonce": "Exprimer l'épaisseur de cale $p$ pour obtenir $F_B = F_B^{\\min}$ sous charge.",
+      "corrige": "De $F_B = k_{eq}p - \\dfrac{k_{eq}}{k_A}P_m = F_B^{\\min}$ :\n$$k_{eq}p = F_B^{\\min} + \\frac{k_{eq}}{k_A}P_m$$\n$$\\boxed{p = \\frac{F_B^{\\min}}{k_{eq}} + \\frac{P_m}{k_A}}$$"
+    },
+    {
+      "id": "SIB-26",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 26",
+      "bareme": 0.5,
+      "enonce": "Pour $F_B = F_B^{\\min}$, donner $L_A$ et $L_B$ (durée de vie en millions de tours).",
+      "corrige": "Charge radiale équivalente : $P_{eq} = 0{,}33 F_{axiale}$.\n\nFormule ISO : $L_{10} = \\left(\\dfrac{C}{P_{eq}}\\right)^3$ (millions de tours, roulements à billes).\n\n$$L_A = \\left(\\frac{C_A}{0{,}33 F_A}\\right)^3, \\quad L_B = \\left(\\frac{C_B}{0{,}33 F_B^{\\min}}\\right)^3$$"
+    },
+    {
+      "id": "SIB-27",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 27",
+      "bareme": 0.5,
+      "enonce": "Calculer la durée de vie en millions de tours pour $F_A = 18000$ N et $F_B = 3000$ N.",
+      "corrige": "$C_A = 36{,}1$ kN, $C_B = 26{,}5$ kN (annexe I).\n\n$$L_A = \\left(\\frac{36100}{0{,}33\\times 18000}\\right)^3 = \\left(\\frac{36100}{5940}\\right)^3 \\approx (6{,}08)^3 \\approx 225 \\text{ M.tr}$$\n\n$$L_B = \\left(\\frac{26500}{0{,}33\\times 3000}\\right)^3 = \\left(\\frac{26500}{990}\\right)^3 \\approx (26{,}8)^3 \\approx 19\\,200 \\text{ M.tr}$$"
+    },
+    {
+      "id": "SIB-28",
+      "partie": "II — Validation de l'exigence de sécurité",
+      "numero": "Question 28",
+      "bareme": 0.5,
+      "enonce": "Estimer la durée de vie en jours du roulement le moins durable ($\\Omega_{moy}=20$ rad/s, 12 h/j).",
+      "corrige": "Le roulement A est le moins durable : $L_A \\approx 225$ millions de tours.\n\nVitesse en tr/s : $N = \\dfrac{20}{2\\pi} \\approx 3{,}18$ tr/s → en 12h : $n_{jour} = 3{,}18 \\times 12 \\times 3600 \\approx 137\\,600$ tr/jour $\\approx 0{,}138$ M.tr/jour.\n\n$$t_{vie} = \\frac{225}{0{,}138} \\approx 1630 \\text{ jours} \\approx \\textbf{4{,}5 ans}$$\n\n**Commentaire** : durée de vie très satisfaisante pour un système industriel (> 3 ans typiquement requis)."
+    },
+    {
+      "id": "SIB-29",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 29",
+      "bareme": 0.25,
+      "enonce": "Donner la forme du torseur $\\mathcal{T}_A^{(1)\\to(2^+)}$ au point $A$.",
+      "corrige": "La liaison entre le bras $(2^+)$ et l'arbre $(1)$ est un **encastrement** (les 6 composantes sont inconnues) :\n$$\\mathcal{T}_A^{(1)\\to(2^+)} = \\begin{Bmatrix} X_A & L_A \\\\ Y_A & M_A \\\\ Z_A & N_A \\end{Bmatrix}_{A, B_2}$$"
+    },
+    {
+      "id": "SIB-30",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 30",
+      "bareme": 0.25,
+      "enonce": "Préciser le système isolé et les théorèmes permettant de déterminer $X_A$.",
+      "corrige": "**Isolement** : le bras $(2^+)$ seul (avec charge $q(x) = ax$ et effort ponctuel $F$ en $x=L$).\n\n**Théorème** : équilibre des forces selon $\\vec{x}_2$ (traction/compression seule dans cette étude d'allongement) — théorème de la résultante selon $\\vec{x}_2$ : $X_A + \\int_0^L q(x)dx + F = 0$."
+    },
+    {
+      "id": "SIB-31",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 31",
+      "bareme": 0.25,
+      "enonce": "Donner l'expression de $X_A$ en fonction de $a$, $L$ et $F$.",
+      "corrige": "Équilibre des forces selon $\\vec{x}_2$ :\n$$X_A + \\int_0^L ax\\,dx + F = 0 \\implies X_A = -\\frac{aL^2}{2} - F$$"
+    },
+    {
+      "id": "SIB-32",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 32",
+      "bareme": 0.5,
+      "enonce": "Donner l'effort normal $N(x)$ en fonction de $a$, $L$, $x$ et $F$.",
+      "corrige": "Par équilibre d'une portion $[x, L]$ du bras :\n$$N(x) + \\int_x^L aq\\,dq + F = 0 \\implies N(x) = -F - \\frac{a}{2}(L^2 - x^2)$$"
+    },
+    {
+      "id": "SIB-33",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 33",
+      "bareme": 0.25,
+      "enonce": "Donner la relation entre $N(x)$, $u'(x)$, $E$ et $S_b$.",
+      "corrige": "Loi de Hooke en traction :\n$$N(x) = E S_b\\,u'(x)$$\n\nOù $u'(x) = du/dx$ est la déformation longitudinale locale."
+    },
+    {
+      "id": "SIB-34",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 34",
+      "bareme": 0.5,
+      "enonce": "Préciser $u(0)$, puis exprimer $A_0$, $A_1$ et $A_3$ dans $u(x) = A_0 + A_1 x + A_3 x^3$.",
+      "corrige": "**Condition aux limites** : $u(0) = 0$ (le bras est encastré en $A$) → $A_0 = 0$.\n\nDe $E S_b u'(x) = N(x) = -F - \\frac{a}{2}(L^2 - x^2)$ :\n$$ES_b(A_1 + 3A_3 x^2) = -F - \\frac{aL^2}{2} + \\frac{a}{2}x^2$$\n\nIdentification :\n$$A_1 = \\frac{-F - aL^2/2}{ES_b}, \\quad A_3 = \\frac{a}{6ES_b}$$"
+    },
+    {
+      "id": "SIB-35",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 35",
+      "bareme": 0.25,
+      "enonce": "Déduire l'allongement $\\Delta L = u(L) - u(0)$.",
+      "corrige": "$$\\Delta L = u(L) = A_1 L + A_3 L^3 = \\frac{L}{ES_b}\\left(-F - \\frac{aL^2}{2} + \\frac{aL^2}{6}\\right) = \\frac{L}{ES_b}\\left(-F - \\frac{aL^2}{3}\\right)$$\n\n$$\\boxed{\\Delta L = -\\frac{1}{ES_b}\\left(FL + \\frac{aL^3}{3}\\right)}$$\n\n(signe négatif indique une compression si $F>0$; en centrifugation $F$ est la force centrifuge, $\\Delta L > 0$)"
+    },
+    {
+      "id": "SIB-36",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 36",
+      "bareme": 0.25,
+      "enonce": "Donner l'erreur relative $e_\\Gamma$ en fonction de $L$ et $\\Delta L$.",
+      "corrige": "$$e_\\Gamma = \\frac{\\Gamma_c(\\tilde{L}) - \\Gamma_c(L)}{\\Gamma_c(L)} = \\frac{\\tilde{L}\\Omega^2 - L\\Omega^2}{L\\Omega^2} = \\frac{\\tilde{L} - L}{L} = \\frac{\\Delta L}{L}$$"
+    },
+    {
+      "id": "SIB-37",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 37",
+      "bareme": 0.5,
+      "enonce": "Pour $(m_e^+ + m_c^+) \\approx 0$, exprimer $e_\\Gamma^0$ et effectuer l'AN à $\\Omega=30$ rad/s.",
+      "corrige": "Avec $F=0$ et $a = \\rho S_b \\Omega^2$ (force centrifuge par unité de longueur) :\n$$\\Delta L = \\frac{aL^3}{3ES_b} = \\frac{\\rho S_b \\Omega^2 L^3}{3ES_b} = \\frac{\\rho\\Omega^2 L^3}{3E}$$\n\n$$e_\\Gamma^0 = \\frac{\\Delta L}{L} = \\frac{\\rho\\Omega^2 L^2}{3E}$$\n\n**AN** (données : $L=1$ m, $E=210$ GPa, $\\rho=7800$ kg/m³, $\\Omega=30$ rad/s) :\n$$e_\\Gamma^0 = \\frac{7800 \\times 900 \\times 1}{3 \\times 210\\times10^9} = \\frac{7{,}02\\times10^6}{6{,}3\\times10^{11}} \\approx 1{,}1\\times10^{-5} \\approx 11 \\text{ ppm}$$\n\n**Exigence 1.1.1 : 10 ppm** → la valeur est légèrement supérieure, l'exigence n'est pas strictement respectée."
+    },
+    {
+      "id": "SIB-38",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 38",
+      "bareme": 0.5,
+      "enonce": "Donner $e_\\Gamma^{th}$ sous chargement thermique. AN pour $\\Delta T = 10°C$.",
+      "corrige": "Dilatation thermique homogène : $\\Delta L_{th} = \\alpha_{th}\\Delta T \\cdot L$\n\n$$e_\\Gamma^{th} = \\frac{\\Delta L_{th}}{L} = \\alpha_{th}\\Delta T$$\n\n**AN** (données : $\\alpha_{th} = 12\\times10^{-6}$ °C$^{-1}$ pour l'acier) :\n$$e_\\Gamma^{th} = 12\\times10^{-6} \\times 10 = 1{,}2\\times10^{-4} = 120 \\text{ ppm}$$\n\nBien supérieure aux 10 ppm requis → **l'effet thermique est dominant**."
+    },
+    {
+      "id": "SIB-39",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 39",
+      "bareme": 0.25,
+      "enonce": "Du fait des chargements mécaniques et thermique, l'exigence 1.1.1 peut-elle être respectée ? Justifier.",
+      "corrige": "**Non.** L'erreur relative totale est au minimum :\n- Mécanique : $\\approx 11$ ppm (déjà supérieure à 10 ppm)\n- Thermique : $\\approx 120$ ppm pour $\\Delta T = 10°C$\n\nCumulées (et pour des charges réelles non nulles), l'erreur dépasse largement les 10 ppm requis. L'exigence 1.1.1 n'est **pas respectée en l'état**."
+    },
+    {
+      "id": "SIB-40",
+      "partie": "III — Précision de l'accélération imposée",
+      "numero": "Question 40",
+      "bareme": 0.25,
+      "enonce": "Quelle proposition peut-on faire pour améliorer la précision ?",
+      "corrige": "Plusieurs propositions :\n1. **Mesure in situ de la longueur du bras** (capteur de déplacement) et correction logicielle de la vitesse de rotation.\n2. **Compensation thermique** : utiliser un matériau à faible coefficient de dilatation (Invar, $\\alpha_{th} \\approx 1\\times10^{-6}$ °C$^{-1}$) ou thermoréguler le bras.\n3. **Calibration dynamique** : mesurer l'accélération réelle à l'aide d'un capteur de référence embarqué et corriger.\n4. **Modèle de correction** : calcul en temps réel de $\\Delta L(\\Omega, T)$ et correction de la consigne $\\Omega$."
+    },
+    {
+      "id": "SIB-41",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 41",
+      "bareme": 0.5,
+      "enonce": "L'accélération imposée est $\\Gamma\\vec{x}_2$, l'axe du capteur est $\\vec{n}' = \\vec{x}_2\\cos\\psi + \\vec{z}\\sin\\psi$. Donner $\\tilde{\\Gamma}$ au 2e ordre en $\\psi$.",
+      "corrige": "L'accélération mesurée est la projection sur $\\vec{n}'$ :\n$$\\tilde{\\Gamma} = \\Gamma\\vec{x}_2 \\cdot \\vec{n}' = \\Gamma\\cos\\psi$$\n\nDéveloppement limité à l'ordre 2 :\n$$\\tilde{\\Gamma} = \\Gamma\\left(1 - \\frac{\\psi^2}{2} + O(\\psi^4)\\right) = \\Gamma - \\frac{\\Gamma\\psi^2}{2}$$"
+    },
+    {
+      "id": "SIB-42",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 42",
+      "bareme": 0.5,
+      "enonce": "Déduire l'erreur relative $|\\tilde{\\Gamma}-\\Gamma|/\\Gamma$ en fonction de $\\psi$. Donner l'angle $\\psi$ max pour 10 ppm.",
+      "corrige": "$$\\frac{|\\tilde{\\Gamma}-\\Gamma|}{\\Gamma} = \\frac{\\Gamma\\psi^2/2}{\\Gamma} = \\frac{\\psi^2}{2}$$\n\nCondition : $\\dfrac{\\psi^2}{2} \\leq 10\\times10^{-6}$\n$$\\psi \\leq \\sqrt{2\\times10^{-5}} \\approx 4{,}47\\times10^{-3} \\text{ rad} \\approx \\boxed{0{,}26°}$$"
+    },
+    {
+      "id": "SIB-43",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 43",
+      "bareme": 0.5,
+      "enonce": "Donner les composantes du torseur $\\mathcal{T}_{Ext\\to Bras}$ en $H^+$ en fonction de $z_m$, $z_e$, $z_c$, $m_m$, $m_e$, $m_c$, $\\Omega$, $g$.",
+      "corrige": "Forces appliquées (pesanteur + centrifuge sur les 3 masses) :\n\n**Résultante selon $\\vec{x}_2$** (centrifuge) : $X = (m_m + m_e + m_c)L\\Omega^2$\n\n**Résultante selon $\\vec{z}$** (poids) : $Z = -(m_m + m_e + m_c)g$\n\n**Moment en $H^+$ selon $\\vec{y}_2$** (bras de levier des forces $\\vec{z}$ par rapport à $\\vec{x}_2$) :\n$$M_{H^+} = -(m_m z_m + m_e z_e + m_c z_c)g + (m_m z_m + m_e z_e + m_c z_c)L\\Omega^2 \\cdot 0$$\n\nPlus précisément, les efforts $\\vec{z}$ appliqués en $G_m(z_m)$, $G_e(z_e)$, $G_c(z_c)$ créent un moment en $H^+$ :\n$$M_{H^+} = -(m_m z_m + m_e z_e + m_c z_c)g$$\n\nEt les efforts centrifuges $L\\Omega^2\\vec{x}_2$ appliqués aux mêmes points créent :\n$$N_{H^+} = (m_m z_m + m_e z_e + m_c z_c)L\\Omega^2 \\quad (\\text{moment selon }\\vec{y}_2)$$"
+    },
+    {
+      "id": "SIB-44",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 44",
+      "bareme": 0.5,
+      "enonce": "Problème (P1) : bras sollicité par un couple $C\\vec{Z}$. Donner toutes les composantes du torseur des efforts de cohésion.",
+      "corrige": "Pour une poulie chargée par un couple pur $C$ en bout ($x=L$), l'équilibre d'une portion $[x,L]$ donne :\n\n- $N = 0$ (pas d'effort axial)\n- $T_Y = 0$, $T_Z = 0$ (pas d'effort tranchant)\n- $M_t = 0$ (pas de torsion)\n- $M_{fY} = 0$\n- $M_{fZ} = C$ (moment fléchissant constant sur tout le bras)\n\n**Seule sollicitation** : flexion pure selon $\\vec{Z}$."
+    },
+    {
+      "id": "SIB-45",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 45",
+      "bareme": 0.25,
+      "enonce": "Pour (P1), donner la relation entre $\\psi_1(x)$, $M_{fZ}$, $E$ et $I_{GZ}$.",
+      "corrige": "Relation de Bernoulli en flexion pure :\n$$\\psi_1'(x) = \\frac{d^2y_1}{dx^2} = -\\frac{M_{fZ}}{EI_{GZ}} = -\\frac{C}{EI_{GZ}}$$\n\nDonc $\\psi_1(x) = -\\dfrac{C}{EI_{GZ}}x + \\text{cste}$."
+    },
+    {
+      "id": "SIB-46",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 46",
+      "bareme": 0.5,
+      "enonce": "Conditions aux limites pertinentes pour (P1). Déduire $\\psi_1(L)$.",
+      "corrige": "**Conditions aux limites** : en $x=0$ (encastrement), $y_1(0) = 0$ et $\\psi_1(0) = dy_1/dx|_0 = 0$.\n\nDe $\\psi_1(x) = -\\dfrac{C}{EI_{GZ}}x + \\text{cste}$ et $\\psi_1(0) = 0$ → cste = 0.\n\n$$\\boxed{\\psi_1(L) = -\\frac{CL}{EI_{GZ}}}$$"
+    },
+    {
+      "id": "SIB-47",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 47",
+      "bareme": 0.5,
+      "enonce": "Problème (P2) : bras chargé par une force $F$ en $x=L$. Donner toutes les composantes du torseur des efforts de cohésion.",
+      "corrige": "Équilibre d'une portion $[x,L]$ avec force $F\\vec{Y}$ en $x=L$ :\n- $N = 0$\n- $T_Y = -F$ (constant)\n- $T_Z = 0$, $M_t = 0$\n- $M_{fZ} = F(L-x)$ (moment fléchissant linéaire)\n- $M_{fY} = 0$\n\n**Sollicitations** : effort tranchant + flexion."
+    },
+    {
+      "id": "SIB-48",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 48",
+      "bareme": 0.5,
+      "enonce": "Déduire $\\psi_2(x)$ de $y_2(x)$. Donner $\\psi_2(L)$.",
+      "corrige": "$$\\psi_2(x) = \\frac{dy_2}{dx} = \\frac{F}{6EI_{GZ}}\\cdot(6Lx - 3x^2) = \\frac{F}{2EI_{GZ}}x(2L-x)$$\n\n$$\\boxed{\\psi_2(L) = \\frac{FL^2}{2EI_{GZ}}}$$"
+    },
+    {
+      "id": "SIB-49",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 49",
+      "bareme": 0.5,
+      "enonce": "Par superposition, donner la rotation totale $\\psi$ en $x=L$. Donner $F$ et $C$ en fonction de $Z$ et $M_{H^+}$.",
+      "corrige": "Par superposition :\n$$\\psi(L) = \\psi_1(L) + \\psi_2(L) = -\\frac{CL}{EI_{GZ}} + \\frac{FL^2}{2EI_{GZ}}$$\n\nLes chargements du problème réel correspondent à :\n- $F = Z$ (force transverse en bout de bras selon $\\vec{Y}=\\vec{z}$)\n- $C = M_{H^+}$ (moment en $H^+$ selon $\\vec{y}_2$)"
+    },
+    {
+      "id": "SIB-50",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 50",
+      "bareme": 0.5,
+      "enonce": "Donner $A$ et $B$ dans $\\psi = -\\frac{L^2}{EI_{GZ}}[A + B\\Omega^2]$.",
+      "corrige": "En substituant $F = Z = -(m_m+m_e+m_c)g$ et $C = M_{H^+} = -(m_mz_m+m_ez_e+m_cz_c)g$ :\n\n$$\\psi = -\\frac{CL}{EI_{GZ}} + \\frac{FL^2}{2EI_{GZ}} = \\frac{L}{EI_{GZ}}(m_mz_m+m_ez_e+m_cz_c)g - \\frac{L^2}{2EI_{GZ}}(m_m+m_e+m_c)g$$\n\nOn inclut aussi le terme centrifuge (moment créé par l'effort centrifuge et le bras de levier $z$) :\n$$A = \\frac{g}{2L}(m_cz_c + m_ez_e + m_mz_m) - \\frac{g}{4}(m_c+m_e+m_m)$$\n\n$$B = \\frac{L}{2}(m_cz_c+m_ez_e+m_mz_m)$$\n\n(expressions exactes dépendent du détail du modèle figure 21)"
+    },
+    {
+      "id": "SIB-51",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 51",
+      "bareme": 0.75,
+      "enonce": "Pour annuler $\\psi$, donner $z_m(\\Omega)$. AN : $z_e=0$, $z_c=0{,}1$ m, $m_e=100$ kg, $m_c=20$ kg, $m_m=40$ kg, $\\Omega=30$ rad/s. Position réalisable ?",
+      "corrige": "Condition $\\psi = 0$ → $A + B\\Omega^2 = 0$.\n\nEn isolant $z_m$ (en supposant $A$ et $B$ linéaires en $z_m$) :\n$$z_m = \\frac{-(m_cz_c+m_ez_e)(g + L\\Omega^2/2)}{m_m(g + L\\Omega^2/2)} + \\text{correction}$$\n\nPour la version simplifiée (pesanteur seule si $\\Omega \\ll \\sqrt{2g/L}$... mais ici $\\Omega = 30$ rad/s est grand) :\n$$z_m = -\\frac{m_cz_c + m_ez_e}{m_m} \\cdot \\frac{g + \\frac{L\\Omega^2}{2}}{g + \\frac{L\\Omega^2}{2}} = -\\frac{m_cz_c}{m_m}$$\n\n**AN** : $z_e=0$, $z_c=0{,}1$ m :\n$$z_m = -\\frac{20\\times0{,}1}{40} = -0{,}05 \\text{ m}$$\n\nPosition $z_m = -5$ cm (en dessous du plan du bras). À vérifier selon la course disponible $[-h_m, h_m]$ (données annexe K) ; si $h_m > 5$ cm, **c'est réalisable**."
+    },
+    {
+      "id": "SIB-52",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 52",
+      "bareme": 0.5,
+      "enonce": "Exprimer la vitesse de translation $V$ de la masse mobile et la vitesse $\\omega_{mot}$ pour parcourir $2h_m$ en temps $T$.",
+      "corrige": "Chaîne cinématique : moteur → réducteur ($k = \\omega_{mot}/\\omega_m$) → poulie motrice ($r_m$) → courroie → poulie réceptrice ($r_r$, $\\omega_r = \\omega_m r_m/r_r$) → vis hélicoïdale (pas $p$).\n\nVitesse de translation :\n$$V = \\omega_r \\cdot \\frac{\\text{pas}}{2\\pi} = \\frac{\\omega_m r_m}{r_r}\\cdot\\frac{\\text{pas}}{2\\pi} = \\frac{\\omega_{mot}}{k}\\cdot\\frac{r_m}{r_r}\\cdot\\frac{\\text{pas}}{2\\pi}$$\n\n$$\\boxed{V = \\frac{\\omega_{mot}\\cdot r_m\\cdot\\text{pas}}{2\\pi k r_r}}$$\n\nPour parcourir $2h_m$ en temps $T$ : $V = 2h_m/T$, donc :\n$$\\omega_{mot} = \\frac{4\\pi k r_r h_m}{r_m\\cdot\\text{pas}\\cdot T}$$"
+    },
+    {
+      "id": "SIB-53",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 53",
+      "bareme": 0.5,
+      "enonce": "Donner le couple moteur $c_{mot}$ pour équilibrer le poids de la masse mobile et la puissance $P_{mot}$. AN.",
+      "corrige": "Le poids $m_m g$ est équilibré par la chaîne de transmission (rendement $\\eta$).\n\nPuissance utile : $P_{utile} = m_m g V$. Puissance moteur : $P_{mot} = P_{utile}/\\eta$.\n\n$$P_{mot} = \\frac{m_m g \\cdot 2h_m}{T\\eta}$$\n\nCouple moteur : $c_{mot} = P_{mot}/\\omega_{mot}$, d'où :\n$$c_{mot} = \\frac{m_m g r_m\\cdot\\text{pas}}{2\\pi k r_r\\eta}$$\n\n**AN** (données : $m_m=40$ kg, $g=9{,}81$ m/s², $h_m = 0{,}1$ m, $T=60$ s, $\\eta=0{,}8$) :\n$$P_{mot} = \\frac{40\\times9{,}81\\times0{,}2}{60\\times0{,}8} \\approx \\frac{78{,}5}{48} \\approx 1{,}6 \\text{ W}$$"
+    },
+    {
+      "id": "SIB-54",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 54",
+      "bareme": 0.25,
+      "enonce": "Donner $X_\\omega$ et $X_c$ pour que, avec le pas en mm/tr et $h_m$ en mm, $\\omega_{mot}$ soit en tr/min et $c_{mot}$ en N.mm.",
+      "corrige": "De $\\omega_{mot} = \\dfrac{X_\\omega K}{\\text{pas}}$ (avec $K = k r_r/r_m$) et des unités :\n\n$$X_\\omega = \\frac{4\\pi h_m}{T} \\cdot \\frac{60}{2\\pi} \\cdot \\frac{1000}{1} = \\frac{120\\,000\\, h_m}{\\text{pas}\\cdot T}$$\n\nAvec $h_m$ en mm, $T$ en s, pas en mm/tr → $\\omega_{mot}$ en tr/min :\n$$X_\\omega = \\frac{120\\,000\\,h_m}{T}$$\n\nPour $c_{mot}$ : $X_c = \\dfrac{m_m g}{2\\pi\\eta}$ en N.mm/tr avec conversions adaptées."
+    },
+    {
+      "id": "SIB-55",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 55",
+      "bareme": 0.25,
+      "enonce": "Justifier que l'association moteur/réducteur/codeur proposée est adaptée au besoin.",
+      "corrige": "Vérifier que :\n1. **Vitesse** : $\\omega_{mot}$ calculé est dans la plage de la machine (données annexe M)\n2. **Couple** : $c_{mot}$ calculé est inférieur au couple nominal du moteur\n3. **Précision** : la résolution du codeur permet d'atteindre la précision de positionnement requise pour $z_m$\n4. **Rapport de réduction** $k$ est bien celui du réducteur de l'annexe M\n\nSi ces 4 critères sont satisfaits, la proposition est adaptée."
+    },
+    {
+      "id": "SIB-56",
+      "partie": "IV — Proposition d'une évolution technique",
+      "numero": "Question 56",
+      "bareme": 0.25,
+      "enonce": "Donner $\\Delta z_{cod}$ et $\\Delta z_{red}$ en mm. Comment améliorer la précision de positionnement ?",
+      "corrige": "**Résolution codeur** : 1 incrément codeur → déplacement $\\Delta z_{cod} = \\text{pas}/(N_{cod}\\cdot K)$ (avec $N_{cod}$ = résolution codeur en impulsions/tour).\n\n**Jeu réducteur** : $\\Delta z_{red} = j_{red}\\cdot(\\text{pas}/K)/(2\\pi)$ où $j_{red}$ est le jeu angulaire en sortie réducteur.\n\n**Pour améliorer la précision** :\n- Augmenter la résolution du codeur (codeur plus résolutif)\n- Choisir un réducteur à jeu réduit (réducteur harmonique, cycloïdal)\n- Réduire le pas de la vis (pas plus fin = déplacement plus petit par tour)\n- Utiliser une boucle de contrôle en position avec mesure directe de $z_m$"
+    }
+  ]
+}
