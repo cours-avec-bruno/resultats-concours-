@@ -24,8 +24,9 @@ export class ScoreManager {
       }
     }
 
-    const models = this._calibrateModels(earned, answered);
-    return { earned, maxTotal, answered, total: this.questions.length, models };
+    const noteNormalisee = maxTotal > 0 ? earned * 20 / maxTotal : 0;
+    const models = this._calibrateModels(noteNormalisee, answered);
+    return { earned, maxTotal, noteNormalisee, answered, total: this.questions.length, models };
   }
 
   _calibrateModels(noteBrute, answered) {
