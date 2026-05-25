@@ -1,0 +1,256 @@
+{
+  "id": "banque-pt-2026-epreuve-phB-th",
+  "concours": "Banque PT — Spé PT",
+  "titre": "Banque PT 2026 – Physique B / Thermodynamique",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.15,
+    "sigma_hist": 3.83,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2506 candidats"
+  },
+  "questions": [
+    {
+      "id": "PhBTh-1",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 1",
+      "bareme": 1.0,
+      "enonce": "Définir le système étudié dans le circuit secondaire puis identifier Qc et Qf dans le circuit et donner leurs signes. Représenter les différents échanges d'énergie sous la forme d'un schéma.",
+      "corrige": "**Système étudié :**\n\nLe système est le **fluide caloporteur du circuit secondaire** (eau/vapeur d'eau), en régime permanent, parcourant le cycle de Rankine : pompe (1→2), chaudière (2→3), turbine (3→4), condenseur (4→1).\n\n**Identification des transferts thermiques :**\n\n- $Q_c$ = **chaleur chaud** : transfert thermique reçu par le fluide dans la **chaudière** (2→3). Le fluide est chauffé par la source chaude à $T_{ch} = 500°C$. Convention : $Q_c > 0$ (le fluide reçoit de la chaleur).\n\n- $Q_f$ = **chaleur froide** : transfert thermique cédé par le fluide dans le **condenseur** (4→1). Le fluide se refroidit vers la source froide à $T_f = 100°C$. Convention : $Q_f < 0$ (le fluide cède de la chaleur, il reçoit une chaleur algébriquement négative).\n\n**Schéma énergétique du cycle :**\n\n```\n        Source chaude Tch = 500°C\n               |\n               | Qc > 0\n               ↓\n     [CHAUDIÈRE] 2→3\n    /                \\\n  Pompe (w_P > 0)  Turbine (w_T < 0)\n  1→2                3→4\n    \\                /\n     [CONDENSEUR] 4→1\n               |\n               | |Qf| (cédé)\n               ↓\n        Source froide Tf = 100°C\n```\n\nBilan : le cycle reçoit $Q_c$ de la source chaude, cède $|Q_f|$ à la source froide, et produit un travail net $W_{net} = -(Q_c + Q_f) > 0$."
+    },
+    {
+      "id": "PhBTh-2",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 2",
+      "bareme": 0.75,
+      "enonce": "Donner, en la redémontrant, l'expression du rendement de Carnot $\\eta_{\\text{Carnot}} = 1 - T_f/T_{ch}$.",
+      "corrige": "**Démonstration du rendement de Carnot :**\n\nUn cycle de Carnot est un cycle **réversible** (sans création d'entropie) opérant entre deux sources thermiques à températures $T_{ch}$ et $T_f$ avec $T_f < T_{ch}$.\n\n**Étape 1 — Bilan entropique du cycle réversible :**\n\nPour un cycle réversible, la variation d'entropie sur un cycle est nulle :\n$$\\oint dS = 0$$\nLes seuls échanges entropiques proviennent des échanges de chaleur avec les deux sources :\n$$\\frac{Q_c}{T_{ch}} + \\frac{Q_f}{T_f} = 0$$\nDonc :\n$$Q_f = -\\frac{T_f}{T_{ch}} Q_c$$\n\n**Étape 2 — Bilan énergétique du cycle (1er principe) :**\n\nPour un cycle, $\\Delta U = 0$, donc :\n$$W_{net} + Q_c + Q_f = 0 \\implies W_{net} = -(Q_c + Q_f)$$\nEn substituant $Q_f$ :\n$$W_{net} = -Q_c\\left(1 - \\frac{T_f}{T_{ch}}\\right)$$\nComme $W_{net} < 0$ (le cycle moteur fournit du travail à l'extérieur) et $Q_c > 0$, le **travail produit** vaut $|W_{net}| = Q_c\\left(1 - T_f/T_{ch}\\right)$.\n\n**Étape 3 — Expression du rendement :**\n\nLe rendement est le rapport du travail utile produit sur l'énergie thermique coûteuse apportée :\n$$\\eta_{\\text{Carnot}} = \\frac{|W_{net}|}{Q_c} = \\frac{Q_c\\left(1 - T_f/T_{ch}\\right)}{Q_c}$$\n$$\\boxed{\\eta_{\\text{Carnot}} = 1 - \\frac{T_f}{T_{ch}}}$$\n\nCe rendement est une borne supérieure : tout cycle irréversible entre les mêmes sources aura un rendement strictement inférieur."
+    },
+    {
+      "id": "PhBTh-3",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 3",
+      "bareme": 0.5,
+      "enonce": "Calculer la valeur numérique approchée du rendement de Carnot pour $T_{ch} = 500°C$ et $T_f = 100°C$.",
+      "corrige": "**Conversion en kelvins (impératif) :**\n$$T_{ch} = 500 + 273{,}15 = 773{,}15 \\text{ K} \\qquad T_f = 100 + 273{,}15 = 373{,}15 \\text{ K}$$\n\n**Application numérique :**\n$$\\eta_{\\text{Carnot}} = 1 - \\frac{T_f}{T_{ch}} = 1 - \\frac{373{,}15}{773{,}15}$$\n$$\\eta_{\\text{Carnot}} = 1 - 0{,}483 = 0{,}517$$\n$$\\boxed{\\eta_{\\text{Carnot}} \\approx 51{,}7\\,\\%}$$\n\n**Remarque :** En adoptant les valeurs entières $T_{ch} = 773$ K et $T_f = 373$ K on obtient de même $\\eta = 1 - 373/773 \\approx 51{,}7\\,\\%$."
+    },
+    {
+      "id": "PhBTh-4",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 4",
+      "bareme": 0.75,
+      "enonce": "Établir l'expression du rendement réel en fonction de $Q_c$, $T_{ch}$, $T_f$ et $S_{\\text{créé}}$ (entropie créée).",
+      "corrige": "**Bilan entropique du cycle réel (irreversible) :**\n\nPour un cycle réel, le second principe impose :\n$$\\oint dS = S_{\\text{créé}} \\geq 0$$\nLes échanges entropiques avec les sources (à températures fixes $T_{ch}$ et $T_f$) donnent :\n$$\\frac{Q_c}{T_{ch}} + \\frac{Q_f}{T_f} + S_{\\text{créé}} = 0$$\nDonc :\n$$Q_f = -T_f\\left(\\frac{Q_c}{T_{ch}} + S_{\\text{créé}}\\right)$$\n\n**Bilan énergétique (1er principe sur le cycle) :**\n$$W_{net} = -(Q_c + Q_f) = -Q_c + T_f\\left(\\frac{Q_c}{T_{ch}} + S_{\\text{créé}}\\right)$$\n$$W_{net} = -Q_c\\left(1 - \\frac{T_f}{T_{ch}}\\right) + T_f \\, S_{\\text{créé}}$$\n\nLe travail produit est $|W_{net}| = Q_c(1 - T_f/T_{ch}) - T_f \\, S_{\\text{créé}}$.\n\n**Rendement réel :**\n$$\\eta_{\\text{réel}} = \\frac{|W_{net}|}{Q_c} = 1 - \\frac{T_f}{T_{ch}} - \\frac{T_f \\, S_{\\text{créé}}}{Q_c}$$\n$$\\boxed{\\eta_{\\text{réel}} = \\eta_{\\text{Carnot}} - \\frac{T_f \\, S_{\\text{créé}}}{Q_c}}$$\n\n**Commentaire :** Comme $S_{\\text{créé}} \\geq 0$, on a toujours $\\eta_{\\text{réel}} \\leq \\eta_{\\text{Carnot}}$. Le terme $T_f \\, S_{\\text{créé}} / Q_c$ représente la perte de rendement due aux irréversibilités."
+    },
+    {
+      "id": "PhBTh-5",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 5",
+      "bareme": 0.75,
+      "enonce": "Rappeler l'expression du « premier principe industriel » en écoulement stationnaire. Que devient-elle en négligeant pesanteur et variation d'énergie cinétique ?",
+      "corrige": "**Premier principe industriel en écoulement stationnaire :**\n\nPour un fluide traversant un appareil en régime permanent (échange de chaleur $q$ et de travail $w_u$ par unité de masse), le bilan énergétique par unité de masse entre une entrée (e) et une sortie (s) s'écrit :\n$$q + w_u = h_s - h_e + \\frac{v_s^2 - v_e^2}{2} + g(z_s - z_e)$$\noù :\n- $h = u + Pv$ est l'enthalpie massique\n- $\\frac{v^2}{2}$ est l'énergie cinétique massique\n- $gz$ est l'énergie potentielle de pesanteur massique\n- $w_u$ est le travail utile massique reçu par le fluide (travail des forces de pression non inclus dans $h$)\n\n**Simplification (pesanteur et énergie cinétique négligeables) :**\n\nEn négligeant les variations d'énergie cinétique ($\\Delta(v^2/2) \\approx 0$) et les effets de pesanteur ($g\\Delta z \\approx 0$) :\n$$\\boxed{q + w_u = h_s - h_e = \\Delta h}$$\n\n**Application au cycle de Rankine :**\n- Pompe : $w_u = h_2 - h_1$ (pas d'échange thermique, $q=0$ car adiabatique)\n- Chaudière : $q = h_3 - h_2$ (pas de travail utile, $w_u=0$)\n- Turbine : $w_u = h_4 - h_3$ (adiabatique, $q=0$)\n- Condenseur : $q = h_1 - h_4$ (pas de travail utile, $w_u=0$)"
+    },
+    {
+      "id": "PhBTh-6",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 6",
+      "bareme": 0.5,
+      "enonce": "Déterminer la température $T_2$ de l'eau dans l'état 2 (sortie pompe isentropique).",
+      "corrige": "**Modèle de la pompe isentropique sur liquide incompressible :**\n\nLa pompe (1→2) est adiabatique et réversible : la transformation est **isentropique**. Pour un liquide incompressible (volume massique $v_l \\approx$ cste), le travail massique de la pompe est :\n$$w_{\\text{pompe}} = h_2 - h_1 = v_l(P_2 - P_1)$$\n\n**Application numérique :**\nAvec $v_l \\approx v(100°C) = 10^{-3}$ m³·kg⁻¹, $P_1 = 1$ bar $= 10^5$ Pa, $P_2 = 50$ bar $= 50 \\times 10^5$ Pa :\n$$w_{\\text{pompe}} = 10^{-3} \\times (50 - 1) \\times 10^5 = 4900 \\text{ J·kg}^{-1} = 4{,}9 \\text{ kJ·kg}^{-1}$$\n\n**Élévation de température dans la pompe :**\n\nPour un liquide (capacité thermique massique $c_p \\approx 4{,}18$ kJ·kg⁻¹·K⁻¹), la variation d'enthalpie due à la compression à entropie constante s'accompagne d'une légère élévation de température. En utilisant $\\Delta h = c_p \\Delta T$ :\n$$\\Delta T = \\frac{w_{\\text{pompe}}}{c_p} = \\frac{4{,}9}{4{,}18} \\approx 1{,}2 \\text{ K}$$\n\n$$\\boxed{T_2 = T_1 + \\Delta T \\approx 100 + 1{,}2 \\approx 101{,}2°C}$$\n\n**Remarque :** Cette élévation de température est très faible ($\\approx 1°C$), ce qui est caractéristique des pompes sur liquide. En pratique, on retient souvent $T_2 \\approx T_1 = 100°C$. La valeur $h_2 \\approx 445$ kJ·kg⁻¹ (lue sur le diagramme) est cohérente : $h_2 = h_1 + w_P = 440 + 4{,}9 \\approx 445$ kJ·kg⁻¹."
+    },
+    {
+      "id": "PhBTh-7",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 7",
+      "bareme": 1.25,
+      "enonce": "Déterminer $P_3$, $P_4$ et $T_4$, puis décrire l'allure du cycle dans un diagramme de Clapeyron $(P,v)$.",
+      "corrige": "**Détermination de $P_3$, $P_4$ et $T_4$ :**\n\n- **Chaudière 2→3 : transformation isobare**\n$$P_3 = P_2 = \\boxed{50 \\text{ bar}}$$\n\n- **Condenseur 4→1 : transformation isobare**\n$$P_4 = P_1 = \\boxed{1 \\text{ bar}}$$\n\n- **$T_4$ : état 4 est un mélange liquide-vapeur à $P_4 = 1$ bar**\nA 1 bar, la température de saturation de l'eau est $T_{\\text{sat}} = 100°C$ (données). Donc :\n$$\\boxed{T_4 = 100°C = 373{,}15 \\text{ K}}$$\n\n**Description du cycle dans le diagramme de Clapeyron $(P,v)$ :**\n\nLe diagramme $(P,v)$ fait apparaître la courbe de saturation (dôme de Andrews) avec le point critique C. Les quatre états sont :\n\n- **Point 1** $(P_1 = 1 \\text{ bar}, v_1 = v_l)$ : liquide saturé à 100°C, sur la courbe de rosée côté liquide (courbe de bulle)\n- **Point 2** $(P_2 = 50 \\text{ bar}, v_2 \\approx v_1)$ : liquide comprimé, légèrement au-dessus de la courbe de saturation à haute pression. $v_2 \\approx v_1$ (liquide quasi-incompressible)\n- **Point 3** $(P_3 = 50 \\text{ bar}, v_3 \\gg v_1)$ : vapeur surchauffée à 500°C, très à droite du dôme\n- **Point 4** $(P_4 = 1 \\text{ bar}, v_1 < v_4 < v_g)$ : mélange liquide-vapeur ($x_4 \\approx 0{,}92$) sous le dôme, à $T_4 = 100°C$\n\n**Allure du cycle :**\n1→2 : compression quasi-verticale (liquide incompressible), de 1 bar à 50 bar, $v$ quasi-constant\n2→3 : isobare à 50 bar, de l'état liquide comprimé à la vapeur surchauffée, $v$ croît fortement\n3→4 : détente isentropique, $P$ décroît de 50 à 1 bar, $v$ croît, la courbe plonge sous le dôme\n4→1 : condensation isobare à 1 bar, $v$ décroît de la vapeur humide au liquide saturé"
+    },
+    {
+      "id": "PhBTh-8",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 8",
+      "bareme": 1.0,
+      "enonce": "Déterminer l'équation générale d'une isobare pour un gaz parfait dans le diagramme $(T,s)$. Discuter de l'allure des isenthalpes à entropie élevée.",
+      "corrige": "**Équation d'une isobare dans le diagramme $(T,s)$ pour un gaz parfait :**\n\nPour une transformation réversible d'un gaz parfait, la première loi combinée au second principe donne :\n$$dU = \\delta Q_{\\text{rév}} - P\\,dV \\implies T\\,ds = c_p\\,dT - v\\,dP$$\n\nÀ pression constante ($dP = 0$) :\n$$T\\,ds = c_p\\,dT \\implies ds = c_p \\frac{dT}{T}$$\n\nEn intégrant entre un état de référence $(T_0, s_0)$ et l'état courant $(T, s)$ :\n$$s - s_0 = c_p \\ln\\frac{T}{T_0}$$\n$$s = s_0 + c_p \\ln\\frac{T}{T_0}$$\n\nOu de façon équivalente :\n$$T = T_0 \\, e^{(s-s_0)/c_p}$$\n\nDans le plan $(T,s)$, **une isobare est une exponentielle croissante** (courbe convexe vers le haut) :\n$$\\boxed{T = T_0(P) \\, \\exp\\!\\left(\\frac{s - s_0}{c_p}\\right)}$$\n\nLes isobares de plus haute pression sont situées **au-dessus** de celles de basse pression (car à même entropie, une compression augmente la température).\n\n**Allure des isobares à entropie élevée :**\n\nLorsque $s \\to \\infty$, $T \\to \\infty$ selon une exponentielle : les isobares **divergent** entre elles. Autrement dit, à grande entropie (vapeur très surchauffée), l'écart en température entre deux isobares est d'autant plus grand que l'entropie est élevée. Les courbes s'éloignent de plus en plus l'une de l'autre et restent strictement croissantes, sans jamais s'intersecter."
+    },
+    {
+      "id": "PhBTh-9",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 9",
+      "bareme": 0.75,
+      "enonce": "Décrire le placement des points 1 à 4 sur le diagramme $(T,s)$ et l'allure du cycle.",
+      "corrige": "**Description du cycle de Rankine dans le diagramme $(T,s)$ :**\n\nLe diagramme $(T,s)$ fait apparaître le **dôme de saturation** (ou courbe de rosée) avec :\n- la courbe de rosée liquide à gauche (entropie $s_l(T)$)\n- la courbe de rosée vapeur à droite (entropie $s_g(T)$)\n- la zone de mélange liquide-vapeur sous le dôme\n\n**Placement des quatre points :**\n\n- **Point 1** : $T_1 = 100°C$, $s_1 = s_l(100°C) = 1{,}3$ kJ·kg⁻¹·K⁻¹. Sur la **courbe de bulle** (côté gauche du dôme), à basse température.\n\n- **Point 2** : $T_2 \\approx 101°C$, $s_2 \\approx s_1 = 1{,}3$ kJ·kg⁻¹·K⁻¹ (transformation isentropique → même entropie). Légèrement au-dessus du point 1 en température, légèrement à gauche du dôme (liquide comprimé). Points 1 et 2 quasiment confondus dans le diagramme.\n\n- **Point 3** : $T_3 = 500°C$, $s_3 \\approx 6{,}8$ kJ·kg⁻¹·K⁻¹. **À droite du dôme**, dans la zone de vapeur surchauffée (hors du dôme).\n\n- **Point 4** : $T_4 = 100°C$, $s_4 = s_3 \\approx 6{,}8$ kJ·kg⁻¹·K⁻¹. **Sous le dôme** (mélange liquide-vapeur), avec $x_4 \\approx 0{,}92$.\n\n**Allure du cycle :**\n\n- **1→2** : segment quasi-vertical (même $T$, même $s$), compression isentropique de la pompe\n- **2→3** : courbe isobare croissante de gauche à droite, chauffage dans la chaudière jusqu'à la vapeur surchauffée\n- **3→4** : segment **vertical** (isentropique), $s$ constant, $T$ décroît de 500°C à 100°C, la courbe entre sous le dôme\n- **4→1** : segment **horizontal** ($T$ = 100°C = constante), condensation isobare (et isotherme sous le dôme), $s$ décroît de $s_4 = 6{,}8$ à $s_1 = 1{,}3$ kJ·kg⁻¹·K⁻¹"
+    },
+    {
+      "id": "PhBTh-10",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 10",
+      "bareme": 0.75,
+      "enonce": "Identifier l'état thermodynamique du fluide aux points 2 et 3. Donner les valeurs numériques de $h_2$, $h_3$, $s_2$, $s_3$, $T_4$.",
+      "corrige": "**État thermodynamique aux points 2 et 3 :**\n\n- **Point 2** : $P_2 = 50$ bar, $T_2 \\approx 101°C$. La température de saturation de l'eau à 50 bar est $T_{\\text{sat}}(50\\,\\text{bar}) \\approx 264°C \\gg T_2 = 101°C$. Le fluide est donc à une température **inférieure** à la température de saturation à cette pression : il s'agit d'un **liquide sous-refroidi** (ou liquide comprimé).\n\n- **Point 3** : $P_3 = 50$ bar, $T_3 = 500°C$. La température $T_3 = 500°C$ est **supérieure** à $T_{\\text{sat}}(50\\,\\text{bar}) \\approx 264°C$ : le fluide est donc à l'état de **vapeur surchauffée**.\n\n**Valeurs numériques (issues du diagramme $(T,s)$ et des tables) :**\n\n| Grandeur | Valeur |\n|----------|--------|\n| $h_2$ | $\\approx 445$ kJ·kg⁻¹ (lecture diagramme / calcul pompe) |\n| $h_3$ | $\\approx 3433$ kJ·kg⁻¹ (lecture diagramme, vapeur surchauffée 500°C, 50 bar) |\n| $s_2$ | $s_2 = s_1 \\approx 1{,}3$ kJ·kg⁻¹·K⁻¹ (isentropique, pompe) |\n| $s_3$ | $\\approx 6{,}8$ kJ·kg⁻¹·K⁻¹ (lecture diagramme, vapeur surchauffée 500°C, 50 bar) |\n| $T_4$ | $100°C$ (saturation à $P_4 = 1$ bar) |"
+    },
+    {
+      "id": "PhBTh-11",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 11",
+      "bareme": 1.0,
+      "enonce": "Exprimer l'entropie massique en fonction du titre $x$ et des entropies $s_l(T)$, $s_g(T)$. En déduire le titre massique en vapeur $x_4$ à la sortie de la turbine. Faire l'application numérique.",
+      "corrige": "**Expression de l'entropie massique dans un mélange liquide-vapeur :**\n\nDans la zone diphasique, le fluide est composé d'une fraction massique $x$ de vapeur saturée (entropie $s_g(T)$) et d'une fraction $(1-x)$ de liquide saturé (entropie $s_l(T)$). Par additivité des grandeurs extensives :\n$$s = (1-x)\\,s_l(T) + x\\,s_g(T)$$\n$$\\boxed{s = s_l(T) + x\\,[s_g(T) - s_l(T)]}$$\n\n**Calcul de $x_4$ :**\n\nLa turbine est adiabatique et réversible : la transformation 3→4 est **isentropique**, donc :\n$$s_4 = s_3 = 6{,}8 \\text{ kJ·kg}^{-1}\\text{·K}^{-1}$$\n\nL'état 4 est un mélange à $T_4 = 100°C$, avec $s_l(100°C) = 1{,}3$ kJ·kg⁻¹·K⁻¹ et $s_g(100°C) = 7{,}3$ kJ·kg⁻¹·K⁻¹.\n\nOn inverse la relation :\n$$x_4 = \\frac{s_4 - s_l(T_4)}{s_g(T_4) - s_l(T_4)}$$\n\n**Application numérique :**\n$$x_4 = \\frac{6{,}8 - 1{,}3}{7{,}3 - 1{,}3} = \\frac{5{,}5}{6{,}0}$$\n$$\\boxed{x_4 \\approx 0{,}917 \\approx 0{,}92}$$\n\n**Vérification par l'enthalpie :** En utilisant la relation $h_4 = h_l + x_4(h_g - h_l)$ avec $h_4 = 2550$ kJ·kg⁻¹ et $h_l = 440$ kJ·kg⁻¹ :\n$$h_g = \\frac{h_4 - h_l}{x_4} + h_l = \\frac{2550 - 440}{0{,}917} + 440 \\approx 2742 \\text{ kJ·kg}^{-1}$$\ncohérent avec la valeur tabulée $h_{lg}(100°C) \\approx 2257$ kJ·kg⁻¹ (la légère différence provient des arrondis de lecture graphique)."
+    },
+    {
+      "id": "PhBTh-12",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 12",
+      "bareme": 0.75,
+      "enonce": "Exprimer et calculer le transfert thermique massique reçu par le fluide dans la chaudière puis dans le condenseur. Commenter les signes.",
+      "corrige": "**Application du premier principe en écoulement stationnaire (sans travail utile) :**\n$$q = h_s - h_e$$\n\n**Chaudière (2→3), isobare sans travail :**\n$$q_{ch} = h_3 - h_2 = 3433 - 445 = +2988 \\text{ kJ·kg}^{-1}$$\n$$\\boxed{q_{ch} = +2988 \\text{ kJ·kg}^{-1} > 0}$$\n**Commentaire :** Le signe est positif, conformément à la convention (le fluide reçoit de la chaleur de la source chaude). La chaudière apporte de l'énergie thermique au fluide pour le vaporiser et le surchauffer.\n\n**Condenseur (4→1), isobare sans travail :**\n$$q_{cond} = h_1 - h_4 = 440 - 2550 = -2110 \\text{ kJ·kg}^{-1}$$\n$$\\boxed{q_{cond} = -2110 \\text{ kJ·kg}^{-1} < 0}$$\n**Commentaire :** Le signe est négatif : le fluide **cède** de la chaleur à la source froide. C'est le flux thermique éliminé dans le condenseur, indispensable pour boucler le cycle. Sa valeur absolue représente la chaleur dégradée vers la source froide."
+    },
+    {
+      "id": "PhBTh-13",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 13",
+      "bareme": 0.75,
+      "enonce": "En déduire le travail massique reçu par le fluide au cours du cycle. Déterminer le travail massique reçu dans la turbine. Expliquer pourquoi il diffère du travail total.",
+      "corrige": "**Travail massique net reçu par le fluide au cours du cycle :**\n\nApplication du premier principe sur le cycle complet ($\\Delta h_{\\text{cycle}} = 0$) :\n$$w_{\\text{cycle}} = -(q_{ch} + q_{cond}) = -(2988 + (-2110)) = -(878) = -878 \\text{ kJ·kg}^{-1}$$\n$$\\boxed{w_{\\text{cycle}} = -878 \\text{ kJ·kg}^{-1}}$$\nLe signe négatif indique que le fluide **cède** du travail à l'extérieur (c'est un cycle moteur produisant $|w_{\\text{net}}| = 878$ kJ·kg⁻¹).\n\n**Travail massique reçu dans la turbine (3→4, adiabatique) :**\n$$w_T = h_4 - h_3 = 2550 - 3433 = -883 \\text{ kJ·kg}^{-1}$$\n$$\\boxed{w_T = -883 \\text{ kJ·kg}^{-1}}$$\n\n**Explication de la différence :**\n\nLe cycle comporte également la **pompe** (1→2), qui reçoit un travail positif du cycle :\n$$w_P = h_2 - h_1 = 445 - 440 = +5 \\text{ kJ·kg}^{-1}$$\n\nLe travail net du cycle est la somme des travaux de la turbine et de la pompe :\n$$w_{\\text{cycle}} = w_T + w_P = -883 + 5 = -878 \\text{ kJ·kg}^{-1}$$\n\nLe travail utile produit ($|w_{\\text{cycle}}| = 878$ kJ·kg⁻¹) est **inférieur** au travail fourni par la turbine ($|w_T| = 883$ kJ·kg⁻¹) car une partie du travail de la turbine est consommée pour faire fonctionner la pompe. Le **travail net** est $|w_{\\text{net}}| = |w_T| - w_P = 883 - 5 = 878$ kJ·kg⁻¹."
+    },
+    {
+      "id": "PhBTh-14",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 14",
+      "bareme": 0.5,
+      "enonce": "Dans quel état se trouve le fluide à la sortie de la turbine ? Pourquoi est-ce un inconvénient pour les parties mobiles ?",
+      "corrige": "**État du fluide à la sortie de la turbine (point 4) :**\n\nD'après les résultats obtenus :\n- $P_4 = 1$ bar, $T_4 = 100°C$, $x_4 \\approx 0{,}92$\n\nLe fluide se trouve dans un état de **mélange liquide-vapeur** (vapeur humide), avec un titre massique en vapeur de $x_4 \\approx 0{,}92$, c'est-à-dire que la vapeur contient environ **8 % de gouttelettes de liquide** en suspension.\n\n**Inconvénient pour les parties mobiles :**\n\nLa présence de **gouttelettes liquides** dans le flux de vapeur en sortie de turbine est particulièrement néfaste pour les organes mécaniques pour plusieurs raisons :\n\n1. **Érosion des aubes** : les gouttelettes, animées d'une grande vitesse, impactent les aubes fixes et mobiles de la turbine avec un effet d'érosion intense (analogue au sablage). Cela provoque une usure prématurée des matériaux.\n\n2. **Chocs hydrauliques** : la phase liquide, incompressible, peut provoquer des chocs mécaniques brutaux sur les aubages.\n\n3. **Réduction de rendement** : la présence de liquide perturbe l'écoulement de vapeur, crée des turbulences et dégrade le rendement isentropique réel de la turbine.\n\nEn pratique, pour limiter cet inconvénient, on cherche à ce que le titre en sortie de turbine soit $x_4 > 0{,}85$ (valeur limite conventionnelle). Ici $x_4 \\approx 0{,}92 > 0{,}85$, la condition est satisfaite, mais de peu."
+    },
+    {
+      "id": "PhBTh-15",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 15",
+      "bareme": 0.5,
+      "enonce": "Définir et calculer le rendement thermodynamique du cycle (arrondi au dixième). Comparer au rendement de Carnot.",
+      "corrige": "**Définition du rendement thermodynamique du cycle :**\n\nLe rendement d'un cycle moteur est le rapport du **travail net produit** sur la **chaleur apportée par la source chaude** :\n$$\\eta_{\\text{cycle}} = \\frac{|w_{\\text{net}}|}{q_{ch}}$$\n\n**Application numérique :**\n$$\\eta_{\\text{cycle}} = \\frac{878}{2988}$$\n$$\\boxed{\\eta_{\\text{cycle}} \\approx 0{,}294 \\approx 29{,}4\\,\\%}$$\n\n**Comparaison avec le rendement de Carnot :**\n\n- Rendement de Carnot : $\\eta_{\\text{Carnot}} \\approx 51{,}7\\,\\%$\n- Rendement du cycle : $\\eta_{\\text{cycle}} \\approx 29{,}4\\,\\%$\n\n$$\\eta_{\\text{cycle}} < \\eta_{\\text{Carnot}} \\quad (29{,}4\\,\\% < 51{,}7\\,\\%)$$\n\nConformément au **second principe de la thermodynamique**, le rendement du cycle réel est strictement inférieur au rendement de Carnot. La différence (environ 22 points de rendement) traduit les **irréversibilités** du cycle : les échanges thermiques à des températures variables (notamment dans la chaudière, où le fluide passe de 100°C à 500°C sous 50 bar, ce qui n'est pas une source parfaite à $T_{ch}$ fixe) introduisent des irréversibilités importantes par rapport au cycle de Carnot idéal entre $T_f = 100°C$ et $T_{ch} = 500°C$."
+    },
+    {
+      "id": "PhBTh-16",
+      "partie": "Partie 1 — Description thermodynamique du cycle de Rankine",
+      "numero": "Question 16",
+      "bareme": 0.75,
+      "enonce": "Le sous-marin développe une puissance motrice $P_{\\text{mec}} = 200$ kW. Le rendement de l'alternateur est 95 %. 80 % de l'énergie électrique produite sert à la propulsion. Déterminer le débit massique d'eau dans le circuit secondaire.",
+      "corrige": "**Chaîne de conversion énergétique :**\n\n$$\\text{Cycle thermodynamique} \\xrightarrow{\\dot{m}, w_{\\text{net}}} \\text{Turbine} \\xrightarrow{\\eta_{\\text{alt}} = 0{,}95} \\text{Alternateur} \\xrightarrow{\\times 0{,}80} \\text{Propulsion}$$\n\n**Étape 1 — Puissance électrique totale produite :**\n\n$P_{\\text{mec}} = 200$ kW est la puissance délivrée en propulsion, soit 80 % de la puissance électrique :\n$$P_{\\text{élec}} = \\frac{P_{\\text{mec}}}{0{,}80} = \\frac{200}{0{,}80} = 250 \\text{ kW}$$\n\n**Étape 2 — Puissance mécanique nette de la turbine :**\n\nL'alternateur convertit la puissance mécanique en puissance électrique avec $\\eta_{\\text{alt}} = 0{,}95$ :\n$$P_{\\text{turbine}} = \\frac{P_{\\text{élec}}}{\\eta_{\\text{alt}}} = \\frac{250}{0{,}95} \\approx 263{,}2 \\text{ kW}$$\n\n**Étape 3 — Débit massique :**\n\nLa puissance mécanique nette du cycle est liée au débit massique $\\dot{m}$ par :\n$$P_{\\text{turbine}} = \\dot{m} \\times |w_{\\text{net}}|$$\n$$\\dot{m} = \\frac{P_{\\text{turbine}}}{|w_{\\text{net}}|} = \\frac{263{,}2 \\times 10^3 \\text{ W}}{878 \\times 10^3 \\text{ J·kg}^{-1}}$$\n$$\\boxed{\\dot{m} \\approx 0{,}300 \\text{ kg·s}^{-1}}$$\n\n**Résultat :** Le débit massique d'eau dans le circuit secondaire est d'environ $\\dot{m} \\approx 0{,}30$ kg·s⁻¹, soit 1080 kg·h⁻¹, ce qui correspond à un débit volumique d'environ $0{,}30 \\times 10^{-3}$ m³·s⁻¹ = 0,30 L·s⁻¹ en phase liquide."
+    },
+    {
+      "id": "PhBTh-17",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 17",
+      "bareme": 0.75,
+      "enonce": "Vérifier l'homogénéité de $R_{\\text{th1}} = \\frac{\\ln(r_2/r_1)}{2\\pi\\lambda_a L}$. Étudier l'influence de $\\lambda_a$, $L$ et du rapport $r_2/r_1$ sur $R_{\\text{th1}}$. En déduire l'expression de la résistance thermique $R_{\\text{th2}}$ de l'isolant cylindrique.",
+      "corrige": "**Vérification de l'homogénéité :**\n\nLa résistance thermique est définie par $R_{\\text{th}} = \\frac{\\Delta T}{\\Phi}$, donc ses unités sont :\n$$[R_{\\text{th}}] = \\frac{\\text{K}}{\\text{W}} = \\text{K} \\cdot \\text{W}^{-1}$$\n\nAnalyse du membre de droite :\n- $\\ln(r_2/r_1)$ : sans dimension (argument d'un logarithme est un rapport sans unité)\n- $[\\lambda_a] = \\text{W} \\cdot \\text{m}^{-1} \\cdot \\text{K}^{-1}$\n- $[L] = \\text{m}$\n\nDonc :\n$$\\left[\\frac{\\ln(r_2/r_1)}{2\\pi\\lambda_a L}\\right] = \\frac{1}{(\\text{W}\\cdot\\text{m}^{-1}\\cdot\\text{K}^{-1}) \\cdot \\text{m}} = \\frac{1}{\\text{W}\\cdot\\text{K}^{-1}} = \\text{K}\\cdot\\text{W}^{-1}$$\n\nL'expression est bien **homogène** à une résistance thermique. ✓\n\n**Pertinence physique — influence des paramètres :**\n\n- **Influence de $\\lambda_a$** : $R_{\\text{th1}} \\propto \\frac{1}{\\lambda_a}$. Plus le matériau est conducteur ($\\lambda_a$ grand), plus la résistance thermique est faible. C'est physiquement cohérent : un bon conducteur s'oppose peu au transfert de chaleur.\n\n- **Influence de $L$** : $R_{\\text{th1}} \\propto \\frac{1}{L}$. Plus la conduite est longue, plus la surface d'échange latérale est grande, plus le flux peut s'écouler facilement : la résistance diminue. Analogue à la mise en parallèle de résistances.\n\n- **Influence de $r_2/r_1$** : $R_{\\text{th1}} \\propto \\ln(r_2/r_1)$. Plus l'épaisseur de paroi est grande (rapport $r_2/r_1 \\gg 1$), plus la résistance est grande. Pour une paroi mince ($r_2/r_1 \\approx 1$), $\\ln(r_2/r_1) \\approx \\frac{r_2-r_1}{r_1} \\ll 1$ : la résistance est faible, en accord avec une paroi plane d'épaisseur $e = r_2 - r_1$ et de conductance $\\frac{\\lambda_a \\cdot 2\\pi r_1 L}{r_2-r_1}$.\n\n**Expression de $R_{\\text{th2}}$ pour l'isolant :**\n\nL'isolant cylindrique a un rayon intérieur $r_2$ et un rayon extérieur $r_2 + e$, conductivité $\\lambda_b$, longueur $L$. Par analogie stricte avec $R_{\\text{th1}}$ :\n\n$$\\boxed{R_{\\text{th2}} = \\frac{\\ln\\!\\left(\\frac{r_2 + e}{r_2}\\right)}{2\\pi\\lambda_b L}}$$"
+    },
+    {
+      "id": "PhBTh-18",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 18",
+      "bareme": 0.5,
+      "enonce": "À partir de la loi de Newton $P = h_{\\text{ext}} \\cdot S_{\\text{ext}} \\cdot (T_{\\text{ext}} - T_{\\text{paroi}})$, déterminer la résistance thermique de convection externe. En déduire la résistance thermique totale équivalente $R_{\\text{th-eq}}$ de la conduite isolée.",
+      "corrige": "**Résistance thermique de convection externe :**\n\nLa loi de Newton s'écrit $\\Phi = h_{\\text{ext}} \\cdot S_{\\text{ext}} \\cdot (T_{\\text{ext}} - T_{\\text{paroi}})$, soit sous forme de résistance thermique :\n$$\\Phi = \\frac{T_{\\text{ext}} - T_{\\text{paroi}}}{R_{\\text{conv}}} \\quad \\Rightarrow \\quad R_{\\text{conv}} = \\frac{1}{h_{\\text{ext}} \\cdot S_{\\text{ext}}}$$\n\nLa surface externe de l'isolant est $S_{\\text{ext}} = 2\\pi(r_2 + e)L$, donc :\n$$\\boxed{R_{\\text{conv}} = \\frac{1}{h_{\\text{ext}} \\cdot 2\\pi(r_2 + e)L}}$$\n\n**Résistance thermique équivalente totale :**\n\nLes trois résistances (paroi, isolant, convection) sont en série (le même flux thermique $\\Phi$ les traverse) :\n$$R_{\\text{th-eq}} = R_{\\text{th1}} + R_{\\text{th2}} + R_{\\text{conv}}$$\n$$\\boxed{R_{\\text{th-eq}} = \\frac{\\ln(r_2/r_1)}{2\\pi\\lambda_a L} + \\frac{\\ln\\!\\left(\\frac{r_2+e}{r_2}\\right)}{2\\pi\\lambda_b L} + \\frac{1}{2\\pi h_{\\text{ext}}(r_2+e)L}}$$"
+    },
+    {
+      "id": "PhBTh-19",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 19",
+      "bareme": 0.5,
+      "enonce": "Exprimer le flux thermique $\\Phi$ traversant la conduite isolée en fonction de $\\theta_e$, $\\theta_b$ et $R_{\\text{th-eq}}$.",
+      "corrige": "En régime stationnaire, le flux thermique est constant à travers l'ensemble des couches (paroi + isolant + convection). L'analogie électrique (loi d'Ohm thermique) donne directement :\n\n$$\\Phi = \\frac{T_{\\text{chaud}} - T_{\\text{froid}}}{R_{\\text{th-eq}}}$$\n\nIci la température chaude est celle de l'air extérieur $\\theta_e = 20^\\circ\\text{C}$ et la température froide est celle de l'oxygène liquide $\\theta_b = -185^\\circ\\text{C}$ :\n\n$$\\boxed{\\Phi = \\frac{\\theta_e - \\theta_b}{R_{\\text{th-eq}}}}$$\n\n**Application numérique indicative :**\n$$\\Phi = \\frac{20 - (-185)}{R_{\\text{th-eq}}} = \\frac{205}{R_{\\text{th-eq}}}$$\n\nAvec $R_{\\text{th-eq}} = 1{,}0$ K$\\cdot$W$^{-1}$ (donné) : $\\Phi = 205$ W.\n\n*Remarque : ce flux est positif, dirigé de l'extérieur vers l'intérieur, ce qui correspond bien à un apport de chaleur vers l'oxygène froid.*"
+    },
+    {
+      "id": "PhBTh-20",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 20",
+      "bareme": 0.75,
+      "enonce": "Étudier les variations de $R_{\\text{th-eq}}$ en fonction de $e$ en distinguant les cas $\\alpha < 1$ et $\\alpha > 1$, où $\\alpha = h_{\\text{ext}} r_2 / \\lambda_b$. Chercher un extremum et l'interpréter.",
+      "corrige": "On pose $r = r_2 + e$ le rayon extérieur de l'isolant, variable avec $e$. On exprime $R_{\\text{th-eq}}$ en ne gardant que les termes dépendant de $e$ (en notant $A$ la constante $R_{\\text{th1}}$) :\n\n$$R_{\\text{th-eq}}(r) = A + \\frac{\\ln(r/r_2)}{2\\pi\\lambda_b L} + \\frac{1}{2\\pi h_{\\text{ext}} r L}$$\n\n**Recherche de l'extremum — dérivée par rapport à $r$ :**\n$$\\frac{dR_{\\text{th-eq}}}{dr} = \\frac{1}{2\\pi\\lambda_b L} \\cdot \\frac{1}{r} - \\frac{1}{2\\pi h_{\\text{ext}} L} \\cdot \\frac{1}{r^2}$$\n\nEn posant $\\frac{dR_{\\text{th-eq}}}{dr} = 0$ :\n$$\\frac{1}{\\lambda_b r} = \\frac{1}{h_{\\text{ext}} r^2} \\quad \\Rightarrow \\quad r^* = \\frac{\\lambda_b}{h_{\\text{ext}}}$$\n\nOn appelle $r^* = \\frac{\\lambda_b}{h_{\\text{ext}}}$ le **rayon critique**.\n\n**Signe de la dérivée seconde :**\n$$\\frac{d^2R_{\\text{th-eq}}}{dr^2}\\bigg|_{r=r^*} = -\\frac{1}{2\\pi\\lambda_b L r^{*2}} + \\frac{2}{2\\pi h_{\\text{ext}} L r^{*3}} > 0$$\n\nL'extremum est bien un **minimum** de $R_{\\text{th-eq}}$.\n\n**Analyse selon $\\alpha = h_{\\text{ext}} r_2 / \\lambda_b$ :**\n\nOn remarque que $r^* = \\lambda_b / h_{\\text{ext}}$, donc $r^* / r_2 = 1/\\alpha$.\n\n- **Cas $\\alpha > 1$** : $r^* = \\lambda_b/h_{\\text{ext}} < r_2$. Le minimum est atteint pour un rayon inférieur au rayon de la paroi seule, ce qui est physiquement inaccessible. Pour tout $r > r_2$ (donc tout $e > 0$), $R_{\\text{th-eq}}$ est une fonction **croissante** de $e$. Ajouter de l'isolant augmente la résistance thermique : l'isolant est **efficace**.\n\n- **Cas $\\alpha < 1$** : $r^* > r_2$. Le minimum de $R_{\\text{th-eq}}$ est atteint pour $e^* = r^* - r_2 = \\frac{\\lambda_b}{h_{\\text{ext}}} - r_2 > 0$. Pour $e < e^*$, $R_{\\text{th-eq}}$ **décroît** en ajoutant de l'isolant (paradoxe : l'isolant augmente le flux !). Pour $e > e^*$, $R_{\\text{th-eq}}$ croît.\n\n**Conclusion :**\n$$\\boxed{r^* = \\frac{\\lambda_b}{h_{\\text{ext}}}}$$\nC'est le rayon critique au-delà duquel l'isolant joue son rôle protecteur."
+    },
+    {
+      "id": "PhBTh-21",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 21",
+      "bareme": 0.5,
+      "enonce": "Discuter de l'utilité de l'isolant selon les valeurs de $\\alpha$.",
+      "corrige": "**Rappel :** $\\alpha = h_{\\text{ext}} r_2 / \\lambda_b$, $r^* = \\lambda_b / h_{\\text{ext}}$.\n\n**Cas $\\alpha > 1$ (c'est-à-dire $r_2 > r^*$) :**\n\nLe rayon de la paroi dépasse déjà le rayon critique. Dès $e = 0$, on est dans la zone où $R_{\\text{th-eq}}$ augmente avec $e$. L'ajout d'isolant est **toujours bénéfique** : il réduit le flux thermique entrant dans l'oxygène liquide.\n\nC'est le régime habituel des conduites industrielles de grande dimension ou des isolants à faible conductivité (matériaux alvéolaires, aérogel, etc.).\n\n**Cas $\\alpha < 1$ (c'est-à-dire $r_2 < r^*$) :**\n\nIl existe un rayon critique $r^*$ supérieur à $r_2$. Pour une épaisseur d'isolant $e < r^* - r_2$, l'ajout d'isolant **diminue** $R_{\\text{th-eq}}$ et donc **augmente** le flux de chaleur entrant. L'isolant est contre-productif dans ce régime !\n\nPhysiquement, pour de petites conduites avec un coefficient d'échange extérieur élevé ($h_{\\text{ext}}$ grand) et un isolant de conductivité non négligeable, l'augmentation de la surface d'échange extérieure (proportionnelle à $r$) l'emporte sur l'augmentation de la résistance de conduction.\n\n**Conclusion pratique :**\n- Pour le procédé MESMA ($\\alpha$ à évaluer selon les données), si $\\alpha < 1$, il faut s'assurer que l'épaisseur d'isolant dépasse $e^* = r^* - r_2$ pour que l'isolant soit effectivement efficace.\n- En pratique pour les conduites cryogéniques, on choisit des isolants très performants ($\\lambda_b$ très faible) de sorte que $\\alpha \\gg 1$, garantissant l'efficacité quelle que soit l'épaisseur."
+    },
+    {
+      "id": "PhBTh-22",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 22",
+      "bareme": 0.25,
+      "enonce": "Quels peuvent être les autres effets à surveiller lors de la circulation d'oxygène liquide dans la conduite ?",
+      "corrige": "Lors de la circulation d'oxygène liquide, plusieurs effets autres que la conduction thermique radiale doivent être surveillés :\n\n1. **Vaporisation (changement de phase)** : Si le flux thermique entrant est suffisant, l'oxygène liquide peut s'évaporer partiellement. La formation de bulles de gaz dans la conduite crée un écoulement diphasique problématique (coups de bélier, cavitation, instabilités de débit).\n\n2. **Pertes de charge** : La viscosité de l'oxygène liquide et les rugosités de la paroi entraînent une chute de pression le long de la conduite, modifiant les conditions thermodynamiques locales (point d'ébullition dépendant de la pression).\n\n3. **Contraintes mécaniques et thermiques** : La dilatation différentielle entre la conduite froide ($-185^\\circ$C) et les supports à température ambiante génère des contraintes mécaniques importantes (fatigue thermique, risque de rupture).\n\n4. **Condensation de l'air ambiant** : En l'absence d'isolation suffisante, l'air en contact avec la paroi froide peut se condenser et même se liquéfier, posant des risques de corrosion et d'accumulation d'oxygène liquide ambiant.\n\n5. **Compatibilité matériaux** : L'oxygène liquide est un puissant comburant ; tout contact avec des matières grasses ou des matériaux incompatibles peut entraîner une combustion spontanée."
+    },
+    {
+      "id": "PhBTh-23",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 23",
+      "bareme": 0.5,
+      "enonce": "Pour un écoulement stationnaire, incompressible et parfait, exprimer la vitesse $v$ dans le rétrécissement du Venturi en fonction de $u$, $S$ et $s$.",
+      "corrige": "**Application de la conservation du débit volumique** (équation de continuité pour un fluide incompressible) :\n\nEn régime stationnaire et pour un fluide incompressible ($\\rho = $ cste), le débit volumique $Q_v$ est conservé entre la section large (section $S$, vitesse $u$) et le rétrécissement (section $s$, vitesse $v$) :\n\n$$Q_v = S \\cdot u = s \\cdot v$$\n\nD'où :\n$$\\boxed{v = \\frac{S}{s} \\cdot u}$$\n\n**Ordre de grandeur :** Avec $S = 27 \\times 10^{-4}$ m² et $s = 3 \\times 10^{-4}$ m² :\n$$\\frac{S}{s} = \\frac{27}{3} = 9$$\n\nLa vitesse dans le rétrécissement est 9 fois plus grande que dans la section large. Ce facteur élevé garantit une mesure précise de la différence de pression $P_A - P_B$."
+    },
+    {
+      "id": "PhBTh-24",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 24",
+      "bareme": 0.5,
+      "enonce": "Énoncer la relation de Bernoulli en rappelant ses conditions d'application.",
+      "corrige": "**Conditions d'application :**\n\nLa relation de Bernoulli s'applique à un écoulement :\n1. **Stationnaire** (les grandeurs en chaque point ne dépendent pas du temps)\n2. **Incompressible** (masse volumique $\\rho$ constante)\n3. **Parfait** (fluide non visqueux, sans frottement interne)\n4. Le long d'une **ligne de courant** (ou en tout point si l'écoulement est irrotationnel)\n\n**Relation de Bernoulli** le long d'une ligne de courant :\n\n$$\\boxed{P + \\frac{1}{2}\\rho v^2 + \\rho g z = \\text{cste}}$$\n\noù :\n- $P$ est la pression statique (en Pa)\n- $\\frac{1}{2}\\rho v^2$ est la pression dynamique (en Pa)\n- $\\rho g z$ est la pression hydrostatique (terme de gravité, en Pa)\n- $\\rho$ est la masse volumique du fluide (en kg·m$^{-3}$)\n- $v$ est la vitesse locale du fluide (en m·s$^{-1}$)\n- $z$ est l'altitude (en m)\n\n*Dans le cas horizontal (conduite à altitude constante), le terme $\\rho g z$ est constant et disparaît de la comparaison entre deux points.*"
+    },
+    {
+      "id": "PhBTh-25",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 25",
+      "bareme": 0.5,
+      "enonce": "Déterminer l'expression de $u$ (vitesse dans la section large) en fonction de $s$, $S$, $P_A$, $P_B$ et $\\rho_{O_2}$.",
+      "corrige": "**Application de Bernoulli entre les points A (section $S$) et B (section $s$), à la même hauteur :**\n\n$$P_A + \\frac{1}{2}\\rho_{O_2} u^2 = P_B + \\frac{1}{2}\\rho_{O_2} v^2$$\n\nOn injecte $v = \\frac{S}{s}u$ (résultat de Q23) :\n$$P_A + \\frac{1}{2}\\rho_{O_2} u^2 = P_B + \\frac{1}{2}\\rho_{O_2} \\left(\\frac{S}{s}\\right)^2 u^2$$\n$$P_A - P_B = \\frac{1}{2}\\rho_{O_2} u^2 \\left[\\left(\\frac{S}{s}\\right)^2 - 1\\right]$$\n\n**Isolation de $u$ :**\n$$u^2 = \\frac{2(P_A - P_B)}{\\rho_{O_2}\\left[\\left(\\frac{S}{s}\\right)^2 - 1\\right]}$$\n\n$$\\boxed{u = s\\sqrt{\\frac{2(P_A - P_B)}{\\rho_{O_2}(S^2 - s^2)}}}$$\n\n*On peut aussi écrire de manière équivalente :*\n$$u = \\frac{s}{\\sqrt{S^2 - s^2}}\\sqrt{\\frac{2(P_A - P_B)}{\\rho_{O_2}}}$$"
+    },
+    {
+      "id": "PhBTh-26",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 26",
+      "bareme": 0.75,
+      "enonce": "En déduire l'expression du débit massique $D_m$. Montrer par application numérique que $D_m \\approx 1$ kg·s$^{-1}$.",
+      "corrige": "**Expression du débit massique :**\n\n$$D_m = \\rho_{O_2} \\cdot S \\cdot u = \\rho_{O_2} \\cdot S \\cdot s \\cdot \\sqrt{\\frac{2(P_A - P_B)}{\\rho_{O_2}(S^2 - s^2)}}$$\n\nEn simplifiant $\\rho_{O_2}$ :\n$$\\boxed{D_m = S \\cdot s \\cdot \\sqrt{\\frac{2\\rho_{O_2}(P_A - P_B)}{S^2 - s^2}}}$$\n\n**Application numérique :**\n\nDonnées : $P_A - P_B = 4400$ Pa, $\\rho_{O_2} = 1100$ kg·m$^{-3}$, $S = 27 \\times 10^{-4}$ m², $s = 3 \\times 10^{-4}$ m².\n\nCalcul de $S^2 - s^2$ :\n$$S^2 - s^2 = (27)^2 \\times 10^{-8} - (3)^2 \\times 10^{-8} = (729 - 9) \\times 10^{-8} = 720 \\times 10^{-8} \\text{ m}^4$$\n\nCalcul de $S \\cdot s$ :\n$$S \\cdot s = 27 \\times 10^{-4} \\times 3 \\times 10^{-4} = 81 \\times 10^{-8} \\text{ m}^4$$\n\nCalcul de la racine :\n$$\\frac{2\\rho_{O_2}(P_A - P_B)}{S^2 - s^2} = \\frac{2 \\times 1100 \\times 4400}{720 \\times 10^{-8}} = \\frac{9{,}68 \\times 10^6}{720 \\times 10^{-8}} = \\frac{9{,}68 \\times 10^6}{7{,}20 \\times 10^{-6}} \\approx 1{,}344 \\times 10^{12}$$\n$$\\sqrt{1{,}344 \\times 10^{12}} \\approx 1{,}159 \\times 10^{6} \\text{ m}^{-2}\\cdot\\text{s}^{-1}\\cdot\\text{(kg·m}^{-3}\\text{)}^{1/2}$$\n\nAttention, reprenons avec les unités correctes :\n$$\\sqrt{\\frac{2\\rho_{O_2}(P_A-P_B)}{S^2-s^2}} = \\sqrt{\\frac{2 \\times 1100 \\times 4400}{720 \\times 10^{-8}}}$$\n$$= \\sqrt{\\frac{9{,}68 \\times 10^6}{7{,}20 \\times 10^{-6}}} = \\sqrt{1{,}344 \\times 10^{12}} \\approx 1{,}159 \\times 10^6 \\text{ Pa}^{1/2}\\cdot\\text{m}^{-2}$$\n\nCalcul final :\n$$D_m = 81 \\times 10^{-8} \\times 1{,}159 \\times 10^{6} = 81 \\times 1{,}159 \\times 10^{-2}$$\n$$D_m = 93{,}9 \\times 10^{-2} \\approx 0{,}94 \\text{ kg·s}^{-1}$$\n\n$$\\boxed{D_m \\approx 1 \\text{ kg·s}^{-1}}$$\n\nLe résultat est bien proche de 1 kg·s$^{-1}$, ce qui valide l'expression et les données numériques."
+    },
+    {
+      "id": "PhBTh-27",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 27",
+      "bareme": 0.25,
+      "enonce": "Si le fluide n'est plus parfait, quelles pertes de charge ce dispositif peut-il entraîner ?",
+      "corrige": "Pour un fluide réel (visqueux), le débitmètre Venturi engendre plusieurs types de **pertes de charge** (pertes d'énergie mécanique irréversibles) :\n\n1. **Pertes de charge régulières (frottement visqueux)** : dues à la viscosité du fluide sur toute la longueur de l'écoulement dans les sections droites. Ces pertes sont proportionnelles à la longueur et à la vitesse (régime turbulent).\n\n2. **Pertes de charge singulières (pertes par élargissement)** : lors de la **décompression brusque** à la sortie du col, le profil de vitesse n'est pas uniforme et le fluide réel subit des décollements de couche limite et des tourbillons. Ces pertes sont bien plus importantes lors de l'élargissement (perte de Borda-Carnot) que lors du rétrécissement convergent (bien guidé).\n\n3. **Pertes par turbulence** : en régime turbulent (nombre de Reynolds élevé pour $D_m \\approx 1$ kg·s$^{-1}$), les fluctuations turbulentes dissipent de l'énergie cinétique en chaleur.\n\n*En pratique*, la relation de Bernoulli est corrigée par un **coefficient de décharge** $C_d < 1$ tel que $D_m^{\\text{réel}} = C_d \\times D_m^{\\text{Bernoulli}}$, pour prendre en compte ces pertes."
+    },
+    {
+      "id": "PhBTh-28",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 28",
+      "bareme": 0.75,
+      "enonce": "En régime permanent, établir l'équation différentielle vérifiée par la température du fluide $\\theta(x)$ le long de la conduite (axe $x$ de $0$ à $L$). Faire apparaître $D_m$, $R_{\\text{th-eq}}$, $c_{O_2}$, $L$ et $\\theta_e$.",
+      "corrige": "**Bilan d'énergie sur un tronçon élémentaire $dx$ :**\n\nConsidérons un tronçon de conduite d'épaisseur $dx$ à l'abscisse $x$. En régime permanent :\n\n- Le fluide entre avec la température $\\theta(x)$ et sort avec $\\theta(x+dx) = \\theta(x) + d\\theta$.\n- Le flux de chaleur entrant par les parois sur ce tronçon de longueur $dx$ est :\n$$d\\Phi = \\frac{\\theta_e - \\theta(x)}{dR_{\\text{th-eq}}}$$\n\noù $dR_{\\text{th-eq}}$ est la résistance thermique du tronçon $dx$. Puisque $R_{\\text{th-eq}}$ est la résistance pour une longueur $L$ totale :\n$$dR_{\\text{th-eq}} = R_{\\text{th-eq}} \\cdot \\frac{L}{dx}$$\n\nDonc :\n$$d\\Phi = \\frac{(\\theta_e - \\theta(x)) \\cdot dx}{R_{\\text{th-eq}} \\cdot L}$$\n\n**Bilan enthalpique du fluide sur $dx$ :**\n\nL'augmentation d'enthalpie du fluide sur ce tronçon vaut :\n$$d\\Phi = D_m \\cdot c_{O_2} \\cdot d\\theta$$\n\n**Égalité des deux expressions :**\n$$D_m \\cdot c_{O_2} \\cdot \\frac{d\\theta}{dx} = \\frac{\\theta_e - \\theta(x)}{R_{\\text{th-eq}} \\cdot L}$$\n\nSoit, en réorganisant :\n$$\\boxed{\\frac{d\\theta}{dx} = \\frac{\\theta_e - \\theta}{D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L}}$$\n\nOu encore en posant $\\delta = D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L$ :\n$$\\frac{d\\theta}{dx} + \\frac{\\theta}{\\delta} = \\frac{\\theta_e}{\\delta}$$\n\nC'est une équation différentielle du premier ordre linéaire à coefficients constants, avec $\\theta_e$ comme terme forcé (température de consigne à atteindre)."
+    },
+    {
+      "id": "PhBTh-29",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 29",
+      "bareme": 0.5,
+      "enonce": "Identifier une longueur caractéristique $\\delta$ de l'évolution de la température. Calculer son ordre de grandeur.",
+      "corrige": "**Identification de la longueur caractéristique :**\n\nL'équation différentielle établie en Q28 s'écrit :\n$$\\frac{d\\theta}{dx} = \\frac{\\theta_e - \\theta}{D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L}$$\n\nEn posant $\\mu = D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}}$ (homogène à une longueur), la solution est une exponentielle d'argument $x / (\\mu \\cdot L)$... En réalité, la longueur caractéristique naturelle est :\n\n$$\\boxed{\\delta = D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L}$$\n\n*Remarque :* on peut aussi définir $\\delta_0 = D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}}$ comme une longueur caractéristique intrinsèque (indépendante de $L$), mais le paramètre faisant apparaître explicitement $L$ dans l'argument de l'exponentielle est :\n$$\\delta = D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L$$\n\n**Application numérique :**\n\n$$\\delta = D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L$$\n$$\\delta = 1 \\times (1{,}7 \\times 10^3) \\times 1{,}0 \\times 2$$\n$$\\delta = 1 \\times 1700 \\times 1{,}0 \\times 2 = 3400 \\text{ K·(unités à analyser)}$$\n\nAttention aux unités : $D_m$ en kg·s$^{-1}$, $c_{O_2}$ en J·kg$^{-1}$·K$^{-1}$, $R_{\\text{th-eq}}$ en K·W$^{-1}$ = K·s·J$^{-1}$, $L$ en m.\n\n$$[\\delta] = \\text{kg·s}^{-1} \\times \\text{J·kg}^{-1}\\cdot\\text{K}^{-1} \\times \\text{K·s·J}^{-1} \\times \\text{m} = \\text{m}$$\n\n$$\\delta = 1 \\times 1700 \\times 1{,}0 \\times 2 = 3400 \\text{ m}$$\n\n$$\\boxed{\\delta \\approx 3400 \\text{ m} \\sim 3 \\text{ km}}$$"
+    },
+    {
+      "id": "PhBTh-30",
+      "partie": "Partie 2 — Utilisation de l'oxygène liquide",
+      "numero": "Question 30",
+      "bareme": 0.75,
+      "enonce": "Donner l'expression littérale de la variation de température sur la longueur $L$. Dans quel cas cette variation est-elle négligeable ? Conclure pour les conduites du procédé MESMA.",
+      "corrige": "**Résolution de l'équation différentielle (Q28) :**\n\nL'équation est $\\frac{d\\theta}{dx} = \\frac{\\theta_e - \\theta}{\\delta}$ avec $\\delta = D_m c_{O_2} R_{\\text{th-eq}} L$.\n\nEn posant $\\varphi = \\theta - \\theta_e$ (écart à la température extérieure) :\n$$\\frac{d\\varphi}{dx} = -\\frac{\\varphi}{\\delta} \\quad \\Rightarrow \\quad \\varphi(x) = \\varphi_0 \\cdot e^{-x/\\delta}$$\n\nAvec $\\varphi_0 = \\theta(0) - \\theta_e = \\theta_b - \\theta_e$ (température d'entrée) :\n$$\\theta(x) = \\theta_e + (\\theta_b - \\theta_e)\\,e^{-x/\\delta}$$\n\n**Variation de température sur la longueur $L$ :**\n$$\\Delta\\theta = \\theta(L) - \\theta(0) = (\\theta_b - \\theta_e)\\left(e^{-L/\\delta} - 1\\right)$$\n\nOu encore, en termes d'échauffement du fluide :\n$$\\boxed{\\Delta\\theta = \\theta(L) - \\theta_b = (\\theta_e - \\theta_b)\\left(1 - e^{-L/\\delta}\\right)}$$\n\n**Développement limité pour $L \\ll \\delta$ :**\n$$1 - e^{-L/\\delta} \\approx \\frac{L}{\\delta} \\quad \\text{si } L \\ll \\delta$$\n\nDonc :\n$$\\Delta\\theta \\approx (\\theta_e - \\theta_b) \\cdot \\frac{L}{\\delta} = \\frac{(\\theta_e - \\theta_b) \\cdot L}{D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L} = \\frac{\\theta_e - \\theta_b}{D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}}}$$\n\n**Condition de négligeabilité :**\n\nLa variation $\\Delta\\theta$ est négligeable lorsque $\\frac{L}{\\delta} \\ll 1$, c'est-à-dire :\n$$L \\ll D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\cdot L \\quad \\Leftrightarrow \\quad D_m \\cdot c_{O_2} \\cdot R_{\\text{th-eq}} \\gg 1$$\n\n**Application numérique :**\n$$\\frac{L}{\\delta} = \\frac{2}{3400} \\approx 5{,}9 \\times 10^{-4} \\ll 1$$\n\n**Variation numérique :**\n$$\\Delta\\theta = (20 - (-185)) \\times (1 - e^{-5{,}9 \\times 10^{-4}}) \\approx 205 \\times 5{,}9 \\times 10^{-4} \\approx 0{,}12 \\text{ °C}$$\n\n**Conclusion pour le procédé MESMA :**\n\nPour une conduite de longueur $L = 2$ m, la variation de température de l'oxygène liquide est inférieure à $0{,}2$ °C, soit **totalement négligeable** devant l'écart de température de 205 °C entre l'extérieur et le fluide. L'oxygène liquide sort à une température quasi identique à celle d'entrée : $\\theta(L) \\approx \\theta_b = -185^\\circ$C.\n\nLe débit massique élevé ($D_m \\approx 1$ kg·s$^{-1}$) et la grande capacité thermique massique de l'oxygène liquide font que l'inertie thermique du fluide est très supérieure au flux thermique parasite entrant. Les conduites du procédé MESMA maintiennent l'oxygène liquide à sa température de stockage sur la longueur de transport considérée."
+    }
+  ]
+}
