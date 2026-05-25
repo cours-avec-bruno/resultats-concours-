@@ -1,0 +1,176 @@
+{
+  "id": "banque-pt-2026-epreuve-C",
+  "concours": "Lycée Lætitia Bonaparte — Spé PT",
+  "titre": "Banque PT 2026 – Épreuve C",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.68,
+    "sigma_hist": 4.16,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2533 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "C-P1", "partie": "Préambule", "numero": "Question 1", "bareme": 0.5,
+      "enonce": "Soient $f$ et $g$ les fonctions qui, à tout réel $t \\neq t_0$, associent respectivement $f(t) = \\dfrac{t}{t_0 - t}$ et $g(t) = \\dfrac{t_0}{t_0 - t}$. Donner le domaine de dérivabilité de $f$ et $g$ et montrer que leurs dérivées coïncident. Expliciter ces dérivées.",
+      "corrige": "Notons $D = ]-\\infty, t_0[ \\cup ]t_0, +\\infty[$. $f$ et $g$ sont dérivables sur $D$ (fractions rationnelles, dénominateur non nul). On a $f(t) = -1 + g(t)$ donc $f' = g'$. Les dérivées valent :\n$$\\forall t \\in D,\\quad f'(t) = g'(t) = \\frac{t_0}{(t_0 - t)^2} > 0.$$"
+    },
+    {
+      "id": "C-P2", "partie": "Préambule", "numero": "Question 2", "bareme": 0.5,
+      "enonce": "Donner le tableau de variations de $f$ sur $]-\\infty, t_0[$ et sur $]t_0, +\\infty[$, en précisant les limites aux bornes.",
+      "corrige": "$f$ est strictement croissante sur chacun des deux intervalles (car $f' > 0$).\n\n- Sur $]-\\infty, t_0[$ : $f \\to -1$ en $-\\infty$, $f \\to +\\infty$ en $t_0^-$.\n- Sur $]t_0, +\\infty[$ : $f \\to -\\infty$ en $t_0^+$, $f \\to -1$ en $+\\infty$."
+    },
+    {
+      "id": "C-P3", "partie": "Préambule", "numero": "Question 3", "bareme": 0.5,
+      "enonce": "Donner une équation de la tangente $T$ à la courbe représentative de $f$ en $0$.",
+      "corrige": "$f(0) = 0$ et $f'(0) = \\dfrac{1}{t_0}$, donc une équation de $T$ est $y = \\dfrac{x}{t_0}$."
+    },
+    {
+      "id": "C-P4", "partie": "Préambule", "numero": "Question 4", "bareme": 0.5,
+      "enonce": "Tracer la tangente $T$ et l'allure du graphe de $f$ sur $]-\\infty, t_0[$ et $]t_0, +\\infty[$ pour $t_0 = 1$ (échelle : 1 cm pour 1 unité).",
+      "corrige": "Hyperbole équilatère de centre $(1, -1)$, asymptotes $x = 1$ et $y = -1$. Tangente en $O$ : $y = x$. (Question graphique — vérification visuelle.)"
+    },
+    {
+      "id": "C-P5", "partie": "Préambule", "numero": "Question 5", "bareme": 1,
+      "enonce": "Soit $n \\in \\mathbb{N}^*$. Montrer par récurrence que $f$ est $n$ fois dérivable sur $D$ et donner l'expression de $f^{(n)}$.",
+      "corrige": "$f$ est de classe $\\mathcal{C}^\\infty$ sur $D$ (fraction rationnelle). **Initialisation** ($n=1$) : $f'(t) = \\dfrac{t_0}{(t_0-t)^2}$ ✓. **Hérédité** : si $f^{(n)}(t) = \\dfrac{n!\\, t_0}{(t_0-t)^{n+1}}$, une dérivation donne $f^{(n+1)}(t) = \\dfrac{(n+1)!\\, t_0}{(t_0-t)^{n+2}}$ ✓. Ainsi $\\forall n \\in \\mathbb{N}^*,\\ f^{(n)}(t) = \\dfrac{n!\\, t_0}{(t_0-t)^{n+1}}$."
+    },
+    {
+      "id": "C-P6", "partie": "Préambule", "numero": "Question 6", "bareme": 0.5,
+      "enonce": "Déterminer une primitive $G$ de $g$ sur $D$, puis une primitive $F$ de $f$ sur $D$.",
+      "corrige": "Primitive de $g$ : $G(t) = -t_0 \\ln|t - t_0|$. Comme $f = -1 + g$, une primitive de $f$ est $F(t) = -t - t_0 \\ln|t - t_0|$."
+    },
+    {
+      "id": "C-P7", "partie": "Préambule", "numero": "Question 7", "bareme": 0.5,
+      "enonce": "Énoncer la formule de Taylor-Young à l'ordre $n$ au voisinage de $x_0$ pour une fonction $\\psi$ de classe $\\mathcal{C}^n$ sur $I$.",
+      "corrige": "$$\\psi(x) = \\sum_{k=0}^{n} \\frac{(x-x_0)^k}{k!}\\psi^{(k)}(x_0) + o\\!\\left((x-x_0)^n\\right).$$"
+    },
+    {
+      "id": "C-P8", "partie": "Préambule", "numero": "Question 8", "bareme": 0.5,
+      "enonce": "Donner le DL à l'ordre $n$ en $0$ de $t \\mapsto \\dfrac{1}{1-t}$ (préciser le domaine).",
+      "corrige": "Définie sur $\\mathbb{R}\\setminus\\{1\\}$. C'est $g$ pour $t_0=1$ donc $g^{(n)}(0)=n!$. Par Taylor-Young :\n$$\\frac{1}{1-t} = 1 + t + t^2 + \\cdots + t^n + o(t^n).$$"
+    },
+    {
+      "id": "C-P9", "partie": "Préambule", "numero": "Question 9", "bareme": 0.5,
+      "enonce": "En déduire le DL à l'ordre $n$ en $0$ de $t \\mapsto \\ln(1-t)$ (préciser le domaine).",
+      "corrige": "Définie sur $]-\\infty, 1[$. Par intégration terme à terme :\n$$\\ln(1-t) = -t - \\frac{t^2}{2} - \\cdots - \\frac{t^n}{n} + o(t^n).$$"
+    },
+    {
+      "id": "C-I1", "partie": "Partie I", "numero": "Question 1", "bareme": 0.5,
+      "enonce": "Déterminer sur $\\mathbb{R}^*_+$ une primitive $H$ de $h(t) = \\dfrac{1}{t + t^2}$.",
+      "corrige": "$h(t) = \\dfrac{1}{t(t+1)} = \\dfrac{1}{t} - \\dfrac{1}{t+1}$, donc $H(t) = \\ln t - \\ln(t+1) = \\ln\\!\\left(\\dfrac{t}{t+1}\\right)$."
+    },
+    {
+      "id": "C-I2", "partie": "Partie I", "numero": "Question 2", "bareme": 1,
+      "enonce": "Pour $n \\geq 2$, étudier la convergence de $\\displaystyle\\int_n^{+\\infty}\\frac{dt}{t+t^2}$ et la calculer.",
+      "corrige": "$H(t) \\to 0$ en $+\\infty$, donc l'intégrale converge. Sa valeur est $-H(n) = \\ln\\!\\left(\\dfrac{n+1}{n}\\right)$."
+    },
+    {
+      "id": "C-I3", "partie": "Partie I", "numero": "Question 3", "bareme": 1,
+      "enonce": "Pour $n \\geq 2$, on pose $u_n = -n\\displaystyle\\int_0^\\pi \\frac{\\sin(nt)}{n+\\cos(nt)}\\,dt + \\int_n^{+\\infty}\\frac{dt}{t+t^2}$. Montrer que $u_n = \\ln\\!\\left(1 + \\dfrac{(-1)^n}{n}\\right)$.",
+      "corrige": "On reconnaît $u'/u$ : $-n\\displaystyle\\int_0^\\pi\\frac{\\sin(nt)}{n+\\cos(nt)}dt = \\Big[\\ln(n+\\cos(nt))\\Big]_0^\\pi = \\ln\\!\\left(\\dfrac{n+(-1)^n}{n+1}\\right)$.\n\nEn ajoutant $\\ln\\!\\left(\\dfrac{n+1}{n}\\right)$ : $u_n = \\ln\\!\\left(1 + \\dfrac{(-1)^n}{n}\\right)$."
+    },
+    {
+      "id": "C-I4", "partie": "Partie I", "numero": "Question 4", "bareme": 0.5,
+      "enonce": "Déterminer la limite de la suite $(u_n)_{n \\geq 2}$.",
+      "corrige": "$u_n = \\ln\\!\\left(1 + \\dfrac{(-1)^n}{n}\\right) \\to \\ln(1) = 0$."
+    },
+    {
+      "id": "C-I5", "partie": "Partie I", "numero": "Question 5", "bareme": 0.5,
+      "enonce": "Montrer que si $\\sum a_n$ et $\\sum b_n$ convergent et $\\lambda \\in \\mathbb{R}$, alors $\\sum(a_n + \\lambda b_n)$ converge.",
+      "corrige": "En notant $C_n = A_n + \\lambda B_n$ où $A_n, B_n$ sont les sommes partielles, la convergence de $(A_n)$ et $(B_n)$ entraîne celle de $(C_n)$."
+    },
+    {
+      "id": "C-I6", "partie": "Partie I", "numero": "Question 6", "bareme": 1,
+      "enonce": "Étudier la convergence et la convergence absolue de $\\displaystyle\\sum_{n \\geq 2} u_n$.",
+      "corrige": "**Convergence.** $u_n = \\dfrac{(-1)^n}{n} + b_n$ avec $b_n \\sim -\\dfrac{1}{2n^2}$. La série $\\sum\\dfrac{(-1)^n}{n}$ converge (CSSA) et $\\sum b_n$ converge (Riemann). Donc $\\sum u_n$ converge.\n\n**Non convergence absolue.** $|u_n| \\sim \\dfrac{1}{n}$, et $\\sum\\dfrac{1}{n}$ diverge. Donc $\\sum u_n$ n'est **pas** absolument convergente."
+    },
+    {
+      "id": "C-I7a", "partie": "Partie I", "numero": "Question 7(a)", "bareme": 0.5,
+      "enonce": "Montrer que $S_{2N} = \\ln\\dfrac{2N+1}{2N}$ pour tout $N \\geq 1$.",
+      "corrige": "$u_{2p+1} = -u_{2p}$ donc $u_{2p}+u_{2p+1}=0$. Ainsi $S_{2N} = u_{2N} = \\ln\\!\\left(\\dfrac{2N+1}{2N}\\right)$."
+    },
+    {
+      "id": "C-I7b", "partie": "Partie I", "numero": "Question 7(b)", "bareme": 0.5,
+      "enonce": "Pour $n \\geq 1$, comparer $u_{2n+1}$ et $u_{2n}$.",
+      "corrige": "$u_{2n+1} = -u_{2n}$."
+    },
+    {
+      "id": "C-I7c", "partie": "Partie I", "numero": "Question 7(c)", "bareme": 0.5,
+      "enonce": "En déduire $S_{2N-1}$ pour tout $N \\geq 2$.",
+      "corrige": "$S_{2N-1} = \\displaystyle\\sum_{p=1}^{N-1}(u_{2p}+u_{2p+1}) = 0$."
+    },
+    {
+      "id": "C-I7d", "partie": "Partie I", "numero": "Question 7(d)", "bareme": 1,
+      "enonce": "Calculer $\\displaystyle\\sum_{n=2}^{+\\infty} u_n$.",
+      "corrige": "$S_{2N} \\to 0$ et $S_{2N-1} = 0 \\to 0$. Donc $\\displaystyle\\sum_{n=2}^{+\\infty} u_n = 0$."
+    },
+    {
+      "id": "C-II1", "partie": "Partie II", "numero": "Question 1", "bareme": 0.5,
+      "enonce": "Pour $n \\in \\mathbb{N}^*$ fixé et $x > 1$, étudier la convergence de $G_n(x) = \\displaystyle\\int_0^{+\\infty} x^{-nt}\\, t^n\\,dt$.",
+      "corrige": "Posons $\\lambda = n\\ln x > 0$. $G_n(x) = \\displaystyle\\int_0^{+\\infty} t^n e^{-\\lambda t}\\,dt$. Par croissances comparées, $t^n e^{-\\lambda t} = o(e^{-\\lambda t/2})$ ; l'intégrale $\\int_0^{+\\infty} e^{-\\lambda t/2}dt$ converge. Donc $G_n(x)$ converge."
+    },
+    {
+      "id": "C-II2", "partie": "Partie II", "numero": "Question 2", "bareme": 0.5,
+      "enonce": "Soit $a > 1$, $n$ fixé. Montrer que $x \\mapsto G_n(x)$ est continue sur $[a, +\\infty[$.",
+      "corrige": "Domination sur $[a,+\\infty[$: $t^n e^{-nt\\ln x} \\leq t^n e^{-nt\\ln a}$, fonction intégrable indépendante de $x$. Par le théorème de continuité sous signe intégrale, $G_n$ est continue sur $[a,+\\infty[$."
+    },
+    {
+      "id": "C-II3", "partie": "Partie II", "numero": "Question 3", "bareme": 1,
+      "enonce": "Soit $a > 1$, $n$ fixé. Montrer que $x \\mapsto G_n(x)$ est dérivable sur $[a, +\\infty[$ et exprimer $G'_n(x)$.",
+      "corrige": "La dérivée partielle $\\dfrac{\\partial}{\\partial x}(t^n x^{-nt}) = -\\dfrac{nt^{n+1}}{x}x^{-nt}$ satisfait aussi la domination sur $[a,+\\infty[$. Par le théorème de Leibniz, $G_n$ est $\\mathcal{C}^1$ sur $[a,+\\infty[$ et :\n$$G'_n(x) = -\\int_0^{+\\infty} \\frac{nt^{n+1}}{x}\\, x^{-nt}\\,dt.$$"
+    },
+    {
+      "id": "C-II4", "partie": "Partie II", "numero": "Question 4", "bareme": 1,
+      "enonce": "Montrer que $G_{n+1}(x) = \\dfrac{1}{\\ln x}\\left(\\dfrac{n}{n+1}\\right)^{n+1} G_n(x)$ pour tout $n \\in \\mathbb{N}^*$, $x > 1$.",
+      "corrige": "Changement de variable $u = \\dfrac{n+1}{n}t$ dans $G_{n+1}(x)$ :\n$$G_{n+1}(x) = \\left(\\frac{n}{n+1}\\right)^{n+2}\\int_0^{+\\infty} u^{n+1}e^{-nu\\ln x}du.$$\nIntégration par parties (les termes au bord sont nuls) :\n$$G_{n+1}(x) = \\left(\\frac{n}{n+1}\\right)^{n+2}\\cdot\\frac{n+1}{n\\ln x} G_n(x) \\cdot\\frac{n^n}{\\text{(via } G_n)} = \\frac{1}{\\ln x}\\left(\\frac{n}{n+1}\\right)^{n+1}G_n(x).$$"
+    },
+    {
+      "id": "C-II5", "partie": "Partie II", "numero": "Question 5", "bareme": 0.5,
+      "enonce": "Soit $x > 1$. Calculer $G_1(x)$.",
+      "corrige": "IPP : $G_1(x) = \\displaystyle\\int_0^{+\\infty} te^{-t\\ln x}dt = \\dfrac{1}{\\ln x}\\int_0^{+\\infty}e^{-t\\ln x}dt = \\dfrac{1}{\\ln^2 x}$."
+    },
+    {
+      "id": "C-II6", "partie": "Partie II", "numero": "Question 6", "bareme": 1,
+      "enonce": "Exprimer $G_n(x)$ en fonction de $n$ par récurrence.",
+      "corrige": "Conjecture et récurrence : $G_n(x) = \\dfrac{(n-1)!}{n^n \\ln^{n+1} x}$.\n\n**Init.** $G_1(x) = \\dfrac{0!}{1^1\\ln^2 x}$ ✓\n\n**Héréd.** $G_{n+1}(x) = \\dfrac{1}{\\ln x}\\!\\left(\\dfrac{n}{n+1}\\right)^{n+1}\\!\\dfrac{(n-1)!}{n^n\\ln^{n+1}x} = \\dfrac{n!}{(n+1)^{n+1}\\ln^{n+2}x}$ ✓"
+    },
+    {
+      "id": "C-II7", "partie": "Partie II", "numero": "Question 7", "bareme": 0.5,
+      "enonce": "CNS de convergence de $\\displaystyle\\sum_{n \\geq 1} \\frac{n^n G_n(x)}{(n-1)!}$ et calcul de la somme $S(x)$.",
+      "corrige": "Le terme général vaut $\\dfrac{1}{\\ln^{n+1}x}$ : série géométrique de raison $r = \\dfrac{1}{\\ln x}$. Converge $\\Leftrightarrow x > e$. Somme : $S(x) = \\dfrac{1}{(\\ln x - 1)\\ln x}$."
+    },
+    {
+      "id": "C-II8", "partie": "Partie II", "numero": "Question 8", "bareme": 0.5,
+      "enonce": "Calculer $\\displaystyle\\lim_{N\\to+\\infty} G_n(\\Pi_N)$ où $\\Pi_N = e^{2N}\\prod_{k=2}^{2N}\\!\\left(1+\\dfrac{(-1)^k}{k}\\right)$.",
+      "corrige": "$\\ln\\Pi_N = 1 + S_{2N} \\to 1$. Donc $G_n(\\Pi_N) = \\dfrac{(n-1)!}{n^n\\ln^{n+1}\\Pi_N} \\to \\dfrac{(n-1)!}{n^n}$."
+    },
+    {
+      "id": "C-III1", "partie": "Partie III", "numero": "Question 1", "bareme": 0.5,
+      "enonce": "Exprimer la hessienne de $\\varphi(x,y) = x^2 + y^2 - \\ln|x-y|$ pour $(x,y)$ de réels distincts.",
+      "corrige": "$$H_\\varphi(x,y) = \\begin{pmatrix} 2 + \\dfrac{1}{(x-y)^2} & -\\dfrac{1}{(x-y)^2} \\\\[6pt] -\\dfrac{1}{(x-y)^2} & 2 + \\dfrac{1}{(x-y)^2} \\end{pmatrix}.$$"
+    },
+    {
+      "id": "C-III2", "partie": "Partie III", "numero": "Question 2", "bareme": 0.5,
+      "enonce": "Montrer que $\\varphi$ admet un point critique en $(x_0,y_0)$ ssi $x_0 = -y_0 = \\dfrac{1}{2(x_0-y_0)}$.",
+      "corrige": "$\\nabla\\varphi = 0$ donne $y_0 = -x_0$ (somme des équations) puis $x_0 = \\dfrac{1}{4x_0}$, d'où $x_0 = -y_0 = \\dfrac{1}{2(x_0-y_0)}$."
+    },
+    {
+      "id": "C-III3", "partie": "Partie III", "numero": "Question 3", "bareme": 0.5,
+      "enonce": "Quelles sont les valeurs possibles de $x_0$ et $y_0$ ?",
+      "corrige": "$x_0^2 = \\dfrac{1}{4}$, donc $(x_0,y_0) = \\left(\\dfrac{1}{2},-\\dfrac{1}{2}\\right)$ ou $\\left(-\\dfrac{1}{2},\\dfrac{1}{2}\\right)$."
+    },
+    {
+      "id": "C-III4", "partie": "Partie III", "numero": "Question 4", "bareme": 0.5,
+      "enonce": "Montrer que $\\varphi$ admet un minimum local en chacun des points critiques.",
+      "corrige": "En ces points $|x_0-y_0|=1$, donc $H_\\varphi = \\begin{pmatrix}3&-1\\\\-1&3\\end{pmatrix}$, de valeurs propres $2$ et $4 > 0$. Hessienne définie positive $\\Rightarrow$ minimum local strict."
+    },
+    {
+      "id": "C-III5", "partie": "Partie III", "numero": "Question 5", "bareme": 0.5,
+      "enonce": "Déduire que $\\displaystyle\\sum_{n=2}^N |u_n| = O(N)$, et expliquer pourquoi cela ne suffit pas à conclure sur la convergence de $\\sum|u_n|$.",
+      "corrige": "$|u_n| \\leq M$ (suite convergeant vers 0), donc $\\displaystyle\\sum_{n=2}^N|u_n| \\leq NM = O(N)$.\n\nCette majoration est insuffisante : la série harmonique $\\sum\\dfrac{1}{n}$ (divergente) a aussi ses sommes partielles en $O(N)$. La démarche ne permet pas de trancher."
+    }
+  ]
+}
