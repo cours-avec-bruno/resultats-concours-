@@ -1,0 +1,276 @@
+{
+  "id": "banque-pt-2026-si-c",
+  "concours": "Banque PT 2026",
+  "titre": "Sciences Industrielles C",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.0,
+    "sigma_hist": 4.28,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2497 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "sic-p1-q1.1",
+      "partie": "Partie I",
+      "numero": "Question 1.1",
+      "bareme": 0.5,
+      "enonce": "En le justifiant, préciser si les codeurs FAULHABER IEF3-64 sont absolus ou relatifs. Quelle est l'utilité du canal I nommé Index ?",
+      "corrige": "Codeur **relatif** (incrémental) : il génère des impulsions proportionnelles au déplacement angulaire sans mémoriser la position absolue (recalage nécessaire à chaque mise sous tension).\n\nLe **canal I (Index)** émet **une impulsion par tour** : il sert à **remettre à zéro** le compteur de position (recalage de référence)."
+    },
+    {
+      "id": "sic-p1-q1.2",
+      "partie": "Partie I",
+      "numero": "Question 1.2",
+      "bareme": 0.25,
+      "enonce": "Expliquer comment les signaux des canaux A et B sont utilisés pour déterminer le sens de rotation.",
+      "corrige": "A et B sont en **quadrature de phase** (déphasage de 90°). Le sens est déterminé par l'**ordre temporel** des fronts : si A monte avant B → sens horaire ; si B monte avant A → sens anti-horaire."
+    },
+    {
+      "id": "sic-p1-q1.3",
+      "partie": "Partie I",
+      "numero": "Question 1.3",
+      "bareme": 0.25,
+      "enonce": "Expliquer le fonctionnement de l'effet Hall et comment les passages d'un aimant peuvent être détectés.",
+      "corrige": "Dans un conducteur traversé par un courant $I$ soumis à un champ $\\vec{B}$, la force de Lorentz dévie les porteurs de charge transversalement, créant une **tension de Hall** : $U_H = R_H \\cdot I \\cdot B / e$.\n\nLe passage d'un aimant fait varier $B$, donc $U_H$ ; un comparateur à seuil détecte chaque variation."
+    },
+    {
+      "id": "sic-p1-q1.4",
+      "partie": "Partie I",
+      "numero": "Question 1.4",
+      "bareme": 0.5,
+      "enonce": "Quelle résolution sur le déplacement des vérins ces codeurs permettent-ils d'atteindre, sachant que les canaux A et B sont en quadrature de phase ?",
+      "corrige": "La quadrature donne $4 \\times N = 4 \\times 64 = 256$ incréments/tour moteur. Réducteur $30:1$, vis de pas $p = 12$ mm/tr (référence DST-LS-**10X12**) :\n$$\\delta = \\frac{p}{30 \\times 256} = \\frac{12}{7680} \\approx \\mathbf{1{,}6\\;\\mu\\text{m/incrément}}$$"
+    },
+    {
+      "id": "sic-p1-q1.5",
+      "partie": "Partie I",
+      "numero": "Question 1.5",
+      "bareme": 0.5,
+      "enonce": "Quelle est la durée du déplacement pour assurer une course de 100 mm ?",
+      "corrige": "D'après le **Document Ressource V**, le déploiement des vérins de vertèbre pour une canalisation de 300 mm dure $\\mathbf{7\\text{ s}}$ (pour une course de 100 mm)."
+    },
+    {
+      "id": "sic-p1-q1.6",
+      "partie": "Partie I",
+      "numero": "Question 1.6",
+      "bareme": 0.5,
+      "enonce": "En déduire la distance que parcourt le robot dans ces conditions en 1 heure.",
+      "corrige": "Durée d'un cycle complet (Doc V, canalisation 300 mm) :\n$$T = \\underbrace{7}_{\\text{vérins}} + \\underbrace{3}_{\\text{bras AV}} + \\underbrace{7}_{\\text{dépl. bras AV}} + \\underbrace{7}_{\\text{vérins}} + \\underbrace{3}_{\\text{bras AR}} + \\underbrace{7}_{\\text{dépl. bras AR}} + \\underbrace{10}_{\\text{vues}} = 44\\text{ s}$$\nAvance par cycle = 100 mm. Distance en 1 h :\n$$d = \\frac{3600}{44} \\times 0{,}1 \\approx \\mathbf{8{,}2\\text{ m/h}}$$"
+    },
+    {
+      "id": "sic-p1-q1.7",
+      "partie": "Partie I",
+      "numero": "Question 1.7",
+      "bareme": 0.5,
+      "enonce": "Expliquer pourquoi les deux vérins ne peuvent pas être reliés directement par une liaison pivot à la platine du bloc de rotation. Appuyer la réponse sur un schéma.",
+      "corrige": "Si les deux vérins étaient en **liaison pivot** directement sur la platine, le système serait **hyperstatique** : en ligne droite les axes sont parallèles, mais dans un coude les deux vérins ont des longueurs différentes, générant un **désalignement** incompatible avec deux pivots fixes. Le **coulisseau** (glissière) absorbe cet écart de longueur sans créer d'effort parasite."
+    },
+    {
+      "id": "sic-p1-q1.8",
+      "partie": "Partie I",
+      "numero": "Question 1.8",
+      "bareme": 0.25,
+      "enonce": "Identifier les 3 mobilités cinématiques retenues dans la modélisation ($m = 3$).",
+      "corrige": "1. **Translation** selon l'axe de la glissière coulisseau/platine.\n2. **Rotation** du vérin 1 autour de l'axe de sa liaison pivot avec la platine.\n3. **Rotation** du vérin 2 autour de l'axe de sa liaison pivot avec le coulisseau."
+    },
+    {
+      "id": "sic-p1-q1.9",
+      "partie": "Partie I",
+      "numero": "Question 1.9",
+      "bareme": 0.25,
+      "enonce": "En déduire le degré d'hyperstatisme de cette modélisation.",
+      "corrige": "Formule générale : $h = \\sum e_i - 6(n-1) + m$, avec $n$ = nombre de solides, $\\sum e_i$ = somme des équations de liaison, $m = 3$ mobilités utiles.\n\nD'après la modélisation (4 solides, liaisons pivot×2 + glissière×1 + pivot-glissant×1), calculer $\\sum e_i$ et conclure sur $h$."
+    },
+    {
+      "id": "sic-p1-q1.10",
+      "partie": "Partie I",
+      "numero": "Question 1.10",
+      "bareme": 0.5,
+      "enonce": "Quel(s) degré(s) de liberté supplémentaire(s) faudrait-il ajouter à la liaison glissière entre le coulisseau et le vérin 2 pour rendre la modélisation isostatique ? Quelle est la liaison correspondante ?",
+      "corrige": "Ajouter **1 rotation** axiale autour de l'axe du vérin 2 : la liaison devient une **liaison pivot-glissant** (linéaire annulaire), avec 2 degrés de liberté (translation + rotation axiale). Cela retire 1 équation de liaison et annule l'hyperstatisme ($h = 0$)."
+    },
+    {
+      "id": "sic-p1-q1.11",
+      "partie": "Partie I",
+      "numero": "Question 1.11",
+      "bareme": 0.5,
+      "enonce": "Compléter les deux vues en coupe (A-A et B-B) du cahier réponse et surligner en rouge les surfaces fonctionnelles de mise en position.",
+      "corrige": "**Coupe A-A** (patin IGUS / coulisseau) : le patin s'emboîte dans une rainure à profil adapté (rectangulaire ou en C) usinée dans le coulisseau. Surfaces fonctionnelles en rouge = faces latérales de la rainure en contact avec le patin, réduites au minimum pour limiter l'hyperstatisme.\n\n**Coupe B-B** (rail IGUS / platine) : le rail repose sur une portée plane de la platine, fixé par vis CHC à tête courte. Surface fonctionnelle en rouge = portée d'appui inférieure du rail.",
+      "type": "dessin"
+    },
+    {
+      "id": "sic-p1-q1.12",
+      "partie": "Partie I",
+      "numero": "Question 1.12",
+      "bareme": 0.5,
+      "enonce": "Calculer les diamètres minimal $D_{min}$ (bras repliés) et maximal $D_{max}$ (bras déployés) d'une cassette de bras. Cette version du robot peut-elle évoluer dans des canalisations de diamètre 150, 200 ou 250 mm ?",
+      "corrige": "D'après la loi E/S (Doc VIII), lire $\\rho_{min}$ et $\\rho_{max}$ sur le graphe. L'épaisseur des patins est $d = 27$ mm :\n$$D_{min} = 2(\\rho_{min} + 27)\\text{ mm}, \\quad D_{max} = 2(\\rho_{max} + 27)\\text{ mm}$$\nD'après le Doc Ressource I, le robot est conçu pour **250 mm et 300 mm** → **compatible 250 mm**, incompatible avec 150 mm et 200 mm."
+    },
+    {
+      "id": "sic-p1-q1.13",
+      "partie": "Partie I",
+      "numero": "Question 1.13",
+      "bareme": 0.5,
+      "enonce": "Calculer les rapports de réduction du mouvement de chacune des deux couronnes par rapport à l'arbre d'entrée. Les résultats permettent-ils d'assurer le déploiement des bras ?",
+      "corrige": "Formule de Willis : $\\dfrac{\\Omega_{anneau} - \\Omega_{bras}}{\\Omega_{soleil} - \\Omega_{bras}} = -\\dfrac{Z_{soleil}}{Z_{anneau}}$\n\n**Couronne 1** ($Z_1 = 15$, $Z_3 = 75$, bras libre) : $i_1 = -Z_1/Z_3 = -15/75 = \\mathbf{-1/5}$\n\n**Couronne 2** (stage 2 symétrique, $Z_1 = 15$, $Z_7 = 75$, inversé par $Z_6$) : $i_2 = \\mathbf{+1/5}$\n\nLes deux couronnes tournent en **sens contraires** à vitesse égale → bras se déploient radialement ✓"
+    },
+    {
+      "id": "sic-p1-q1.14",
+      "partie": "Partie I",
+      "numero": "Question 1.14",
+      "bareme": 0.5,
+      "enonce": "Sachant qu'en sortie de motoréducteur la vitesse de rotation est de 2 tr/min, en déduire le temps de déploiement des bras pour une canalisation de 250 mm.",
+      "corrige": "Vitesse couronne : $\\Omega_C = 2 \\times (1/5) = 0{,}4$ tr/min. D'après le graphe (Doc VIII), lire l'angle $\\alpha_{250}$ correspondant à $D = 250$ mm. Temps de déploiement :\n$$t = \\frac{\\alpha_{250}[°]}{0{,}4 \\times 360°}\\text{ min}$$"
+    },
+    {
+      "id": "sic-p2-q2.1",
+      "partie": "Partie II",
+      "numero": "Question 2.1",
+      "bareme": 0.5,
+      "enonce": "Expliciter les spécifications géométriques à l'aide des fiches GPS du cahier réponse.",
+      "corrige": "Compléter chaque fiche GPS selon la norme ISO 1101 : identifier le **symbole** (⊥ perpendicularité, concentricité, cylindricité…), la **zone de tolérance** (valeur numérique en mm), les **références** (A, B…) et la **surface concernée**. Rédiger en langage GPS normalisé."
+    },
+    {
+      "id": "sic-p2-q2.2",
+      "partie": "Partie II",
+      "numero": "Question 2.2",
+      "bareme": 0.25,
+      "enonce": "Expliciter la spécification dimensionnelle en considérant l'opérateur de taille par défaut.",
+      "corrige": "L'opérateur de taille **par défaut** (two-point size, opérateur de Taylor) : chaque paire de points diamétralement opposés sur la surface doit être dans l'intervalle de tolérance. La cote est vérifiée **localement** en tout point, sans contrainte de forme globale."
+    },
+    {
+      "id": "sic-p2-q2.3",
+      "partie": "Partie II",
+      "numero": "Question 2.3",
+      "bareme": 0.25,
+      "enonce": "Expliciter la spécification de rugosité en détaillant la formule du paramètre $Ra$.",
+      "corrige": "$$Ra = \\frac{1}{l} \\int_0^l |z(x)|\\, dx$$\n$Ra$ est la **moyenne arithmétique** des valeurs absolues des écarts du profil par rapport à la ligne moyenne, mesurée sur la longueur de base $l$."
+    },
+    {
+      "id": "sic-p2-q2.4",
+      "partie": "Partie II",
+      "numero": "Question 2.4",
+      "bareme": 0.5,
+      "enonce": "Proposer en justifiant au moins 4 critères de choix du matériau de la couronne.",
+      "corrige": "1. **Conformité alimentaire** : contact eau potable → normes sanitaires (NSF, règlement UE 10/2011).\n2. **Résistance à la corrosion** : milieu aqueux, pression 20 bars, eau potable traitée.\n3. **Résistance mécanique** ($\\sigma_{max}$ oreilles en flexion) : tenir les efforts de contact sur les parois.\n4. **Masse volumique faible** : flottabilité neutre du robot, portabilité.\n5. **Usinabilité** : surfaces fonctionnelles et dentures reprises en tournage/fraisage."
+    },
+    {
+      "id": "sic-p2-q2.5",
+      "partie": "Partie II",
+      "numero": "Question 2.5",
+      "bareme": 0.5,
+      "enonce": "Déterminer les expressions de la masse $m$ et du moment quadratique $I_{Gz}$ en fonction des données du problème.",
+      "corrige": "Poutre de section circulaire (rayon $r$, longueur $L$, masse volumique $\\rho$) :\n$$m = \\rho \\cdot \\pi r^2 \\cdot L$$\n$$I_{Gz} = \\frac{\\pi r^4}{4}$$"
+    },
+    {
+      "id": "sic-p2-q2.6",
+      "partie": "Partie II",
+      "numero": "Question 2.6",
+      "bareme": 0.5,
+      "enonce": "Déterminer les fonctions $f_1$, $f_2$, $f_3$ telles que $m = f_1 \\cdot f_2 \\cdot f_3$.",
+      "corrige": "De $F = \\sigma_{max} I_{Gz}/(Lr) = \\sigma_{max}\\pi r^3/(4L)$ → $r = \\left(\\dfrac{4FL}{\\pi\\sigma_{max}}\\right)^{1/3}$.\n$$m = \\rho\\pi L\\left(\\frac{4FL}{\\pi\\sigma_{max}}\\right)^{2/3} = \\underbrace{\\frac{\\rho}{\\sigma_{max}^{2/3}}}_{f_1} \\cdot \\underbrace{\\pi\\left(\\frac{4}{\\pi}\\right)^{2/3}L^{5/3}}_{f_2} \\cdot \\underbrace{F^{2/3}}_{f_3}$$\nMinimiser $m$ ↔ maximiser $I_p = \\sigma_{max}^{2/3}/\\rho$."
+    },
+    {
+      "id": "sic-p2-q2.7",
+      "partie": "Partie II",
+      "numero": "Question 2.7",
+      "bareme": 0.5,
+      "enonce": "Parmi les matériaux du diagramme (Doc XI), sélectionner deux matériaux de familles différentes, compatibles avec les exigences, en justifiant la méthodologie.",
+      "corrige": "Tracer la droite guide de pente $3/2$ sur le diagramme log-log ($\\sigma_{max}$ vs $\\rho$) tangente à la famille la plus performante. Les matériaux au **coin supérieur gauche** maximisent $I_p = \\sigma_{max}^{2/3}/\\rho$ :\n\n- **Alliage de titane** (Ti-6Al-4V) — métallique : $\\sigma_{max} \\sim 900$ MPa, $\\rho \\sim 4500$ kg/m³, inoxydable, biocompatible.\n- **Polymère haute performance** (PEEK) — polymère : léger, conformité alimentaire, résistant chimiquement.\n\nVérifier la conformité sanitaire dans les deux cas."
+    },
+    {
+      "id": "sic-p2-q2.8",
+      "partie": "Partie II",
+      "numero": "Question 2.8",
+      "bareme": 0.25,
+      "enonce": "Compte tenu du contexte et des matériaux les plus adaptés, justifier les types de procédés de fabrication qui ne sont pas économiquement viables.",
+      "corrige": "Pour une **très petite série** (quelques unités/an) :\n- **Moulage sous pression, injection, forge en matrice** : outillage dédié très coûteux, non amortissable sur si peu de pièces.\n- **Fonderie en coquille** : même raison.\n→ Seuls l'**usinage** et la **fabrication additive** sont viables économiquement."
+    },
+    {
+      "id": "sic-p2-q2.9",
+      "partie": "Partie II",
+      "numero": "Question 2.9",
+      "bareme": 0.25,
+      "enonce": "Quels sont les avantages et inconvénients des deux processus de fabrication d'un point de vue technico-économique et environnemental ?",
+      "corrige": "**Usinage complet (barre)** — ✅ Précision, état de surface, matériaux certifiés. ❌ Fort taux de chute (pièce complexe), temps long, coût/pièce élevé.\n\n**Fabrication additive + usinage** — ✅ Liberté géométrique, faible chute matière, adapté petites séries. ❌ Reprises obligatoires (dentures), anisotropie microstructurale, qualification sanitaire à établir."
+    },
+    {
+      "id": "sic-p2-q2.10",
+      "partie": "Partie II",
+      "numero": "Question 2.10",
+      "bareme": 0.25,
+      "enonce": "Rappeler le principe de la fusion laser sur lit de poudre métallique et du dépôt de fil polymère fondu.",
+      "corrige": "**SLM / DMLS** : un lit de poudre métallique est étalé couche par couche ; un laser fusionne sélectivement chaque section selon la tranche 2D. La pièce est construite par empilement de couches fondues.\n\n**FDM** : un fil thermoplastique est fondu par une buse chauffante et déposé couche par couche suivant les trajectoires de remplissage ; il se solidifie rapidement au contact de l'air."
+    },
+    {
+      "id": "sic-p2-q2.11",
+      "partie": "Partie II",
+      "numero": "Question 2.11",
+      "bareme": 0.25,
+      "enonce": "Expliquer pourquoi il est parfois nécessaire d'utiliser des supports pour certaines surfaces.",
+      "corrige": "Toute surface en **surplomb** (angle < ~45° avec l'horizontale) ne peut être construite librement : sans support, le matériau fondu s'affaisserait. Les supports servent de **béquille provisoire** et, en SLM, assurent aussi la **conduction thermique** vers le plateau de fabrication."
+    },
+    {
+      "id": "sic-p2-q2.12",
+      "partie": "Partie II",
+      "numero": "Question 2.12",
+      "bareme": 0.25,
+      "enonce": "Expliquer la pertinence de chacun des 4 critères d'orientation du point de vue technico-économique.",
+      "corrige": "1. **Hauteur** → nombre de couches → **temps de fabrication** (coût direct).\n2. **Aire supportée** → volume de supports à générer et éliminer → **post-traitement et gaspillage**.\n3. **Emprise sur plateau** → **nombre de pièces par plateau** → coût unitaire.\n4. **Volume de support** → matière consommée sans valeur ajoutée → **coût matière** et temps de retrait."
+    },
+    {
+      "id": "sic-p2-q2.13",
+      "partie": "Partie II",
+      "numero": "Question 2.13",
+      "bareme": 0.25,
+      "enonce": "En déduire le critère parmi les quatre qui est le plus spécifique au procédé de fusion laser sur lit de poudre métallique.",
+      "corrige": "Le **volume de support** est le plus spécifique à la **SLM** : les supports métalliques sont très coûteux à retirer (fraisage), consomment de la poudre chère et peuvent endommager la pièce. En FDM, les supports polymère sont solubles ou cassants, bien plus simples à éliminer."
+    },
+    {
+      "id": "sic-p2-q2.14",
+      "partie": "Partie II",
+      "numero": "Question 2.14",
+      "bareme": 0.25,
+      "enonce": "Proposer et justifier une orientation pour fabriquer les quatre couronnes sur un même plateau 200×200×200 mm en une seule production.",
+      "corrige": "D'après Doc XII : l'**orientation 3** présente l'aire supportée quasi nulle (0,3 cm²) et le volume de support minimal (0,9 cm³) → critère prioritaire pour SLM. Emprise = 39,8 cm² ≈ 63×63 mm → 4 couronnes en $2\\times 2$ : $2 \\times 63 = 126$ mm $< 200$ mm ✓"
+    },
+    {
+      "id": "sic-p2-q2.15",
+      "partie": "Partie II",
+      "numero": "Question 2.15",
+      "bareme": 0.25,
+      "enonce": "Rappeler les caractéristiques cinématiques et technologiques d'un tour 3 axes à commande numérique et justifier sa mise en œuvre pour la réalisation des entités de la couronne.",
+      "corrige": "Tour CN 3 axes : **Z** (axe broche, rotation pièce), **X** (déplacement radial outil), **C** (indexation angulaire pour outils tournants). La couronne étant de révolution, toutes les surfaces annulaires et internes sont réalisées en tournage. L'axe C permet les trous radiaux/axiaux des oreilles sans rechampir."
+    },
+    {
+      "id": "sic-p2-q2.16",
+      "partie": "Partie II",
+      "numero": "Question 2.16",
+      "bareme": 0.5,
+      "enonce": "Compléter les schémas pour les phases 10 et 20 avec l'axe du mandrin, les axes X et Z de la machine et les axes de rotation des outils tournants.",
+      "corrige": "**Phase 10** : axe broche = **Z** (horizontal) ; axe **X** = radial (⊥Z). Outils tournants pour trous radiaux : axe en X. Forets pour trous axiaux : axe en Z.\n\n**Phase 20** : même configuration broche. Outil à dresser/charioter pour interfaces roulement : déplacements X et Z. Indiquer le sens de rotation de la pièce (flèche sur axe C).",
+      "type": "dessin"
+    },
+    {
+      "id": "sic-p2-q2.17",
+      "partie": "Partie II",
+      "numero": "Question 2.17",
+      "bareme": 0.5,
+      "enonce": "Représenter la silhouette de l'outil, nommer l'outil, dessiner sa trajectoire et définir les mouvements de la pièce et de l'outil pour les opérations des phases 10 et 20.",
+      "corrige": "**Ph.10 — surfaces internes** : barre d'alésage intérieur ; rotation pièce (C/Z) ; translation outil en Z puis X.\n\n**Ph.10 — trous radiaux** : foret (outil tournant axe X) ; indexation pièce par C ; avance outil en −X.\n\n**Ph.10 — trous axiaux** : foret (outil tournant axe Z) ; indexation C ; avance outil en Z.\n\n**Ph.20 — interfaces roulement** : outil à dresser/charioter intérieur ; rotation pièce (axe Z) ; translations X et Z.",
+      "type": "dessin"
+    },
+    {
+      "id": "sic-p3-q3.1",
+      "partie": "Partie III",
+      "numero": "Question 3.1",
+      "bareme": 8.0,
+      "enonce": "Représenter aux instruments sur le Dessin Réponse (échelle 2:1) une solution constructive réalisant les 6 fonctions suivantes :\n\n1. Accouplement manchon/arbre réducteur (centrage + transmission par obstacle)\n2. Liaison rotule manchon/bâti via roulement (guidage + arrêts axiaux)\n3. Encastrement manchon/vis (centrage + vissage)\n4. Encastrement écrou/tige (centrage + immobilisation)\n5. Liaison glissière tige/fourreau (deux paliers + arrêt en rotation)\n6. Encastrement tige/chape de liaison (mise en position + goupille)",
+      "corrige": "**Éléments attendus (échelle 2:1) :**\n\n**① Accouplement manchon/arbre** : portée cylindrique d'ajustement serré (centrage, ex. $H7/p6$) + clavette parallèle (transmission par obstacle).\n\n**② Liaison rotule manchon/bâti** : roulement inox à billes (W6001 $10\\times22\\times6$ ou W608 selon encombrement) logé dans la pièce de jonction ; arrêts axiaux par épaulement côté manchon + circlip ou bague d'épaulement côté pièce de jonction.\n\n**③ Encastrement manchon/vis** : portée cylindrique (centrage) + vis de serrage axiale ou écrou immobilisant la vis sur le manchon.\n\n**④ Encastrement écrou/tige** : alésage dans la tige recevant l'écrou IGUS ; immobilisation par vis radiale CHC ou goupille cylindrique.\n\n**⑤ Liaison glissière tige/fourreau** : deux paliers lisses (l'un solidaire du fourreau, l'autre solidaire de la tige) ; arrêt en rotation par rainure et clavette ou méplat (profil D).\n\n**⑥ Encastrement tige/chape** : portée cylindrique (centrage) + goupille cylindrique traversante (immobilisation par obstacle).",
+      "type": "dessin"
+    }
+  ]
+}
