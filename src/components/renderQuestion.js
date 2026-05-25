@@ -16,7 +16,16 @@ function gaugeColor(pct) {
   return ['#10b981', 'text-emerald-600'];
 }
 
+function noteColor(val) {
+  if (val < 8)  return '#ef4444';
+  if (val < 10) return '#f97316';
+  if (val < 14) return '#6366f1';
+  return '#10b981';
+}
+
 export function createQuestionCard(question, scoreManager) {
+  if (question.type === 'note') return createNoteCard(question, scoreManager);
+
   const card = document.createElement('article');
   card.id = `question-${question.id}`;
   const isDessin = question.type === 'dessin';
@@ -161,6 +170,46 @@ export function createQuestionCard(question, scoreManager) {
   } else {
     renderButtons();
   }
+
+  return card;
+}
+
+function createNoteCard(question, scoreManager) {
+  const card = document.createElement('article');
+  card.id = `question-${question.id}`;
+  card.className = 'bg-white rounded-xl shadow-sm border border-indigo-100 overflow-hidden';
+
+  card.innerHTML = `
+    <div class="bg-gradient-to-r from-indigo-50 to-violet-50 px-5 py-3 border-b border-indigo-100">
+      <p class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Saisie de note</p>
+    </div>
+    <div class="p-6">
+      <div class="flex items-end justify-center gap-2 mb-6">
+        <span class="note-display text-6xl font-black tabular-nums leading-none" style="color:#a5b4fc">—</span>
+        <span class="text-2xl font-bold text-gray-200 mb-1">/ 20</span>
+      </div>
+      <input type="range" min="0" max="20" step="0.5" value="0"
+        class="note-slider w-full cursor-pointer mb-2" style="accent-color:#6366f1">
+      <div class="flex justify-between text-[10px] text-gray-300 mb-4">
+        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+      </div>
+      <p class="note-hint text-xs text-gray-400 text-center">Déplacez le curseur pour saisir votre note</p>
+    </div>
+  `;
+
+  const slider = card.querySelector('.note-slider');
+  const display = card.querySelector('.note-display');
+  const hint = card.querySelector('.note-hint');
+
+  slider.addEventListener('input', () => {
+    const val = parseFloat(slider.value);
+    const pct = val / 20 * 100;
+    scoreManager.select(question.id, pct);
+    const color = noteColor(val);
+    display.style.color = color;
+    display.textContent = Number.isInteger(val) ? String(val) : val.toFixed(1);
+    hint.textContent = '';
+  });
 
   return card;
 }

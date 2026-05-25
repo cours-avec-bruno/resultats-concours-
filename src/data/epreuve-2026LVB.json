@@ -1,0 +1,19 @@
+{
+  "id": "banque-pt-2026-lv-b",
+  "concours": "Banque PT 2026",
+  "titre": "Langue Vivante B",
+  "totalPoints": 20,
+  "description": "Saisie de note directe · 20 pts",
+  "calibration": null,
+  "questions": [
+    {
+      "id": "lvb-note",
+      "partie": null,
+      "numero": "Note",
+      "bareme": 20,
+      "type": "note",
+      "enonce": "",
+      "corrige": ""
+    }
+  ]
+}

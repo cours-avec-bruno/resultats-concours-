@@ -48,7 +48,7 @@ function renderHome() {
               <div>
                 <p class="text-xs font-medium text-indigo-500 uppercase tracking-wide">${ep.concours}</p>
                 <p class="text-base font-bold text-gray-900 mt-0.5">${ep.titre}</p>
-                <p class="text-xs text-gray-400 mt-1">${ep.questions.length} questions · ${ep.totalPoints} pts · Moy. hist. ${ep.calibration?.mu_hist ?? '—'}/20</p>
+                <p class="text-xs text-gray-400 mt-1">${ep.description ?? `${ep.questions.length} question${ep.questions.length !== 1 ? 's' : ''} · ${ep.totalPoints} pts · Moy. hist. ${ep.calibration?.mu_hist ?? '—'}/20`}</p>
               </div>
               <svg class="w-5 h-5 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
