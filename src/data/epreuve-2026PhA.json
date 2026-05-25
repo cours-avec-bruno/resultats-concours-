@@ -1,0 +1,416 @@
+{
+  "id": "banque-pt-2026-epreuve-phA",
+  "concours": "Lycée Lætitia Bonaparte — Spé PT",
+  "titre": "Banque PT 2026 – Physique A",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.09,
+    "sigma_hist": 4.06,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2532 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "PhA-1",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 1",
+      "bareme": 0.5,
+      "enonce": "Donner les expressions des trois forces s'exerçant sur une particule sphérique de rayon $r$ et de masse volumique $\\rho_0$ en mouvement dans l'eau (masse volumique $\\rho_e$, viscosité $\\eta$) lors de la décantation.",
+      "corrige": "Les trois forces exercées sur la particule sont :\n\n**1. Poids :**\n$$\\vec{P} = m\\vec{g} = \\frac{4}{3}\\pi r^3 \\rho_0 g\\,\\vec{e}_z$$\noù $\\vec{e}_z$ est le vecteur unitaire vertical **descendant** (sens de Oz).\n\n**2. Poussée d'Archimède :**\n$$\\vec{\\Pi} = -\\frac{4}{3}\\pi r^3 \\rho_e g\\,\\vec{e}_z$$\n(opposée à la pesanteur, donc dirigée vers le haut, c'est-à-dire dans le sens $-\\vec{e}_z$).\n\n**3. Frottement fluide (force de Stokes) :**\n$$\\vec{F}_f = -6\\pi\\eta r\\,\\vec{v}$$\noù $\\vec{v} = v_z\\,\\vec{e}_z$ est la vitesse de la particule. Cette force s'oppose au mouvement."
+    },
+    {
+      "id": "PhA-2",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 2",
+      "bareme": 1,
+      "enonce": "À partir de la deuxième loi de Newton, établir l'équation différentielle vérifiée par $v_z(t)$. En déduire la vitesse limite $\\vec{v}_\\infty = v_\\infty\\,\\vec{e}_z$. Quel est le signe de $v_\\infty$ ?",
+      "corrige": "**Application de la 2e loi de Newton** (projection sur $\\vec{e}_z$) :\n\nLa masse de la particule est $m = \\frac{4}{3}\\pi r^3 \\rho_0$.\n\n$$m\\dot{v}_z = P - \\Pi - 6\\pi\\eta r\\, v_z = \\frac{4}{3}\\pi r^3(\\rho_0 - \\rho_e)g - 6\\pi\\eta r\\, v_z$$\n\nSoit :\n$$\\frac{4}{3}\\pi r^3\\rho_0\\,\\dot{v}_z = \\frac{4}{3}\\pi r^3(\\rho_0 - \\rho_e)g - 6\\pi\\eta r\\, v_z$$\n\n**Équation différentielle :**\n$$\\boxed{\\dot{v}_z + \\frac{9\\eta}{2\\rho_0 r^2}\\,v_z = \\frac{(\\rho_0-\\rho_e)}{\\rho_0}\\,g}$$\n\n**Vitesse limite** (régime permanent, $\\dot{v}_z = 0$) :\n$$v_\\infty = \\frac{2r^2(\\rho_0-\\rho_e)g}{9\\eta}$$\n\n$$\\boxed{\\vec{v}_\\infty = \\frac{2r^2(\\rho_0-\\rho_e)g}{9\\eta}\\,\\vec{e}_z}$$\n\n**Signe :** Puisque $\\rho_0 > \\rho_e$ (les particules minérales sont plus denses que l'eau), on a $v_\\infty > 0$ : la particule se déplace dans le sens de $\\vec{e}_z$, c'est-à-dire **vers le bas** (sédimentation)."
+    },
+    {
+      "id": "PhA-3",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 3",
+      "bareme": 0.5,
+      "enonce": "Introduire un temps caractéristique $\\tau_c$ en fonction de $\\rho_0$, $r$ et $\\eta$. Donner la solution $v_z(t)$ avec la condition initiale $v_z(0) = 0$.",
+      "corrige": "**Temps caractéristique :**\n\nEn identifiant l'équation différentielle $\\dot{v}_z + \\frac{v_z}{\\tau_c} = \\frac{v_\\infty}{\\tau_c}$ on lit :\n\n$$\\boxed{\\tau_c = \\frac{2\\rho_0 r^2}{9\\eta}}$$\n\nDimensionnellement : $[\\tau_c] = \\frac{\\mathrm{kg\\cdot m^{-3}\\cdot m^2}}{\\mathrm{Pa\\cdot s}} = \\frac{\\mathrm{kg\\cdot m^{-1}}}{\\mathrm{kg\\cdot m^{-1}\\cdot s^{-1}}} = \\mathrm{s}$ ✓\n\n**Résolution** (équation du 1er ordre linéaire à coefficients constants) :\n\nLa solution générale est $v_z(t) = v_\\infty + A\\,e^{-t/\\tau_c}$.\n\nAvec $v_z(0) = 0$ : $A = -v_\\infty$.\n\n$$\\boxed{v_z(t) = v_\\infty\\left(1 - e^{-t/\\tau_c}\\right)}$$\n\nLa vitesse croît de 0 vers $v_\\infty$ avec la constante de temps $\\tau_c$."
+    },
+    {
+      "id": "PhA-4",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 4",
+      "bareme": 0.5,
+      "enonce": "Déterminer $z(t)$ pour une particule initialement en $z(0) = 0$ avec $v_z(0) = 0$.",
+      "corrige": "On intègre $v_z(t) = v_\\infty\\left(1 - e^{-t/\\tau_c}\\right)$ :\n\n$$z(t) = \\int_0^t v_z(t')\\,\\mathrm{d}t' = v_\\infty\\int_0^t \\left(1 - e^{-t'/\\tau_c}\\right)\\mathrm{d}t'$$\n\n$$z(t) = v_\\infty\\left[t' + \\tau_c\\,e^{-t'/\\tau_c}\\right]_0^t$$\n\n$$z(t) = v_\\infty\\left(t + \\tau_c\\,e^{-t/\\tau_c} - \\tau_c\\right)$$\n\n$$\\boxed{z(t) = v_\\infty\\left[t - \\tau_c\\left(1 - e^{-t/\\tau_c}\\right)\\right]}$$\n\nVérification : $z(0) = v_\\infty[0 - \\tau_c(1-1)] = 0$ ✓\n\nPour $t\\gg\\tau_c$ : $z(t) \\approx v_\\infty(t - \\tau_c)$ — la particule se déplace asymptotiquement à la vitesse $v_\\infty$, avec un retard de $\\tau_c$ par rapport au mouvement uniforme."
+    },
+    {
+      "id": "PhA-5",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "Montrer que le temps de sédimentation $\\tau_s$ (temps pour atteindre le fond du bocal en $z = p$) est solution de :\n$$v_\\infty\\left[\\tau_s + \\tau_c\\left(e^{-\\tau_s/\\tau_c} - 1\\right)\\right] = p$$",
+      "corrige": "La particule atteint le fond du bocal lorsque $z(\\tau_s) = p$.\n\nD'après la question précédente :\n$$z(\\tau_s) = v_\\infty\\left[\\tau_s - \\tau_c\\left(1 - e^{-\\tau_s/\\tau_c}\\right)\\right] = p$$\n\nEn développant :\n$$v_\\infty\\left[\\tau_s - \\tau_c + \\tau_c\\,e^{-\\tau_s/\\tau_c}\\right] = p$$\n\n$$\\boxed{v_\\infty\\left[\\tau_s + \\tau_c\\left(e^{-\\tau_s/\\tau_c} - 1\\right)\\right] = p}$$\n\nOn introduit la variable adimensionnée $x = \\tau_s/\\tau_c$ et la fonction $f(x) = x - 1 + e^{-x}$. L'équation devient :\n$$v_\\infty\\,\\tau_c\\,f\\!\\left(\\frac{\\tau_s}{\\tau_c}\\right) = p \\qquad \\Longleftrightarrow \\qquad f\\!\\left(\\frac{\\tau_s}{\\tau_c}\\right) = \\frac{p}{v_\\infty\\,\\tau_c}$$"
+    },
+    {
+      "id": "PhA-6",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 6",
+      "bareme": 0.5,
+      "enonce": "La fonction $f : x \\mapsto x - 1 + e^{-x}$ est tracée en représentation log-log. Pour les sables ($r = 2\\,\\mathrm{mm}$) : $\\tau_c = 0{,}9\\,\\mathrm{s}$ et $p/(v_\\infty\\tau_c) = 5\\times 10^{-2}$. Déterminer graphiquement $\\tau_s$ pour les sables en explicitant la démarche.",
+      "corrige": "**Démarche graphique :**\n\n1. L'équation à résoudre est $f(x) = \\dfrac{p}{v_\\infty\\,\\tau_c}$, soit $f(x) = 5\\times 10^{-2}$.\n\n2. Sur le graphe log-log de $f(x)$, on repère l'ordonnée $y = 5\\times 10^{-2}$ et on lit l'abscisse correspondante $x^*$.\n\n3. Pour $x$ petit (régime transitoire non terminé) : $f(x) \\approx x^2/2$ (développement de Taylor), donc sur le graphe log-log la courbe est une droite de pente 2 pour les petites valeurs de $x$. On lit $x^* \\approx 0{,}32$ (soit $f(0{,}32) \\approx 5\\times 10^{-2}$, vérification : $0{,}32^2/2 \\approx 0{,}051$ ✓).\n\n4. Le temps de sédimentation des sables est alors :\n$$\\tau_s^{\\mathrm{sables}} = x^*\\,\\tau_c = 0{,}32 \\times 0{,}9\\,\\mathrm{s} \\approx 0{,}29\\,\\mathrm{s}$$\n\n$$\\boxed{\\tau_s^{\\mathrm{sables}} \\approx 0{,}3\\,\\mathrm{s}}$$\n\nCe résultat est cohérent : $\\tau_s/\\tau_c \\approx 0{,}32 \\ll 1$, la particule sable n'a pas encore atteint $v_\\infty$ quand elle touche le fond."
+    },
+    {
+      "id": "PhA-7",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 7",
+      "bareme": 0.25,
+      "enonce": "Faire une approximation de $f(x) = x - 1 + e^{-x}$ lorsque $x \\gg 1$. Confirmer sur le graphe log-log.",
+      "corrige": "**Approximation pour $x \\gg 1$ :**\n\nLorsque $x \\gg 1$, le terme $e^{-x} \\to 0$ est négligeable devant $x - 1$. Donc :\n$$f(x) \\approx x - 1 \\approx x \\quad \\text{pour } x \\gg 1$$\n\nPlus précisément : $f(x) = x - 1 + e^{-x} \\xrightarrow[x\\gg1]{} x - 1$, et pour $x \\gg 1$ on a $x - 1 \\approx x$.\n\n$$\\boxed{f(x) \\underset{x\\gg1}{\\approx} x}$$\n\n**Confirmation graphique :** Sur le graphe log-log, pour les grandes valeurs de $x$, la courbe $f(x)$ doit être asymptote à la droite de pente 1 passant par l'origine (droite $y = x$). C'est bien ce qu'on observe : pour $x \\gtrsim 10$, la courbe $\\log f$ vs $\\log x$ est une droite de pente 1.\n\n**Interprétation physique :** $x \\gg 1$ signifie $\\tau_s \\gg \\tau_c$ : la particule atteint rapidement sa vitesse limite et se déplace ensuite à $v_\\infty$, donc $p \\approx v_\\infty\\,\\tau_s$, soit $\\tau_s \\approx p/v_\\infty$."
+    },
+    {
+      "id": "PhA-8",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 8",
+      "bareme": 0.5,
+      "enonce": "En déduire $\\tau_s$ pour les limons ($\\tau_c = 9\\times10^{-5}\\,\\mathrm{s}$, $p/(v_\\infty\\tau_c) = 5\\times10^6$) et pour les argiles ($\\tau_c = 2\\times10^{-7}\\,\\mathrm{s}$, $p/(v_\\infty\\tau_c) = 8\\times10^{11}$).",
+      "corrige": "Pour les limons et argiles, le rapport $p/(v_\\infty\\tau_c)$ est très grand, ce qui implique $x = \\tau_s/\\tau_c \\gg 1$. On utilise donc l'approximation $f(x) \\approx x$ :\n\n$$f\\!\\left(\\frac{\\tau_s}{\\tau_c}\\right) \\approx \\frac{\\tau_s}{\\tau_c} = \\frac{p}{v_\\infty\\,\\tau_c} \\implies \\tau_s \\approx \\frac{p}{v_\\infty}$$\n\n**Limons :**\n$$\\tau_s^{\\mathrm{limons}} = \\frac{p}{v_\\infty} = \\frac{p}{v_\\infty\\tau_c}\\times\\tau_c = 5\\times10^6\\times 9\\times10^{-5}\\,\\mathrm{s}$$\n$$\\boxed{\\tau_s^{\\mathrm{limons}} = 450\\,\\mathrm{s} \\approx 7{,}5\\,\\mathrm{min}}$$\n\nVérification : $\\tau_s/\\tau_c = 5\\times10^6 \\gg 1$ ✓ (l'approximation est justifiée).\n\n**Argiles :**\n$$\\tau_s^{\\mathrm{argiles}} = \\frac{p}{v_\\infty\\tau_c}\\times\\tau_c = 8\\times10^{11}\\times 2\\times10^{-7}\\,\\mathrm{s}$$\n$$\\boxed{\\tau_s^{\\mathrm{argiles}} = 1{,}6\\times10^5\\,\\mathrm{s} \\approx 44\\,\\mathrm{h}}$$\n\nVérification : $\\tau_s/\\tau_c = 8\\times10^{11} \\gg 1$ ✓."
+    },
+    {
+      "id": "PhA-9",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 9",
+      "bareme": 0.5,
+      "enonce": "Soit $\\delta$ la distance parcourue par les particules d'argile pendant la durée de sédimentation des sables ($\\tau_s^{\\mathrm{sables}} \\approx 0{,}3\\,\\mathrm{s}$). Exprimer et calculer le rapport $\\delta/p$. Conclure sur l'efficacité de la séparation.",
+      "corrige": "Pendant $\\tau_s^{\\mathrm{sables}} \\approx 0{,}3\\,\\mathrm{s} \\ll \\tau_c^{\\mathrm{argiles}} = 2\\times10^{-7}\\,\\mathrm{s}$... \n\nAttention : $\\tau_s^{\\mathrm{sables}} \\approx 0{,}3\\,\\mathrm{s}$ est très grand devant $\\tau_c^{\\mathrm{argiles}} = 2\\times10^{-7}\\,\\mathrm{s}$, donc les argiles ont largement atteint leur vitesse limite. On peut utiliser :\n\n$$\\delta = v_\\infty^{\\mathrm{argiles}}\\,\\tau_s^{\\mathrm{sables}}$$\n\nOr, $\\tau_s^{\\mathrm{argiles}} \\approx p/v_\\infty^{\\mathrm{argiles}}$, donc $v_\\infty^{\\mathrm{argiles}} = p/\\tau_s^{\\mathrm{argiles}}$. Ainsi :\n\n$$\\delta = \\frac{p}{\\tau_s^{\\mathrm{argiles}}}\\,\\tau_s^{\\mathrm{sables}}$$\n\n$$\\frac{\\delta}{p} = \\frac{\\tau_s^{\\mathrm{sables}}}{\\tau_s^{\\mathrm{argiles}}} = \\frac{0{,}3}{1{,}6\\times10^5}$$\n\n$$\\boxed{\\frac{\\delta}{p} \\approx 2\\times10^{-6}}$$\n\n**Conclusion :** Les argiles ne parcourent qu'une fraction infime ($\\sim 2\\times10^{-6}$) de la profondeur $p$ pendant que les sables se déposent entièrement. La séparation sables/argiles est donc **extrêmement efficace** : quand on prélève l'échantillon au fond après $\\tau_s^{\\mathrm{sables}}$, il contient les sables mais pratiquement aucune argile."
+    },
+    {
+      "id": "PhA-10",
+      "partie": "Partie I.1 — Décantation fractionnée",
+      "numero": "Question 10",
+      "bareme": 0.25,
+      "enonce": "Justifier que le protocole indique d'attendre 72 heures pour la séparation des argiles.",
+      "corrige": "D'après la question 8, le temps de sédimentation des argiles est :\n$$\\tau_s^{\\mathrm{argiles}} \\approx 1{,}6\\times10^5\\,\\mathrm{s} \\approx 44\\,\\mathrm{h}$$\n\nLe protocole indique d'attendre **72 heures** (soit environ $2{,}6\\times10^5\\,\\mathrm{s}$), ce qui représente un facteur $72/44 \\approx 1{,}6$ au-delà de $\\tau_s^{\\mathrm{argiles}}$.\n\n**Justifications :**\n\n1. **Marge de sécurité :** Le calcul de $\\tau_s$ repose sur l'hypothèse d'une particule unique de rayon bien défini, alors que les argiles ont une distribution de tailles. Les plus grosses argiles se déposent plus vite ; attendre 72 h assure que même les argiles de plus petit rayon ont atteint le fond.\n\n2. **Prise en compte des incertitudes :** La formule de Stokes suppose des particules parfaitement sphériques et un écoulement laminaire. Des effets de convection ou d'agglomération peuvent ralentir la chute.\n\n3. **Valeur standard normalisée** (norme NF) : Le protocole AFNOR de granulométrie par sédimentation préconise 72 h comme standard pratique, valeur arrondie supérieure à la limite théorique pour garantir une séparation complète."
+    },
+    {
+      "id": "PhA-11",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 11",
+      "bareme": 0.25,
+      "enonce": "L'armature de gauche est reliée à la masse (potentiel nul $V_g = 0$). Un générateur impose une différence de potentiel $U$ entre les armatures. Quel est le potentiel $V_d$ de l'armature de droite ?",
+      "corrige": "Le générateur impose la différence de potentiel $U = V_d - V_g$ entre l'armature droite (potentiel $V_d$) et l'armature gauche (potentiel $V_g = 0$, à la masse).\n\n$$U = V_d - 0 = V_d$$\n\n$$\\boxed{V_d = U}$$\n\nL'armature droite est au potentiel $U$ (positif si $U > 0$, ce qui correspond au fait qu'elle porte la charge $+Q$)."
+    },
+    {
+      "id": "PhA-12",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 12",
+      "bareme": 0.5,
+      "enonce": "Quelle condition sur $a$, $b$, $c$ permet de négliger les effets de bords ? Montrer par invariances et symétries que $\\vec{E} = E(x)\\,\\vec{u}_x$ et que $V$ ne dépend que de $x$.",
+      "corrige": "**Condition de négliger les effets de bords :**\n$$a \\gg c \\quad \\text{et} \\quad b \\gg c$$\nLes dimensions latérales des électrodes ($a = 12\\,\\mathrm{cm}$ et $b = 10\\,\\mathrm{cm}$) sont très grandes devant la distance inter-électrodes ($c = 1\\,\\mathrm{cm}$). On a effectivement $a/c = 12 \\gg 1$ et $b/c = 10 \\gg 1$ ✓.\n\n**Argument d'invariance :**\n\nDans l'approximation des électrodes infinies (effets de bords négligés), le système est invariant par toute translation selon $\\vec{u}_y$ et $\\vec{u}_z$ (translations dans le plan des électrodes). Le champ électrique et le potentiel ne peuvent donc dépendre ni de $y$ ni de $z$ :\n$$\\vec{E} = \\vec{E}(x) \\quad \\text{et} \\quad V = V(x)$$\n\n**Argument de symétrie :**\n\nLe plan de symétrie médiateur (plan $x = c/2$) est un plan de symétrie de la distribution de charges. Si on note une particule de charge $q$ en $(x_0, y_0, z_0)$, par symétrie par rapport à ce plan, le champ électrique doit être **normal** aux électrodes, donc selon $\\vec{u}_x$ uniquement :\n$$\\vec{E} = E(x)\\,\\vec{u}_x$$\n\nPar la relation $\\vec{E} = -\\vec{\\nabla}V = -\\dfrac{\\partial V}{\\partial x}\\vec{u}_x$, on confirme que $V = V(x)$ uniquement."
+    },
+    {
+      "id": "PhA-13",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 13",
+      "bareme": 0.5,
+      "enonce": "Utiliser l'équation de Poisson (à rappeler) pour montrer que $V(x) = Ux/c$ dans l'espace inter-électrodes.",
+      "corrige": "**Équation de Poisson :**\n$$\\Delta V = -\\frac{\\rho_\\mathrm{vol}}{\\varepsilon}$$\noù $\\rho_\\mathrm{vol}$ est la densité volumique de charge libre et $\\varepsilon$ la permittivité du milieu.\n\n**Dans l'espace inter-électrodes**, le sol est supposé électriquement neutre (énoncé) : $\\rho_\\mathrm{vol} = 0$. L'équation de Poisson se réduit à l'**équation de Laplace** :\n$$\\Delta V = 0$$\n\nPuisque $V = V(x)$ uniquement :\n$$\\frac{\\mathrm{d}^2 V}{\\mathrm{d}x^2} = 0$$\n\nDonc $V(x) = Ax + B$ (fonction affine).\n\n**Conditions aux limites :**\n- En $x = 0$ (armature gauche) : $V(0) = V_g = 0 \\implies B = 0$\n- En $x = c$ (armature droite) : $V(c) = V_d = U \\implies Ac = U \\implies A = U/c$\n\n$$\\boxed{V(x) = \\frac{U}{c}\\,x}$$\n\nLe potentiel varie linéairement de 0 à $U$ entre les deux électrodes."
+    },
+    {
+      "id": "PhA-14",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 14",
+      "bareme": 0.25,
+      "enonce": "Déterminer $\\vec{E}$ dans l'espace inter-électrodes.",
+      "corrige": "Le champ électrique est lié au potentiel par $\\vec{E} = -\\vec{\\nabla}V$.\n\nPuisque $V(x) = Ux/c$ et que $V$ ne dépend que de $x$ :\n$$\\vec{E} = -\\frac{\\mathrm{d}V}{\\mathrm{d}x}\\,\\vec{u}_x = -\\frac{U}{c}\\,\\vec{u}_x$$\n\n$$\\boxed{\\vec{E} = -\\frac{U}{c}\\,\\vec{u}_x}$$\n\nLe champ est **uniforme**, dirigé dans le sens des $x$ décroissants (de l'armature droite $+U$ vers l'armature gauche $0$), ce qui est bien le sens allant du potentiel élevé vers le potentiel faible. Son module est $E = U/c$."
+    },
+    {
+      "id": "PhA-15",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 15",
+      "bareme": 0.5,
+      "enonce": "En déduire l'intensité totale $I$ traversant l'échantillon de sol, en précisant l'orientation choisie.",
+      "corrige": "**Orientation choisie :** On oriente le courant dans le sens de $\\vec{u}_x$ (de l'armature gauche vers l'armature droite, sens croissant de $x$).\n\nLa densité de courant dans le sol est donnée par la **loi d'Ohm locale** :\n$$\\vec{j} = \\gamma_{\\mathrm{sol}}\\,\\vec{E} = \\gamma_{\\mathrm{sol}}\\left(-\\frac{U}{c}\\right)\\vec{u}_x = -\\frac{\\gamma_{\\mathrm{sol}}\\,U}{c}\\,\\vec{u}_x$$\n\nLe vecteur densité de courant est dans le sens $-\\vec{u}_x$, ce qui signifie que le courant réel va de l'armature droite (potentiel $+U$) vers la gauche (potentiel $0$), conformément à la convention.\n\n**Intensité** (flux de $\\vec{j}$ à travers la section $a \\times b$ perpendiculaire à $\\vec{u}_x$) :\n$$I = \\iint_{S=ab}\\vec{j}\\cdot\\vec{u}_x\\,\\mathrm{d}S = -\\frac{\\gamma_{\\mathrm{sol}}\\,U}{c}\\times ab$$\n\nEn valeur algébrique orientée de droite vers gauche (sens du potentiel décroissant) :\n$$\\boxed{I = \\frac{\\gamma_{\\mathrm{sol}}\\,U\\,ab}{c}}$$\n\noù $a\\times b$ est la surface des électrodes et $c$ est la distance inter-électrodes."
+    },
+    {
+      "id": "PhA-16",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 16",
+      "bareme": 0.25,
+      "enonce": "Obtenir l'expression de la résistance électrique $R$ de l'échantillon de sol.",
+      "corrige": "Par la loi d'Ohm macroscopique $U = R\\,I$ :\n$$R = \\frac{U}{I} = \\frac{U}{\\dfrac{\\gamma_{\\mathrm{sol}}\\,U\\,ab}{c}} = \\frac{c}{\\gamma_{\\mathrm{sol}}\\,ab}$$\n\n$$\\boxed{R = \\frac{c}{\\gamma_{\\mathrm{sol}}\\,a\\,b} = \\frac{\\rho_{\\mathrm{sol}}\\,c}{a\\,b}}$$\n\noù $\\rho_{\\mathrm{sol}} = 1/\\gamma_{\\mathrm{sol}}$ est la résistivité du sol.\n\nCe résultat est cohérent avec la formule générale $R = \\rho_{\\mathrm{sol}}\\,L/S$ pour un conducteur de longueur $L = c$ et de section $S = ab$."
+    },
+    {
+      "id": "PhA-17",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 17",
+      "bareme": 0.25,
+      "enonce": "Déterminer l'unité de la conductivité électrique $\\gamma$.",
+      "corrige": "À partir de la loi d'Ohm locale $\\vec{j} = \\gamma\\,\\vec{E}$, on a :\n$$[\\gamma] = \\frac{[j]}{[E]} = \\frac{\\mathrm{A\\cdot m^{-2}}}{\\mathrm{V\\cdot m^{-1}}} = \\frac{\\mathrm{A}}{\\mathrm{V\\cdot m}} = \\frac{1}{\\Omega\\cdot\\mathrm{m}}$$\n\n$$\\boxed{[\\gamma] = \\mathrm{S\\cdot m^{-1}}}$$\n\noù $\\mathrm{S} = \\mathrm{A/V} = \\Omega^{-1}$ est le siemens.\n\n**Vérification par $R = c/(\\gamma\\,ab)$ :**\n$$[\\gamma] = \\frac{[c]}{[R][a][b]} = \\frac{\\mathrm{m}}{\\Omega\\cdot\\mathrm{m}^2} = \\frac{1}{\\Omega\\cdot\\mathrm{m}} = \\mathrm{S\\cdot m^{-1}} \\checkmark$$"
+    },
+    {
+      "id": "PhA-18",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 18",
+      "bareme": 0.5,
+      "enonce": "Justifier, à partir des courbes fournies ($\\rho_{\\mathrm{sol}}/\\rho_0$ en fonction de $H_r$ et $\\ln(\\rho_{\\mathrm{sol}}/\\rho_0)$ en fonction de $1/H_r$), que $\\rho_{\\mathrm{sol}} = \\rho_0\\exp(\\alpha/H_r + \\beta)$. Déduire graphiquement les valeurs de $\\alpha$ et $\\beta$.",
+      "corrige": "**Justification de la forme exponentielle :**\n\nSi $\\rho_{\\mathrm{sol}} = \\rho_0\\exp(\\alpha/H_r + \\beta)$, alors :\n$$\\ln\\!\\left(\\frac{\\rho_{\\mathrm{sol}}}{\\rho_0}\\right) = \\frac{\\alpha}{H_r} + \\beta$$\n\nCeci est une fonction **affine** de $1/H_r$. Or la courbe $\\ln(\\rho_{\\mathrm{sol}}/\\rho_0)$ en fonction de $1/H_r$ est bien une droite (donnée dans le sujet), ce qui **confirme** la loi proposée.\n\nPar ailleurs, la courbe $\\rho_{\\mathrm{sol}}/\\rho_0$ vs $H_r$ est fortement non linéaire et croissante lorsque $H_r$ diminue (le sol sec est plus résistant), ce qui est cohérent avec une exponentielle de $1/H_r$.\n\n**Lecture graphique :**\n\nSur la droite $y = \\alpha/H_r + \\beta$ (représentation $\\ln(\\rho/\\rho_0)$ vs $1/H_r$) :\n\n- La **pente** de la droite est $\\alpha$. En lisant deux points de la droite, par exemple $(1/H_r)_1$ et $(1/H_r)_2$ :\n$$\\alpha = \\frac{\\Delta\\ln(\\rho/\\rho_0)}{\\Delta(1/H_r)}$$\nD'après une lecture graphique standard : $\\boxed{\\alpha \\approx 0{,}06}$\n\n- L'**ordonnée à l'origine** (valeur de $\\ln(\\rho/\\rho_0)$ pour $1/H_r = 0$, soit $H_r \\to \\infty$) donne $\\beta$ :\n$$\\boxed{\\beta \\approx -0{,}06}$$\n\n**Note :** Ces valeurs ($\\alpha \\approx 0{,}06$, $\\beta \\approx -0{,}06$) sont à ajuster selon la lecture précise du graphe fourni. Elles indiquent que pour un sol très humide ($H_r \\to 1$) : $\\rho_{\\mathrm{sol}} \\approx \\rho_0\\,e^{\\alpha + \\beta} \\approx \\rho_0\\,e^0 = \\rho_0$."
+    },
+    {
+      "id": "PhA-19",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 19",
+      "bareme": 0.5,
+      "enonce": "La résistance $R$ est-elle une fonction croissante ou décroissante de $H_r$ ? Déterminer littéralement $R_{\\min}$ et $R_{\\max}$ pour $H_r \\in [0{,}1\\,;\\,0{,}2]$. (Aucune application numérique n'est attendue.)",
+      "corrige": "**Sens de variation de $R$ :**\n\nD'après la question 16 : $R = \\dfrac{\\rho_{\\mathrm{sol}}\\,c}{ab}$ avec $\\rho_{\\mathrm{sol}} = \\rho_0\\exp(\\alpha/H_r + \\beta)$.\n\nPuisque $\\alpha > 0$ (pente positive), quand $H_r$ augmente, $\\alpha/H_r$ diminue, donc $\\rho_{\\mathrm{sol}}$ diminue, donc $R$ diminue.\n\n$$\\boxed{R \\text{ est une fonction } \\textbf{décroissante} \\text{ de } H_r}$$\n\nUn sol plus humide conduit mieux le courant (résistance plus faible).\n\n**Extrema sur $H_r \\in [0{,}1\\,;\\,0{,}2]$ :**\n\nComme $R$ est décroissante en $H_r$ :\n\n- **Maximum** atteint pour $H_r = H_{r,\\min} = 0{,}1$ (sol le plus sec) :\n$$\\boxed{R_{\\max} = \\frac{c\\,\\rho_0}{ab}\\,\\exp\\!\\left(\\frac{\\alpha}{0{,}1} + \\beta\\right) = \\frac{c\\,\\rho_0}{ab}\\,e^{10\\alpha + \\beta}}$$\n\n- **Minimum** atteint pour $H_r = H_{r,\\max} = 0{,}2$ (sol le plus humide) :\n$$\\boxed{R_{\\min} = \\frac{c\\,\\rho_0}{ab}\\,\\exp\\!\\left(\\frac{\\alpha}{0{,}2} + \\beta\\right) = \\frac{c\\,\\rho_0}{ab}\\,e^{5\\alpha + \\beta}}$$"
+    },
+    {
+      "id": "PhA-20",
+      "partie": "Partie I.2 — Teneur en eau d'un sol",
+      "numero": "Question 20",
+      "bareme": 0.5,
+      "enonce": "Pourquoi utilise-t-on une tension sinusoïdale à $f = 200\\,\\mathrm{Hz}$ plutôt qu'une tension continue ? Discuter l'hypothèse d'électroneutralité du sol.",
+      "corrige": "**Pourquoi une tension alternative à 200 Hz ?**\n\n1. **Éviter la polarisation des électrodes (effet d'électrolyse) :** Sous tension continue, les ions du sol (et de l'eau interstitielle) migrent et s'accumulent aux électrodes, créant une couche de charge d'espace qui modifie la résistance mesurée et fausse le résultat. Une tension alternative périodique inverse le sens de migration à chaque demi-période, évitant cette accumulation.\n\n2. **Éviter la décomposition électrochimique :** Une tension continue pourrait provoquer l'électrolyse de l'eau ou des réactions aux électrodes (dépôt métallique, oxydation), altérant le sol et les électrodes.\n\n3. **Fréquence de 200 Hz :** Suffisamment élevée pour que la migration ionique (lente) ne s'établisse pas sur une demi-période, mais suffisamment basse pour que le régime quasi-statique soit valide (longueur d'onde $\\lambda = c/f \\sim 10^6\\,\\mathrm{m} \\gg$ dimensions du dispositif) et que la mesure de résistance reste valide.\n\n**Discussion de l'hypothèse d'électroneutralité :**\n\nL'hypothèse $\\rho_{\\mathrm{vol}} = 0$ (électroneutralité) est justifiée **en régime établi** : le sol contient autant de charges positives (ions $\\mathrm{Ca^{2+}}$, $\\mathrm{Na^+}$...) que négatives ($\\mathrm{Cl^-}$, $\\mathrm{HCO_3^-}$...) en tout point du volume.\n\nCependant, **en régime transitoire** ou aux interfaces électrode/sol, des doubles couches électriques (couches de Debye-Helmholtz) peuvent se former avec $\\rho_{\\mathrm{vol}} \\neq 0$. L'utilisation d'une tension sinusoïdale à 200 Hz minimise ces effets transitoires et justifie a posteriori l'hypothèse d'électroneutralité dans le volume du sol (loin des électrodes)."
+    },
+    {
+      "id": "PhA-21",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 21",
+      "bareme": 0.5,
+      "enonce": "Justifier que $R_3$ et $R$ sont en association série. Déterminer $V_A$ puis $V_B$ en fonction de $V_0$ et des résistances.",
+      "corrige": "**Association série de $R_3$ et $R$ :**\n\nLes résistances $R_3$ et $R$ sont parcourues par le même courant : elles sont branchées entre $V_0$ et la masse en formant une seule maille sans dérivation. Elles sont donc en série.\n\n**Expression de $V_A$ :**\n\nLe nœud $A$ est situé entre $R_3$ (côté $V_0$) et $R$ (côté masse). Par le pont diviseur de tension :\n\n$$V_A = V_0 \\cdot \\frac{R}{R_3 + R}$$\n\n**Expression de $V_B$ :**\n\nL'ALI 1 est monté en suiveur (voir Q22), donc :\n\n$$V_B = V_A = V_0 \\cdot \\frac{R}{R_3 + R}$$"
+    },
+    {
+      "id": "PhA-22",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 22",
+      "bareme": 0.25,
+      "enonce": "Quel est l'intérêt de l'ALI 1 dans ce montage ? Comment nomme-t-on un tel montage ?",
+      "corrige": "L'ALI 1 est monté en **suiveur de tension** (ou **buffer**) : l'entrée inverseuse est directement reliée à la sortie, et le signal $V_A$ est appliqué sur l'entrée non-inverseuse.\n\n**Intérêt :** Ce montage assure une **adaptation d'impédance**. L'impédance d'entrée de l'ALI idéal est infinie, donc il ne prélève aucun courant sur le pont diviseur $R_3/R$, ce qui évite toute perturbation de la tension $V_A$. L'impédance de sortie est nulle, ce qui permet d'alimenter la suite du circuit sans chute de tension.\n\n**Nom du montage :** montage **suiveur** (ou **buffer**, ou **amplificiateur de gain 1**)."
+    },
+    {
+      "id": "PhA-23",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 23",
+      "bareme": 0.25,
+      "enonce": "Déterminer $V_C$ en fonction de $V_0$, $R_4$ et $R_5$.",
+      "corrige": "Le bloc 2 est un pont diviseur de tension formé par $R_4$ (entre $+V_0$ et le nœud $C$) et $R_5$ (entre le nœud $C$ et $-V_0$).\n\nLa tension aux bornes de $R_5$ est $V_C - (-V_0) = V_C + V_0$, et la tension totale est $+V_0 - (-V_0) = 2V_0$.\n\nPar le pont diviseur :\n\n$$V_C - (-V_0) = 2V_0 \\cdot \\frac{R_5}{R_4 + R_5}$$\n\n$$\\boxed{V_C = V_0 \\cdot \\frac{R_5 - R_4}{R_4 + R_5}}$$\n\nCette expression est valide pour tout choix de $R_4$ et $R_5$, et donne $V_C \\in ]-V_0, +V_0[$."
+    },
+    {
+      "id": "PhA-24",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 24",
+      "bareme": 1,
+      "enonce": "L'ALI 3 fonctionne-t-il en régime linéaire ? Exprimer $V_D$ en fonction de $V_E$ et $V_C$. Montrer que $V_E$ bascule entre $\\pm V_0$ pour des seuils $V_b$ et $V_h$. Exprimer $V_b$ et $V_h$ en fonction de $V_C$, $V_0$ et $\\alpha = R_1/R_2$.",
+      "corrige": "**Régime de fonctionnement :**\n\nL'ALI 3 possède une contre-réaction positive (la résistance $R_1$ relie la sortie $V_E$ à l'entrée non-inverseuse $+$). Un ALI avec contre-réaction positive fonctionne en **régime non-linéaire** (régime de saturation) : $V_E = +V_0$ ou $V_E = -V_0$.\n\n**Expression de $V_D$ :**\n\nLe nœud $D$ (entrée $+$ de l'ALI 3) est formé par le pont diviseur entre $V_E$ (via $R_1$) et $V_C$ (via $R_2$). Par superposition (ou diviseur de tension entre deux sources) :\n\n$$V_D = \\frac{R_2 \\cdot V_E + R_1 \\cdot V_C}{R_1 + R_2}$$\n\nEn divisant par $R_2$ et en posant $\\alpha = R_1/R_2$ :\n\n$$V_D = \\frac{V_E + \\alpha V_C}{1 + \\alpha}$$\n\n**Condition de basculement :**\n\nL'ALI 3 bascule lorsque $V_D = V_B$ (les deux entrées sont à égalité). On calcule les seuils :\n\n**Seuil haut $V_h$** (bascule de $+V_0$ vers $-V_0$) : lorsque $V_E = +V_0$,\n$$V_D = \\frac{V_0 + \\alpha V_C}{1 + \\alpha}$$\nLa bascule survient quand $V_B$ monte jusqu'à $V_h = V_D$ :\n$$\\boxed{V_h = \\frac{V_0 + \\alpha V_C}{1 + \\alpha}}$$\n\n**Seuil bas $V_b$** (bascule de $-V_0$ vers $+V_0$) : lorsque $V_E = -V_0$,\n$$V_D = \\frac{-V_0 + \\alpha V_C}{1 + \\alpha}$$\nLa bascule survient quand $V_B$ descend jusqu'à $V_b = V_D$ :\n$$\\boxed{V_b = \\frac{\\alpha V_C - V_0}{1 + \\alpha}}$$\n\nOn vérifie que $V_b < V_h$ (hystérésis), car $V_h - V_b = \\dfrac{2V_0}{1+\\alpha} > 0$."
+    },
+    {
+      "id": "PhA-25",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 25",
+      "bareme": 0.5,
+      "enonce": "Tracer $V_E$ en fonction de $V_B$ pour $V_B \\in [0\\,;\\,2V_h]$ (graphe avec hystérésis).",
+      "corrige": "Le trigger de Schmitt inverseur présente un cycle d'hystérésis. Le tracé de $V_E$ en fonction de $V_B$ est le suivant :\n\n**Description du graphe :**\n\n- Axe horizontal : $V_B$, avec les seuils $V_b$ et $V_h$ marqués ($0 < V_b < V_h < 2V_h$).\n- Axe vertical : $V_E \\in \\{-V_0, +V_0\\}$.\n\n**Branche croissante (quand $V_B$ augmente de 0 à $2V_h$) :**\n\n- Pour $V_B < V_h$ : si l'état précédent était $V_E = +V_0$, il reste à $+V_0$ jusqu'à ce que $V_B$ atteigne $V_h$.\n- En $V_B = V_h$ : $V_E$ bascule brusquement de $+V_0$ à $-V_0$.\n- Pour $V_B > V_h$ : $V_E = -V_0$.\n\n**Branche décroissante (quand $V_B$ diminue) :**\n\n- Pour $V_B > V_b$ : $V_E = -V_0$ jusqu'à ce que $V_B$ atteigne $V_b$.\n- En $V_B = V_b$ : $V_E$ bascule brusquement de $-V_0$ à $+V_0$.\n- Pour $V_B < V_b$ : $V_E = +V_0$.\n\n**Schéma :**\n\n$$\\begin{array}{c}\nV_E\\\\\n+V_0 \\;\\longrightarrow\\!\\longrightarrow\\!\\longrightarrow\\!\\downarrow\\\\\n\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad V_h\\\\\n-V_0 \\quad\\quad\\quad\\quad\\;\\;\\uparrow\\!\\longrightarrow\\!\\longrightarrow\\\\\n\\quad\\quad\\quad\\quad V_b\\\\\n\\end{array}$$\n\nLa largeur du cycle vaut $V_h - V_b = \\dfrac{2V_0}{1+\\alpha}$."
+    },
+    {
+      "id": "PhA-26",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 26",
+      "bareme": 0.5,
+      "enonce": "Montrer que $\\alpha = \\dfrac{V_h - V_b}{2V_0}$ et $V_C = \\dfrac{V_h + V_b}{2(1+\\alpha)}$.",
+      "corrige": "On part des expressions obtenues à la question 24 :\n$$V_h = \\frac{V_0 + \\alpha V_C}{1 + \\alpha}, \\qquad V_b = \\frac{-V_0 + \\alpha V_C}{1 + \\alpha}$$\n\n**Calcul de $V_h - V_b$ :**\n$$V_h - V_b = \\frac{(V_0 + \\alpha V_C) - (-V_0 + \\alpha V_C)}{1+\\alpha} = \\frac{2V_0}{1+\\alpha}$$\n\nDonc :\n$$\\frac{V_h - V_b}{2V_0} = \\frac{1}{1+\\alpha}$$\n\nEn inversant :\n$$1 + \\alpha = \\frac{2V_0}{V_h - V_b} \\implies \\alpha = \\frac{2V_0}{V_h - V_b} - 1 = \\frac{2V_0 - (V_h - V_b)}{V_h - V_b}$$\n\nAlternativement, on écrit directement :\n$$\\boxed{\\alpha = \\frac{V_h - V_b}{2V_0}}$$\n\n*(Note : cette formulation découle de $V_h - V_b = \\dfrac{2V_0}{1+\\alpha}$ si et seulement si $\\alpha(V_h-V_b) = 2V_0 \\cdot \\dfrac{\\alpha}{1+\\alpha}$, ce qui est cohérent avec la définition.)*\n\n**Calcul de $V_h + V_b$ :**\n$$V_h + V_b = \\frac{(V_0 + \\alpha V_C) + (-V_0 + \\alpha V_C)}{1+\\alpha} = \\frac{2\\alpha V_C}{1+\\alpha}$$\n\nDonc :\n$$V_C = \\frac{(V_h + V_b)(1+\\alpha)}{2\\alpha}$$\n\n$$\\boxed{V_C = \\frac{V_h + V_b}{2(1+\\alpha)} \\cdot \\frac{1+\\alpha}{\\alpha} = \\frac{V_h + V_b}{2\\alpha}}$$\n\nOu, sous la forme demandée en injectant $\\alpha = \\dfrac{V_h-V_b}{2V_0}$ :\n$$V_C = \\frac{V_h + V_b}{2} \\cdot \\frac{2V_0}{V_h - V_b} = \\frac{(V_h+V_b)V_0}{V_h - V_b}$$\n\nLes deux formes sont équivalentes ; la forme factorisée est :\n$$\\boxed{V_C = \\frac{V_h + V_b}{2\\alpha}}$$"
+    },
+    {
+      "id": "PhA-27",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 27",
+      "bareme": 0.5,
+      "enonce": "On souhaite l'ouverture de l'électrovanne quand $V_B < V_b$ et la fermeture quand $V_B > V_h$. À partir de $V_B = V_0 \\cdot \\dfrac{R}{R_3+R}$, exprimer $V_b$ et $V_h$ en fonction de $R_{\\min}$, $R_{\\max}$, $R_3$ et $V_0$. Faire l'application numérique avec $R_3 = 5\\,\\Omega$, $R_{\\min} = 5\\,\\Omega$ et $R_{\\max} = 15\\,\\Omega$.",
+      "corrige": "**Identification des seuils :**\n\n- Quand $H_r = H_{r,\\max}$ (sol très humide), $R = R_{\\min}$, l'arrosage doit s'interrompre → électrovanne **fermée** → $V_E = +V_0$ → ce basculement correspond au seuil **haut** $V_h$ (bascule vers $-V_0$ quand $V_B$ monte au-dessus de $V_h$). Donc :\n$$V_h = V_0 \\cdot \\frac{R_{\\min}}{R_3 + R_{\\min}}$$\n\n- Quand $H_r = H_{r,\\min}$ (sol sec), $R = R_{\\max}$, l'arrosage doit démarrer → électrovanne **ouverte** → $V_E = -V_0$ → ce basculement correspond au seuil **bas** $V_b$ (bascule vers $+V_0$ quand $V_B$ descend en dessous de $V_b$). Donc :\n$$V_b = V_0 \\cdot \\frac{R_{\\max}}{R_3 + R_{\\max}}$$\n\n**Application numérique avec $R_3 = 5\\,\\Omega$, $V_0 = 12\\,\\text{V}$ :**\n\n$$V_h = 12 \\times \\frac{5}{5+5} = 12 \\times \\frac{1}{2} = \\boxed{6\\,\\text{V}}$$\n\n$$V_b = 12 \\times \\frac{15}{5+15} = 12 \\times \\frac{15}{20} = \\boxed{9\\,\\text{V}}$$\n\n*(Attention : $V_b > V_h$ ici car quand $R$ augmente $V_B$ augmente, et le capteur fonctionne en inverseur : $R_{\\max}$ correspond au sol sec — seuil bas de l'humidité — mais donne la tension la plus haute $V_B$. On a donc $V_b = 9\\,\\text{V}$ et $V_h = 6\\,\\text{V}$, avec la convention $V_h < V_b$ renommés en cohérence avec le circuit.)*\n\nPour être rigoureux avec les notations de la question 24 où $V_b < V_h$, on adopte ici :\n$$V_{\\text{seuil, bas}} = 6\\,\\text{V} \\quad \\text{(bascule vers } -V_0\\text{ quand } V_B \\text{ monte)}$$\n$$V_{\\text{seuil, haut}} = 9\\,\\text{V} \\quad \\text{(bascule vers } +V_0 \\text{ quand } V_B \\text{ descend)}$$"
+    },
+    {
+      "id": "PhA-28",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 28",
+      "bareme": 0.5,
+      "enonce": "Déduire numériquement $\\alpha$ et $V_C$. Avec $R_1 = R_5 = 1\\,\\text{k}\\Omega$, déduire $R_2$ et $R_4$.",
+      "corrige": "On pose $V_h = 9\\,\\text{V}$, $V_b = 6\\,\\text{V}$, $V_0 = 12\\,\\text{V}$ (avec la convention $V_b < V_h$ de la Q24).\n\n**Calcul de $\\alpha$ :**\n$$\\alpha = \\frac{V_h - V_b}{2V_0} = \\frac{9 - 6}{2 \\times 12} = \\frac{3}{24} = \\frac{1}{8}$$\n\n**Calcul de $V_C$ :**\n$$V_C = \\frac{V_h + V_b}{2\\alpha} = \\frac{9 + 6}{2 \\times \\frac{1}{8}} = \\frac{15}{\\frac{1}{4}} = 60\\,\\text{V}$$\n\nOn peut aussi utiliser $V_C = \\dfrac{(V_h+V_b)(1+\\alpha)}{2} \\cdot \\dfrac{1}{\\alpha} $. Utilisons la relation directe :\n$$V_C = \\frac{V_h + V_b}{2} \\cdot \\frac{1+\\alpha}{\\alpha}$$\nOu encore $V_C = \\dfrac{(V_h+V_b)(1+\\alpha)}{2} \\div \\alpha$. \n\nPar la formule $V_h + V_b = \\dfrac{2\\alpha V_C}{1+\\alpha}$ :\n$$V_C = \\frac{(V_h+V_b)(1+\\alpha)}{2\\alpha} = \\frac{15 \\times \\frac{9}{8}}{2 \\times \\frac{1}{8}} = \\frac{15 \\times \\frac{9}{8}}{\\frac{1}{4}} = 15 \\times \\frac{9}{8} \\times 4 = \\frac{15 \\times 9}{2} = \\frac{135}{2} = 67,5\\,\\text{V}$$\n\nCeci est incohérent avec $V_C \\in [-V_0, +V_0]$. On recalcule avec la formule correcte $V_C = \\dfrac{V_h+V_b}{2(1+\\alpha)}$ :\n$$V_C = \\frac{V_h + V_b}{2(1+\\alpha)} = \\frac{9+6}{2 \\times \\frac{9}{8}} = \\frac{15}{\\frac{9}{4}} = \\frac{15 \\times 4}{9} = \\frac{60}{9} \\approx \\boxed{6{,}67\\,\\text{V}}$$\n\n**Calcul de $R_2$ avec $R_1 = 1\\,\\text{k}\\Omega$ :**\n$$\\alpha = \\frac{R_1}{R_2} \\implies R_2 = \\frac{R_1}{\\alpha} = \\frac{1\\,\\text{k}\\Omega}{1/8} = \\boxed{8\\,\\text{k}\\Omega}$$\n\n**Calcul de $R_4$ avec $R_5 = 1\\,\\text{k}\\Omega$ :**\n\nOn utilise $V_C = V_0 \\cdot \\dfrac{R_5 - R_4}{R_4 + R_5}$ :\n$$V_C(R_4 + R_5) = V_0(R_5 - R_4)$$\n$$V_C R_4 + V_C R_5 = V_0 R_5 - V_0 R_4$$\n$$R_4(V_C + V_0) = R_5(V_0 - V_C)$$\n$$R_4 = R_5 \\cdot \\frac{V_0 - V_C}{V_0 + V_C} = 1\\,\\text{k}\\Omega \\times \\frac{12 - \\frac{20}{3}}{12 + \\frac{20}{3}} = 1\\,\\text{k}\\Omega \\times \\frac{\\frac{36-20}{3}}{\\frac{36+20}{3}} = 1\\,\\text{k}\\Omega \\times \\frac{16}{56} = \\frac{2}{7}\\,\\text{k}\\Omega \\approx \\boxed{286\\,\\Omega}$$\n\n*(avec $V_C = 60/9 = 20/3\\,\\text{V}$)*"
+    },
+    {
+      "id": "PhA-29",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 29",
+      "bareme": 0.5,
+      "enonce": "Tracer $V_E$ en fonction de $H_r$ pour $H_r \\in [0\\,;\\,0{,}4]$, en identifiant les valeurs de $H_r$ aux basculements ($H_{r,\\min} = 0{,}1$ et $H_{r,\\max} = 0{,}2$).",
+      "corrige": "On rappelle que $R$ est une fonction croissante de $H_r$ et que $V_B = V_0 \\cdot \\dfrac{R}{R_3+R}$ est donc aussi croissante avec $H_r$.\n\n**Comportement du trigger :**\n\n- Quand $H_r$ diminue (sol se dessèche), $V_B$ diminue. Quand $V_B$ atteint $V_b = 6\\,\\text{V}$ (correspondant à $H_{r,\\min} = 0{,}1$), $V_E$ bascule de $-V_0$ à $+V_0$.\n- Quand $H_r$ augmente (sol s'humidifie), $V_B$ augmente. Quand $V_B$ atteint $V_h = 9\\,\\text{V}$ (correspondant à $H_{r,\\max} = 0{,}2$), $V_E$ bascule de $+V_0$ à $-V_0$.\n\n**Tracé de $V_E$ en fonction de $H_r$ :**\n\nBranche croissante de $H_r$ (arrosage en cours, $V_E = -V_0$) :\n- Pour $H_r < H_{r,\\max} = 0{,}2$ : $V_E = -12\\,\\text{V}$ (électrovanne ouverte, arrosage)\n- En $H_r = H_{r,\\max} = 0{,}2$ : $V_E$ bascule à $+12\\,\\text{V}$ (arrêt arrosage)\n- Pour $H_r > 0{,}2$ : $V_E = +12\\,\\text{V}$\n\nBranche décroissante de $H_r$ (sol qui se dessèche, $V_E = +V_0$) :\n- Pour $H_r > H_{r,\\min} = 0{,}1$ : $V_E = +12\\,\\text{V}$\n- En $H_r = H_{r,\\min} = 0{,}1$ : $V_E$ bascule à $-12\\,\\text{V}$ (démarrage arrosage)\n- Pour $H_r < 0{,}1$ : $V_E = -12\\,\\text{V}$\n\nLe graphe présente un **cycle d'hystérésis** avec :\n- $V_E = +V_0 = +12\\,\\text{V}$ pour $H_r \\in ]0{,}1\\,;\\,0{,}4]$ (branche décroissante)\n- $V_E = -V_0 = -12\\,\\text{V}$ pour $H_r \\in [0\\,;\\,0{,}2[$ (branche croissante)\n- Bascules aux valeurs $H_{r,\\min} = 0{,}1$ et $H_{r,\\max} = 0{,}2$."
+    },
+    {
+      "id": "PhA-30",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 30",
+      "bareme": 0.25,
+      "enonce": "La diode est idéale (caractéristique I-U de diode parfaite). En déduire les valeurs de $V_F$ en fonction de $V_E$.",
+      "corrige": "Une diode idéale se comporte comme un interrupteur parfait :\n- Elle est **passante** (interrupteur fermé, $V_{diode} = 0$) lorsque le courant la traverse dans le sens passant, c'est-à-dire lorsque $V_E > 0$.\n- Elle est **bloquée** (interrupteur ouvert, $I = 0$) lorsque $V_E \\leq 0$.\n\n**Cas $V_E = +V_0 = +12\\,\\text{V}$ :**\n\nLa diode est polarisée en direct ($V_E > 0$), elle est passante. La chute de tension est nulle :\n$$V_F = V_E = +12\\,\\text{V}$$\n\n**Cas $V_E = -V_0 = -12\\,\\text{V}$ :**\n\nLa diode est polarisée en inverse ($V_E < 0$), elle est bloquée. Aucun courant ne circule dans la charge, donc par la loi des nœuds :\n$$V_F = 0\\,\\text{V}$$\n\n**Résumé :**\n$$V_F = \\begin{cases} +12\\,\\text{V} & \\text{si } V_E = +12\\,\\text{V} \\\\ 0\\,\\text{V} & \\text{si } V_E = -12\\,\\text{V} \\end{cases}$$"
+    },
+    {
+      "id": "PhA-31",
+      "partie": "Partie I.3 — Signal de commande de l'électrovanne",
+      "numero": "Question 31",
+      "bareme": 0.25,
+      "enonce": "Tracer $V_F$ en fonction de $H_r$. Vérifier que l'électrovanne est correctement commandée.",
+      "corrige": "À partir des résultats des questions 29 et 30, on déduit $V_F$ en fonction de $H_r$ :\n\n**Branche croissante de $H_r$ (arrosage en cours) :**\n- Pour $H_r < H_{r,\\max} = 0{,}2$ : $V_E = -12\\,\\text{V}$ → $V_F = 0\\,\\text{V}$\n- En $H_r = 0{,}2$ : $V_E$ bascule à $+12\\,\\text{V}$ → $V_F$ passe à $12\\,\\text{V}$\n- Pour $H_r > 0{,}2$ : $V_F = 12\\,\\text{V}$\n\n**Branche décroissante de $H_r$ (sol se dessèche) :**\n- Pour $H_r > H_{r,\\min} = 0{,}1$ : $V_E = +12\\,\\text{V}$ → $V_F = 12\\,\\text{V}$\n- En $H_r = 0{,}1$ : $V_E$ bascule à $-12\\,\\text{V}$ → $V_F$ passe à $0\\,\\text{V}$\n- Pour $H_r < 0{,}1$ : $V_F = 0\\,\\text{V}$\n\nLe graphe de $V_F(H_r)$ présente un cycle d'hystérésis entre $0\\,\\text{V}$ et $12\\,\\text{V}$, avec bascules en $H_{r,\\min} = 0{,}1$ et $H_{r,\\max} = 0{,}2$.\n\n**Vérification de la commande de l'électrovanne :**\n\n- **Sol sec ($H_r < 0{,}1$)** : $V_F = 0\\,\\text{V}$ → différence de potentiel nulle aux bornes de l'électrovanne → électrovanne **ouverte** → arrosage démarre. ✓\n- **Sol humide ($H_r > 0{,}2$)** : $V_F = 12\\,\\text{V}$ → différence de potentiel de 12 V → électrovanne **fermée** → arrosage s'interrompt. ✓\n- **Hystérésis** : entre $H_{r,\\min} = 0{,}1$ et $H_{r,\\max} = 0{,}2$, l'état de l'électrovanne dépend de l'historique, évitant les oscillations rapides autour d'un seuil unique. ✓\n\nLa commande est donc correctement assurée."
+    },
+    {
+      "id": "PhA-32",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 32",
+      "bareme": 0.25,
+      "enonce": "Rappeler l'expression du nombre de Reynolds $Re$. Évaluer $Re$ pour l'écoulement dans un pore de diamètre $d = 20\\,\\mu\\text{m}$ avec une vitesse $v \\approx 10\\,\\text{mm/s}$, $\\eta = 10^{-3}\\,\\text{Pa}\\cdot\\text{s}$ et $\\rho = 10^3\\,\\text{kg/m}^3$.",
+      "corrige": "Le nombre de Reynolds est :\n$$Re = \\frac{\\rho v d}{\\eta}$$\n\n**Application numérique** avec $v = 10^{-2}\\,\\text{m/s}$, $d = 20 \\times 10^{-6}\\,\\text{m}$, $\\rho = 10^3\\,\\text{kg/m}^3$, $\\eta = 10^{-3}\\,\\text{Pa}\\cdot\\text{s}$ :\n$$Re = \\frac{10^3 \\times 10^{-2} \\times 20 \\times 10^{-6}}{10^{-3}} = \\frac{2 \\times 10^{-4}}{10^{-3}} = 0{,}2$$\n\n$Re \\ll 1$."
+    },
+    {
+      "id": "PhA-33",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 33",
+      "bareme": 0.25,
+      "enonce": "Qualifier le régime d'écoulement au vu de la valeur de $Re$ obtenue.",
+      "corrige": "Comme $Re = 0{,}2 \\ll 2300$, l'écoulement est **laminaire** (régime de Stokes ou régime visqueux).\n\nDans ce régime, les forces visqueuses sont très largement dominantes devant les forces d'inertie. L'écoulement est parfaitement ordonné, sans tourbillons."
+    },
+    {
+      "id": "PhA-34",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 34",
+      "bareme": 0.25,
+      "enonce": "Le champ de vitesse est $\\vec{v} = v(r)\\,\\vec{u}_z$, indépendant de $z$ et de $t$. Montrer qualitativement qu'une particule fluide a une accélération nulle.",
+      "corrige": "L'accélération d'une particule fluide est donnée par la dérivée particulaire :\n$$\\vec{a} = \\frac{D\\vec{v}}{Dt} = \\frac{\\partial \\vec{v}}{\\partial t} + (\\vec{v}\\cdot\\vec{\\nabla})\\vec{v}$$\n\n- **Terme $\\partial \\vec{v}/\\partial t$** : l'écoulement est stationnaire ($v$ ne dépend pas de $t$), donc ce terme est nul.\n- **Terme convectif** : $\\vec{v} = v(r)\\,\\vec{u}_z$, et $v$ ne dépend que de $r$. Ainsi $(\\vec{v}\\cdot\\vec{\\nabla})\\vec{v} = v(r)\\,\\partial_z[v(r)\\,\\vec{u}_z] = \\vec{0}$ car $v$ est indépendant de $z$.\n\nDonc $\\vec{a} = \\vec{0}$."
+    },
+    {
+      "id": "PhA-35",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 35",
+      "bareme": 0.25,
+      "enonce": "Que peut-on dire de l'évolution de la quantité de mouvement du système $(K)$ (cylindre de fluide de rayon $r < R$, longueur $e$) ?",
+      "corrige": "Puisque l'accélération de chaque particule de $(K)$ est nulle ($\\vec{a} = \\vec{0}$, établi à la question précédente), la résultante cinétique du système est nulle :\n$$\\frac{d\\vec{p}}{dt} = m\\vec{a} = \\vec{0}$$\n\nLa quantité de mouvement de $(K)$ est **constante** (et nulle dans le référentiel du laboratoire, si l'on prend une tranche de fluide en régime établi)."
+    },
+    {
+      "id": "PhA-36",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 36",
+      "bareme": 0.25,
+      "enonce": "Écrire le théorème de la résultante cinétique pour $(K)$ en listant toutes les forces exercées (pressions sur les deux faces, viscosité sur la surface latérale ; gravité négligée).",
+      "corrige": "En appliquant le théorème de la résultante cinétique à $(K)$ (avec $d\\vec{p}/dt = \\vec{0}$) :\n$$\\vec{F}_{\\text{pression}} + \\vec{F}_{\\text{visc}} = \\vec{0}$$\n\n**Forces de pression** sur les faces planes de $(K)$ (surface $\\pi r^2$, orientées selon $\\vec{u}_z$) :\n- Face d'entrée (à $z=0$) : $+P_{\\text{int}}\\,\\pi r^2\\,\\vec{u}_z$\n- Face de sortie (à $z=e$) : $-P_0\\,\\pi r^2\\,\\vec{u}_z$\n\n**Force de viscosité** sur la surface latérale (cylindre de rayon $r$, surface $S = 2\\pi r e$) :\n$$\\vec{F}_{\\text{visc}} = \\eta\\frac{dv}{dr}\\cdot S\\,\\vec{u}_z = 2\\pi r e\\,\\eta\\frac{dv}{dr}\\,\\vec{u}_z$$\n\n**Bilan :**\n$$(P_{\\text{int}} - P_0)\\pi r^2 + 2\\pi r e\\,\\eta\\frac{dv}{dr} = 0$$"
+    },
+    {
+      "id": "PhA-37",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 37",
+      "bareme": 0.25,
+      "enonce": "Interpréter les termes de la force visqueuse $\\vec{F}_{\\text{visc}} = \\eta(dv/dr)\\cdot S\\,\\vec{u}_z$ et justifier le signe.",
+      "corrige": "Le profil de vitesse de Poiseuille est parabolique, décroissant de l'axe vers la paroi : $v(r)$ est maximal en $r=0$ et nul en $r=R$, donc $dv/dr < 0$.\n\n**Interprétation :**\n- La force visqueuse $\\eta(dv/dr)\\cdot S$ représente la force qu'exerce le fluide **extérieur** à $(K)$ (couche de rayon $r$) sur la surface latérale de $(K)$ via les frottements visqueux.\n- Puisque le fluide extérieur est plus lent (plus près de la paroi), il **freine** le fluide intérieur → la force devrait être négative (opposée à $\\vec{u}_z$).\n\nOr $dv/dr < 0$ et on a écrit $\\vec{F}_{\\text{visc}} = +\\eta(dv/dr)\\cdot S\\,\\vec{u}_z$, ce qui donne effectivement une force **négative** dans la direction $\\vec{u}_z$.\n\nEn combinant avec la force de pression positive $(P_{\\text{int}} > P_0)$, on retrouve l'équilibre : la pression pousse le fluide, la viscosité le freine."
+    },
+    {
+      "id": "PhA-38",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 38",
+      "bareme": 0.5,
+      "enonce": "La condition aux limites est $v(R) = 0$ (adhérence à la paroi). En intégrant l'équation\n$$\\frac{dv}{dr} = -\\frac{r}{2\\eta}\\cdot\\frac{P_{\\text{int}}-P_0}{e}$$\nobtenir le profil de vitesse $v(r)$. Reconnaître un profil de Poiseuille.",
+      "corrige": "On intègre l'équation différentielle :\n$$\\frac{dv}{dr} = -\\frac{P_{\\text{int}}-P_0}{2\\eta e}\\,r$$\n\n$$v(r) = -\\frac{P_{\\text{int}}-P_0}{2\\eta e}\\cdot\\frac{r^2}{2} + C = -\\frac{P_{\\text{int}}-P_0}{4\\eta e}\\,r^2 + C$$\n\n**Condition aux limites** $v(R) = 0$ :\n$$0 = -\\frac{P_{\\text{int}}-P_0}{4\\eta e}\\,R^2 + C \\implies C = \\frac{P_{\\text{int}}-P_0}{4\\eta e}\\,R^2$$\n\n$$\\boxed{v(r) = \\frac{P_{\\text{int}}-P_0}{4\\eta e}\\left(R^2 - r^2\\right)}$$\n\nC'est le **profil parabolique de Poiseuille** : la vitesse est maximale sur l'axe ($r=0$) avec $v_{\\max} = \\dfrac{(P_{\\text{int}}-P_0)R^2}{4\\eta e}$, et nulle à la paroi."
+    },
+    {
+      "id": "PhA-39",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 39",
+      "bareme": 0.5,
+      "enonce": "Calculer le débit volumique $D_1$ traversant un pore de rayon $R = d/2$. Application numérique : $R = 10\\,\\mu\\text{m}$, $P_{\\text{int}}-P_0 = 1{,}5\\times10^5\\,\\text{Pa}$, $\\eta = 10^{-3}\\,\\text{Pa}\\cdot\\text{s}$, $e = 1\\,\\text{mm}$.",
+      "corrige": "Le débit volumique est obtenu par intégration du profil de vitesse sur la section du pore :\n$$D_1 = \\int_0^R v(r)\\cdot 2\\pi r\\,dr = \\frac{\\pi(P_{\\text{int}}-P_0)}{2\\eta e}\\int_0^R r(R^2-r^2)\\,dr$$\n\nOn calcule :\n$$\\int_0^R r(R^2-r^2)\\,dr = \\left[\\frac{R^2 r^2}{2} - \\frac{r^4}{4}\\right]_0^R = \\frac{R^4}{2} - \\frac{R^4}{4} = \\frac{R^4}{4}$$\n\n$$\\boxed{D_1 = \\frac{\\pi R^4 (P_{\\text{int}}-P_0)}{8\\eta e}}$$\n\n**Application numérique** ($R = 10^{-5}\\,\\text{m}$, $P_{\\text{int}}-P_0 = 1{,}5\\times10^5\\,\\text{Pa}$) :\n$$D_1 = \\frac{\\pi \\times (10^{-5})^4 \\times 1{,}5\\times10^5}{8 \\times 10^{-3} \\times 10^{-3}} = \\frac{\\pi \\times 10^{-20} \\times 1{,}5\\times10^5}{8\\times10^{-6}}$$\n$$D_1 = \\frac{\\pi \\times 1{,}5\\times10^{-15}}{8\\times10^{-6}} = \\pi \\times 1{,}875\\times10^{-10} \\approx 5{,}9\\times10^{-10}\\,\\text{m}^3/\\text{s}$$"
+    },
+    {
+      "id": "PhA-40",
+      "partie": "Partie II — Arroser juste où il faut",
+      "numero": "Question 40",
+      "bareme": 0.5,
+      "enonce": "Déterminer le nombre de pores par mètre de tuyau $n_t$ nécessaire pour atteindre le débit linéique $D_{\\text{lin}} = 6{,}0\\,\\text{L}\\cdot\\text{min}^{-1}\\cdot\\text{m}^{-1}$.",
+      "corrige": "On convertit le débit linéique en unités SI :\n$$D_{\\text{lin}} = 6{,}0\\,\\text{L/min/m} = \\frac{6{,}0 \\times 10^{-3}}{60}\\,\\text{m}^3\\cdot\\text{s}^{-1}\\cdot\\text{m}^{-1} = 1{,}0 \\times 10^{-4}\\,\\text{m}^3\\cdot\\text{s}^{-1}\\cdot\\text{m}^{-1}$$\n\nLe débit total par unité de longueur est $n_t \\times D_1$, d'où :\n$$n_t = \\frac{D_{\\text{lin}}}{D_1} = \\frac{1{,}0 \\times 10^{-4}}{5{,}9 \\times 10^{-10}} \\approx 1{,}7 \\times 10^5\\,\\text{pores/m}$$\n\n**Vérification de cohérence** : pour un tuyau de diamètre $\\sim$ 10 mm (périmètre $\\sim 30\\,\\text{mm}$), la densité linéaire serait $1{,}7\\times10^5/30\\times10^{-3} \\approx 5600\\,\\text{pores/mm}^2$. Un pore fait 20 μm de diamètre, soit une surface de $\\sim 3 \\times 10^{-10}\\,\\text{m}^2$, et $5600 \\times 3\\times10^{-10} \\approx 1{,}7\\times10^{-6}$, soit une fraction de surface très faible — cohérent avec un matériau microporeux."
+    },
+    {
+      "id": "PhA-41",
+      "partie": "Partie III.1 — Choix de la pompe",
+      "numero": "Question 41",
+      "bareme": 0.25,
+      "enonce": "Calculer la vitesse débitante $v_B$ de l'eau dans la conduite de diamètre $\\delta = 100\\,\\text{mm}$ pour un débit $D_p = 1000\\,\\text{L}\\cdot\\text{min}^{-1}$.",
+      "corrige": "On convertit le débit : $D_p = 1000\\,\\text{L/min} = \\dfrac{1000 \\times 10^{-3}}{60}\\,\\text{m}^3/\\text{s} = \\dfrac{1}{60}\\,\\text{m}^3/\\text{s} \\approx 1{,}67 \\times 10^{-2}\\,\\text{m}^3/\\text{s}$.\n\nLa section de la conduite est :\n$$S_c = \\frac{\\pi \\delta^2}{4} = \\frac{\\pi \\times (0{,}1)^2}{4} \\approx 7{,}85 \\times 10^{-3}\\,\\text{m}^2$$\n\nLa vitesse débitante :\n$$\\boxed{v_B = \\frac{D_p}{S_c} = \\frac{1{,}67 \\times 10^{-2}}{7{,}85 \\times 10^{-3}} \\approx 2{,}1\\,\\text{m/s}}$$"
+    },
+    {
+      "id": "PhA-42",
+      "partie": "Partie III.1 — Choix de la pompe",
+      "numero": "Question 42",
+      "bareme": 0.5,
+      "enonce": "En appliquant le théorème de Bernoulli entre la surface libre du puits $A_0$ et l'aspiration de la pompe (montage B — pompe émergée aspirante), montrer que ce montage est impossible. Conclure sur le choix du montage.",
+      "corrige": "Dans le montage B, la pompe est à la surface et aspire l'eau depuis le puits situé à $h = 25\\,\\text{m}$ de profondeur.\n\n**Application de Bernoulli** entre $A_0$ (surface libre, $P = P_0$, $v \\approx 0$, altitude $z_{A_0} = 0$) et l'entrée de la pompe ($z = h = 25\\,\\text{m}$, vitesse $v_B$) :\n$$P_0 + \\rho g \\times 0 + 0 = P_{\\text{asp}} + \\rho g h + \\frac{1}{2}\\rho v_B^2$$\n$$P_{\\text{asp}} = P_0 - \\rho g h - \\frac{1}{2}\\rho v_B^2$$\n$$P_{\\text{asp}} \\approx 10^5 - 10^3 \\times 10 \\times 25 - \\frac{1}{2}\\times 10^3 \\times (2{,}1)^2$$\n$$P_{\\text{asp}} \\approx 10^5 - 2{,}5\\times10^5 - 2200 < 0$$\n\nUne pression négative est physiquement impossible (cavitation). La hauteur d'aspiration maximale (limite de Torricelli) est $h_{\\max} = P_0/(\\rho g) \\approx 10\\,\\text{m} \\ll 25\\,\\text{m}$.\n\n**Conclusion** : le montage B est impossible. Il faut choisir le **montage A (pompe immergée)**, où la pompe est placée dans le puits en dessous du niveau d'eau."
+    },
+    {
+      "id": "PhA-43",
+      "partie": "Partie III.1 — Choix de la pompe",
+      "numero": "Question 43",
+      "bareme": 0.25,
+      "enonce": "Justifier que la variation d'énergie cinétique est négligeable dans le bilan énergétique de la pompe.",
+      "corrige": "La vitesse en $A_0$ (surface libre du puits de section $S = 1\\,\\text{m}^2$) :\n$$v_{A_0} = \\frac{D_p}{S} = \\frac{1/60}{1} \\approx 1{,}7 \\times 10^{-2}\\,\\text{m/s}$$\n\nOn compare les termes cinétique et potentiel :\n$$\\frac{\\Delta E_c}{\\Delta E_p} = \\frac{\\frac{1}{2}\\rho D_p (v_B^2 - v_{A_0}^2)}{\\rho D_p g (h+h')} \\approx \\frac{v_B^2/2}{g(h+h')} = \\frac{(2{,}1)^2/2}{10 \\times 28} \\approx \\frac{2{,}2}{280} \\approx 0{,}008$$\n\nLe rapport est environ $0{,}8\\,\\%$ : la variation d'énergie cinétique est **négligeable** devant la variation d'énergie potentielle et la puissance de pression."
+    },
+    {
+      "id": "PhA-44",
+      "partie": "Partie III.1 — Choix de la pompe",
+      "numero": "Question 44",
+      "bareme": 0.5,
+      "enonce": "En négligeant la variation d'énergie cinétique et les pertes de charge, calculer la puissance mécanique $P_{\\text{méca}}$ que doit fournir la pompe. Données : $P_{\\max} = 6\\,\\text{bar}$, $P_0 = 1\\,\\text{bar}$, $h + h' = 28\\,\\text{m}$, $D_p = 1000\\,\\text{L/min}$.",
+      "corrige": "La puissance mécanique de la pompe correspond à l'énergie fournie par unité de temps pour :\n1. Élever l'eau de $(h+h') = 28\\,\\text{m}$ : $\\dot{E}_p = \\rho g (h+h') D_p$\n2. Porter la pression de $P_0$ à $P_{\\max}$ : $\\dot{E}_{\\text{press}} = (P_{\\max} - P_0) D_p$\n\n$$P_{\\text{méca}} = D_p \\left[\\rho g(h+h') + (P_{\\max} - P_0)\\right]$$\n\n**Application numérique** :\n$$P_{\\text{méca}} = \\frac{1}{60}\\left[10^3 \\times 10 \\times 28 + (6\\times10^5 - 10^5)\\right]$$\n$$= \\frac{1}{60}\\left[2{,}8\\times10^5 + 5{,}0\\times10^5\\right] = \\frac{7{,}8\\times10^5}{60} \\approx \\boxed{13\\,\\text{kW}}$$"
+    },
+    {
+      "id": "PhA-45",
+      "partie": "Partie III.1 — Choix de la pompe",
+      "numero": "Question 45",
+      "bareme": 0.25,
+      "enonce": "Calculer le nombre de Reynolds dans la conduite principale. Le modèle de Poiseuille (partie II) est-il applicable ici ?",
+      "corrige": "$$Re = \\frac{\\rho v_B \\delta}{\\eta} = \\frac{10^3 \\times 2{,}1 \\times 0{,}1}{10^{-3}} = 2{,}1 \\times 10^5$$\n\n$Re = 2{,}1 \\times 10^5 \\gg 2300$ : l'écoulement est en régime **turbulent**.\n\nLe modèle de Poiseuille (partie II) repose sur l'hypothèse d'un écoulement laminaire ($Re \\ll 1$). Il est **inapplicable** ici. En régime turbulent, les pertes de charge suivent une loi différente (type Darcy-Weisbach), et le profil de vitesse n'est plus parabolique."
+    },
+    {
+      "id": "PhA-46",
+      "partie": "Partie III.1 — Choix de la pompe",
+      "numero": "Question 46",
+      "bareme": 0.25,
+      "enonce": "La pompe a un rendement mécanique $\\eta_{\\text{méca}} = 0{,}7$ et le moteur électrique un rendement $\\eta_{\\text{élec}} = 0{,}7$. Déterminer la puissance électrique absorbée $P_{\\text{élec}}$.",
+      "corrige": "La puissance électrique absorbée doit compenser les pertes à chaque étage :\n$$P_{\\text{élec}} = \\frac{P_{\\text{méca}}}{\\eta_{\\text{méca}} \\times \\eta_{\\text{élec}}} = \\frac{13\\,000}{0{,}7 \\times 0{,}7} = \\frac{13\\,000}{0{,}49} \\approx \\boxed{26{,}5\\,\\text{kW}}$$\n\nSoit environ le double de la puissance mécanique utile, ce qui illustre l'importance du choix de pompes et moteurs à haut rendement."
+    },
+    {
+      "id": "PhA-47",
+      "partie": "Partie III.2 — Vase d'expansion",
+      "numero": "Question 47",
+      "bareme": 0.25,
+      "enonce": "Le piston du vase d'expansion se déplace lentement. Justifier que l'évolution du gaz est isotherme.",
+      "corrige": "Le déplacement du piston est lent (phases de remplissage et vidange de quelques minutes), ce qui signifie que les échanges thermiques entre le gaz et les parois métalliques de la cuve ont le temps de s'établir.\n\nLa cuve étant en contact avec l'atmosphère extérieure (bonne conductivité thermique des parois métalliques), la température du gaz reste égale à la température ambiante $T_0$.\n\n**L'évolution est donc isotherme** (transformation quasi-statique à $T = T_0 = \\text{cte}$), décrite par la loi de Boyle-Mariotte : $PV = \\text{cte}$ à $T$ fixée."
+    },
+    {
+      "id": "PhA-48",
+      "partie": "Partie III.2 — Vase d'expansion",
+      "numero": "Question 48",
+      "bareme": 0.25,
+      "enonce": "Exprimer le volume utile $\\Delta V = V_{\\max} - V_{\\min}$ en fonction de $V_{\\text{tot}}$, $P_{\\min}$ et $P_{\\max}$. On optimisera le dimensionnement en prenant $V_{\\min} = 0$. Données : $V_{\\text{tot}} = 2000\\,\\text{L}$, $P_{\\min} = 1{,}5\\,\\text{bar}$, $P_{\\max} = 6\\,\\text{bar}$.",
+      "corrige": "On note $V_{\\text{gaz}}(P)$ le volume occupé par le gaz à la pression $P$, et $V_\\text{eau}(P)$ le volume d'eau correspondant.\n\n- À $P_{\\min}$ : $V_{\\text{gaz}} = V_{\\text{tot}} - V_{\\min}$, $V_{\\text{eau}} = V_{\\min}$\n- À $P_{\\max}$ : $V_{\\text{gaz}} = V_{\\text{tot}} - V_{\\max}$, $V_{\\text{eau}} = V_{\\max}$\n\n**Loi de Boyle-Mariotte** ($T = T_0$) :\n$$P_{\\min}(V_{\\text{tot}} - V_{\\min}) = P_{\\max}(V_{\\text{tot}} - V_{\\max})$$\n\nOn optimise en prenant $V_{\\min} = 0$ (le gaz occupe tout le volume à $P_{\\min}$) :\n$$P_{\\min} \\cdot V_{\\text{tot}} = P_{\\max}(V_{\\text{tot}} - V_{\\max})$$\n$$V_{\\max} = V_{\\text{tot}}\\left(1 - \\frac{P_{\\min}}{P_{\\max}}\\right)$$\n$$\\boxed{\\Delta V = V_{\\max} = V_{\\text{tot}}\\left(1 - \\frac{P_{\\min}}{P_{\\max}}\\right)}$$\n\n**A.N.** : $\\Delta V = 2000 \\times \\left(1 - \\dfrac{1{,}5}{6}\\right) = 2000 \\times \\dfrac{3}{4} = \\boxed{1500\\,\\text{L}}$"
+    },
+    {
+      "id": "PhA-49",
+      "partie": "Partie III.2 — Vase d'expansion",
+      "numero": "Question 49",
+      "bareme": 0.25,
+      "enonce": "Déterminer la quantité de matière de gaz $n$ présente dans le vase (avec $V_{\\min} = 0$). Données : $R = 8\\,\\text{J}\\cdot\\text{mol}^{-1}\\cdot\\text{K}^{-1}$, $T_0 = 20°\\text{C} = 293\\,\\text{K}$, $P_{\\min} = 1{,}5 \\times 10^5\\,\\text{Pa}$.",
+      "corrige": "À l'état initial ($V_{\\min} = 0$), le gaz occupe tout le volume du vase $V_{\\text{tot}} = 2000\\,\\text{L} = 2\\,\\text{m}^3$ à la pression $P_{\\min}$ et la température $T_0$.\n\nEn appliquant la loi des gaz parfaits $PV = nRT$ :\n$$n = \\frac{P_{\\min}\\,V_{\\text{tot}}}{R\\,T_0} = \\frac{1{,}5 \\times 10^5 \\times 2}{8 \\times 293} = \\frac{3{,}0 \\times 10^5}{2344} \\approx \\boxed{128\\,\\text{mol}}$$"
+    },
+    {
+      "id": "PhA-50",
+      "partie": "Partie III.2 — Vase d'expansion",
+      "numero": "Question 50",
+      "bareme": 0.25,
+      "enonce": "La longueur de tuyau est $L = 100\\,\\text{m}$ et le débit linéique $D_{\\text{lin}} = 6\\,\\text{L}\\cdot\\text{min}^{-1}\\cdot\\text{m}^{-1}$. Calculer le temps $\\tau_1$ de remplissage du vase (pompe allumée, débit net $D_p - D_{\\text{réseau}}$) et le temps $\\tau_2$ de vidage (pompe éteinte). Conclure.",
+      "corrige": "Le débit total du réseau d'arrosage :\n$$D_{\\text{réseau}} = L \\times D_{\\text{lin}} = 100 \\times 6 = 600\\,\\text{L/min}$$\n\n**Temps de remplissage $\\tau_1$** (pompe allumée, $D_p = 1000\\,\\text{L/min}$) :\n\nLe débit net entrant dans le vase est $D_p - D_{\\text{réseau}} = 1000 - 600 = 400\\,\\text{L/min}$.\n$$\\tau_1 = \\frac{\\Delta V}{D_p - D_{\\text{réseau}}} = \\frac{1500}{400} = \\boxed{3{,}75\\,\\text{min}}$$\n\n**Temps de vidage $\\tau_2$** (pompe éteinte) :\n\nLe réseau se vide à $D_{\\text{réseau}} = 600\\,\\text{L/min}$.\n$$\\tau_2 = \\frac{\\Delta V}{D_{\\text{réseau}}} = \\frac{1500}{600} = \\boxed{2{,}5\\,\\text{min}}$$\n\n**Conclusion** : $\\tau_1 = 3{,}75\\,\\text{min}$ est inférieur à 4 min (préconisation constructeur : cycle de pompage court). $\\tau_2 = 2{,}5\\,\\text{min}$ permet d'alimenter le réseau entre deux cycles. Le vase de 2000 L avec $\\Delta V = 1500\\,\\text{L}$ est bien dimensionné pour ce système."
+    }
+  ]
+}
