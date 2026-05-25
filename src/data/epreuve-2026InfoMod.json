@@ -1,0 +1,416 @@
+{
+  "id": "banque-pt-2026-info-mod",
+  "concours": "Banque PT 2026",
+  "titre": "Informatique et Modélisation",
+  "totalPoints": 20,
+  "calibration": {
+    "mu_hist": 9.43,
+    "sigma_hist": 4.07,
+    "mu_cible": 10.0,
+    "sigma_cible": 3.5,
+    "tolerance": 1.5,
+    "source": "Banque PT — 2533 candidats, données stables"
+  },
+  "questions": [
+    {
+      "id": "InfoMod-1",
+      "partie": "1.1 — Pression au fond des océans",
+      "numero": "Question 1",
+      "bareme": 0.25,
+      "enonce": "Un fluide de masse volumique uniforme $\\mu$ est soumis à un champ de pesanteur uniforme $\u000bec{g}$. En supposant le fluide en équilibre statique, donner l'équation locale de la statique des fluides (relation entre le gradient de pression et les données du problème).",
+      "corrige": "**Équation locale de la statique des fluides**\n\nEn statique des fluides, la résultante des forces appliquées à un volume élémentaire de fluide est nulle. Les deux forces en présence sont :\n- la force de pression : $d\u000bec{F}_p = -\u000bec{\nabla} P \\, dV$\n- la force de pesanteur : $d\u000bec{F}_g = \\mu \u000bec{g} \\, dV$\n\nL'équilibre s'écrit $d\u000bec{F}_p + d\u000bec{F}_g = \u000bec{0}$, soit :\n\n$$\boxed{\u000bec{\nabla} P = \\mu \u000bec{g}}$$\n\nEn prenant $\u000bec{e}_z$ **vertical descendant** (sens positif vers le fond), $\u000bec{g} = g\\,\u000bec{e}_z$ avec $g > 0$. La projection sur $\u000bec{e}_z$ donne :\n\n$$\frac{dP}{dz} = \\mu g$$\n\nLa pression **augmente** avec la profondeur $z$ (mesurée vers le bas), ce qui est cohérent avec l'intuition physique."
+    },
+    {
+      "id": "InfoMod-2",
+      "partie": "1.1 — Pression au fond des océans",
+      "numero": "Question 2",
+      "bareme": 0.25,
+      "enonce": "En déduire l'expression du champ de pression $P(z)$ dans l'eau, en prenant comme condition initiale $P(0) = P_0 = 10^5$ Pa à la surface ($z = 0$). On donne : $\\mu = 1000$ kg/m³, $g = 10$ m/s².",
+      "corrige": "**Expression de $P(z)$**\n\nOn intègre l'équation obtenue en Q1 :\n\n$$\frac{dP}{dz} = \\mu g$$\n\nentre la surface ($z = 0$, $P = P_0$) et la profondeur $z$ :\n\n$$\\int_{P_0}^{P(z)} dP' = \\int_0^z \\mu g \\, dz'$$\n\n$$P(z) - P_0 = \\mu g z$$\n\nD'où :\n\n$$\boxed{P(z) = P_0 + \\mu g z}$$\n\n**Application numérique** : avec $\\mu = 1000$ kg/m³ et $g = 10$ m/s², on obtient $\\mu g = 10^4$ Pa/m. La pression augmente donc de $10^4$ Pa (soit environ $0{,}1$ atm) par mètre de profondeur."
+    },
+    {
+      "id": "InfoMod-3",
+      "partie": "1.1 — Pression au fond des océans",
+      "numero": "Question 3",
+      "bareme": 0.5,
+      "enonce": "Le capteur est un cylindre de rayon $R = 2$ cm et de longueur $L = 10$ cm, immergé à une profondeur $H = 4$ km. On note $\u000bec{e}_z$ le vecteur vertical descendant. La face A (disque inférieur) est en $z = H - L/2$ et la face B (disque supérieur) est en $z = H + L/2$.\n\nDonner la résultante vectorielle $\u000bec{f}_A$ des forces pressantes exercées par l'eau sur la face A, et $\u000bec{f}_B$ sur la face B.",
+      "corrige": "**Forces pressantes sur les faces A et B**\n\nLa force pressante exercée par le fluide sur un élément de surface $d\u000bec{S}$ est $d\u000bec{f} = P \\, \\hat{n} \\, dS$ où $\\hat{n}$ est la **normale extérieure au fluide** (donc **rentrante** dans le solide).\n\n**Face A** (disque inférieur, $z = H - L/2$) :\n\nLa normale extérieure au fluide est dirigée vers le **haut** (vers l'intérieur du cylindre), soit $\\hat{n}_A = -\u000bec{e}_z$.\n\n$$\u000bec{f}_A = P\\!\\left(H - \frac{L}{2}\right) \times \\pi R^2 \times (-\u000bec{e}_z)$$\n\n$$\boxed{\u000bec{f}_A = -P\\!\\left(H - \frac{L}{2}\right) \\pi R^2 \\, \u000bec{e}_z}$$\n\nLa force est **dirigée vers le haut** (sens $-\u000bec{e}_z$), ce qui correspond à une poussée vers l'intérieur du capteur.\n\n**Face B** (disque supérieur, $z = H + L/2$) :\n\nLa normale extérieure au fluide est dirigée vers le **bas** (vers l'intérieur du cylindre), soit $\\hat{n}_B = +\u000bec{e}_z$.\n\n$$\u000bec{f}_B = P\\!\\left(H + \frac{L}{2}\right) \times \\pi R^2 \times (+\u000bec{e}_z)$$\n\n$$\boxed{\u000bec{f}_B = +P\\!\\left(H + \frac{L}{2}\right) \\pi R^2 \\, \u000bec{e}_z}$$\n\nLa force est **dirigée vers le bas** (sens $+\u000bec{e}_z$), ce qui correspond à une poussée vers l'intérieur du capteur depuis le dessus."
+    },
+    {
+      "id": "InfoMod-4",
+      "partie": "1.1 — Pression au fond des océans",
+      "numero": "Question 4",
+      "bareme": 0.25,
+      "enonce": "Effectuer l'application numérique pour la norme de $\u000bec{f}_A$. Quelle masse posée sur la face A exercerait une force de même intensité ?",
+      "corrige": "**Application numérique — force sur la face A**\n\nLa profondeur de la face A est :\n\n$$z_A = H - \frac{L}{2} = 4000 - 0{,}05 = 3999{,}95 \u0007pprox 4000 \text{ m}$$\n\nLa pression en $z_A$ est :\n\n$$P(z_A) = P_0 + \\mu g z_A = 10^5 + 1000 \times 10 \times 3999{,}95 \u0007pprox 4{,}0 \times 10^7 \text{ Pa}$$\n\nLa norme de la force sur la face A :\n\n$$f_A = P(z_A) \times \\pi R^2 = 4{,}0 \times 10^7 \times \\pi \times (0{,}02)^2$$\n\n$$f_A = 4{,}0 \times 10^7 \times \\pi \times 4 \times 10^{-4} \u0007pprox 4{,}0 \times 10^7 \times 1{,}257 \times 10^{-3}$$\n\n$$\boxed{f_A \u0007pprox 5{,}0 \times 10^4 \text{ N}}$$\n\n**Masse équivalente :**\n\nUne masse $m$ posée sur la face A (dans le champ $g = 10$ m/s²) exercerait une force $F = mg$. Pour $F = f_A$ :\n\n$$m = \frac{f_A}{g} = \frac{5{,}0 \times 10^4}{10} = 5000 \text{ kg}$$\n\n$$\boxed{m \u0007pprox 5 \text{ tonnes}}$$\n\nCette valeur illustre les **contraintes mécaniques considérables** auxquelles sont soumis les capteurs sous-marins à grande profondeur."
+    },
+    {
+      "id": "InfoMod-5",
+      "partie": "1.1 — Pression au fond des océans",
+      "numero": "Question 5",
+      "bareme": 0.5,
+      "enonce": "Montrer que la résultante des forces pressantes exercées par le fluide sur le **pourtour latéral** (surface cylindrique) du capteur est nulle.",
+      "corrige": "**Résultante des forces pressantes sur la surface latérale**\n\n**Argument de symétrie géométrique :**\n\nConsidérons la surface latérale du cylindre d'axe $Oz$. En un point de cette surface repéré par l'angle azimutal $\u000barphi$ et la profondeur $z$, l'élément de surface est :\n\n$$d\u000bec{S} = R \\, d\u000barphi \\, dz \\, \\hat{r}(\u000barphi)$$\n\noù $\\hat{r}(\u000barphi) = \\cos\u000barphi\\, \u000bec{e}_x + \\sin\u000barphi\\, \u000bec{e}_y$ est le vecteur unitaire radial (normal extérieure au cylindre, horizontal).\n\nLa force élémentaire est :\n\n$$d\u000bec{f} = P(z) \\, \\hat{r}(\u000barphi) \\, R \\, d\u000barphi \\, dz$$\n\n**Composantes horizontales :**\n\nLa résultante horizontale est :\n\n$$\u000bec{f}_{lat,\\perp} = \\int_0^L \\int_0^{2\\pi} P(z) \\, \\hat{r}(\u000barphi) \\, R \\, d\u000barphi \\, dz$$\n\nOr $\\displaystyle\\int_0^{2\\pi} \\hat{r}(\u000barphi) \\, d\u000barphi = \\int_0^{2\\pi} (\\cos\u000barphi \\, \u000bec{e}_x + \\sin\u000barphi \\, \u000bec{e}_y) \\, d\u000barphi = \u000bec{0}$\n\ncar la moyenne de $\\cos\u000barphi$ et de $\\sin\u000barphi$ sur $[0, 2\\pi]$ est nulle.\n\n**Composante verticale :**\n\nLa normale $\\hat{r}(\u000barphi)$ est **horizontale** (perpendiculaire à $\u000bec{e}_z$), donc $\\hat{r}(\u000barphi) \\cdot \u000bec{e}_z = 0$.\n\nLa composante verticale est donc nulle.\n\n**Conclusion :**\n\n$$\boxed{\u000bec{f}_{lat} = \u000bec{0}}$$\n\nLa résultante des forces pressantes sur le pourtour latéral est **nulle**, par symétrie cylindrique pour les composantes horizontales et par horizontalité de la normale pour la composante verticale."
+    },
+    {
+      "id": "InfoMod-6",
+      "partie": "1.1 — Pression au fond des océans",
+      "numero": "Question 6",
+      "bareme": 0.25,
+      "enonce": "En tenant compte des forces pressantes exercées par l'air intérieur (à la pression $P_0$) sur les faces A et B, déduire la résultante totale des forces pressantes (eau + air intérieur) sur l'ensemble du capteur. Quel résultat classique retrouve-t-on ?",
+      "corrige": "**Résultante totale des forces pressantes**\n\n**Forces de l'air intérieur (pression $P_0$) :**\n\nL'air intérieur exerce sur la face A une force dirigée vers l'**extérieur** du capteur (vers le bas, sens $+\u000bec{e}_z$) :\n\n$$\u000bec{f}_{A,air} = +P_0 \\pi R^2 \\, \u000bec{e}_z$$\n\nL'air intérieur exerce sur la face B une force vers l'extérieur (vers le haut, sens $-\u000bec{e}_z$) :\n\n$$\u000bec{f}_{B,air} = -P_0 \\pi R^2 \\, \u000bec{e}_z$$\n\n**Résultante totale :**\n\nEn combinant avec les forces de l'eau (Q3) et le pourtour nul (Q5) :\n\n$$\u000bec{f}_{tot} = \u000bec{f}_A + \u000bec{f}_{A,air} + \u000bec{f}_B + \u000bec{f}_{B,air}$$\n\n$$\u000bec{f}_{tot} = \\left[-P\\!\\left(H-\frac{L}{2}\right)+P_0\right]\\pi R^2\\,\u000bec{e}_z \\cdot(-1) + \\left[P\\!\\left(H+\frac{L}{2}\right)-P_0\right]\\pi R^2\\,\u000bec{e}_z \\cdot(+1)$$\n\nEn remarquant que la force **nette** de l'eau sur chaque face (eau − air) est :\n\n$$\u000bec{f}_{tot} = -\\left[P\\!\\left(H-\frac{L}{2}\right) - P_0\right]\\pi R^2\\,\u000bec{e}_z + \\left[P\\!\\left(H+\frac{L}{2}\right) - P_0\right]\\pi R^2\\,\u000bec{e}_z$$\n\n$$= \\pi R^2 \\left[P\\!\\left(H+\frac{L}{2}\right) - P\\!\\left(H-\frac{L}{2}\right)\right] \u000bec{e}_z$$\n\n$$= \\pi R^2 \\left[\\mu g\\left(H+\frac{L}{2}\right) - \\mu g\\left(H-\frac{L}{2}\right)\right] \u000bec{e}_z = \\pi R^2 \\, \\mu g L \\, \u000bec{e}_z$$\n\nComme $\u000bec{e}_z$ est **descendant**, la résultante est dirigée vers le **bas**... ce qui contredirait la poussée d'Archimède. Reprenons avec les signes corrects.\n\nLa force **nette de l'eau** sur la face A (dirigée vers le **haut**, $-\u000bec{e}_z$) est $-P(H-L/2)\\pi R^2\\,\u000bec{e}_z$. La force nette de l'air sur A (dirigée vers le **bas**, $+\u000bec{e}_z$) est $+P_0\\pi R^2\\,\u000bec{e}_z$. Bilan sur face A : $[P_0 - P(H-L/2)]\\pi R^2\\,\u000bec{e}_z$.\n\nDe même sur face B : $[P(H+L/2) - P_0]\\pi R^2\\,\u000bec{e}_z$.\n\n$$\u000bec{f}_{tot} = \\pi R^2\\left[P(H+\tfrac{L}{2}) - P(H-\tfrac{L}{2})\right]\u000bec{e}_z = \\pi R^2 \\cdot \\mu g L \\cdot \u000bec{e}_z$$\n\nOr $V = \\pi R^2 L$ est le volume du capteur. Donc :\n\n$$\boxed{\u000bec{f}_{tot} = \\mu g V \\, \u000bec{e}_z}$$\n\nComme $\u000bec{e}_z$ est **descendant**, cette force est orientée vers le bas si on prend la convention $z$ positif vers le bas.\n\n**Résultat retrouvé : la poussée d'Archimède.** La résultante des forces pressantes est égale en norme au **poids du volume de fluide déplacé** $\\mu g V$, orientée vers le **haut** (opposée à $\u000bec{g}$) :\n\n$$\u000bec{\\Pi}_{Archimède} = -\\mu g V \\, \u000bec{e}_z \\quad (\text{vers le haut})$$\n\nC'est bien le **théorème d'Archimède** : *tout corps plongé dans un fluide au repos reçoit une poussée verticale vers le haut égale au poids du fluide déplacé.*"
+    },
+    {
+      "id": "InfoMod-7",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 7",
+      "bareme": 0.25,
+      "enonce": "On décrit la propagation acoustique sous-marine par analogie avec l'optique géométrique. Les lois de réflexion et réfraction acoustiques sont :\n- $\\theta_r(z) = -\\theta_i(z)$\n- $\\dfrac{\\sin\\theta_i}{c_1} = \\dfrac{\\sin\\theta_t}{c_2}$\n\nDe quelles lois d'optique géométrique ces relations sont-elles l'analogue ? Écrire ces lois en optique.",
+      "corrige": "**Analogie avec les lois de l'optique géométrique**\n\nCes deux relations sont l'analogue acoustique des **lois de Descartes** (ou lois de Snell-Descartes) en optique.\n\n**Loi de la réflexion :**\n\nEn optique : l'angle de réflexion est égal à l'angle d'incidence (et les rayons sont dans le même plan) :\n\n$$\theta_r = -\theta_i \\quad \text{(angles mesurés par rapport à la normale)}$$\n\nL'analogie est directe : $\theta_r(z) = -\theta_i(z)$.\n\n**Loi de la réfraction (Snell-Descartes) :**\n\nEn optique, pour un rayon passant d'un milieu d'indice $n_1$ à un milieu d'indice $n_2$ :\n\n$$n_1 \\sin\theta_i = n_2 \\sin\theta_t$$\n\n**Correspondance avec l'acoustique :**\n\nEn définissant l'indice acoustique $n(z) = \\dfrac{c_0}{c(z)}$ (analogue à l'indice optique), la loi de réfraction acoustique $\\dfrac{\\sin\theta_i}{c_1} = \\dfrac{\\sin\theta_t}{c_2}$ s'écrit :\n\n$$\frac{n_1}{c_0}\\,c_0\\sin\theta_i = \frac{n_2}{c_0}\\,c_0\\sin\theta_t \\implies n_1\\sin\theta_i = n_2\\sin\theta_t$$\n\nOn retrouve **exactement** la loi de Snell-Descartes optique, avec $n \\propto 1/c$ (l'indice est inversement proportionnel à la célérité).\n\n**Conclusion :** L'acoustique géométrique en milieu stratifié obéit aux mêmes lois formelles que l'optique géométrique, avec la célérité acoustique $c$ jouant le rôle inverse de l'indice optique $n$."
+    },
+    {
+      "id": "InfoMod-8",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 8",
+      "bareme": 0.25,
+      "enonce": "On modélise l'océan comme un empilement de couches horizontales infiniment minces, chacune ayant une célérité uniforme. Faire un schéma montrant que l'angle de transmission au dioptre $k$ est égal à l'angle d'incidence au dioptre $k+1$.",
+      "corrige": "**Continuité de l'angle à travers les dioptres successifs**\n\n**Schéma :**\n\n```\n         ←── x ───→\n    |              |\n    |  milieu k-1  |  c_{k-1}\n----+──────────────+----  ← dioptre k-1\n    |              |\n    |   milieu k   |  c_k        rayon ↘  (angle θ_t^{(k-1)} = θ_i^{(k)} avec verticale)\n    |              |\n----+──────────────+----  ← dioptre k\n    |              |\n    |  milieu k+1  |  c_{k+1}    rayon ↘  (angle θ_t^{(k)} = θ_i^{(k+1)} avec verticale)\n    |              |\n----+──────────────+----  ← dioptre k+1\n```\n\n**Explication :**\n\nTous les dioptres sont **horizontaux**, donc leurs **normales sont verticales** (selon $\u000bec{e}_z$).\n\nDans chaque couche $k$, le rayon acoustique se propage **en ligne droite** à vitesse $c_k$. L'angle $\theta$ est mesuré par rapport à la normale (la verticale).\n\n- Au dioptre $k$ : le rayon incident vient du milieu $k-1$ avec l'angle $\theta_i^{(k)}$. Il est transmis dans le milieu $k$ avec l'angle $\theta_t^{(k)}$.\n\n- Dans le milieu $k$, le rayon se propage sans changer de direction.\n\n- Au dioptre $k+1$ : le même rayon arrive avec l'angle $\theta_i^{(k+1)}$.\n\nPuisque le rayon ne change pas de direction **entre** deux dioptres et que toutes les normales sont **colinéaires** (verticales) :\n\n$$\boxed{\theta_i^{(k+1)} = \theta_t^{(k)}}$$\n\nL'angle de transmission à l'interface $k$ devient l'angle d'incidence à l'interface $k+1$ : la quantité $\\sin(\theta)/c$ se **conserve** de dioptre en dioptre."
+    },
+    {
+      "id": "InfoMod-9",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 9",
+      "bareme": 0.5,
+      "enonce": "Soit $A(z) = \\dfrac{\\sin(\\theta(z))}{c(z)}$ où $\\theta(z)$ est l'angle du rayon avec la verticale à la profondeur $z$, et $c(z)$ la célérité locale.\n\nMontrer que $A(z)$ est **indépendante de $z$**. Exprimer cette constante en fonction de $\\theta_0 = \\theta(0^+)$ et $c_0 = c(0)$.",
+      "corrige": "**Conservation de $A(z) = \\sin(\\theta(z))/c(z)$**\n\n**Démonstration par récurrence sur les dioptres :**\n\nOn modélise l'océan comme un empilement de $N$ couches. Au dioptre entre les couches $k$ et $k+1$, la loi de Snell acoustique donne :\n\n$$\frac{\\sin(\theta_i^{(k)})}{c_k} = \frac{\\sin(\theta_t^{(k)})}{c_{k+1}}$$\n\nD'après la question Q8, $\theta_t^{(k)} = \theta_i^{(k+1)}$, donc :\n\n$$\frac{\\sin(\theta^{(k)})}{c_k} = \frac{\\sin(\theta^{(k+1)})}{c_{k+1}}$$\n\nCette relation est valide à **chaque interface**. En partant de la surface ($k = 0$) et en appliquant successivement cette conservation :\n\n$$\frac{\\sin(\theta^{(0)})}{c_0} = \frac{\\sin(\theta^{(1)})}{c_1} = \\cdots = \frac{\\sin(\theta^{(k)})}{c_k} = \\cdots$$\n\n**Passage à la limite continue :**\n\nLorsque l'épaisseur des couches tend vers zéro, on obtient que la quantité $\\sin(\theta(z))/c(z)$ est **conservée pour toute profondeur** $z$ :\n\n$$A(z) = \frac{\\sin(\theta(z))}{c(z)} = \text{constante}$$\n\n**Valeur de la constante :**\n\nEn $z = 0^+$ (juste sous la surface), le rayon fait l'angle $\theta_0$ avec la verticale dans un milieu de célérité $c_0$ :\n\n$$\boxed{A(z) = \frac{\\sin(\theta_0)}{c_0} \\quad \forall z}$$\n\n**Interprétation :** C'est l'analogue acoustique du **théorème de Bouguer** (ou invariant de Snell-Descartes généralisé). La quantité $\\sin(\theta)/c$ est un **invariant du rayon** tout au long de sa propagation dans le milieu stratifié horizontalement."
+    },
+    {
+      "id": "InfoMod-10",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 10",
+      "bareme": 0.25,
+      "enonce": "On note $\\theta(z)$ l'angle du rayon avec la **verticale** $\\vec{e}_z$. Quel est le lien géométrique entre $\\sin(\\theta(z))$, l'élément $dz$ et l'élément $dx$ le long du rayon ?",
+      "corrige": "**Lien géométrique entre $\\sin(\\theta)$, $dx$ et $dz$**\n\nConsidérons un élément infinitésimal du rayon acoustique, de longueur $ds$. Ce rayon fait un angle $\\theta$ avec la **verticale** $\\vec{e}_z$ (axe $z$ descendant).\n\n**Décomposition géométrique :**\n\n$$ds^2 = dx^2 + dz^2$$\n\nLa projection sur l'axe horizontal $x$ :\n\n$$dx = ds \\cdot \\sin(\theta)$$\n\nLa projection sur l'axe vertical $z$ :\n\n$$dz = ds \\cdot \\cos(\theta)$$\n\n**Relation entre $\\sin(\\theta)$, $dx$ et $dz$ :**\n\nEn divisant ces deux expressions :\n\n$$\frac{dx}{dz} = \frac{\\sin(\theta)}{\\cos(\theta)} = \tan(\theta)$$\n\nOn peut aussi exprimer $\\sin(\\theta)$ directement :\n\n$$\\sin(\theta) = \frac{dx}{ds} = \frac{dx}{\\sqrt{dx^2 + dz^2}}$$\n\nou encore, en paramétrant par $x$ :\n\n$$\\sin(\theta) = \frac{1}{\\sqrt{1 + \\left(\\dfrac{dz}{dx}\right)^2}}$$\n\n**Résumé :**\n\n$$\boxed{\\sin(\theta) = \frac{dx}{\\sqrt{dx^2 + dz^2}}, \\quad dx = ds\\sin(\theta), \\quad dz = ds\\cos(\theta)}$$\n\nCes relations géométriques élémentaires seront utilisées pour établir l'équation différentielle des rayons acoustiques."
+    },
+    {
+      "id": "InfoMod-11",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 11",
+      "bareme": 0.5,
+      "enonce": "En combinant les résultats des questions Q9 et Q10, établir une équation différentielle vérifiée par la trajectoire $z(x)$ du rayon acoustique, faisant intervenir $\\left(\\dfrac{dz}{dx}\\right)^2$, l'indice acoustique $n(z) = c_0/c(z)$ et $\\sin\\theta_0$.",
+      "corrige": "**Équation différentielle de la trajectoire $z(x)$**\n\n**Étape 1 : Expression de $\\sin(\\theta)$ en fonction de $dz/dx$.**\n\nD'après Q10, en paramétrant la trajectoire par $x$ :\n\n$$\\sin(\theta) = \frac{dx}{\\sqrt{dx^2 + dz^2}} = \frac{1}{\\sqrt{1 + \\left(\\dfrac{dz}{dx}\right)^2}}$$\n\nDonc :\n\n$$\\sin^2(\theta) = \frac{1}{1 + \\left(\\dfrac{dz}{dx}\right)^2}$$\n\n**Étape 2 : Utilisation de l'invariant de Snell (Q9).**\n\nOn a $\\dfrac{\\sin(\theta)}{c(z)} = \\dfrac{\\sin(\theta_0)}{c_0}$, soit :\n\n$$\\sin(\theta) = \frac{c(z)}{c_0}\\,\\sin(\theta_0) = \frac{\\sin(\theta_0)}{n(z)}$$\n\noù $n(z) = c_0/c(z)$ est l'indice acoustique.\n\n**Étape 3 : Obtention de l'équation différentielle.**\n\nEn substituant dans l'expression de $\\sin^2(\\theta)$ :\n\n$$\frac{\\sin^2(\theta_0)}{n^2(z)} = \frac{1}{1 + \\left(\\dfrac{dz}{dx}\right)^2}$$\n\nOn en déduit :\n\n$$1 + \\left(\frac{dz}{dx}\right)^2 = \frac{n^2(z)}{\\sin^2(\theta_0)}$$\n\n$$\boxed{\\left(\frac{dz}{dx}\right)^2 = \frac{n^2(z)}{\\sin^2(\theta_0)} - 1}$$\n\n**Interprétation :** Cette équation donne la pente locale de la trajectoire en fonction de l'indice acoustique. Lorsque $n^2(z) = \\sin^2(\theta_0)$, on a $dz/dx = 0$ : le rayon est **horizontal** (point de retournement). Le rayon est dévié vers les régions où $c(z)$ est plus faible (indice plus grand)."
+    },
+    {
+      "id": "InfoMod-12",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 12",
+      "bareme": 0.5,
+      "enonce": "En dérivant l'équation obtenue en Q11 par rapport à $x$, montrer que :\n$$\\frac{d^2z}{dx^2} = \\frac{1}{2\\sin^2(\\theta_0)}\\,\\frac{d(n^2)}{dz}$$",
+      "corrige": "**Dérivation de l'équation différentielle**\n\nOn repart de l'équation obtenue en Q11 :\n\n$$\\left(\frac{dz}{dx}\right)^2 = \frac{n^2(z)}{\\sin^2(\theta_0)} - 1$$\n\n**Dérivation par rapport à $x$ :**\n\nOn dérive membre à membre par rapport à $x$, en utilisant la règle de dérivation en chaîne :\n\n- Membre gauche : $\\dfrac{d}{dx}\\left[\\left(\\dfrac{dz}{dx}\right)^2\right] = 2\\,\\dfrac{dz}{dx}\\cdot\\dfrac{d^2z}{dx^2}$\n\n- Membre droit : $\\dfrac{d}{dx}\\left[\\dfrac{n^2(z(x))}{\\sin^2(\theta_0)}\right] = \\dfrac{1}{\\sin^2(\theta_0)}\\,\\dfrac{d(n^2)}{dz}\\cdot\\dfrac{dz}{dx}$\n\nOn obtient donc :\n\n$$2\\,\frac{dz}{dx}\\cdot\frac{d^2z}{dx^2} = \frac{1}{\\sin^2(\theta_0)}\\,\frac{d(n^2)}{dz}\\cdot\frac{dz}{dx}$$\n\n**Simplification :**\n\nOn suppose que le rayon n'est pas horizontal, c'est-à-dire $\\dfrac{dz}{dx} \neq 0$. On divise des deux côtés par $2\\,\\dfrac{dz}{dx}$ :\n\n$$\frac{d^2z}{dx^2} = \frac{1}{2\\sin^2(\theta_0)}\\,\frac{d(n^2)}{dz}$$\n\n$$\boxed{\frac{d^2z}{dx^2} = \frac{1}{2\\sin^2(\theta_0)}\\,\frac{d(n^2)}{dz}}$$\n\n**Remarque :** Cette équation est analogue à l'**équation du mouvement d'un oscillateur** : si $n^2(z)$ est une fonction décroissante de $z$ (par exemple $n^2 = 1 - \beta z^2$), alors $d(n^2)/dz < 0$ pour $z > 0$, ce qui implique $d^2z/dx^2 < 0$, correspondant à une courbure du rayon vers les zones de plus faible célérité."
+    },
+    {
+      "id": "InfoMod-13",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 13",
+      "bareme": 0.5,
+      "enonce": "On suppose que l'indice acoustique est de la forme $n(z) = \\sqrt{1 - \\beta z^2}$ (canal SOFAR). On pose $\\alpha(x) = \\dfrac{dz}{dx}$.\n\nMontrer que l'équation de la trajectoire se met sous la forme du système différentiel :\n$$\\frac{dz}{dx} = \\alpha(x), \\qquad \\frac{d\\alpha}{dx} = -A\\,z(x)$$\noù $A = \\dfrac{\\beta}{\\sin^2(\\theta_0)}$. Donner les conditions initiales.",
+      "corrige": "**Mise sous forme de système différentiel**\n\n**Calcul de $d(n^2)/dz$ :**\n\nAvec $n(z) = \\sqrt{1 - \\beta z^2}$, on a :\n\n$$n^2(z) = 1 - \\beta z^2$$\n\n$$\\frac{d(n^2)}{dz} = -2\\beta z$$\n\n**Substitution dans l'équation de Q12 :**\n\n$$\\frac{d^2z}{dx^2} = \\frac{1}{2\\sin^2(\\theta_0)}\\times(-2\\beta z) = -\\frac{\\beta}{\\sin^2(\\theta_0)}\\,z$$\n\nEn posant $A = \\dfrac{\\beta}{\\sin^2(\\theta_0)} > 0$ :\n\n$$\\frac{d^2z}{dx^2} = -A\\,z(x)$$\n\n**Mise sous forme de système du premier ordre :**\n\nOn pose $\\alpha(x) = \\dfrac{dz}{dx}$. L'équation du second ordre se décompose en :\n\n$$\\boxed{\\begin{cases} \\dfrac{dz}{dx} = \\alpha(x) \\\\[8pt] \\dfrac{d\\alpha}{dx} = -A\\,z(x) \\end{cases}}$$\n\n**Conditions initiales (en $x = 0$) :**\n\n- $z(0) = 0$ : le rayon part de la surface (profondeur nulle).\n- $\\alpha(0) = \\dfrac{dz}{dx}\\bigg|_{x=0} = \\dfrac{\\cos(\\theta_0)}{\\sin(\\theta_0)} = \\dfrac{1}{\\tan(\\theta_0)}$\n\nEn effet, $dz/dx = \\cos(\\theta)/\\sin(\\theta)$ d'après Q10, évalué en $z = 0$ où $\\theta = \\theta_0$.\n\n**Nature de l'équation :**\n\nCe système est celui d'un **oscillateur harmonique** en $z(x)$ (variable de position) avec $x$ jouant le rôle du temps. La solution générale est de la forme :\n\n$$z(x) = C_1 \\cos(\\sqrt{A}\\,x) + C_2 \\sin(\\sqrt{A}\\,x)$$\n\nAvec les conditions initiales : $z(0) = 0 \\Rightarrow C_1 = 0$ et $\\alpha(0) = C_2\\sqrt{A} \\Rightarrow C_2 = \\alpha(0)/\\sqrt{A}$.\n\nLa trajectoire du rayon acoustique est **sinusoïdale** : c'est le **canal SOFAR** (Sound Fixing And Ranging), qui confine le son autour de l'axe $z = 0$ par un phénomène analogue à la focalisation optique."
+    },
+    {
+      "id": "InfoMod-14",
+      "partie": "1.2 — Communication acoustique",
+      "numero": "Question 14",
+      "bareme": 0.25,
+      "enonce": "Proposer une interprétation géométrique de $\\alpha(x) = \\dfrac{dz}{dx}$. En termes de la trajectoire du rayon dans le plan $(x, z)$, que représente cette quantité ?",
+      "corrige": "**Interprétation géométrique de $\\alpha(x) = dz/dx$**\n\n**Définition géométrique :**\n\n$\\alpha(x) = \\dfrac{dz}{dx}$ est la **pente locale** de la courbe $z(x)$ décrivant la trajectoire du rayon acoustique dans le plan $(x, z)$.\n\n**Lien avec l'angle du rayon :**\n\nD'après Q10, le rayon fait un angle $\\theta$ avec la **verticale** $\\vec{e}_z$. On a :\n\n$$\\frac{dz}{dx} = \\frac{\\cos(\\theta)}{\\sin(\\theta)} = \\cot(\\theta) = \\frac{1}{\\tan(\\theta)}$$\n\nSi l'on note $\\theta'$ l'angle du rayon avec l'**horizontale** (complémentaire de $\\theta$ : $\\theta' = \\pi/2 - \\theta$), alors :\n\n$$\\tan(\\theta') = \\frac{dz}{dx} = \\alpha(x)$$\n\n$$\\boxed{\\alpha(x) = \\tan(\\theta'(x)) = \\cot(\\theta(x))}$$\n\n**Résumé géométrique :**\n\n| Quantité | Interprétation |\n|----------|---------------|\n| $\\alpha > 0$ | Le rayon descend (s'enfonce) |\n| $\\alpha < 0$ | Le rayon remonte (remonte vers la surface) |\n| $\\alpha = 0$ | Le rayon est horizontal (point de retournement) |\n| $|\\alpha|$ grand | Le rayon est quasi-vertical |\n\n**Conclusion :** $\\alpha(x)$ représente l'**inclinaison locale** du rayon acoustique. Sa variation $d\\alpha/dx = -Az$ traduit la **courbure** du rayon, qui est dirigée vers les zones de plus grande profondeur quand $z < 0$ et vers la surface quand $z > 0$ — c'est le mécanisme de guidage du canal SOFAR."
+    },
+    {
+      "id": "InfoMod-15",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 15",
+      "bareme": 0.25,
+      "enonce": "Rappeler l'expression de la **loi d'Ohm locale** reliant $\\vec{j}$ à $\\vec{E}$ dans un conducteur ohmique de conductivité réelle $\\gamma$.",
+      "corrige": "Dans un conducteur ohmique de conductivité $\\gamma$, la loi d'Ohm locale s'écrit :\n\n$$\\vec{j} = \\gamma \\vec{E}$$\n\noù $\\vec{j}$ est la densité volumique de courant (en A/m²) et $\\vec{E}$ le champ électrique (en V/m)."
+    },
+    {
+      "id": "InfoMod-16",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 16",
+      "bareme": 0.5,
+      "enonce": "Montrer que le courant de déplacement est négligeable devant le courant de conduction pour $\\omega$ inférieur à une valeur critique $\\omega_c$. Déterminer $\\omega_c$ numériquement pour l'eau de mer ($\\gamma = 4\\ \\Omega^{-1}\\cdot\\text{m}^{-1}$, $\\varepsilon \\approx 80\\varepsilon_0 \\approx 80 \\times 10^{-11}$ F/m).",
+      "corrige": "**Comparaison des deux courants :**\n\nDans l'équation de Maxwell-Ampère :\n$$\\vec{\\nabla} \\times \\vec{B} = \\mu_0 \\vec{j} + \\mu_0 \\varepsilon \\frac{\\partial \\vec{E}}{\\partial t}$$\n\n- Courant de conduction : $\\|\\vec{j}\\| = \\gamma \\|\\vec{E}\\|$\n- Courant de déplacement : $\\left\\|\\varepsilon \\frac{\\partial \\vec{E}}{\\partial t}\\right\\| = \\varepsilon \\omega \\|\\vec{E}\\|$ (pour une onde de pulsation $\\omega$)\n\nLe courant de déplacement est négligeable devant le courant de conduction si :\n$$\\varepsilon \\omega \\ll \\gamma \\quad \\Longleftrightarrow \\quad \\omega \\ll \\frac{\\gamma}{\\varepsilon} = \\omega_c$$\n\n**Calcul numérique :**\n\n$$\\omega_c = \\frac{\\gamma}{\\varepsilon} = \\frac{4}{80 \\times 10^{-11}} = 5 \\times 10^9\\ \\text{rad/s}$$\n\nsoit une fréquence critique $f_c = \\dfrac{\\omega_c}{2\\pi} \\approx 800\\ \\text{MHz}$.\n\n**Conclusion :** Pour $f \\leq 100\\ \\text{kHz} \\ll 800\\ \\text{MHz}$, l'approximation est pleinement valide."
+    },
+    {
+      "id": "InfoMod-17",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 17",
+      "bareme": 0.75,
+      "enonce": "Dans l'approximation $\\omega \\ll \\omega_c$, montrer que $\\vec{E}$ vérifie l'équation :\n\n$$\\Delta \\vec{E} - \\mu_0 \\gamma \\frac{\\partial \\vec{E}}{\\partial t} = \\vec{0}$$",
+      "corrige": "On part des équations de Maxwell en milieu conducteur ohmique avec $\\rho = 0$ et en négligeant le courant de déplacement ($\\omega \\ll \\omega_c$) :\n\n$$\\text{(Maxwell-Faraday)} \\quad \\vec{\\nabla} \\times \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}$$\n\n$$\\text{(Maxwell-Ampère simplifié)} \\quad \\vec{\\nabla} \\times \\vec{B} = \\mu_0 \\vec{j} = \\mu_0 \\gamma \\vec{E}$$\n\nOn prend le rotationnel de Maxwell-Faraday :\n$$\\vec{\\nabla} \\times (\\vec{\\nabla} \\times \\vec{E}) = -\\frac{\\partial}{\\partial t}(\\vec{\\nabla} \\times \\vec{B}) = -\\mu_0 \\gamma \\frac{\\partial \\vec{E}}{\\partial t}$$\n\nOn développe le membre de gauche avec l'identité vectorielle $\\vec{\\nabla} \\times (\\vec{\\nabla} \\times \\vec{E}) = \\vec{\\nabla}(\\vec{\\nabla} \\cdot \\vec{E}) - \\Delta \\vec{E}$ :\n\nOr $\\vec{\\nabla} \\cdot \\vec{E} = \\dfrac{\\rho}{\\varepsilon} = 0$ (pas de charges libres), donc :\n$$\\vec{\\nabla} \\times (\\vec{\\nabla} \\times \\vec{E}) = -\\Delta \\vec{E}$$\n\nOn obtient finalement :\n$$\\boxed{\\Delta \\vec{E} - \\mu_0 \\gamma \\frac{\\partial \\vec{E}}{\\partial t} = \\vec{0}}$$"
+    },
+    {
+      "id": "InfoMod-18",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 18",
+      "bareme": 0.75,
+      "enonce": "En injectant $\\vec{E}(x,y,z,t) = E_0\\, e^{i(\\omega t - kz)}\\,\\vec{e}_x$ dans l'équation établie à la question précédente, déterminer les valeurs de $k$ possibles. On exprimera le résultat en fonction de $\\delta = \\sqrt{\\dfrac{2}{\\mu_0 \\gamma \\omega}}$.",
+      "corrige": "On injecte $\\vec{E} = E_0\\, e^{i(\\omega t - kz)}\\,\\vec{e}_x$ dans $\\Delta \\vec{E} - \\mu_0 \\gamma \\dfrac{\\partial \\vec{E}}{\\partial t} = \\vec{0}$ :\n\n- $\\Delta \\vec{E} = \\dfrac{\\partial^2 \\vec{E}}{\\partial z^2} = (-ik)^2 \\vec{E} = -k^2 \\vec{E}$\n\n- $\\dfrac{\\partial \\vec{E}}{\\partial t} = i\\omega \\vec{E}$\n\nL'équation devient :\n$$-k^2 \\vec{E} - \\mu_0 \\gamma (i\\omega) \\vec{E} = \\vec{0} \\quad \\Longrightarrow \\quad k^2 = -i\\mu_0 \\gamma \\omega$$\n\nPour extraire la racine carrée, on écrit $-i = e^{-i\\pi/2}$, donc :\n$$\\sqrt{-i} = e^{-i\\pi/4} = \\cos\\frac{\\pi}{4} - i\\sin\\frac{\\pi}{4} = \\frac{1-i}{\\sqrt{2}}$$\n\nAinsi :\n$$k = \\pm\\sqrt{\\mu_0 \\gamma \\omega} \\cdot \\frac{1-i}{\\sqrt{2}} = \\pm \\frac{1-i}{\\delta}$$\n\navec $\\delta = \\sqrt{\\dfrac{2}{\\mu_0 \\gamma \\omega}}$, appelé **épaisseur de peau** (ou longueur d'atténuation)."
+    },
+    {
+      "id": "InfoMod-19",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 19",
+      "bareme": 0.75,
+      "enonce": "En sélectionnant la solution physique qui se propage dans le sens $z > 0$, montrer que l'onde prend la forme :\n\n$$\\vec{E}(z,t) = E_0\\, e^{i(\\omega t - z/\\delta)}\\, e^{-z/\\delta}\\, \\vec{e}_x$$\n\nDonner l'expression de $\\delta$ et sa valeur numérique pour $f = 100\\ \\text{kHz}$. Données : $\\mu_0 \\approx 10^{-6}$ H/m, $\\gamma = 4\\ \\Omega^{-1}\\cdot\\text{m}^{-1}$.",
+      "corrige": "**Sélection de la solution physique :**\n\nOn dispose de deux solutions $k = \\pm\\dfrac{1-i}{\\delta}$.\n\nPour une onde se propageant dans la direction $+z$ avec atténuation (amplitude décroissante), il faut $\\text{Re}(-ikz) < 0$, c'est-à-dire que la partie imaginaire de $k$ soit négative. On choisit donc $k = \\dfrac{1-i}{\\delta}$.\n\n**Calcul de l'onde :**\n\n$$e^{-ikz} = \\exp\\!\\left(-i \\cdot \\frac{1-i}{\\delta} \\cdot z\\right) = \\exp\\!\\left(\\frac{-iz - z}{\\delta}\\right) = e^{-z/\\delta} \\cdot e^{-iz/\\delta}$$\n\nL'onde s'écrit donc :\n$$\\boxed{\\vec{E}(z,t) = E_0\\, e^{i(\\omega t - z/\\delta)}\\, e^{-z/\\delta}\\, \\vec{e}_x}$$\n\nLe facteur $e^{-z/\\delta}$ traduit une **atténuation exponentielle** de l'amplitude, et $\\delta$ est l'**épaisseur de peau**.\n\n**Valeur numérique pour $f = 100\\ \\text{kHz}$ :**\n\n$$\\delta = \\sqrt{\\frac{2}{\\mu_0 \\gamma \\omega}} = \\sqrt{\\frac{2}{\\mu_0 \\gamma \\cdot 2\\pi f}}$$\n\n$$\\mu_0 \\gamma \\omega = 10^{-6} \\times 4 \\times 2\\pi \\times 10^5 \\approx 2{,}51\\ \\text{SI}$$\n\n$$\\delta = \\sqrt{\\frac{2}{2{,}51}} \\approx \\sqrt{0{,}797} \\approx 0{,}89\\ \\text{m} \\approx 1\\ \\text{m}$$\n\nL'épaisseur de peau dans l'eau de mer à 100 kHz est d'environ **1 mètre**."
+    },
+    {
+      "id": "InfoMod-20",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 20",
+      "bareme": 0.5,
+      "enonce": "Calculer le **facteur d'atténuation** de l'amplitude de l'onde après une profondeur $L = 1\\ \\text{km}$ pour $f = 100\\ \\text{kHz}$. Conclure sur la possibilité de communiquer par ondes radio sous l'eau.",
+      "corrige": "Le facteur d'atténuation de l'amplitude est $e^{-L/\\delta}$.\n\nAvec $L = 1\\ \\text{km} = 1000\\ \\text{m}$ et $\\delta \\approx 0{,}89\\ \\text{m}$ :\n\n$$\\text{Facteur} = e^{-L/\\delta} = e^{-1000/0{,}89} \\approx e^{-1124}$$\n\nEn base 10 : $e^{-1124} = 10^{-1124/\\ln 10} \\approx 10^{-488}$.\n\n**Conclusion :** Le signal est atténué d'un facteur $\\approx 10^{-488}$, ce qui est astronomiquement petit. En pratique, l'onde est **totalement absorbée dès les premiers mètres**. La communication par ondes radio à 100 kHz à 1 km de profondeur dans l'eau de mer est **physiquement impossible**."
+    },
+    {
+      "id": "InfoMod-21",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 21",
+      "bareme": 0.25,
+      "enonce": "À quel domaine du spectre électromagnétique correspond la fréquence $f = 5 \\times 10^{14}\\ \\text{Hz}$ ?",
+      "corrige": "On calcule la longueur d'onde dans le vide :\n\n$$\\lambda = \\frac{c}{f} = \\frac{3 \\times 10^8}{5 \\times 10^{14}} = 6 \\times 10^{-7}\\ \\text{m} = 600\\ \\text{nm}$$\n\nUne longueur d'onde de 600 nm se situe dans le domaine de la **lumière visible** (entre 400 nm et 700 nm), correspondant à la couleur **orange-rouge**.\n\nIl s'agit donc du **rayonnement visible** (optique)."
+    },
+    {
+      "id": "InfoMod-22",
+      "partie": "1.3 — Communication par ondes radio",
+      "numero": "Question 22",
+      "bareme": 0.25,
+      "enonce": "Quelle observation expérimentale courante justifie qu'il est impossible de communiquer via des ondes de fréquence $f \\approx 5 \\times 10^{14}\\ \\text{Hz}$ à une profondeur $L = 1\\ \\text{km}$ sous l'eau ?",
+      "corrige": "**Observation :** Les océans sont **opaques à la lumière visible**. Au-delà de quelques dizaines à quelques centaines de mètres de profondeur (zone aphotique), aucune lumière solaire ne pénètre.\n\nCette observation quotidienne — l'obscurité totale dans les profondeurs océaniques — suffit à confirmer que les ondes lumineuses ($f \\approx 5 \\times 10^{14}$ Hz, $\\lambda = 600$ nm) sont entièrement absorbées bien avant d'atteindre 1 km de profondeur.\n\nLe calcul mené en Q19–Q20 avec l'épaisseur de peau $\\delta$ quantifie ce phénomène : l'atténuation est en $e^{-L/\\delta}$, et $\\delta$ est encore plus faible à haute fréquence."
+    },
+    {
+      "id": "InfoMod-23",
+      "partie": "2.1 — Résolution numérique par la méthode d'Euler",
+      "numero": "Question 23",
+      "bareme": 0.5,
+      "enonce": "On considère le système différentiel :\n\n$$\\frac{dz}{dx} = \\alpha(x), \\qquad \\frac{d\\alpha}{dx} = -A\\, z(x)$$\n\navec la discrétisation $x_n = n \\cdot dx$, et les suites discrètes $z_n$, $a_n$ (valeurs discrètes de $z$ et $\\alpha$).\n\nÉcrire les **trois relations de récurrence** (schéma d'Euler explicite) pour $x_{n+1}$, $z_{n+1}$ et $a_{n+1}$.",
+      "corrige": "Le schéma d'Euler explicite consiste à approximer la dérivée par un taux d'accroissement en avant :\n$f'(x_n) \\approx \\dfrac{f(x_{n+1}) - f(x_n)}{dx}$, d'où $f(x_{n+1}) \\approx f(x_n) + dx \\cdot f'(x_n)$.\n\nOn applique ce principe aux trois variables :\n\n$$\\boxed{x_{n+1} = x_n + dx}$$\n\n$$\\boxed{z_{n+1} = z_n + a_n \\cdot dx}$$\n\ncar $\\dfrac{dz}{dx}\\big|_{x_n} = \\alpha(x_n) = a_n$.\n\n$$\\boxed{a_{n+1} = a_n - A \\cdot z_n \\cdot dx}$$\n\ncar $\\dfrac{d\\alpha}{dx}\\big|_{x_n} = -A\\,z(x_n) = -A\\,z_n$.\n\nCes trois relations permettent de calculer pas à pas la trajectoire du rayon à partir des conditions initiales $(x_0, z_0, a_0)$."
+    },
+    {
+      "id": "InfoMod-24",
+      "partie": "2.1 — Résolution numérique par la méthode d'Euler",
+      "numero": "Question 24",
+      "bareme": 1.0,
+      "enonce": "Compléter la fonction Python `rayon_Euler(x0, xf, dx, z0, a0, A)` qui implémente le schéma d'Euler explicite et renvoie le tuple `(valeurs_x, valeurs_z)` contenant les listes des positions horizontales et des profondeurs calculées.",
+      "corrige": "La fonction implémente directement les relations de récurrence établies à la question précédente.\n\n```python\ndef rayon_Euler(x0, xf, dx, z0, a0, A):\n    \"\"\"Intègre le système d'Euler explicite.\n\n    Paramètres :\n        x0  : position horizontale initiale\n        xf  : position horizontale finale\n        dx  : pas d'intégration\n        z0  : profondeur initiale du rayon\n        a0  : pente initiale dz/dx (= alpha(x0))\n        A   : coefficient du système différentiel\n    Retourne :\n        (valeurs_x, valeurs_z) : listes des positions et profondeurs\n    \"\"\"\n    # Initialisation des listes de résultats\n    valeurs_x = [x0]\n    valeurs_z = [z0]\n\n    # Variables de travail\n    x, z, a = x0, z0, a0\n\n    # Boucle d'Euler explicite\n    while x < xf:\n        x_nouveau = x + dx          # recurrence sur x\n        z_nouveau = z + a * dx      # recurrence sur z (dz/dx = a)\n        a_nouveau = a - A * z * dx  # recurrence sur alpha (dalpha/dx = -A*z)\n\n        # Mise a jour des variables\n        x, z, a = x_nouveau, z_nouveau, a_nouveau\n\n        # Enregistrement des nouvelles valeurs\n        valeurs_x.append(x)\n        valeurs_z.append(z)\n\n    return valeurs_x, valeurs_z\n```\n\n**Points clés :**\n- Les trois mises à jour ($x$, $z$, $a$) utilisent les valeurs du pas **courant** (Euler *explicite*).\n- La liste `valeurs_a` n'est pas renvoyée (non demandé), mais $a$ est bien mis à jour à chaque itération.\n- La condition `while x < xf` assure l'arrêt à la position finale."
+    },
+    {
+      "id": "InfoMod-25",
+      "partie": "2.1 — Résolution numérique par la méthode d'Euler",
+      "numero": "Question 25",
+      "bareme": 0.25,
+      "enonce": "Dans la fonction `rayon_Euler`, quel est le sens physique du paramètre `a0` ?",
+      "corrige": "Le paramètre `a0` correspond à la valeur initiale de $\\alpha(x_0) = \\left.\\dfrac{dz}{dx}\\right|_{x=x_0}$.\n\nPuisque $z$ représente la profondeur et $x$ la distance horizontale, le rapport $\\dfrac{dz}{dx}$ est la **pente de la trajectoire** du rayon acoustique dans le plan $(x, z)$.\n\n**`a0` est donc la pente initiale de la trajectoire**, c'est-à-dire $\\tan(\\theta_0)$ où $\\theta_0$ est l'**angle d'émission du rayon par rapport à l'horizontale** (compté positivement vers le bas).\n\n- Si `a0 = 0` : le rayon est émis horizontalement.\n- Si `a0 > 0` : le rayon est émis vers le bas.\n- Si `a0 < 0` : le rayon est émis vers le haut."
+    },
+    {
+      "id": "InfoMod-26",
+      "partie": "2.1 — Résolution numérique par la méthode d'Euler",
+      "numero": "Question 26",
+      "bareme": 0.5,
+      "enonce": "Expliquer comment choisir le pas $dx$ pour la méthode d'Euler. Proposer une valeur numérique adaptée à la simulation d'un rayon dans le **canal SOFAR** (d'après la figure 3, la période horizontale d'oscillation est de l'ordre de 50 à 100 km).",
+      "corrige": "**Critère de choix de $dx$ :**\n\nLe pas $dx$ doit satisfaire un compromis entre deux exigences contradictoires :\n\n1. **Précision :** $dx$ doit être petit devant l'échelle caractéristique de variation de la trajectoire (ici, la période horizontale $\\Lambda$ du rayon dans le canal SOFAR). La méthode d'Euler est d'ordre 1 : l'erreur locale est en $O(dx^2)$, et l'erreur globale en $O(dx)$. Pour une précision acceptable, on veut typiquement $dx \\ll \\Lambda$.\n\n2. **Efficacité :** $dx$ ne doit pas être trop petit, au risque d'un nombre d'itérations excessif et d'un temps de calcul prohibitif (ainsi que d'une accumulation d'erreurs d'arrondi).\n\n**Valeur proposée :**\n\nLa période horizontale est $\\Lambda \\approx 50$ à $100\\ \\text{km}$. Un bon compromis est de prendre $dx$ représentant environ $\\dfrac{1}{500}$ à $\\dfrac{1}{1000}$ de $\\Lambda$ :\n\n$$dx \\approx 100\\ \\text{m} = 0{,}1\\ \\text{km}$$\n\nce qui donne entre 500 et 1000 points par période, assurant une bonne représentation de la sinusoïde tout en maintenant un temps de calcul raisonnable.\n\nOn pourrait également envisager $dx = 50\\ \\text{m}$ pour une meilleure précision, ou $dx = 500\\ \\text{m}$ si seule une esquisse qualitative est nécessaire."
+    },
+    {
+      "id": "InfoMod-27",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 27",
+      "bareme": 0.75,
+      "enonce": "Écrire une fonction `conditions_limites(z_I, h, direction)` qui retourne la direction actualisée si le rayon atteint la surface ($z = 0$) ou le fond marin ($z = 5000$ m). Si aucune limite n'est atteinte, la direction est inchangée.",
+      "corrige": "La fonction teste si le rayon a atteint la surface ou le fond, et inverse la direction verticale en conséquence.\n\n```python\ndef conditions_limites(z_I, h, direction):\n    if z_I <= 0:       # surface atteinte\n        return 1       # le rayon repart vers le bas\n    elif z_I >= 5000:  # fond marin atteint\n        return -1      # le rayon repart vers le haut\n    return direction   # pas de changement\n```"
+    },
+    {
+      "id": "InfoMod-28",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 28",
+      "bareme": 0.75,
+      "enonce": "Écrire une fonction `calculer_celerite(z, h, direction)` qui renvoie le couple $(c_1, c_2)$ des célérités dans la couche actuelle et dans la couche suivante. Les célérités sont évaluées aux points $z - h/2$ et $z + h/2$ selon le sens de propagation (`direction` vaut $+1$ si le rayon descend, $-1$ s'il remonte).",
+      "corrige": "Lorsque le rayon descend (`direction == 1`), la couche courante est celle du dessus (évaluée en $z - h/2$) et la couche suivante est celle du dessous (évaluée en $z + h/2$). Le raisonnement est symétrique pour un rayon montant.\n\n```python\ndef calculer_celerite(z, h, direction):\n    if direction == 1:      # rayon descendant\n        c1 = celerite(z - h/2)  # couche d'ou vient le rayon\n        c2 = celerite(z + h/2)  # couche vers laquelle il va\n    else:                   # rayon montant\n        c1 = celerite(z + h/2)\n        c2 = celerite(z - h/2)\n    return c1, c2\n```"
+    },
+    {
+      "id": "InfoMod-29",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 29",
+      "bareme": 0.5,
+      "enonce": "Exprimer la longueur $L_2$ parcourue par le rayon dans la couche suivante en fonction de $c_1$, $c_2$, $\\theta_1$ et $h$. On distinguera le cas de la réfraction du cas de la réflexion totale. On rappelle que $\\theta_1$ désigne l'angle entre le rayon et la normale au dioptre (angle avec la verticale), et $h$ est l'épaisseur d'une couche.",
+      "corrige": "**Cas de la réfraction :**\n\nLa loi de Snell-Descartes donne $\\sin\\theta_2 = \\dfrac{c_2}{c_1}\\sin\\theta_1$. La couche d'épaisseur $h$ est traversée verticalement ; le rayon la parcourt en diagonale avec l'angle $\\theta_2$ par rapport à la verticale. La distance parcourue vaut :\n\n$$L_2 = \\frac{h}{\\cos\\theta_2}$$\n\nEn substituant $\\cos\\theta_2 = \\sqrt{1 - \\sin^2\\theta_2} = \\sqrt{1 - \\left(\\dfrac{c_2}{c_1}\\right)^2\\sin^2\\theta_1}$, on obtient :\n\n$$\\boxed{L_2 = \\frac{h}{\\sqrt{1 - \\left(\\dfrac{c_2\\sin\\theta_1}{c_1}\\right)^2}}}$$\n\n**Cas de la réflexion totale :**\n\nLe rayon ne pénètre pas dans la couche suivante ; il se réfléchit et reparcourt la couche courante avec le même angle $\\theta_1$. La distance parcourue dans la couche est :\n\n$$L_2 = \\frac{h}{\\cos\\theta_1}$$"
+    },
+    {
+      "id": "InfoMod-30",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 30",
+      "bareme": 0.5,
+      "enonce": "Montrer qu'il existe un rayon transmis si et seulement si $\\theta_i < \\theta_c$, où l'angle critique est $\\theta_c = \\arcsin\\left(\\dfrac{c_1}{c_2}\\right)$. On précisera dans quel cas cette réflexion totale peut se produire.",
+      "corrige": "D'après la loi de Snell-Descartes appliquée à l'interface entre deux couches de célérités $c_1$ et $c_2$ :\n\n$$\\frac{\\sin\\theta_t}{c_2} = \\frac{\\sin\\theta_i}{c_1} \\implies \\sin\\theta_t = \\frac{c_2}{c_1}\\sin\\theta_i$$\n\nPour qu'un rayon réfracté (transmis) existe, il faut que $\\sin\\theta_t \\leq 1$, soit :\n\n$$\\frac{c_2}{c_1}\\sin\\theta_i \\leq 1 \\implies \\sin\\theta_i \\leq \\frac{c_1}{c_2}$$\n\nPuisque $\\arcsin$ est une fonction croissante sur $[0, 1]$ et que $\\sin$ est croissant sur $[0, \\pi/2]$, cette condition est équivalente à :\n\n$$\\theta_i \\leq \\arcsin\\left(\\frac{c_1}{c_2}\\right) = \\theta_c$$\n\n**Condition d'existence :** la réflexion totale ($\\theta_i > \\theta_c$) ne peut se produire que si $c_2 > c_1$ (milieu d'arrivée plus rapide). En effet, si $c_2 \\leq c_1$, alors $c_1/c_2 \\geq 1$ et $\\arcsin$ n'est pas défini, ce qui signifie qu'il y a toujours un rayon transmis quelle que soit la valeur de $\\theta_i$."
+    },
+    {
+      "id": "InfoMod-31",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 31",
+      "bareme": 0.25,
+      "enonce": "Écrire la fonction `angle_critique(c1, c2)` qui renvoie l'angle critique $\\theta_c$. On prendra soin de traiter le cas où la réflexion totale n'est pas possible.",
+      "corrige": "Si $c_1 \\geq c_2$, il n'y a pas de réflexion totale possible (le milieu d'arrivée est moins rapide ou identique) : on renvoie $\\pi/2$ pour que la condition `theta1 < angle_critique(c1, c2)` soit toujours vérifiée.\n\n```python\nfrom math import asin, pi\n\ndef angle_critique(c1, c2):\n    if c1 >= c2:        # pas de reflexion totale possible\n        return pi / 2\n    return asin(c1 / c2)\n```"
+    },
+    {
+      "id": "InfoMod-32",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 32",
+      "bareme": 0.25,
+      "enonce": "Dans l'extrait de code de l'algorithme de propagation, une condition `CONDITION_1` détermine si le rayon subit une réfraction ou une réflexion totale. Préciser l'expression de `CONDITION_1`.",
+      "corrige": "`CONDITION_1` est le test indiquant qu'un rayon réfracté (transmis) existe, c'est-à-dire que l'angle d'incidence $\\theta_1$ est strictement inférieur à l'angle critique $\\theta_c = \\arcsin(c_1/c_2)$ :\n\n```python\nCONDITION_1 : theta1 < angle_critique(c1, c2)\n```\n\nSi cette condition est vraie, on applique la réfraction. Sinon, on applique la réflexion totale."
+    },
+    {
+      "id": "InfoMod-33",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 33",
+      "bareme": 0.75,
+      "enonce": "Écrire la fonction `refraction(x_I, z_I, theta1, h, c1, c2, direction)` qui calcule le point $B(x_B, z_B)$ et le nouvel angle $\\theta_2$ après réfraction au dioptre suivant. On rappelle que $I(x_I, z_I)$ est le point d'incidence courant et que `direction` vaut $+1$ (rayon descendant) ou $-1$ (rayon montant).",
+      "corrige": "On applique la loi de Snell-Descartes pour obtenir $\\theta_2$, puis on en déduit les coordonnées du point $B$. Le déplacement vertical est de $\\pm h$ selon la direction, et le déplacement horizontal vaut $L_2 \\sin\\theta_2$.\n\n```python\nfrom math import asin, cos, sin, sqrt\n\ndef refraction(x_I, z_I, theta1, h, c1, c2, direction):\n    sin_theta2 = (c2 / c1) * sin(theta1)\n    theta2 = asin(sin_theta2)\n    cos_theta2 = cos(theta2)\n    L2 = h / cos_theta2          # longueur parcourue dans la couche suivante\n    x_B = x_I + L2 * sin(theta2) # deplacement horizontal\n    z_B = z_I + direction * h    # deplacement vertical d'une couche\n    return theta2, x_B, z_B\n```"
+    },
+    {
+      "id": "InfoMod-34",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 34",
+      "bareme": 0.75,
+      "enonce": "Écrire la fonction `reflexion_totale(x_I, z_I, theta1, hauteur_couche)` qui calcule le point $B(x_B, z_B)$ et le nouvel angle $\\theta_2$ après réflexion totale. En réflexion totale, le rayon se réfléchit et repart dans la même couche sans la traverser.",
+      "corrige": "En réflexion totale, l'angle réfléchi est égal à l'angle incident ($\\theta_2 = \\theta_1$). Le rayon effectue un aller-retour dans la couche d'épaisseur $h$ : il monte (ou descend) de $h$ puis revient au niveau du dioptre de départ ($z_B = z_I$). Le déplacement horizontal total correspond à deux fois la projection horizontale :\n\n$$x_B = x_I + 2h\\tan\\theta_1$$\n\n```python\nfrom math import cos, sin, tan\n\ndef reflexion_totale(x_I, z_I, theta1, hauteur_couche):\n    theta2 = theta1                        # angle conserve par reflexion\n    # aller-retour vertical dans la couche : deplacement horizontal total\n    x_B = x_I + 2 * hauteur_couche * tan(theta1)\n    z_B = z_I                              # revient au meme niveau\n    return theta2, x_B, z_B\n```"
+    },
+    {
+      "id": "InfoMod-35",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 35",
+      "bareme": 0.5,
+      "enonce": "Écrire le `BLOC2` de l'algorithme principal qui effectue les opérations suivantes après le calcul du point $B(x_B, z_B)$ : mettre à jour les listes `valeurs_x` et `valeurs_z`, actualiser la profondeur $z$ et recalculer la direction à l'aide de `conditions_limites`.",
+      "corrige": "Le `BLOC2` enregistre le nouveau point dans les listes de coordonnées, met à jour la position courante et actualise la direction de propagation en vérifiant les conditions aux limites (surface et fond marin).\n\n```python\n# BLOC2\nvaleurs_x.append(x_B)\nvaleurs_z.append(z_B)\nz = z_B\ndirection = conditions_limites(z_B, h, direction)\n```"
+    },
+    {
+      "id": "InfoMod-36",
+      "partie": "2.2 — Propagation en milieux non-uniformes",
+      "numero": "Question 36",
+      "bareme": 1.0,
+      "enonce": "Écrire la fonction `trajet_rayon(x_emission, y_emission, angle_emission, h, distance_x_max)` qui simule le trajet complet d'un rayon sonore et renvoie la liste `rayon` de tuples $(x, z)$. Le paramètre `angle_emission` est l'angle entre le rayon et l'horizontale (positif vers le haut, négatif vers le bas). La simulation s'arrête lorsque la coordonnée $x$ du rayon dépasse $x_{\\text{émission}} + \\texttt{distance\\_x\\_max}$.",
+      "corrige": "La fonction initialise le rayon au point d'émission, convertit l'angle d'émission (par rapport à l'horizontale) en angle $\\theta_1$ par rapport à la verticale, puis itère en appliquant à chaque étape soit la réfraction soit la réflexion totale, et en mettant à jour la direction selon les conditions aux limites.\n\n**Conversion d'angle :** si $a$ est l'angle avec l'horizontale, alors $\\theta_1 = \\dfrac{\\pi}{2} - |a|$ est l'angle avec la verticale.\n\n**Direction initiale :** `direction = 1` (descendant) si `angle_emission <= 0`, `direction = -1` (montant) sinon.\n\n```python\nfrom math import pi\n\ndef trajet_rayon(x_emission, y_emission, angle_emission, h, distance_x_max):\n    rayon = [(x_emission, y_emission)]\n    x_I = x_emission\n    z_I = y_emission                           # y represente la profondeur z\n    theta1 = pi / 2 - abs(angle_emission)     # angle avec la verticale\n    direction = 1 if angle_emission <= 0 else -1\n\n    while x_I < x_emission + distance_x_max:\n        c1, c2 = calculer_celerite(z_I, h, direction)\n        if theta1 < angle_critique(c1, c2):   # refraction\n            theta2, x_B, z_B = refraction(x_I, z_I, theta1, h, c1, c2, direction)\n        else:                                  # reflexion totale\n            theta2, x_B, z_B = reflexion_totale(x_I, z_I, theta1, h)\n            direction = -direction             # inversion de la direction verticale\n\n        direction = conditions_limites(z_B, h, direction)\n        rayon.append((x_B, z_B))\n        theta1 = theta2\n        x_I, z_I = x_B, z_B\n\n    return rayon\n```"
+    },
+    {
+      "id": "InfoMod-37",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 37",
+      "bareme": 0.5,
+      "enonce": "Écrire une requête SQL renvoyant les profondeurs, températures et salinités enregistrées dans la région 1 à la date du 17 avril 2025.",
+      "corrige": "```sql\nSELECT m.profondeur, m.temperature, m.salinite\nFROM mesures m\nJOIN regions r ON m.id_region = r.id_region\nWHERE r.region = 'Region1'\n  AND m.date = '2025-04-17';\n```"
+    },
+    {
+      "id": "InfoMod-38",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 38",
+      "bareme": 0.5,
+      "enonce": "Écrire une requête SQL renvoyant le nombre de mesures effectuées dans la région 2 pendant la période estivale.",
+      "corrige": "```sql\nSELECT COUNT(*) AS nb_mesures\nFROM mesures m\nJOIN regions r ON m.id_region = r.id_region\nJOIN periodes p ON m.id_periode = p.id_periode\nWHERE r.region = 'Region2'\n  AND p.periode = 'Ete';\n```"
+    },
+    {
+      "id": "InfoMod-39",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 39",
+      "bareme": 0.5,
+      "enonce": "Écrire une fonction Python `munk(z)` qui prend en argument une profondeur $z$ (en mètres) et renvoie la célérité $c(z)$ (en m/s) donnée par le profil de Munk :\n$$c(z) = 1500 \\cdot \\left(1 + 0{,}00737 \\cdot (\\tilde{z} - 1 + e^{-\\tilde{z}})\\right)$$\navec $\\tilde{z} = \\dfrac{2(z - 1300)}{1300}$.",
+      "corrige": "```python\nfrom math import exp\n\ndef munk(z):\n    # Calcul de la variable adimensionnée\n    z_tilde = 2 * (z - 1300) / 1300\n    # Profil de Munk\n    return 1500 * (1 + 0.00737 * (z_tilde - 1 + exp(-z_tilde)))\n```"
+    },
+    {
+      "id": "InfoMod-40",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 40",
+      "bareme": 0.75,
+      "enonce": "Calculer analytiquement la dérivée $\\dfrac{dc}{dz}$ du profil de Munk, puis écrire une fonction Python `dmunk(z)` renvoyant cette dérivée.",
+      "corrige": "**Calcul analytique de $dc/dz$ :**\n\nOn pose $\\tilde{z} = \\dfrac{2(z-1300)}{1300}$, donc $\\dfrac{d\\tilde{z}}{dz} = \\dfrac{2}{1300}$.\n\nPar dérivation en chaîne :\n$$\\frac{dc}{dz} = 1500 \\cdot 0{,}00737 \\cdot \\frac{d}{d\\tilde{z}}\\left(\\tilde{z} - 1 + e^{-\\tilde{z}}\\right) \\cdot \\frac{d\\tilde{z}}{dz}$$\n\nOr $\\dfrac{d}{d\\tilde{z}}\\left(\\tilde{z} - 1 + e^{-\\tilde{z}}\\right) = 1 - e^{-\\tilde{z}}$, donc :\n$$\\boxed{\\frac{dc}{dz} = 1500 \\times 0{,}00737 \\times \\left(1 - e^{-\\tilde{z}}\\right) \\times \\frac{2}{1300}}$$\n\n```python\nfrom math import exp\n\ndef dmunk(z):\n    # Variable adimensionnée\n    z_tilde = 2 * (z - 1300) / 1300\n    # Dérivée dc/dz par la règle de dérivation en chaîne\n    return 1500 * 0.00737 * (1 - exp(-z_tilde)) * (2 / 1300)\n```"
+    },
+    {
+      "id": "InfoMod-41",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 41",
+      "bareme": 0.75,
+      "enonce": "Écrire une fonction `dichotomie(dmunk, borne_debut, borne_fin, tolerance)` qui renvoie la profondeur du minimum de célérité. On cherchera ce minimum entre 0 et 5000 m en appliquant la dichotomie sur la dérivée $dc/dz$ (i.e. en cherchant le zéro de `dmunk`).",
+      "corrige": "Le minimum de $c(z)$ correspond au zéro de $dc/dz$. On applique la méthode de dichotomie sur `dmunk` :\n\n```python\ndef dichotomie(dmunk, borne_debut, borne_fin, tolerance):\n    a = borne_debut\n    b = borne_fin\n    while (b - a) > tolerance:\n        milieu = (a + b) / 2\n        if dmunk(milieu) < 0:\n            # dc/dz < 0 : la celérité décroît encore, le minimum est à droite\n            a = milieu\n        else:\n            # dc/dz > 0 : la célérité remonte, le minimum est à gauche\n            b = milieu\n    return (a + b) / 2\n```\n\n**Justification :** avant le minimum de $c$, la dérivée est négative ; après le minimum, elle est positive. La dichotomie converge vers le zéro de `dmunk`, c'est-à-dire la profondeur du minimum de célérité."
+    },
+    {
+      "id": "InfoMod-42",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 42",
+      "bareme": 0.25,
+      "enonce": "Quelle valeur donner au paramètre `tolerance` pour déterminer la profondeur du minimum de célérité à $\\pm 10$ m près ?",
+      "corrige": "La `tolerance` correspond à la largeur maximale de l'intervalle $[a, b]$ à la fin de la dichotomie. Pour obtenir la profondeur à $\\pm 10$ m près, l'intervalle final doit avoir une largeur inférieure ou égale à 10 m.\n\nOn choisit donc : **`tolerance = 10`** (en mètres).\n\nLa valeur retournée $(a+b)/2$ sera alors distante d'au plus $5$ m du vrai minimum."
+    },
+    {
+      "id": "InfoMod-43",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 43",
+      "bareme": 0.25,
+      "enonce": "Écrire les instructions Python permettant de calculer et d'afficher la profondeur du minimum de célérité ainsi que la valeur de cette célérité minimale.",
+      "corrige": "```python\n# Profondeur du minimum de célérité (tolérance de 10 m)\nz_min = dichotomie(dmunk, 0, 5000, 10)\n# Valeur de la célérité minimale\nc_min = munk(z_min)\n\nprint(f\"Profondeur du minimum : {z_min:.1f} m\")\nprint(f\"Célérité minimale     : {c_min:.2f} m/s\")\n```"
+    },
+    {
+      "id": "InfoMod-44",
+      "partie": "2.3 — Loi d'évolution de la célérité",
+      "numero": "Question 44",
+      "bareme": 0.5,
+      "enonce": "En s'appuyant sur une analogie physique, expliquer en 5 lignes maximum l'origine de l'effet SOFAR. À partir du profil de Munk, préciser autour de quelles profondeurs les ondes acoustiques seront guidées.",
+      "corrige": "**Origine de l'effet SOFAR :**\n\nL'effet SOFAR est analogue à la propagation dans une **fibre optique** : le canal acoustique SOFAR joue le rôle du cœur de la fibre. La célérité présente un minimum à une certaine profondeur ; de part et d'autre de ce minimum, elle augmente (que ce soit vers la surface ou vers le fond). Par le principe de Snell-Descartes, les rayons sonores qui s'écartent de cette couche sont **réfractés** vers la zone de célérité minimale, exactement comme la lumière est guidée par réflexion totale interne dans le cœur d'une fibre. Les ondes sont ainsi piégées et se propagent sur de très longues distances sans se disperser.\n\n**Profondeurs de guidage :** Le profil de Munk présente un minimum de célérité autour de $z \\approx 1000$–$1300$ m. C'est dans cette couche (canal SOFAR) que les ondes acoustiques seront guidées."
+    },
+    {
+      "id": "InfoMod-45",
+      "partie": "2.4 — Reconnaissance acoustique (k-NN)",
+      "numero": "Question 45",
+      "bareme": 0.25,
+      "enonce": "Rappeler le principe de l'algorithme des $k$ plus proches voisins ($k$-NN) en 5 à 10 lignes.",
+      "corrige": "L'algorithme des **$k$ plus proches voisins ($k$-NN)** est un algorithme de classification supervisé non paramétrique.\n\nPour classifier un nouveau point $x$ :\n1. On calcule la distance (par exemple euclidienne) entre $x$ et **tous** les points de la base d'apprentissage.\n2. On sélectionne les $k$ points les plus proches de $x$.\n3. On attribue à $x$ la **classe majoritaire** parmi ces $k$ voisins.\n\nL'algorithme ne construit pas de modèle explicite : la décision repose entièrement sur les données d'apprentissage. Le paramètre $k$ contrôle le compromis biais-variance : un $k$ petit rend le modèle sensible au bruit (surapprentissage), un $k$ grand lisse les frontières de décision (sous-apprentissage)."
+    },
+    {
+      "id": "InfoMod-46",
+      "partie": "2.4 — Reconnaissance acoustique (k-NN)",
+      "numero": "Question 46",
+      "bareme": 0.25,
+      "enonce": "Expliquer comment choisir une valeur optimale de $k$ en précisant les inconvénients des valeurs extrêmes.",
+      "corrige": "On choisit $k$ par **validation croisée** : pour différentes valeurs de $k$, on évalue l'erreur de classification sur un ensemble de validation (ou par $k$-fold cross-validation), et on retient la valeur minimisant cette erreur.\n\n**Inconvénients des valeurs extrêmes :**\n- **$k = 1$ (trop petit) :** le modèle est très sensible au bruit et aux valeurs aberrantes (**surapprentissage**) ; les frontières de décision sont irrégulières.\n- **$k$ très grand :** le modèle intègre des voisins éloignés peu représentatifs ; les frontières deviennent trop lisses (**sous-apprentissage**) et la précision locale diminue.\n\nEn pratique, on prend souvent $k$ impair (pour éviter les ex-æquo) et de l'ordre de $\\sqrt{n}$, où $n$ est la taille de la base d'apprentissage."
+    },
+    {
+      "id": "InfoMod-47",
+      "partie": "2.4 — Reconnaissance acoustique (k-NN)",
+      "numero": "Question 47",
+      "bareme": 0.5,
+      "enonce": "Écrire une fonction Python `distance_euclidienne(A, B)` où $A = (f_A, dB_A)$ et $B = (f_B, dB_B)$ sont deux points définis par leur fréquence (Hz) et leur niveau sonore (dB), et qui renvoie la distance euclidienne entre ces deux points.",
+      "corrige": "```python\nfrom math import sqrt\n\ndef distance_euclidienne(A, B):\n    freq_A, dB_A = A   # décomposition du point A\n    freq_B, dB_B = B   # décomposition du point B\n    return sqrt((freq_A - freq_B)**2 + (dB_A - dB_B)**2)\n```\n\n**Rappel :** la distance euclidienne entre deux points $A = (f_A, dB_A)$ et $B = (f_B, dB_B)$ est :\n$$d(A, B) = \\sqrt{(f_A - f_B)^2 + (dB_A - dB_B)^2}$$"
+    },
+    {
+      "id": "InfoMod-48",
+      "partie": "2.4 — Reconnaissance acoustique (k-NN)",
+      "numero": "Question 48",
+      "bareme": 0.75,
+      "enonce": "Écrire une fonction `plus_proches(distances, k)` qui prend en argument une liste `distances` (les distances d'un point à tous les points de la base) et un entier $k$, et qui renvoie la liste des indices des $k$ plus petites distances. L'utilisation de la fonction `sorted` est interdite.",
+      "corrige": "On effectue $k$ fois la sélection du minimum parmi les indices restants (algorithme de sélection partielle) :\n\n```python\ndef plus_proches(distances, k):\n    indices = list(range(len(distances)))  # liste des indices disponibles\n    result = []                            # indices des k plus proches voisins\n    for _ in range(k):\n        # Recherche du minimum parmi les indices restants\n        min_idx = indices[0]\n        for i in indices[1:]:\n            if distances[i] < distances[min_idx]:\n                min_idx = i\n        result.append(min_idx)    # on retient l'indice du minimum trouvé\n        indices.remove(min_idx)   # on l'exclut des prochaines recherches\n    return result\n```\n\n**Complexité :** $O(k \\times n)$ où $n$ est la taille de la liste `distances`. C'est acceptable pour de petites bases."
+    },
+    {
+      "id": "InfoMod-49",
+      "partie": "2.4 — Reconnaissance acoustique (k-NN)",
+      "numero": "Question 49",
+      "bareme": 0.5,
+      "enonce": "On dispose de la matrice de confusion suivante (lignes = classe réelle, colonnes = classe prédite) :\n\n|  | Prédit : Anthropique | Prédit : Animale |\n|---|---|---|\n| **Réel : Anthropique** | 52 | 13 |\n| **Réel : Animale** | 22 | 48 |\n\nAnalyser les performances du modèle : calculer la précision globale et les précisions par classe. Le modèle est-il satisfaisant ?",
+      "corrige": "**Lecture de la matrice :**\n- Vrais positifs Anthropique : $TP_A = 52$, Faux négatifs : $FN_A = 13$\n- Faux positifs Anthropique : $FP_A = 22$, Vrais positifs Animale : $TP_{An} = 48$\n- Total : $N = 52 + 13 + 22 + 48 = 135$ mesures\n\n**Précision globale :**\n$$\\text{Acc} = \\frac{TP_A + TP_{An}}{N} = \\frac{52 + 48}{135} = \\frac{100}{135} \\approx \\mathbf{74{,}1\\%}$$\n\n**Précision classe Anthropique (recall) :**\n$$\\text{Recall}_A = \\frac{52}{52 + 13} = \\frac{52}{65} \\approx \\mathbf{80{,}0\\%}$$\n\n**Précision classe Animale (recall) :**\n$$\\text{Recall}_{An} = \\frac{48}{22 + 48} = \\frac{48}{70} \\approx \\mathbf{68{,}6\\%}$$\n\n**Analyse :** Le modèle est acceptable avec 74 % de précision globale, mais imparfait. Il confond davantage les sons **animaux avec des sons anthropiques** (22 erreurs) que l'inverse (13 erreurs). La classe Animale est donc moins bien reconnue ($\\approx 69\\%$), probablement en raison d'un chevauchement important dans l'espace (Fréquence, Niveau sonore)."
+    },
+    {
+      "id": "InfoMod-50",
+      "partie": "2.4 — Reconnaissance acoustique (k-NN)",
+      "numero": "Question 50",
+      "bareme": 0.25,
+      "enonce": "Proposer plusieurs pistes permettant d'améliorer les performances de la classification $k$-NN sur ces données acoustiques.",
+      "corrige": "Plusieurs axes d'amélioration sont envisageables :\n\n1. **Normaliser les features :** la fréquence (en Hz) et le niveau sonore (en dB) n'ont pas la même échelle. Sans normalisation, la distance euclidienne est dominée par la dimension ayant les plus grandes valeurs. On peut appliquer une normalisation min-max ou une standardisation (moyenne nulle, écart-type unitaire).\n\n2. **Optimiser $k$ par validation croisée :** tester différentes valeurs de $k$ et retenir celle minimisant l'erreur sur un ensemble de validation.\n\n3. **Enrichir la base d'apprentissage :** augmenter le nombre de données étiquetées, notamment pour la classe Animale, pour mieux couvrir l'espace des features et réduire les confusions.\n\n4. **Ajouter des descripteurs :** intégrer d'autres caractéristiques acoustiques (durée du son, largeur spectrale, centroïde spectral, etc.) pour mieux discriminer les deux classes.\n\n5. **Utiliser une métrique adaptée :** remplacer la distance euclidienne par la distance de Mahalanobis, qui tient compte des corrélations entre features et de leurs variances respectives."
+    }
+  ]
+}
