@@ -95,7 +95,7 @@ function renderExam(epreuve) {
             </div>
             <div class="text-right shrink-0">
               <div id="score-brut" class="text-3xl font-black text-indigo-600 tabular-nums leading-none">—</div>
-              <div class="text-xs text-gray-400">brut / ${epreuve.totalPoints}</div>
+              <div class="text-xs text-gray-400">brut / 20</div>
             </div>
           </div>
           <div class="mt-2">
@@ -144,7 +144,7 @@ function renderExam(epreuve) {
               <div class="flex-1 bg-indigo-50 border border-indigo-200 rounded-lg px-3 py-2 text-center">
                 <p class="text-xs font-semibold text-indigo-500 uppercase tracking-wide">Note brute</p>
                 <p id="final-brut" class="text-2xl font-black text-indigo-700 tabular-nums">—</p>
-                <p class="text-xs text-indigo-400">/ ${epreuve.totalPoints}</p>
+                <p class="text-xs text-indigo-400">/ 20</p>
               </div>
               <span class="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1.5 rounded-full border border-green-200 shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,10 +184,10 @@ function renderExam(epreuve) {
   const container = document.getElementById('questions-container');
   for (const q of epreuve.questions) container.appendChild(createQuestionCard(q, scoreManager));
 
-  scoreManager.onUpdate(({ earned, maxTotal, answered, total, models }) => {
+  scoreManager.onUpdate(({ noteNormalisee, answered, total, models }) => {
     const pct = Math.round((answered / total) * 100);
     const complete = answered === total;
-    const brutStr = answered === 0 ? '—' : fmt(earned);
+    const brutStr = answered === 0 ? '—' : fmt(noteNormalisee);
 
     document.getElementById('progress-bar').style.width = `${pct}%`;
     document.getElementById('progress-pct').textContent = `${pct} %`;
@@ -198,7 +198,7 @@ function renderExam(epreuve) {
     if (complete) {
       document.getElementById('banner-progress').classList.add('hidden');
       document.getElementById('banner-complete').classList.remove('hidden');
-      document.getElementById('final-brut').textContent = `${fmt(earned)} / ${maxTotal}`;
+      document.getElementById('final-brut').textContent = fmt(noteNormalisee);
       if (hasCalib && models) {
         const [zscore, translation, proportionnel] = models;
         document.getElementById('final-m-zscore').textContent = `${fmt(zscore.note)} / 20`;
