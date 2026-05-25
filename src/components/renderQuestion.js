@@ -8,13 +8,23 @@ const STEPS = [
   { value: 100, label: '100 %', key: '100' },
 ];
 
+function gaugeColor(pct) {
+  if (pct <= 20) return ['#ef4444', 'text-red-500'];
+  if (pct <= 40) return ['#f97316', 'text-orange-500'];
+  if (pct <= 60) return ['#f59e0b', 'text-amber-500'];
+  if (pct <= 80) return ['#84cc16', 'text-lime-600'];
+  return ['#10b981', 'text-emerald-600'];
+}
+
 export function createQuestionCard(question, scoreManager) {
   const card = document.createElement('article');
   card.id = `question-${question.id}`;
-  card.className = 'bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden';
+  const isDessin = question.type === 'dessin';
+  card.className = `bg-white rounded-xl shadow-sm overflow-hidden ${isDessin ? 'border border-violet-200' : 'border border-gray-200'}`;
 
   let corrigeVisible = false;
   let selectedPct = null;
+  let gaugeInteracted = false;
 
   function renderButtons() {
     const group = card.querySelector('.btn-group');
@@ -61,6 +71,34 @@ export function createQuestionCard(question, scoreManager) {
     if (label) label.textContent = corrigeVisible ? 'Masquer le corrigé' : 'Afficher le corrigé';
   }
 
+  const dessinBadge = isDessin
+    ? `<span class="shrink-0 text-xs font-semibold text-violet-600 bg-violet-50 border border-violet-200 px-2 py-0.5 rounded-full">Dessin</span>`
+    : '';
+
+  const estimationBlock = isDessin ? `
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <p class="text-xs font-semibold text-violet-400 uppercase tracking-widest">Mon estimation (dessin)</p>
+        <span class="gauge-pct text-sm font-bold text-gray-400">Non évalué</span>
+      </div>
+      <input type="range" min="0" max="100" step="5" value="0"
+        class="gauge-slider w-full cursor-pointer mb-2" style="accent-color:#7c3aed">
+      <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div class="gauge-fill h-full rounded-full transition-all duration-200" style="width:0%;background:#e5e7eb"></div>
+      </div>
+      <div class="flex justify-between text-[10px] text-gray-300 mt-1">
+        <span>0 %</span><span>25 %</span><span>50 %</span><span>75 %</span><span>100 %</span>
+      </div>
+      <p class="sub-score text-xs text-gray-500 mt-2 min-h-[1.25rem]"></p>
+    </div>
+  ` : `
+    <div>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Mon estimation</p>
+      <div class="btn-group flex gap-2" role="group" aria-label="Estimation de réussite"></div>
+      <p class="sub-score text-xs text-gray-500 mt-2 min-h-[1.25rem]"></p>
+    </div>
+  `;
+
   card.innerHTML = `
     <div class="p-5">
       <div class="flex items-start justify-between gap-3 mb-3">
@@ -69,6 +107,7 @@ export function createQuestionCard(question, scoreManager) {
             ? `<span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded shrink-0">${question.partie}</span>`
             : ''}
           <span class="text-sm font-bold text-gray-800">${question.numero}</span>
+          ${dessinBadge}
         </div>
         <span class="shrink-0 text-xs font-semibold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 rounded-full whitespace-nowrap">
           ${question.bareme} pt${question.bareme > 1 ? 's' : ''}
@@ -95,15 +134,33 @@ export function createQuestionCard(question, scoreManager) {
         </div>
       </div>
 
-      <div>
-        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Mon estimation</p>
-        <div class="btn-group flex gap-2" role="group" aria-label="Estimation de réussite"></div>
-        <p class="sub-score text-xs text-gray-500 mt-2 min-h-[1.25rem]"></p>
-      </div>
+      ${estimationBlock}
     </div>
   `;
 
   card.querySelector('.toggle-corrige').addEventListener('click', toggleCorrige);
-  renderButtons();
+
+  if (isDessin) {
+    const slider = card.querySelector('.gauge-slider');
+    slider.addEventListener('input', () => {
+      gaugeInteracted = true;
+      const pct = parseInt(slider.value);
+      scoreManager.select(question.id, pct);
+      const fill = card.querySelector('.gauge-fill');
+      const label = card.querySelector('.gauge-pct');
+      const subScore = card.querySelector('.sub-score');
+      const [color, textClass] = gaugeColor(pct);
+      fill.style.width = `${pct}%`;
+      fill.style.background = color;
+      label.textContent = `${pct} %`;
+      label.className = `gauge-pct text-sm font-bold tabular-nums ${textClass}`;
+      const earned = question.bareme * pct / 100;
+      const fmt = Number.isInteger(earned) ? earned : earned.toFixed(2);
+      subScore.textContent = `→ Score estimé : ${fmt} / ${question.bareme} pt${question.bareme > 1 ? 's' : ''}`;
+    });
+  } else {
+    renderButtons();
+  }
+
   return card;
 }
