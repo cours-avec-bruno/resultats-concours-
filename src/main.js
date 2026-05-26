@@ -2,6 +2,8 @@ import './style.css';
 import { EXAMS, EXAM_MAP } from './data/exams.js';
 import { ScoreManager } from './components/scoreManager.js';
 import { createQuestionCard } from './components/renderQuestion.js';
+import { globalStore } from './data/globalStore.js';
+import { CONCOURS, computeScore } from './data/concours.js';
 
 const app = document.getElementById('app');
 
@@ -24,8 +26,48 @@ function fmt(n, dec = 2) {
   return Number.isInteger(v) ? String(v) : v.toFixed(dec);
 }
 
+function noteBadgeClass(n) {
+  if (n >= 14) return 'text-emerald-600 bg-emerald-50 border-emerald-200';
+  if (n >= 12) return 'text-sky-600 bg-sky-50 border-sky-200';
+  if (n >= 10) return 'text-indigo-600 bg-indigo-50 border-indigo-200';
+  if (n >= 8)  return 'text-amber-500 bg-amber-50 border-amber-200';
+  return 'text-red-500 bg-red-50 border-red-200';
+}
+
+function scoreClass(n) {
+  if (n >= 14) return 'text-emerald-600';
+  if (n >= 12) return 'text-sky-600';
+  if (n >= 10) return 'text-indigo-600';
+  if (n >= 8)  return 'text-amber-500';
+  return 'text-red-500';
+}
+
 /* ─── HOME ─────────────────────────────────────────────────────── */
 function renderHome() {
+  const notes = globalStore.getAll();
+
+  const dashboardRows = CONCOURS.map(c => {
+    const res = computeScore(c, notes);
+    if (!res) {
+      return `<div class="px-5 py-3 flex items-center justify-between gap-3">
+        <div><p class="text-sm font-semibold text-gray-700">${c.nom}</p>
+        <p class="text-xs text-gray-300">0 / ${Object.keys(c.coeffs).length} épreuves</p></div>
+        <span class="text-sm font-bold text-gray-300">—</span>
+      </div>`;
+    }
+    const partial = res.filled < res.total ? ' · partiel' : '';
+    return `<div class="px-5 py-3 flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <p class="text-sm font-semibold text-gray-800 truncate">${c.nom}</p>
+        <p class="text-xs text-gray-400">${res.filled} / ${res.total} épreuves${partial}</p>
+      </div>
+      <div class="text-right shrink-0">
+        <p class="text-lg font-black tabular-nums leading-none ${scoreClass(res.note)}">${res.note.toFixed(2)}</p>
+        <p class="text-xs text-gray-400">/ 20</p>
+      </div>
+    </div>`;
+  }).join('<div class="border-t border-gray-50 mx-5"></div>');
+
   app.innerHTML = `
     <div class="min-h-screen bg-gray-50 flex flex-col">
       <header class="bg-white border-b border-gray-200 shadow-sm">
@@ -37,26 +79,35 @@ function renderHome() {
       </header>
 
       <main class="max-w-2xl mx-auto px-4 py-6 w-full space-y-3">
-        ${EXAMS.map(ep => `
-          <button
-            type="button"
-            data-id="${ep.id}"
-            class="exam-btn w-full text-left bg-white border border-gray-200 rounded-xl shadow-sm px-5 py-4
-                   hover:border-indigo-300 hover:shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          >
+        ${EXAMS.map(ep => {
+          const n = notes[ep.id];
+          const badge = n != null
+            ? `<span class="shrink-0 text-sm font-black tabular-nums border px-2.5 py-1 rounded-full ${noteBadgeClass(n)}">${n.toFixed(1)}</span>`
+            : `<svg class="w-5 h-5 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`;
+          return `<button type="button" data-id="${ep.id}"
+            class="exam-btn w-full text-left bg-white border ${n != null ? 'border-indigo-100' : 'border-gray-200'} rounded-xl shadow-sm px-5 py-4
+                   hover:border-indigo-300 hover:shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400">
             <div class="flex items-center justify-between gap-4">
-              <div>
+              <div class="min-w-0">
                 <p class="text-xs font-medium text-indigo-500 uppercase tracking-wide">${ep.concours}</p>
                 <p class="text-base font-bold text-gray-900 mt-0.5">${ep.titre}</p>
                 <p class="text-xs text-gray-400 mt-1">${ep.description ?? `${ep.questions.length} question${ep.questions.length !== 1 ? 's' : ''} · ${ep.totalPoints} pts · Moy. hist. ${ep.calibration?.mu_hist ?? '—'}/20`}</p>
               </div>
-              <svg class="w-5 h-5 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
+              ${badge}
             </div>
-          </button>
-        `).join('')}
+          </button>`;
+        }).join('')}
       </main>
+
+      <div class="max-w-2xl mx-auto px-4 pb-8 w-full">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="px-5 py-4 border-b border-gray-100">
+            <h2 class="text-sm font-bold text-gray-800">Estimation par concours</h2>
+            <p class="text-xs text-gray-400 mt-0.5">Moyenne pondérée sur les épreuves saisies · PT écrit</p>
+          </div>
+          <div>${dashboardRows}</div>
+        </div>
+      </div>
     </div>
   `;
 
@@ -185,6 +236,7 @@ function renderExam(epreuve) {
   for (const q of epreuve.questions) container.appendChild(createQuestionCard(q, scoreManager));
 
   scoreManager.onUpdate(({ noteNormalisee, answered, total, models }) => {
+    if (answered > 0) globalStore.setNote(epreuve.id, noteNormalisee);
     const pct = Math.round((answered / total) * 100);
     const complete = answered === total;
     const brutStr = answered === 0 ? '—' : fmt(noteNormalisee);
