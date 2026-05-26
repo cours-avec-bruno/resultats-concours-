@@ -65,13 +65,20 @@ export const CONCOURS = [
   },
 ];
 
-// Retourne { note /20, filled, total } ou null si aucune épreuve saisie
+// Retourne { note /20, filled, total } ou null si aucune épreuve saisie.
+// Utilise la note rehaussée (Z-score) quand disponible, sinon la note brute.
 export function computeScore(concours, notes) {
   let sumW = 0, sumC = 0, filled = 0;
   const total = Object.keys(concours.coeffs).length;
   for (const [id, c] of Object.entries(concours.coeffs)) {
-    const note = notes[id];
-    if (note != null) { sumW += note * c; sumC += c; filled++; }
+    const entry = notes[id];
+    if (entry == null) continue;
+    const note = typeof entry === 'object'
+      ? (entry.calibrated ?? entry.raw) // note rehaussée en priorité
+      : entry;                           // compat ancien format
+    sumW += note * c;
+    sumC += c;
+    filled++;
   }
   if (filled === 0) return null;
   return { note: sumW / sumC, filled, total };

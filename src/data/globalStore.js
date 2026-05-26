@@ -4,12 +4,16 @@ export const globalStore = {
   getAll() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; }
   },
-  setNote(examId, note20) {
+  // raw   : note brute /20
+  // calibrated : note Z-score /20 (null si pas de calibration → on utilisera raw)
+  setNote(examId, raw, calibrated = null) {
     const data = this.getAll();
-    data[examId] = note20;
+    data[examId] = { raw, calibrated };
     localStorage.setItem(KEY, JSON.stringify(data));
   },
-  getNote(examId) {
-    return this.getAll()[examId] ?? null;
+  getRaw(examId) {
+    const d = this.getAll()[examId];
+    if (d == null) return null;
+    return typeof d === 'object' ? d.raw : d; // compat ancien format
   },
 };
