@@ -80,12 +80,13 @@ function renderHome() {
 
       <main class="max-w-2xl mx-auto px-4 py-6 w-full space-y-3">
         ${EXAMS.map(ep => {
-          const n = notes[ep.id];
-          const badge = n != null
-            ? `<span class="shrink-0 text-sm font-black tabular-nums border px-2.5 py-1 rounded-full ${noteBadgeClass(n)}">${n.toFixed(1)}</span>`
+          const entry = notes[ep.id];
+          const rawNote = entry == null ? null : (typeof entry === 'object' ? entry.raw : entry);
+          const badge = rawNote != null
+            ? `<span class="shrink-0 text-sm font-black tabular-nums border px-2.5 py-1 rounded-full ${noteBadgeClass(rawNote)}">${rawNote.toFixed(1)}</span>`
             : `<svg class="w-5 h-5 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`;
           return `<button type="button" data-id="${ep.id}"
-            class="exam-btn w-full text-left bg-white border ${n != null ? 'border-indigo-100' : 'border-gray-200'} rounded-xl shadow-sm px-5 py-4
+            class="exam-btn w-full text-left bg-white border ${rawNote != null ? 'border-indigo-100' : 'border-gray-200'} rounded-xl shadow-sm px-5 py-4
                    hover:border-indigo-300 hover:shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400">
             <div class="flex items-center justify-between gap-4">
               <div class="min-w-0">
@@ -236,7 +237,11 @@ function renderExam(epreuve) {
   for (const q of epreuve.questions) container.appendChild(createQuestionCard(q, scoreManager));
 
   scoreManager.onUpdate(({ noteNormalisee, answered, total, models }) => {
-    if (answered > 0) globalStore.setNote(epreuve.id, noteNormalisee);
+    if (answered > 0) {
+      // Sauvegarde note brute + note rehaussée Z-score (si calibration disponible)
+      const calibrated = models?.[0]?.note ?? null;
+      globalStore.setNote(epreuve.id, noteNormalisee, calibrated);
+    }
     const pct = Math.round((answered / total) * 100);
     const complete = answered === total;
     const brutStr = answered === 0 ? '—' : fmt(noteNormalisee);
