@@ -46,27 +46,29 @@ function scoreClass(n) {
 function renderHome() {
   const notes = globalStore.getAll();
 
-  const dashboardRows = CONCOURS.map(c => {
-    const res = computeScore(c, notes);
-    if (!res) {
+  function buildDashboardRows(currentNotes) {
+    return CONCOURS.map(c => {
+      const res = computeScore(c, currentNotes);
+      if (!res) {
+        return `<div class="px-5 py-3 flex items-center justify-between gap-3">
+          <div><p class="text-sm font-semibold text-gray-700">${c.nom}</p>
+          <p class="text-xs text-gray-300">0 / ${Object.keys(c.coeffs).length} épreuves</p></div>
+          <span class="text-sm font-bold text-gray-300">—</span>
+        </div>`;
+      }
+      const partial = res.filled < res.total ? ' · partiel' : '';
       return `<div class="px-5 py-3 flex items-center justify-between gap-3">
-        <div><p class="text-sm font-semibold text-gray-700">${c.nom}</p>
-        <p class="text-xs text-gray-300">0 / ${Object.keys(c.coeffs).length} épreuves</p></div>
-        <span class="text-sm font-bold text-gray-300">—</span>
+        <div class="min-w-0">
+          <p class="text-sm font-semibold text-gray-800 truncate">${c.nom}</p>
+          <p class="text-xs text-gray-400">${res.filled} / ${res.total} épreuves${partial}</p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="text-lg font-black tabular-nums leading-none ${scoreClass(res.note)}">${res.note.toFixed(2)}</p>
+          <p class="text-xs text-gray-400">/ 20</p>
+        </div>
       </div>`;
-    }
-    const partial = res.filled < res.total ? ' · partiel' : '';
-    return `<div class="px-5 py-3 flex items-center justify-between gap-3">
-      <div class="min-w-0">
-        <p class="text-sm font-semibold text-gray-800 truncate">${c.nom}</p>
-        <p class="text-xs text-gray-400">${res.filled} / ${res.total} épreuves${partial}</p>
-      </div>
-      <div class="text-right shrink-0">
-        <p class="text-lg font-black tabular-nums leading-none ${scoreClass(res.note)}">${res.note.toFixed(2)}</p>
-        <p class="text-xs text-gray-400">/ 20</p>
-      </div>
-    </div>`;
-  }).join('<div class="border-t border-gray-50 mx-5"></div>');
+    }).join('<div class="border-t border-gray-50 mx-5"></div>');
+  }
 
   app.innerHTML = `
     <div class="min-h-screen bg-gray-50 flex flex-col">
@@ -74,7 +76,7 @@ function renderHome() {
         <div class="max-w-2xl mx-auto px-4 py-5">
           <p class="text-xs font-semibold text-indigo-500 uppercase tracking-wider">Banque PT 2026</p>
           <h1 class="text-2xl font-black text-gray-900 mt-0.5">Auto-évaluation Concours</h1>
-          <p class="text-sm text-gray-400 mt-1">Sélectionne une épreuve pour commencer</p>
+          <p class="text-sm text-gray-400 mt-1">Sélectionne une épreuve ou saisis ta note directement.</p>
         </div>
       </header>
 
@@ -82,21 +84,48 @@ function renderHome() {
         ${EXAMS.map(ep => {
           const entry = notes[ep.id];
           const rawNote = entry == null ? null : (typeof entry === 'object' ? entry.raw : entry);
-          const badge = rawNote != null
-            ? `<span class="shrink-0 text-sm font-black tabular-nums border px-2.5 py-1 rounded-full ${noteBadgeClass(rawNote)}">${rawNote.toFixed(1)}</span>`
-            : `<svg class="w-5 h-5 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`;
-          return `<button type="button" data-id="${ep.id}"
-            class="exam-btn w-full text-left bg-white border ${rawNote != null ? 'border-indigo-100' : 'border-gray-200'} rounded-xl shadow-sm px-5 py-4
-                   hover:border-indigo-300 hover:shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-            <div class="flex items-center justify-between gap-4">
-              <div class="min-w-0">
-                <p class="text-xs font-medium text-indigo-500 uppercase tracking-wide">${ep.concours}</p>
-                <p class="text-base font-bold text-gray-900 mt-0.5">${ep.titre}</p>
-                <p class="text-xs text-gray-400 mt-1">${ep.description ?? `${ep.questions.length} question${ep.questions.length !== 1 ? 's' : ''} · ${ep.totalPoints} pts · Moy. hist. ${ep.calibration?.mu_hist ?? '—'}/20`}</p>
+          const sliderVal = rawNote ?? 10;
+          const badgeInner = rawNote != null
+            ? `<span class="text-sm font-black tabular-nums border px-2.5 py-1 rounded-full ${noteBadgeClass(rawNote)}">${rawNote.toFixed(1)}</span>`
+            : `<svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`;
+          return `
+            <div data-card="${ep.id}" class="bg-white border ${rawNote != null ? 'border-indigo-100' : 'border-gray-200'} rounded-xl shadow-sm overflow-hidden transition-all duration-150 hover:border-indigo-200 hover:shadow-md">
+              <div class="flex items-stretch">
+                <button type="button" data-id="${ep.id}"
+                  class="exam-btn flex-1 text-left px-5 py-4 focus:outline-none focus:bg-indigo-50">
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="min-w-0">
+                      <p class="text-xs font-medium text-indigo-500 uppercase tracking-wide">${ep.concours}</p>
+                      <p class="text-base font-bold text-gray-900 mt-0.5">${ep.titre}</p>
+                      <p class="text-xs text-gray-400 mt-1">${ep.description ?? `${ep.questions.length} question${ep.questions.length !== 1 ? 's' : ''} · ${ep.totalPoints} pts · Moy. hist. ${ep.calibration?.mu_hist ?? '—'}/20`}</p>
+                    </div>
+                    <div id="badge-${ep.id}" class="shrink-0">${badgeInner}</div>
+                  </div>
+                </button>
+                <button type="button" data-edit="${ep.id}"
+                  class="edit-btn shrink-0 px-3.5 border-l border-gray-100 text-gray-300 hover:text-indigo-500 hover:bg-indigo-50 transition-colors focus:outline-none"
+                  title="Saisie directe de la note">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                  </svg>
+                </button>
               </div>
-              ${badge}
-            </div>
-          </button>`;
+              <div class="manual-panel hidden border-t border-gray-100 px-5 py-4 bg-gray-50" data-panel="${ep.id}">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Saisie directe · /20</p>
+                <div class="flex items-center gap-4">
+                  <input type="range" min="0" max="20" step="0.5" value="${sliderVal}"
+                    class="manual-slider flex-1 cursor-pointer" style="accent-color:#6366f1"
+                    data-exam="${ep.id}">
+                  <span class="manual-val text-xl font-black tabular-nums text-indigo-600 w-12 text-right">
+                    ${rawNote != null ? rawNote.toFixed(1) : '—'}
+                  </span>
+                </div>
+                <div class="flex justify-between text-[10px] text-gray-300 mt-1">
+                  <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                </div>
+              </div>
+            </div>`;
         }).join('')}
       </main>
 
@@ -106,15 +135,43 @@ function renderHome() {
             <h2 class="text-sm font-bold text-gray-800">Estimation par concours</h2>
             <p class="text-xs text-gray-400 mt-0.5">Moyenne pondérée sur les épreuves saisies · PT écrit</p>
           </div>
-          <div>${dashboardRows}</div>
+          <div id="concours-dashboard">${buildDashboardRows(notes)}</div>
         </div>
       </div>
     </div>
   `;
 
   document.querySelectorAll('.exam-btn').forEach(btn => {
+    btn.addEventListener('click', () => { location.hash = btn.dataset.id; });
+  });
+
+  document.querySelectorAll('.edit-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      location.hash = btn.dataset.id;
+      const panel = document.querySelector(`[data-panel="${btn.dataset.edit}"]`);
+      panel?.classList.toggle('hidden');
+    });
+  });
+
+  document.querySelectorAll('.manual-slider').forEach(slider => {
+    slider.addEventListener('input', () => {
+      const examId = slider.dataset.exam;
+      const val = parseFloat(slider.value);
+
+      slider.parentElement.querySelector('.manual-val').textContent = val.toFixed(1);
+
+      const badgeEl = document.getElementById(`badge-${examId}`);
+      if (badgeEl) {
+        badgeEl.innerHTML = `<span class="text-sm font-black tabular-nums border px-2.5 py-1 rounded-full ${noteBadgeClass(val)}">${val.toFixed(1)}</span>`;
+      }
+
+      const cardEl = document.querySelector(`[data-card="${examId}"]`);
+      if (cardEl) {
+        cardEl.classList.remove('border-gray-200');
+        cardEl.classList.add('border-indigo-100');
+      }
+
+      globalStore.setNote(examId, val, null);
+      document.getElementById('concours-dashboard').innerHTML = buildDashboardRows(globalStore.getAll());
     });
   });
 }
